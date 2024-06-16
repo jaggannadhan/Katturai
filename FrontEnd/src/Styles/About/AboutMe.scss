@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Chocolate+Classical+Sans&family=Cookie&family=Satisfy&display=swap');
+
+.about-me {
+    width: 75%;
+    height: 35vw; /* Height is 80% of the viewport width */
+    background-color: white; /* Change background color as desired */
+    border: 1px solid #cccc; /* Add border for a rectangle look */
+    border-radius: 0.5vw; /* Add border radius for rounded corners */
+    padding: 2vw 5vw; /* Add padding for content */
+    margin: 50px auto; /* Center the component horizontally */
+    position: relative; /* Relative positioning for absolute positioning of avatar */
+    top: -10vw;
+    z-index: 3;
+    box-shadow: 0px 2px 13px 3px rgba(0, 0, 0, 0.38);
+  
+    &:before {
+        content: '';
+        position: absolute;
+        top: -5vw;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10vw; /* Adjust circle size as needed */
+        height: 10vw; /* Adjust circle size as needed */
+        background-color: #fff; /* Color of the circle */
+        border: 2px solid #ccc; /* Border of the circle */
+        border-radius: 50%; /* Make it a circle */
+    }
+  
+    .avatar-container {
+        position: absolute;
+        top: 0vw;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+  
+    .avatar {
+      width: 15vw; /* Adjust avatar size as needed */
+      height: 15vw; /* Adjust avatar size as needed */
+      border-radius: 50%; /* Make it a circle */
+      border: 0.2vw solid #fffdfd; /* Border of the avatar */
+      box-shadow: 0px 5px 18px 9px rgb(0 0 0 / 51%);
+    }
+  
+    .content {
+        position: relative; /* Ensure content stays above the circle */
+        top: 5vw;
+        z-index: 1; /* Ensure content stays above the circle */
+        margin-top: 3vw;
+
+        .about-name {
+            margin: 0;
+            text-align: center;
+            font-family: "Satisfy", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 3vw !important;
+        }
+
+        .about-title {
+            margin-top: 0.6vw;
+            text-align: center;
+            font-family: "Basic", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2vw !important;
+        }
+
+        .about-socials {
+            width: 100%;
+            height: 3vw;
+            margin: 1vw;
+
+            .svg_icons {
+                font-size: 2vw !important;
+                color: #e9ae01 !important;
+            }
+        }
+
+        .about-content {
+            text-align: center;
+            font-family: roboto, helvetica, arial, sans-serif;
+            font-weight: 100;
+            font-style: normal;
+            font-size: 1.2vw !important;
+            color: grey;
+            margin-top: 2vw;
+        }
+
+        .content-by {
+            position: relative;
+            left: 10vw;
+        }
+    }
+  }
+  

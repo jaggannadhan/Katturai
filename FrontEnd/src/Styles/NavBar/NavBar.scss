@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Freeman&family=LXGW+WenKai+TC&family=Monoton&family=Satisfy&display=swap');
+
+.navbar {
+    width: 100vw; /* Ensure navbar covers full width */
+    z-index: 1000; /* Ensure navbar stays on top */
+    background-color: transparent !important;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
+}
+
+.toolbar-trans {
+    background-color: transparent !important;
+    z-index: 2;
+}
+
+.toolbar-opq {
+    background-color: #e9ae00 !important;
+    transition: background-color 0.7s ease;
+    z-index: 2;
+}
+ 
+.navbar-title {
+    width: 14vw;
+    margin-left: 4vw !important; /* Push logo to extreme left */
+    cursor: pointer;
+    font-family:"Monoton", sans-serif !important;
+}
+
+.nav-items-colord {
+    color: #e9ae00;
+}
+
+.nav-items-white {
+    color: white;
+}
+
+  
+.navbar-nav {
+    text-align: center;
+    flex-grow: 1; /* Make other nav elements align center */
+    width: 70vw;
+    justify-content: space-evenly;
+    cursor: pointer;
+    font-family:"Monoton", sans-serif !important;
+}
+
+.nav-item {
+    font-family: "Freeman", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.social-icons {
+    margin-right: 1vw; /* Add social media icons to the extreme right */
+    margin-top: 5px;
+    justify-content: space-evenly !important;
+    width: 14vw;
+    cursor: pointer;
+}
+  
+.social-icons a {
+    margin-left: 1vw; /* Add spacing between social media icons */
+}
+  
