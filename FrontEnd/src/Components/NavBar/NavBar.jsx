@@ -4,7 +4,6 @@ import { Stack, Toolbar, Link } from '@mui/material';
 import { uuid } from "../../Helper/Helper.js";
 
 import "../../Styles/NavBar/NavBar.scss";
-import RaconteurLogo from "../../../public/images/RaconteurLogo.png"
 
 const navItems = [
   {name: "Diary"},
@@ -16,7 +15,6 @@ const navItems = [
 
 const NavBar = (props) => {
   const { isNavTrans, socials } = props;
-  console.log("isNavTransparent: ", isNavTrans);
 
   return (
     <AppBar position="fixed" className="navbar">

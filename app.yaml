@@ -4,5 +4,7 @@ instance_class: F2
 handlers:
 - url: /images
   static_dir: static/images
+- url: /css
+  static_dir: static/css
 - url: /script
   static_dir: static/script

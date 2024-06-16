@@ -6,6 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
 import NavBar from '../NavBar/NavBar';
+import ResponsiveAppBar from "../NavBar/ResponsiveNavBar"
 import Preview from '../Preview/Preview';
 import AboutMe from '../About/AboutMe';
 import Gallery from '../Gallery/Gallery';
@@ -31,21 +32,20 @@ const socials = [
 
 const HomePage = () => {
     const classes = useStyles();
-    const [isNavTrans, setIsNavTrans] = useState(window.pageYOffset < (window.innerHeight/10));
-
+    const [isNavTrans, setIsNavTrans] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsNavTrans(window.pageYOffset < (window.innerHeight/10));
+            setIsNavTrans(document.body.scrollTop < (document.body.scrollHeight/10));
         };
         handleScroll();
-        window.addEventListener('scroll', handleScroll);
+        document.body.addEventListener('scroll', handleScroll);
     }, []);
     
 
     return (
         <div className={`home-page ${classes.root}`}>
-            <NavBar 
+            <ResponsiveAppBar 
                 isNavTrans={isNavTrans}
                 socials={socials}
             />

@@ -38,12 +38,9 @@
 }
 
 .gallery-img {
-    // display: grid !important;
-    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    // grid-gap: 20px;
 
     .jss6 {
-        border-radius: 6px !important;
+        border-radius: 0.8vw !important;
     }  
 
     .jss109 {
@@ -55,7 +52,7 @@
 
     .jss9 {
         width: 90%;
-        margin-bottom: 2.142rem;
+        margin-bottom: 1vw;
     }
 
     .jss10 {
@@ -65,8 +62,6 @@
 
 .jss108 {
     width: -webkit-fill-available !important;
-    margin-left: -15px;
-    margin-right: -15px;
 }  
 
 .image {
