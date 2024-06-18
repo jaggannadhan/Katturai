@@ -2,9 +2,10 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { Stack } from '@mui/material';
 import Link from '@mui/material/Link';
+import * as CONSTANTS from "../../../Constants/Constants";
 
-import '../../Styles/About/AboutMe.scss';
-import myProfile from "../../../public/images/myProfile.png";
+import '../../../Styles/Home/About/AboutMe.scss';
+import myProfile from "../../../../public/images/myProfile.png";
 
 const AboutMe = (props) => {
     const { socials, description } = props;
@@ -19,7 +20,7 @@ const AboutMe = (props) => {
                 <Typography variant="h6" className="about-title">Software Engineer, MS Computer Science</Typography>
 
                 <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" className='about-socials'> 
-                    {socials.map((network) => (
+                    {CONSTANTS.socials.map((network) => (
                         <Link
                             display="block"
                             variant="body1"

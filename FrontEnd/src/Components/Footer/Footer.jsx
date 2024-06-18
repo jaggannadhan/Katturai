@@ -7,9 +7,10 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 
 import "../../Styles/Footer/Footer.scss";
-import starrySky from "../../../public/svgs/starrySky.svg";
 import bg10 from "../../../public/images/bg10.jpeg";
 import valleyWhite from "../../../public/svgs/valleyWhite.svg";
+
+import * as CONSTANTS from "../../Constants/Constants";
 
 function Copyright() {
   return (
@@ -26,7 +27,7 @@ function Copyright() {
 }
 
 function Footer(props) {
-  const { socials, description } = props;
+  const { description } = props;
 
   return (
         <React.Fragment>
@@ -36,12 +37,21 @@ function Footer(props) {
             </div>
             
             <Container className='footer-container'>
-                <Typography variant="h6" align="center" gutterBottom className="navbar-title">
-                    Raconteur
-                </Typography>
+               <Stack direction="row" spacing={2} alignItems="center" justifyContent="center">
+                  <Typography 
+                    variant="h6" 
+                    align="center" 
+                    gutterBottom 
+                    component="a"
+                    href="." 
+                    className="navbar-title"
+                  >
+                      Raconteur
+                  </Typography>
+                </Stack>
 
                 <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" className='footer-socials'> 
-                    {socials.map((network) => (
+                    {CONSTANTS.socials.map((network) => (
                         <Link
                             display="block"
                             variant="body1"

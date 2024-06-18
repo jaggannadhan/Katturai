@@ -21,7 +21,7 @@ const NavBar = (props) => {
       <Toolbar className={isNavTrans ? "toolbar-trans" : "toolbar-opq"} >
         
         <Stack direction="row" spacing={2} className="navbar-title-space">
-          <Typography variant="h5" className={`navbar-title ${isNavTrans ? "nav-items-colord" : "nav-items-white"}`} >
+          <Typography variant="h5" className={`navbar-title ${isNavTrans ? "nav-items-colord" : "nav-items-white"}`}>
             Raconteur
           </Typography>
         </Stack>

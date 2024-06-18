@@ -7,31 +7,22 @@ import {
     Typography,
     Menu,
     Stack,
-    Avatar,
-    Button,
-    Tooltip,
     MenuItem
 
  } from '@mui/material';
 
- import { uuid } from "../../Helper/Helper.js";
- import "../../Styles/NavBar/NavBar.scss";
+import { uuid } from "../../Helper/Helper.js";
+import "../../Styles/NavBar/NavBar.scss";
  
-
+import * as CONSTANTS from "../../Constants/Constants";
 import MenuIcon from '@mui/icons-material/Menu';
 
-const navItems = [
-    {name: "Diary"},
-    {name: "Travel"},
-    {name: "Portfolio"},
-    {name: "Opinion"},
-    {name: "Recreation"},
-]
+
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar(props) {
-    const { isNavTrans, socials } = props;
+    const { isNavTrans, handleNavSelect } = props;
     const [ anchorElNav, setAnchorElNav ] = useState(null);
     const [ anchorElUser, setAnchorElUser ] = useState(null);
 
@@ -49,6 +40,11 @@ function ResponsiveAppBar(props) {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    function handleNavSelectInner(navItem) {
+        handleCloseNavMenu();
+        handleNavSelect(navItem);
+    }
 
     return (
         <AppBar position="fixed" className="navbar">
@@ -99,9 +95,9 @@ function ResponsiveAppBar(props) {
                         }}
                     >
                         {
-                            navItems.map(item => {
+                            CONSTANTS.navigation.navItems.map(item => {
                             return (
-                                <MenuItem key={uuid()} onClick={handleCloseNavMenu}>
+                                <MenuItem key={uuid()} onClick={() => handleNavSelectInner(item)}>
                                     <Typography 
                                         variant="h6" 
                                         className='nav-menu-item' 
@@ -133,13 +129,13 @@ function ResponsiveAppBar(props) {
 
                 <Stack direction="row" spacing={2} className="navbar-nav" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     {
-                        navItems.map(item => {
+                        CONSTANTS.navigation.navItems.map(item => {
                         return (
                             <Typography 
                                 variant="h6" 
                                 className='nav-item' 
                                 key={uuid()}
-                                onClick={handleCloseNavMenu}
+                                onClick={() => handleNavSelectInner(item)}
                             >
                                 {item.name}
                             </Typography>

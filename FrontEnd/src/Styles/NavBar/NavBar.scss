@@ -26,6 +26,7 @@
     margin-left: 4.8vw !important; /* Push logo to extreme left */
     cursor: pointer;
     font-family:"Monoton", sans-serif !important;
+    user-select: none;
 }
 
 .navbar-title-center {
@@ -65,6 +66,7 @@
     font-family: "Freeman", sans-serif !important;
     font-weight: 400;
     font-style: normal;
+    user-select: none;
 }
 
 .nav-menu-item {
