@@ -1,0 +1,65 @@
+.diary-card-cont {
+    max-width: 95vw !important;
+    box-shadow: 0px 2px 13px 3px rgba(0, 0, 0, 0.38);
+    border-radius: 0.5vw;
+    padding: 3vw;
+    position: relative;
+    top: -4vw;
+}
+
+.diary-pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 14vw;
+}
+
+.diary-add-note {
+    width: 8vw;
+    height: 8vw;
+}
+
+.diary-buzz-bee {
+    width: 2.5vw;
+    height: 2.5vw;
+    position: absolute;
+    left: 89.7vw;
+    top: 46vw;
+    z-index: 5;
+
+    animation-duration: 7s;
+    animation-name: moveBee;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    
+}
+
+@keyframes moveBee {
+    0%, 20% {
+        left: 18vw;
+        top: 32vw;
+        transform: rotate(-45deg);
+    }
+  
+    90%, 100% {
+        left: 89.7vw;
+        top: 46vw;
+        transform: rotate(0);
+    }
+}
+  
+
+.diary-add-note {
+    width: 8vw;
+    height: 8vw;
+    position: absolute;
+    left: 89.7vw;
+    top: 46vw;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.diary-add-note:active {
+    transform: translateY(4px);
+}

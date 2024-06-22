@@ -1,13 +1,17 @@
 import * as React from 'react';
 // import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
+import { 
+  Box,
+  Container,
+  Typography,
+  Link,
+  Stack
+} from '@mui/material';
 
 import "../../Styles/Footer/Footer.scss";
 import bg10 from "../../../public/images/bg10.jpeg";
+import previewImg from "../../../public/images/cleanWaters.gif";
+
 import valleyWhite from "../../../public/svgs/valleyWhite.svg";
 
 import * as CONSTANTS from "../../Constants/Constants";
@@ -27,13 +31,14 @@ function Copyright() {
 }
 
 function Footer(props) {
-  const { description } = props;
+  const { selectedNav, description } = props;
+  const bgImg = selectedNav.name == "Diary" ? previewImg : bg10;
 
   return (
         <React.Fragment>
-        <Box component="footer" sx={{py: 6, background: `url( ${bg10} ) no-repeat center`, backgroundSize: "cover"}} className='ldlz footer'>
+        <Box component="footer" sx={{py: 6, background: `url( ${bgImg} ) no-repeat center`, backgroundSize: "cover"}} className='ldlz footer'>
             <div className="edge-mask">
-                <div className="ldlz" style={{opacity: 1, visibility: "visible", backgroundImage: `url(${valleyWhite})`, dataSrc:{valleyWhite}}}></div>
+                <div className="ldlz" style={{opacity: 1, visibility: "visible", backgroundImage: `url(${valleyWhite})`, dataSrc:{bgImg}}}></div>
             </div>
             
             <Container className='footer-container'>

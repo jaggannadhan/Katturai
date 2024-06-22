@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const MainPage = () => {
     const classes = useStyles();
     const [ isNavTrans, setIsNavTrans ] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
-    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
+    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.navItems[0]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,7 +44,9 @@ const MainPage = () => {
             
             <Content />
             
-            <Footer />
+            <Footer 
+                selectedNav={selectedNav} 
+            />
         </div>
     );
 };
