@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import bg6 from "../../../../public/images/bg6.jpeg";
+import bg6 from "../../../../public/images/preview/bg6.jpeg";
 
 
 import '../../../Styles/Home/Preview/Preview.scss';

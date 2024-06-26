@@ -29,6 +29,10 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
+  "peerDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -38,6 +42,7 @@
     "@mui/material": "^5.15.19",
     "markdown-to-jsx": "^7.4.7",
     "react": "^18.3.1",
+    "react-chrono": "^2.6.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "uuid": "^10.0.0"

@@ -14,9 +14,8 @@ import {
     Stack
 } from '@mui/material';
 
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
-import pencilEdit from "../../../public/images/pencilEdit.png";
+import editPencil from "../../../public/images/diary/editPencil.png";
 
 import "../../Styles/Diary/DiaryCard.scss";
 
@@ -41,7 +40,7 @@ export default function DiaryCard(props) {
 
     return (
         <Fragment> 
-            <img src={pencilEdit} className="edit-pencil"/>
+            <img src={editPencil} className="edit-pencil"/>
         
             <Card className='diary-card'>
                 <CardHeader

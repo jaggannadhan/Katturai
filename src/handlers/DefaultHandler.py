@@ -5,3 +5,4 @@ default = Blueprint("default", __name__)
 @default.route("/")
 def rerouteToLogin():
     return render_template("index.html")
+

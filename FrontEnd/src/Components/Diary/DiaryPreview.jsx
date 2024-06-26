@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-import myImg from "../../../public/images/fallFoilage.jpeg";
-import readingBook from "../../../public/images/readingBook.png";
+import myImg from "../../../public/images/preview/fallFoilage.jpeg";
+import readingBook from "../../../public/images/diary/readingBook.png";
 
 import '../../Styles/Diary/DiaryPreview.scss';
 
@@ -18,8 +18,8 @@ const Preview = () => {
       <img src={readingBook} className='diary-reading'></img>
       <div className="diary-overlay">
         <div className="diary-overlay-content">
-          <Typography className="diary-overlay-text">Where the stars take me</Typography>
-          <Typography className="diary-overlay-text-small">in bliss...</Typography>
+          <Typography className="diary-overlay-text">Organize your thoughts</Typography>
+          <Typography className="diary-overlay-text-small">when they flow deep...</Typography>
         </div>
       </div>
     </div>

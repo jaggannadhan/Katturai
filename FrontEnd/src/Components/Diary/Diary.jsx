@@ -11,16 +11,15 @@ import {
 import "../../Styles/Diary/Diary.scss";
 import { uuid } from "../../Helper/Helper";
 
-import cardImg1 from "../../../public/images/fireWatchParallax.gif";
-import cardImg2 from "../../../public/images/studyWithRain.gif";
-import cardImg3 from "../../../public/images/spideyComics.gif";
-import cardImg4 from "../../../public/images/guysDiaryLofi.gif";
-import cardImg5 from "../../../public/images/harrysDiary.gif";
+import cardImg1 from "../../../public/images/diary/fireWatchParallax.gif";
+import cardImg2 from "../../../public/images/diary/studyWithRain.gif";
+import cardImg3 from "../../../public/images/diary/spideyComics.gif";
+import cardImg4 from "../../../public/images/diary/guysDiaryLofi.gif";
+import cardImg5 from "../../../public/images/diary/harrysDiary.gif";
 import cardImg6 from "../../../public/svgs/spaceTravel.svg";
-import cardImg7 from "../../../public/images/movingClouds.gif";
+import cardImg7 from "../../../public/images/diary/movingClouds.gif";
 
-import addNote from "../../../public/images/addNote.png";
-import buzzBee from "../../../public/images/buzzBee.gif";
+import addNote from "../../../public/images/diary/addNote.png";
 
 
 
@@ -29,7 +28,6 @@ const Diary = (props) => {
         <Fragment>
             <Preview />
             <img src={addNote} className="diary-add-note" />
-            <img src={buzzBee} className="diary-buzz-bee" />
 
             <Container className="diary-card-cont">
                 {[cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6, cardImg7].map((elm, index) => {

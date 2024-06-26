@@ -9,8 +9,12 @@ import {
 } from '@mui/material';
 
 import "../../Styles/Footer/Footer.scss";
-import bg10 from "../../../public/images/bg10.jpeg";
-import previewImg from "../../../public/images/cleanWaters.gif";
+
+import HomeFooterImg from "../../../public/images/footer/bg10.jpeg";
+import DiaryFooterImg from "../../../public/images/footer/cleanWaters.gif";
+import TravelFooterImg from "../../../public/images/footer/northEndBoston.jpeg";
+import PortfolioFooterImg from "../../../public/images/footer/northEndBoston.jpeg";
+
 
 import valleyWhite from "../../../public/svgs/valleyWhite.svg";
 
@@ -32,11 +36,16 @@ function Copyright() {
 
 function Footer(props) {
   const { selectedNav, description } = props;
-  const bgImg = selectedNav.name == "Diary" ? previewImg : bg10;
+  const bgImg = {
+    "Home": HomeFooterImg,
+    "Diary": DiaryFooterImg,
+    "Travel": TravelFooterImg,
+    "Portfolio": PortfolioFooterImg
+  } 
 
   return (
         <React.Fragment>
-        <Box component="footer" sx={{py: 6, background: `url( ${bgImg} ) no-repeat center`, backgroundSize: "cover"}} className='ldlz footer'>
+        <Box component="footer" sx={{py: 6, background: `url( ${bgImg[selectedNav.name]} ) no-repeat center`, backgroundSize: "cover"}} className='ldlz footer'>
             <div className="edge-mask">
                 <div className="ldlz" style={{opacity: 1, visibility: "visible", backgroundImage: `url(${valleyWhite})`, dataSrc:{bgImg}}}></div>
             </div>

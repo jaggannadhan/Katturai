@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
 const MainPage = () => {
     const classes = useStyles();
     const [ isNavTrans, setIsNavTrans ] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
-    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.navItems[0]);
+    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.navItems[2]);
+    // const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
 
     useEffect(() => {
         const handleScroll = () => {
