@@ -25558,13 +25558,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Container/Container.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Link/Link.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Container/Container.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Link/Link.js");
 /* harmony import */ var react_typed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-typed */ "./node_modules/react-typed/dist/mjs/index.js");
 /* harmony import */ var _Styles_Portfolio_PortPreview_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Styles/Portfolio/PortPreview.scss */ "./src/Styles/Portfolio/PortPreview.scss");
 /* harmony import */ var _Constants_Constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Constants/Constants */ "./src/Constants/Constants.js");
 /* harmony import */ var _public_images_myProfileYlw_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/images/myProfileYlw.png */ "./public/images/myProfileYlw.png");
+/* harmony import */ var _public_images_coding_webp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/images/coding.webp */ "./public/images/coding.webp");
+
 
 
 
@@ -25572,7 +25574,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PortPreview = function PortPreview(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
     className: "port-cont"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: "portfolio"
@@ -25586,14 +25588,14 @@ var PortPreview = function PortPreview(props) {
     backSpeed: 100,
     backDelay: 1000,
     loop: true
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "From algorithms to user interfaces, I engineer robust software ecosystems that elevate user experiences and exceed expectations."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "From algorithms to user interfaces, I engineer robust software ecosystems that elevate user experiences and exceed expectations."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
     direction: "row",
     spacing: 2,
     alignItems: "center",
     justifyContent: "center",
     className: "port-socials"
   }, _Constants_Constants__WEBPACK_IMPORTED_MODULE_3__.socials.map(function (network) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
       display: "block",
       variant: "body1",
       href: network.link,
@@ -26912,13 +26914,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.c
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.port-cont {
   max-width: 100% !important;
-  height: 40vw;
+  height: 50vw;
   position: relative;
   background-color: #20252c;
 }
 .port-cont .portfolio {
   width: 83vw;
-  height: 33vw;
+  height: 50vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26983,6 +26985,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.port-cont {
   transition: 0.3s ease-in-out;
 }
 .port-cont .download-resume {
+  font-size: 1vw;
   color: #E9AE00;
   cursor: pointer;
   border: 0.2vw solid #E9AE00;
@@ -27037,7 +27040,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.port-cont {
     transform: translateY(0);
     opacity: 1;
   }
-}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/PortPreview.scss"],"names":[],"mappings":"AAEA;EACI,0BAAA;EACA,YAAA;EACA,kBAAA;EACA,yBAAA;AAAJ;AAEI;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,YAAA;AAAR;AAGI;EACI,eAAA;EACA,gBAAA;EACA,oBAAA;EACA,YAAA;EACA,iCAAA;EACA,iBAAA;AADR;AAGQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EAEA,uCAAA;AAFZ;AAIY;EACI,cAAA;EACA,kBAAA;AAFhB;AAMQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EAEA,sCAAA;AALZ;AAQQ;EACI,cAAA;EACA,gBAAA;EACA,qCAAA;AANZ;AASQ;EACI,gBAAA;AAPZ;AAYI;EACI,eAAA;EACA,eAAA;EACA,kCAAA;AAVR;AAaI;EACI,2BAAA;EACA,qBAAA;EACA,WAAA;EACA,gBAAA;EACA,gBAAA;AAXR;AAaQ;EACI,cAAA;EACA,cAAA;EACA,kBAAA;AAXZ;AAcQ;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,kBAAA;EACA,cAAA;EACA,4BAAA;AAZZ;AAgBI;EACI,cAAA;EACA,eAAA;EACA,2BAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;EACA,YAAA;EACA,gBAAA;EACA,4BAAA;AAdR;AAiBI;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,4BAAA;AAfR;;AAoBA;EACI;IACI,QAAA;EAjBN;EAoBE;IACI,QAAA;EAlBN;AACF;AAqBA;EACI;IACI,4BAAA;IACA,UAAA;EAnBN;EAsBE;IACI,wBAAA;IACA,UAAA;EApBN;AACF;AAuBA;EACI;IACI,2BAAA;IACA,UAAA;EArBN;EAwBE;IACI,wBAAA;IACA,UAAA;EAtBN;AACF;AAyBA;EACI;IACI,2BAAA;IACA,UAAA;EAvBN;EA0BE;IACI,wBAAA;IACA,UAAA;EAxBN;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');\n\n.port-cont {\n    max-width: 100% !important;\n    height: 40vw;\n    position: relative;\n    background-color: #20252c;\n\n    .portfolio {\n        width: 83vw;\n        height: 33vw;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 4vw;\n    }\n\n    .port-content {\n        max-width: 50vw;\n        overflow: hidden;\n        word-break: keep-all;\n        color: white;\n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        h3 {\n            font-size: 2vw;\n            font-weight: 400;\n            margin-left: 1vw;\n\n            animation: slideBottom 1s ease forwards;\n\n            span {\n                color: #E9AE00;\n                margin-left: 0.3vw;\n            }\n        }\n\n        h1 {\n            font-size: 3vw;\n            font-weight: 500;\n            margin-left: 1vw;\n            margin-top: -2vw;\n\n            animation: slideRight 1s ease forwards;\n        }\n\n        p {\n            font-size: 1vw;\n            margin-left: 1vw;\n            animation: slideLeft 1s ease forwards;\n        }\n\n        .port-title {\n            margin-top: -2vw;\n        }\n    }\n\n\n    .port-img img {\n        max-width: 23vw;\n        margin-top: 3vw;\n        animation: zoomIn 1s ease forwards;\n    }\n\n    .port-socials {\n        justify-content: flex-start;\n        align-items: baseline;\n        height: 6vw;\n        margin-top: -1vw;\n        margin-left: 1vw;\n\n        .svg_icons {\n            color: #E9AE00;\n            padding: 0.4vw;\n            border-radius: 50%;\n        }\n\n        .svg_icons:hover {\n            background-color: #E9AE00;\n            color: white;\n            box-shadow: 0 0 1vw #E9AE00;\n            border-radius: 50%;\n            padding: 0.4vw;\n            transition: 0.3s ease-in-out;\n        }\n    }\n\n    .download-resume {\n        color: #E9AE00;\n        cursor: pointer;\n        border: 0.2vw solid #E9AE00;\n        border-radius: 1vw;\n        width: fit-content;\n        height: fit-content;\n        padding: 1vw;\n        margin-left: 1vw;\n        transition: 0.5s ease-in-out;\n    }\n\n    .download-resume:hover {\n        background-color: #E9AE00;\n        color: white;\n        box-shadow: 0 0 1vw #E9AE00;\n        transition: 0.5s ease-in-out;\n    }\n}\n\n\n@keyframes zoomIn {\n    0% {\n        scale: 0;\n    }\n\n    100% {\n        scale: 1;\n    }\n}\n\n@keyframes slideRight {\n    0% {\n        transform: translateX(-10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideLeft {\n    0% {\n        transform: translateX(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideBottom {\n    0% {\n        transform: translateY(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateY(0);\n        opacity: 1;\n    }\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/PortPreview.scss"],"names":[],"mappings":"AAEA;EACI,0BAAA;EACA,YAAA;EACA,kBAAA;EACA,yBAAA;AAAJ;AAEI;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,YAAA;AAAR;AAGI;EACI,eAAA;EACA,gBAAA;EACA,oBAAA;EACA,YAAA;EACA,iCAAA;EACA,iBAAA;AADR;AAGQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EAEA,uCAAA;AAFZ;AAIY;EACI,cAAA;EACA,kBAAA;AAFhB;AAMQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EAEA,sCAAA;AALZ;AAQQ;EACI,cAAA;EACA,gBAAA;EACA,qCAAA;AANZ;AASQ;EACI,gBAAA;AAPZ;AAYI;EACI,eAAA;EACA,eAAA;EACA,kCAAA;AAVR;AAaI;EACI,2BAAA;EACA,qBAAA;EACA,WAAA;EACA,gBAAA;EACA,gBAAA;AAXR;AAaQ;EACI,cAAA;EACA,cAAA;EACA,kBAAA;AAXZ;AAcQ;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,kBAAA;EACA,cAAA;EACA,4BAAA;AAZZ;AAgBI;EACI,cAAA;EACA,cAAA;EACA,eAAA;EACA,2BAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;EACA,YAAA;EACA,gBAAA;EACA,4BAAA;AAdR;AAiBI;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,4BAAA;AAfR;;AAoBA;EACI;IACI,QAAA;EAjBN;EAoBE;IACI,QAAA;EAlBN;AACF;AAqBA;EACI;IACI,4BAAA;IACA,UAAA;EAnBN;EAsBE;IACI,wBAAA;IACA,UAAA;EApBN;AACF;AAuBA;EACI;IACI,2BAAA;IACA,UAAA;EArBN;EAwBE;IACI,wBAAA;IACA,UAAA;EAtBN;AACF;AAyBA;EACI;IACI,2BAAA;IACA,UAAA;EAvBN;EA0BE;IACI,wBAAA;IACA,UAAA;EAxBN;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');\n\n.port-cont {\n    max-width: 100% !important;\n    height: 50vw;\n    position: relative;\n    background-color: #20252c;\n\n    .portfolio {\n        width: 83vw;\n        height: 50vw;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 4vw;\n    }\n\n    .port-content {\n        max-width: 50vw;\n        overflow: hidden;\n        word-break: keep-all;\n        color: white;\n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        h3 {\n            font-size: 2vw;\n            font-weight: 400;\n            margin-left: 1vw;\n\n            animation: slideBottom 1s ease forwards;\n\n            span {\n                color: #E9AE00;\n                margin-left: 0.3vw;\n            }\n        }\n\n        h1 {\n            font-size: 3vw;\n            font-weight: 500;\n            margin-left: 1vw;\n            margin-top: -2vw;\n\n            animation: slideRight 1s ease forwards;\n        }\n\n        p {\n            font-size: 1vw;\n            margin-left: 1vw;\n            animation: slideLeft 1s ease forwards;\n        }\n\n        .port-title {\n            margin-top: -2vw;\n        }\n    }\n\n\n    .port-img img {\n        max-width: 23vw;\n        margin-top: 3vw;\n        animation: zoomIn 1s ease forwards;\n    }\n\n    .port-socials {\n        justify-content: flex-start;\n        align-items: baseline;\n        height: 6vw;\n        margin-top: -1vw;\n        margin-left: 1vw;\n\n        .svg_icons {\n            color: #E9AE00;\n            padding: 0.4vw;\n            border-radius: 50%;\n        }\n\n        .svg_icons:hover {\n            background-color: #E9AE00;\n            color: white;\n            box-shadow: 0 0 1vw #E9AE00;\n            border-radius: 50%;\n            padding: 0.4vw;\n            transition: 0.3s ease-in-out;\n        }\n    }\n\n    .download-resume {\n        font-size: 1vw;\n        color: #E9AE00;\n        cursor: pointer;\n        border: 0.2vw solid #E9AE00;\n        border-radius: 1vw;\n        width: fit-content;\n        height: fit-content;\n        padding: 1vw;\n        margin-left: 1vw;\n        transition: 0.5s ease-in-out;\n    }\n\n    .download-resume:hover {\n        background-color: #E9AE00;\n        color: white;\n        box-shadow: 0 0 1vw #E9AE00;\n        transition: 0.5s ease-in-out;\n    }\n}\n\n\n@keyframes zoomIn {\n    0% {\n        scale: 0;\n    }\n\n    100% {\n        scale: 1;\n    }\n}\n\n@keyframes slideRight {\n    0% {\n        transform: translateX(-10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideLeft {\n    0% {\n        transform: translateX(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideBottom {\n    0% {\n        transform: translateY(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateY(0);\n        opacity: 1;\n    }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27114,11 +27117,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tech-stack-cont {
 .tech-stack-cont .tech-stack code {
   color: #d90c5a;
 }
+.tech-stack-cont .tech-stack h1 {
+  font-size: 2vw;
+}
 .tech-stack-cont .tech-stack .tech-stack-sec {
   height: fit-content;
   width: 80vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 2vw 5vw;
 }
@@ -27137,6 +27143,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tech-stack-cont {
 }
 .tech-stack-cont .tech-stack .tech-stack-sec .tech-row {
   align-items: baseline;
+  font-size: 1.25vw;
 }
 .tech-stack-cont .tech-stack .tech-stack-sec h3 {
   width: fit-content;
@@ -27152,7 +27159,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tech-stack-cont {
 }
 .tech-stack-cont .tech-stack .tech-stack-sec li {
   margin: 2vw;
-  width: fit-content;
+  width: max-content;
   padding: 1vw;
   background-color: #E9AE00;
   color: #20252c;
@@ -27163,7 +27170,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tech-stack-cont {
   background-color: #20252c;
   color: #E9AE00;
   box-shadow: 0 0 1vw #20252c;
-}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/TechStack.scss"],"names":[],"mappings":"AAAA;EACI,0BAAA;EACA,mBAAA;EACA,kBAAA;EACA,yBAAA;AACJ;AACI;EACI,WAAA;EACA,mBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;EAEA,iCAAA;EACA,iBAAA;AAAR;AAEQ;EACI,cAAA;AAAZ;AAGQ;EACI,mBAAA;EACA,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;AADZ;AAGY;EACI,cAAA;EACA,gBAAA;AADhB;AAIY;EACI,cAAA;EACA,gBAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,YAAA;EACA,oBAAA;AAFhB;AAKY;EACI,qBAAA;AAHhB;AAMY;EACI,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;AAJhB;AAOY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AALhB;AAQY;EACI,WAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;EACA,qBAAA;AANhB;AASY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AAPhB","sourcesContent":[".tech-stack-cont {\n    max-width: 100% !important;\n    height: fit-content;\n    position: relative;\n    background-color: #f1f2f4;\n\n    .tech-stack {\n        width: 87vw;\n        height: fit-content;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 2vw 5vw;\n    \n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        code {\n            color: #d90c5a;\n        }\n    \n        .tech-stack-sec {\n            height: fit-content;\n            width: 80vw;\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            padding: 2vw 5vw;\n    \n            h1 {\n                font-size: 3vw;\n                font-weight: 600;\n            }\n    \n            .tech-sec-title {\n                font-size: 2vw;\n                font-weight: 400;\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: white;\n                border-radius: 0.5vw;\n            }\n    \n            .tech-row {\n                align-items: baseline;\n            }\n        \n            h3 {\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: #E9AE00;\n                border-radius: 0.5vw;\n            }\n        \n            h3:hover {\n                background-color: #E9AE00;\n                color: #20252c;\n                box-shadow: 0 0 1vw #E9AE00;\n            }\n        \n            li {\n                margin: 2vw;\n                width: fit-content;\n                padding: 1vw;\n                background-color: #E9AE00;\n                color: #20252c;\n                border-radius: 0.5vw;\n                text-decoration: none;\n            }\n        \n            li:hover {\n                background-color: #20252c;\n                color: #E9AE00;\n                box-shadow: 0 0 1vw #20252c;\n            }\n        }\n    \n    }   \n}\n\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/TechStack.scss"],"names":[],"mappings":"AAAA;EACI,0BAAA;EACA,mBAAA;EACA,kBAAA;EACA,yBAAA;AACJ;AACI;EACI,WAAA;EACA,mBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;EAEA,iCAAA;EACA,iBAAA;AAAR;AAEQ;EACI,cAAA;AAAZ;AAGQ;EACI,cAAA;AADZ;AAIQ;EACI,mBAAA;EACA,WAAA;EACA,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,gBAAA;AAFZ;AAIY;EACI,cAAA;EACA,gBAAA;AAFhB;AAKY;EACI,cAAA;EACA,gBAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,YAAA;EACA,oBAAA;AAHhB;AAMY;EACI,qBAAA;EACA,iBAAA;AAJhB;AAOY;EACI,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;AALhB;AAQY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AANhB;AASY;EACI,WAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;EACA,qBAAA;AAPhB;AAUY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AARhB","sourcesContent":[".tech-stack-cont {\n    max-width: 100% !important;\n    height: fit-content;\n    position: relative;\n    background-color: #f1f2f4;\n\n    .tech-stack {\n        width: 87vw;\n        height: fit-content;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 2vw 5vw;\n    \n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        code {\n            color: #d90c5a;\n        }\n\n        h1 {\n            font-size: 2vw;\n        }\n    \n        .tech-stack-sec {\n            height: fit-content;\n            width: 80vw;\n            display: flex;\n            justify-content: space-around;\n            align-items: center;\n            padding: 2vw 5vw;\n    \n            h1 {\n                font-size: 3vw;\n                font-weight: 600;\n            }\n    \n            .tech-sec-title {\n                font-size: 2vw;\n                font-weight: 400;\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: white;\n                border-radius: 0.5vw;\n            }\n    \n            .tech-row {\n                align-items: baseline;\n                font-size: 1.25vw;\n            }\n        \n            h3 {\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: #E9AE00;\n                border-radius: 0.5vw;\n            }\n        \n            h3:hover {\n                background-color: #E9AE00;\n                color: #20252c;\n                box-shadow: 0 0 1vw #E9AE00;\n            }\n        \n            li {\n                margin: 2vw;\n                width: max-content;\n                padding: 1vw;\n                background-color: #E9AE00;\n                color: #20252c;\n                border-radius: 0.5vw;\n                text-decoration: none;\n            }\n        \n            li:hover {\n                background-color: #20252c;\n                color: #E9AE00;\n                box-shadow: 0 0 1vw #20252c;\n            }\n        }\n    \n    }   \n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28257,6 +28264,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "d60a95eb31d6400f802f720114b21bca.jpg");
+
+/***/ }),
+
+/***/ "./public/images/coding.webp":
+/*!***********************************!*\
+  !*** ./public/images/coding.webp ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "9a7374c20047758ac64050f2cdebba1f.webp");
 
 /***/ }),
 
