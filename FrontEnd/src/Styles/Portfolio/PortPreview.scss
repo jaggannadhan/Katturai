@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+.port-cont {
+    max-width: 100% !important;
+    height: 40vw;
+    position: relative;
+    background-color: #20252c;
+
+    .portfolio {
+        width: 83vw;
+        height: 33vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4vw;
+    }
+
+    .port-content {
+        max-width: 50vw;
+        overflow: hidden;
+        word-break: keep-all;
+        color: white;
+        font-family: "Lexend", sans-serif;
+        user-select: none;
+
+        h3 {
+            font-size: 2vw;
+            font-weight: 400;
+            margin-left: 1vw;
+
+            animation: slideBottom 1s ease forwards;
+
+            span {
+                color: #E9AE00;
+                margin-left: 0.3vw;
+            }
+        }
+
+        h1 {
+            font-size: 3vw;
+            font-weight: 500;
+            margin-left: 1vw;
+            margin-top: -2vw;
+
+            animation: slideRight 1s ease forwards;
+        }
+
+        p {
+            font-size: 1vw;
+            margin-left: 1vw;
+            animation: slideLeft 1s ease forwards;
+        }
+
+        .port-title {
+            margin-top: -2vw;
+        }
+    }
+
+
+    .port-img img {
+        max-width: 23vw;
+        margin-top: 3vw;
+        animation: zoomIn 1s ease forwards;
+    }
+
+    .port-socials {
+        justify-content: flex-start;
+        align-items: baseline;
+        height: 6vw;
+        margin-top: -1vw;
+        margin-left: 1vw;
+
+        .svg_icons {
+            color: #E9AE00;
+            padding: 0.4vw;
+            border-radius: 50%;
+        }
+
+        .svg_icons:hover {
+            background-color: #E9AE00;
+            color: white;
+            box-shadow: 0 0 1vw #E9AE00;
+            border-radius: 50%;
+            padding: 0.4vw;
+            transition: 0.3s ease-in-out;
+        }
+    }
+
+    .download-resume {
+        font-size: 1vw;
+        color: #E9AE00;
+        cursor: pointer;
+        border: 0.2vw solid #E9AE00;
+        border-radius: 1vw;
+        width: fit-content;
+        height: fit-content;
+        padding: 1vw;
+        margin-left: 1vw;
+        transition: 0.5s ease-in-out;
+    }
+
+    .download-resume:hover {
+        background-color: #E9AE00;
+        color: white;
+        box-shadow: 0 0 1vw #E9AE00;
+        transition: 0.5s ease-in-out;
+    }
+}
+
+
+@keyframes zoomIn {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-10vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(10vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(10vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

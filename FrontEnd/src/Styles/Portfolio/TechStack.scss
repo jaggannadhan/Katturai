@@ -1,0 +1,87 @@
+.tech-stack-cont {
+    max-width: 100% !important;
+    height: fit-content;
+    position: relative;
+    background-color: #f1f2f4;
+
+    .tech-stack {
+        width: 87vw;
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2vw 5vw;
+    
+        font-family: "Lexend", sans-serif;
+        user-select: none;
+
+        code {
+            color: #d90c5a;
+        }
+
+        h1 {
+            font-size: 2vw;
+        }
+    
+        .tech-stack-sec {
+            height: fit-content;
+            width: 80vw;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 2vw 5vw;
+    
+            h1 {
+                font-size: 3vw;
+                font-weight: 600;
+            }
+    
+            .tech-sec-title {
+                font-size: 2vw;
+                font-weight: 400;
+                width: fit-content;
+                padding: 1vw;
+                background-color: #20252c;
+                color: white;
+                border-radius: 0.5vw;
+            }
+    
+            .tech-row {
+                align-items: baseline;
+                font-size: 1.25vw;
+            }
+        
+            h3 {
+                width: fit-content;
+                padding: 1vw;
+                background-color: #20252c;
+                color: #E9AE00;
+                border-radius: 0.5vw;
+            }
+        
+            h3:hover {
+                background-color: #E9AE00;
+                color: #20252c;
+                box-shadow: 0 0 1vw #E9AE00;
+            }
+        
+            li {
+                margin: 2vw;
+                width: max-content;
+                padding: 1vw;
+                background-color: #E9AE00;
+                color: #20252c;
+                border-radius: 0.5vw;
+                text-decoration: none;
+            }
+        
+            li:hover {
+                background-color: #20252c;
+                color: #E9AE00;
+                box-shadow: 0 0 1vw #20252c;
+            }
+        }
+    
+    }   
+}
+

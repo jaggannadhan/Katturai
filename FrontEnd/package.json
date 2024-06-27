@@ -45,6 +45,7 @@
     "react-chrono": "^2.6.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
+    "react-typed": "^2.0.12",
     "uuid": "^10.0.0"
   }
 }
