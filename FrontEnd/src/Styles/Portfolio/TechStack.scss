@@ -5,12 +5,12 @@
     background-color: #f1f2f4;
 
     .tech-stack {
-        width: 87vw;
+        width: 90vw;
         height: fit-content;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2vw 5vw;
+        padding: 2vw;
     
         font-family: "Lexend", sans-serif;
         user-select: none;
@@ -21,6 +21,10 @@
 
         h1 {
             font-size: 2vw;
+        }
+
+        #typed-stack-header {
+            margin-left: 3vw;
         }
     
         .tech-stack-sec {
@@ -81,7 +85,6 @@
                 box-shadow: 0 0 1vw #20252c;
             }
         }
-    
     }   
 }
 

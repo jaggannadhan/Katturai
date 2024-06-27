@@ -13,7 +13,7 @@ const TechStack = (props) => {
         <Container className="tech-stack-cont">
             <section className="tech-stack">
                 <div className="tech-content">
-                    <h1>
+                    <h1 id="typed-stack-header">
                         <code> {">> "} </code>
                         <ReactTyped 
                             strings={[" My Tech Stack", "My Knowledge Bundle"]} 
@@ -80,6 +80,9 @@ const TechStack = (props) => {
                         <h1 className="tech-sec-title">AI / ML</h1>
                         <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" className="tech-row">
                         
+                        <div>
+                            <h3>CNNs</h3>
+                        </div>
                         <div>
                             <h3>Conversational AI</h3>
                             <li>OpenAI</li>

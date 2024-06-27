@@ -153,3 +153,10 @@
         opacity: 1;
     }
 }
+
+
+@media (min-width: 960px) {
+    .port-cont .portfolio {
+        height: 40vw;
+    }
+}
