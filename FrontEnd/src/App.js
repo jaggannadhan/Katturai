@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
-import MainPage from './Components/MainPage/MainPage';
+import ProfilePage from './Components/Main/ProfilePage';
+import LandingPage from './Components/Main/LandingPage';
 
 const App = () => {
     return (
         <Fragment>
-            <MainPage />
+            <LandingPage />
         </Fragment>
         
     );

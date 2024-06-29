@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moul&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap');
+
+
+// font-family: "Archivo Black", sans-serif;
+// font-family:"Monoton", sans-serif !important;
+// font-family: "Rubik Doodle Shadow", system-ui;
+// font-family: "Lexend Deca", sans-serif;
+// font-family: "Moul", serif;
+
+html, body {
+    height: 100vh;
+    overflow: scroll;
+    scroll-snap-type: y;
+    scroll-behavior: smooth;
+}
+
+.landing > .what-we-do {
+    user-select: none;
+    scroll-snap-align: block;
+}
+
+#title-cont {
+    min-width: 100vw;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 2vw !important;
+    position: relative;
+    top: 0vh;
+    background-size: cover !important;
+    overflow: hidden;
+
+    .overlay {
+        min-width: 100vw;
+        max-width: 100vw !important;
+        height: 96vh !important;
+        margin: 0 !important;
+        padding: 2vh 2vw !important;
+        position: absolute;
+        top: 0vh;
+        left: 0vw;
+        background-color: rgba(0, 0, 0, 0.299);
+    }
+
+    .overlay2 {
+        min-width: 100vw;
+        max-width: 150vw !important;
+        height: 80vh !important;
+        margin: 0 !important;
+        padding: 2vh 2vw !important;
+        position: absolute;
+        top: 30vh;
+        opacity: 60%;
+        left: 0vw;
+        background-repeat: repeat;
+        animation: moveClouds 50s linear infinite;
+        -webkit-animation: moveClouds 50s linear infinite;
+    }
+
+    .title-sec {
+        position: relative;
+        text-align: center;
+        z-index: 2;
+        padding: 8vh 8vw;
+        display: grid;
+        height: 75vh;
+        align-items: center;
+
+        .title {
+            cursor: pointer;
+            font-family:"Monoton", sans-serif !important;
+            color: #e9ae00;
+            font-size: 4vw;
+            font-style: normal;
+            text-decoration: none;
+
+            span {
+                font-family: "Archivo Black", sans-serif;
+                font-style: normal;
+                font-size: 1vw;
+                color: rgb(255 255 255 / 25%);
+                position: relative;
+                top: -4vw;
+            }
+        }
+
+        span img {
+            width: 3vw;
+            cursor: pointer;
+            border: 0.25vw solid #e9ae01;
+            border-radius: 50%;
+            background-color: #e9ae01;
+            animation: bounce 2s infinite;
+            // position: fixed;
+        }
+
+        span img:hover {
+            box-shadow: 0 0 1vw white;
+            background-color: #e9af0100;
+            
+        }
+    }
+}
+
+.who-we-are {
+    width: 40vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 2vw !important;
+    position: sticky;
+    top: 0vh;
+    font-size: 2vw;
+
+    animation: swoosh 3s linear;
+    animation-timeline: view();
+}
+
+.who1 {
+    left: 0vw;
+}
+
+.who2 {
+    left: 30vw;
+}
+
+.who3 {
+    left: 64vw;
+}
+
+
+.descriptive-sec {
+    height: 80vh;
+    padding: 3vh 5vw;
+    border-radius: 1vw;
+    box-shadow: 19px 20px 20px 4px #00000047;
+    overflow: hidden;
+    background-size: cover !important;
+
+    color: black;
+    font-family: "Rubik Doodle Shadow", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+    h1, p {
+        margin-left: -2vw;
+        font-size: 1.5vw;
+    }
+
+    .sec-headers {
+        position: relative;
+        width: 36vw;
+        left: -5vw;
+        top: -4vh;
+        height: 3vw;
+        background-color: darkslategray;
+    
+        div {
+            height: 2.5vw;
+            display: flex;
+            align-items: center;
+            position: relative;
+            top: 0.5vw;
+            margin-left: 1vw;
+    
+            dots {
+                width: 1vw;
+                height: 1vw;
+                border-radius: 50%;
+                background: white;
+                margin: 1.3vw 0.6vw;
+                color: white;
+                font-family: monospace;
+                font-size: 0.5vw;
+                text-align: center;
+                line-height: 2.3vh;
+            }
+    
+            dots:nth-child(1) {
+                background: #e40303;
+            }
+    
+            dots:nth-child(1):hover {
+                box-shadow: 0 0 12px 5px #e40303;
+            }
+    
+            dots:nth-child(2) {
+                background: #f8b415;
+            }
+    
+            dots:nth-child(2):hover {
+                box-shadow: 0 0 12px 5px #f8b415;
+            }
+    
+            dots:nth-child(3) {
+                background: #04a004;
+            }
+    
+            dots:nth-child(3):hover {
+                box-shadow: 0 0 12px 5px #04a004;
+            }
+        }
+        
+    }
+}
+
+.ds1 {
+    background: black;
+    color: yellow;
+    font-family: "Moul", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ds2 {
+    background: black;
+    color: yellow;
+    font-family: "Moul", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ds3 {
+    background: black;
+    color: yellow;
+    font-family: "Moul", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.what-we-do {
+    min-width: 100vw;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 2vw !important;
+    position: sticky;
+    top: 0vh;
+    background: transparent;
+    overflow: hidden;
+    font-size: 2vw;
+
+    animation: swoosh 3s linear;
+    animation-timeline: view();
+}
+
+.what-we-do2, .empty {
+    min-width: 100vw;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 2vw !important;
+    position: relative;
+    top: 0vh;
+    background: transparent;
+    overflow: hidden;
+    font-size: 2vw;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-2vh);
+    }
+    60% {
+      transform: translateY(-1vh);
+    }
+}
+
+@keyframes moveClouds {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    100% {
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@keyframes swoosh {
+    0% { scale: 0.6; }
+    30% { scale: 0.8; opacity: 100%}
+    50% { scale: 0.8; opacity: 100%}
+    80% { scale: 0.8; opacity: 100%}
+}

@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 import * as CONSTANTS from "../../Constants/Constants";
 
 
-import '../../Styles/MainPage/MainPage.scss';
+import '../../Styles/Main/ProfilePage.scss';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const MainPage = () => {
+const ProfilePage = () => {
     const classes = useStyles();
     const [ isNavTrans, setIsNavTrans ] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
     const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.navItems[2]);
@@ -52,4 +52,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default ProfilePage;

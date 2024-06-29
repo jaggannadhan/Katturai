@@ -2467,6 +2467,169 @@ var weakMemoize = function weakMemoize(func) {
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/Container/Container.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Container/Container.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   styles: () => (/* binding */ styles)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/@material-ui/core/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({
+      width: '100%',
+      marginLeft: 'auto',
+      boxSizing: 'border-box',
+      marginRight: 'auto',
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+      display: 'block'
+    }, theme.breakpoints.up('sm'), {
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3)
+    }),
+
+    /* Styles applied to the root element if `disableGutters={true}`. */
+    disableGutters: {
+      paddingLeft: 0,
+      paddingRight: 0
+    },
+
+    /* Styles applied to the root element if `fixed={true}`. */
+    fixed: Object.keys(theme.breakpoints.values).reduce(function (acc, breakpoint) {
+      var value = theme.breakpoints.values[breakpoint];
+
+      if (value !== 0) {
+        acc[theme.breakpoints.up(breakpoint)] = {
+          maxWidth: value
+        };
+      }
+
+      return acc;
+    }, {}),
+
+    /* Styles applied to the root element if `maxWidth="xs"`. */
+    maxWidthXs: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('xs'), {
+      maxWidth: Math.max(theme.breakpoints.values.xs, 444)
+    }),
+
+    /* Styles applied to the root element if `maxWidth="sm"`. */
+    maxWidthSm: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('sm'), {
+      maxWidth: theme.breakpoints.values.sm
+    }),
+
+    /* Styles applied to the root element if `maxWidth="md"`. */
+    maxWidthMd: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('md'), {
+      maxWidth: theme.breakpoints.values.md
+    }),
+
+    /* Styles applied to the root element if `maxWidth="lg"`. */
+    maxWidthLg: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('lg'), {
+      maxWidth: theme.breakpoints.values.lg
+    }),
+
+    /* Styles applied to the root element if `maxWidth="xl"`. */
+    maxWidthXl: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('xl'), {
+      maxWidth: theme.breakpoints.values.xl
+    })
+  };
+};
+var Container = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(function Container(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'div' : _props$component,
+      _props$disableGutters = props.disableGutters,
+      disableGutters = _props$disableGutters === void 0 ? false : _props$disableGutters,
+      _props$fixed = props.fixed,
+      fixed = _props$fixed === void 0 ? false : _props$fixed,
+      _props$maxWidth = props.maxWidth,
+      maxWidth = _props$maxWidth === void 0 ? 'lg' : _props$maxWidth,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "component", "disableGutters", "fixed", "maxWidth"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(Component, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className, fixed && classes.fixed, disableGutters && classes.disableGutters, maxWidth !== false && classes["maxWidth".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(String(maxWidth)))]),
+    ref: ref
+  }, other));
+});
+ true ? Container.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * @ignore
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node).isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /**
+   * If `true`, the left and right padding is removed.
+   */
+  disableGutters: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+
+  /**
+   * Set the max-width to match the min-width of the current breakpoint.
+   * This is useful if you'd prefer to design for a fixed set of sizes
+   * instead of trying to accommodate a fully fluid viewport.
+   * It's fluid by default.
+   */
+  fixed: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+
+  /**
+   * Determine the max-width of the container.
+   * The container width grows with the size of the screen.
+   * Set to `false` to disable `maxWidth`.
+   */
+  maxWidth: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(['lg', 'md', 'sm', 'xl', 'xs', false])
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_7__["default"])(styles, {
+  name: 'MuiContainer'
+})(Container));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/Typography/Typography.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Typography/Typography.js ***!
@@ -24645,11 +24808,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_MainPage_MainPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainPage/MainPage */ "./src/Components/MainPage/MainPage.jsx");
+/* harmony import */ var _Components_Main_ProfilePage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Main/ProfilePage */ "./src/Components/Main/ProfilePage.jsx");
+/* harmony import */ var _Components_Main_LandingPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Main/LandingPage */ "./src/Components/Main/LandingPage.jsx");
+
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Components_MainPage_MainPage__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Components_Main_LandingPage__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -25296,10 +25461,93 @@ var Preview = function Preview() {
 
 /***/ }),
 
-/***/ "./src/Components/MainPage/MainPage.jsx":
-/*!**********************************************!*\
-  !*** ./src/Components/MainPage/MainPage.jsx ***!
-  \**********************************************/
+/***/ "./src/Components/Main/LandingPage.jsx":
+/*!*********************************************!*\
+  !*** ./src/Components/Main/LandingPage.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
+/* harmony import */ var _Styles_Main_LandingPage_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Styles/Main/LandingPage.scss */ "./src/Styles/Main/LandingPage.scss");
+/* harmony import */ var _public_svgs_downArrowWhite_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../public/svgs/downArrowWhite.svg */ "./public/svgs/downArrowWhite.svg");
+/* harmony import */ var _public_images_landing_fogLow_webp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/images/landing/fogLow.webp */ "./public/images/landing/fogLow.webp");
+/* harmony import */ var _public_images_landing_landing11_avif__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/images/landing/landing11.avif */ "./public/images/landing/landing11.avif");
+
+
+
+
+
+
+var LandingPage = function LandingPage(props) {
+  var goToWhoWeR = function goToWhoWeR() {
+    document.querySelector('#who-we-are').scrollIntoView({
+      behavior: "smooth"
+    });
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "landing"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    id: "title-cont",
+    style: {
+      background: "url(".concat(_public_images_landing_landing11_avif__WEBPACK_IMPORTED_MODULE_4__["default"], ") center no-repeat")
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "overlay"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "overlay2",
+    src: _public_images_landing_fogLow_webp__WEBPACK_IMPORTED_MODULE_3__["default"],
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "title-sec"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "title"
+  }, "Raconteur.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Every life becomes a story worth sharing! ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: _public_svgs_downArrowWhite_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
+    alt: "Scroll V",
+    onClick: goToWhoWeR
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    id: "who-we-are"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "descriptive-sec"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "sec-headers"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "J"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "N"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "What is ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "what-is-title"
+  }, " Raconteur"), " ?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "We help you capture the essence of your personal and professional journeys, allowing you to chronicle and preserve unique narratives. Whether for private reflection or public inspiration, Raconteur empowers you to curate and showcase the moments that define you. From cherished memories to career milestones, our platform celebrates diversity in storytelling, offering a personalized space to document and immortalize life's most meaningful chapters. Join us in shaping legacies and connecting through the power of personal narrative with Raconteur."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    className: "who-we-are2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "descriptive-sec ds2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "sec-headers"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "J"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "N"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    className: "who-we-are2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "descriptive-sec ds3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "sec-headers"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "J"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "N"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    className: "who-we-are2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "descriptive-sec ds4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "sec-headers"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "J"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("dots", null, "N"))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LandingPage);
+
+/***/ }),
+
+/***/ "./src/Components/Main/ProfilePage.jsx":
+/*!*********************************************!*\
+  !*** ./src/Components/Main/ProfilePage.jsx ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -25314,7 +25562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavBar_ResponsiveNavBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NavBar/ResponsiveNavBar */ "./src/Components/NavBar/ResponsiveNavBar.jsx");
 /* harmony import */ var _Footer_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Footer/Footer */ "./src/Components/Footer/Footer.jsx");
 /* harmony import */ var _Constants_Constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Constants/Constants */ "./src/Constants/Constants.js");
-/* harmony import */ var _Styles_MainPage_MainPage_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Styles/MainPage/MainPage.scss */ "./src/Styles/MainPage/MainPage.scss");
+/* harmony import */ var _Styles_Main_ProfilePage_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Styles/Main/ProfilePage.scss */ "./src/Styles/Main/ProfilePage.scss");
 
 
 
@@ -25330,7 +25578,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["defaul
     }
   };
 });
-var MainPage = function MainPage() {
+var ProfilePage = function ProfilePage() {
   var classes = useStyles();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(document.body.scrollTop < document.body.scrollHeight / 10),
     _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
@@ -25362,7 +25610,7 @@ var MainPage = function MainPage() {
     selectedNav: selectedNav
   }));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MainPage);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfilePage);
 
 /***/ }),
 
@@ -25679,7 +25927,9 @@ var TechStack = function TechStack(props) {
     className: "tech-stack"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tech-content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("code", null, " ", ">> ", " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_typed__WEBPACK_IMPORTED_MODULE_1__.ReactTyped, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    id: "typed-stack-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("code", null, " ", ">> ", " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_typed__WEBPACK_IMPORTED_MODULE_1__.ReactTyped, {
     strings: [" My Tech Stack", "My Knowledge Bundle"],
     typeSpeed: 100,
     backSpeed: 100,
@@ -25725,7 +25975,7 @@ var TechStack = function TechStack(props) {
     alignItems: "center",
     justifyContent: "center",
     className: "tech-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Conversational AI"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "OpenAI")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Frameworks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "TensorFlow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "PyTorch")))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "CNNs")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Conversational AI"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "OpenAI")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Frameworks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "TensorFlow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "PyTorch")))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TechStack);
 
@@ -26743,10 +26993,253 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.preview-img-container {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/MainPage/MainPage.scss":
-/*!************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/MainPage/MainPage.scss ***!
-  \************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/LandingPage.scss":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/LandingPage.scss ***!
+  \***********************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap);"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&display=swap);"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap);"]);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `html, body {
+  height: 100vh;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.landing > div {
+  user-select: none;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+}
+
+#title-cont {
+  min-width: 100vw;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 2vw !important;
+  position: relative;
+  top: 0vh;
+  background-size: cover !important;
+  overflow: hidden;
+}
+#title-cont .overlay {
+  min-width: 100vw;
+  max-width: 100vw !important;
+  height: 96vh !important;
+  margin: 0 !important;
+  padding: 2vh 2vw !important;
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
+  background-color: rgba(0, 0, 0, 0.299);
+}
+#title-cont .overlay2 {
+  min-width: 100vw;
+  max-width: 150vw !important;
+  height: 80vh !important;
+  margin: 0 !important;
+  padding: 2vh 2vw !important;
+  position: absolute;
+  top: 30vh;
+  opacity: 60%;
+  left: 0vw;
+  background-repeat: repeat;
+  animation: moveClouds 50s linear infinite;
+  -webkit-animation: moveClouds 50s linear infinite;
+}
+#title-cont .title-sec {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  padding: 8vh 8vw;
+  display: grid;
+  height: 75vh;
+  align-items: center;
+}
+#title-cont .title-sec .title {
+  cursor: pointer;
+  font-family: "Monoton", sans-serif !important;
+  color: #e9ae00;
+  font-size: 4vw;
+  font-style: normal;
+  text-decoration: none;
+}
+#title-cont .title-sec .title span {
+  font-family: "Archivo Black", sans-serif;
+  font-style: normal;
+  font-size: 1vw;
+  color: rgba(255, 255, 255, 0.25);
+  position: relative;
+  top: -4vw;
+}
+#title-cont .title-sec span img {
+  width: 3vw;
+  cursor: pointer;
+  border: 0.25vw solid #e9ae01;
+  border-radius: 50%;
+  background-color: #e9ae01;
+  animation: bounce 2s infinite;
+}
+#title-cont .title-sec span img:hover {
+  box-shadow: 0 0 1vw white;
+  background-color: rgba(233, 175, 1, 0);
+}
+
+#who-we-are {
+  min-width: 100vw;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 2vw !important;
+  position: sticky;
+  top: 0vh;
+  font-size: 2vw;
+  animation: swoosh 3s linear;
+  animation-timeline: view();
+}
+
+.descriptive-sec {
+  height: 70vh;
+  background-color: rgb(255, 255, 255);
+  padding: 3vh 5vw;
+  border-radius: 1vw;
+  box-shadow: 19px 20px 20px 4px rgba(0, 0, 0, 0.2784313725);
+  color: black;
+  overflow: hidden;
+}
+.descriptive-sec .sec-headers {
+  position: relative;
+  width: 96vw;
+  left: -5vw;
+  top: -4vh;
+  height: 3vw;
+  background-color: darkslategray;
+}
+.descriptive-sec .sec-headers div {
+  display: inline-flex;
+  margin-left: 1vw;
+}
+.descriptive-sec .sec-headers div dots {
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+  background: white;
+  margin: 1.3vw 0.6vw;
+  color: white;
+  font-family: monospace;
+  font-size: 0.5vw;
+  text-align: center;
+  line-height: 2.3vh;
+  padding: 0.1vw;
+}
+.descriptive-sec .sec-headers div dots:nth-child(1) {
+  background: #e40303;
+}
+.descriptive-sec .sec-headers div dots:nth-child(1):hover {
+  box-shadow: 0 0 12px 5px #e40303;
+}
+.descriptive-sec .sec-headers div dots:nth-child(2) {
+  background: #f8b415;
+}
+.descriptive-sec .sec-headers div dots:nth-child(2):hover {
+  box-shadow: 0 0 12px 5px #f8b415;
+}
+.descriptive-sec .sec-headers div dots:nth-child(3) {
+  background: #04a004;
+}
+.descriptive-sec .sec-headers div dots:nth-child(3):hover {
+  box-shadow: 0 0 12px 5px #04a004;
+}
+
+.ds2 {
+  height: 75vh !important;
+}
+
+.ds3 {
+  height: 80vh !important;
+}
+
+.ds4 {
+  height: 85vh !important;
+}
+
+.who-we-are2 {
+  min-width: 100vw;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 2vw !important;
+  position: sticky;
+  top: 0vh;
+  background: transparent;
+  overflow: hidden;
+  font-size: 2vw;
+  animation: swoosh 3s linear;
+  animation-timeline: view();
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-2vh);
+  }
+  60% {
+    transform: translateY(-1vh);
+  }
+}
+@keyframes moveClouds {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes swoosh {
+  0% {
+    scale: 0.8;
+  }
+  70% {
+    scale: 0.9;
+    opacity: 100%;
+  }
+  100% {
+    scale: 0;
+    opacity: 0%;
+  }
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Main/LandingPage.scss"],"names":[],"mappings":"AAIA;EACI,aAAA;EACA,gBAAA;EACA,6BAAA;EACA,uBAAA;AAAJ;;AAGA;EACI,iBAAA;EACA,wBAAA;EACA,uBAAA;AAAJ;;AAGA;EACI,gBAAA;EACA,2BAAA;EACA,wBAAA;EACA,oBAAA;EACA,uBAAA;EACA,kBAAA;EACA,QAAA;EACA,iCAAA;EACA,gBAAA;AAAJ;AAEI;EACI,gBAAA;EACA,2BAAA;EACA,uBAAA;EACA,oBAAA;EACA,2BAAA;EACA,kBAAA;EACA,QAAA;EACA,SAAA;EACA,sCAAA;AAAR;AAGI;EACI,gBAAA;EACA,2BAAA;EACA,uBAAA;EACA,oBAAA;EACA,2BAAA;EACA,kBAAA;EACA,SAAA;EACA,YAAA;EACA,SAAA;EACA,yBAAA;EACA,yCAAA;EACA,iDAAA;AADR;AAII;EACI,kBAAA;EACA,kBAAA;EACA,UAAA;EACA,gBAAA;EACA,aAAA;EACA,YAAA;EACA,mBAAA;AAFR;AAIQ;EACI,eAAA;EACA,6CAAA;EACA,cAAA;EACA,cAAA;EACA,kBAAA;EACA,qBAAA;AAFZ;AAIY;EACI,wCAAA;EACA,kBAAA;EACA,cAAA;EACA,gCAAA;EACA,kBAAA;EACA,SAAA;AAFhB;AAMQ;EACI,UAAA;EACA,eAAA;EACA,4BAAA;EACA,kBAAA;EACA,yBAAA;EACA,6BAAA;AAJZ;AAQQ;EACI,yBAAA;EACA,sCAAA;AANZ;;AAYA;EACI,gBAAA;EACA,2BAAA;EACA,wBAAA;EACA,oBAAA;EACA,uBAAA;EACA,gBAAA;EACA,QAAA;EACA,cAAA;EAEA,2BAAA;EACA,0BAAA;AAVJ;;AAcA;EACI,YAAA;EACA,oCAAA;EACA,gBAAA;EACA,kBAAA;EACA,0DAAA;EACA,YAAA;EACA,gBAAA;AAXJ;AAaI;EACI,kBAAA;EACA,WAAA;EACA,UAAA;EACA,SAAA;EACA,WAAA;EACA,+BAAA;AAXR;AAaQ;EACI,oBAAA;EACA,gBAAA;AAXZ;AAaY;EACI,UAAA;EACA,WAAA;EACA,kBAAA;EACA,iBAAA;EACA,mBAAA;EACA,YAAA;EACA,sBAAA;EACA,gBAAA;EACA,kBAAA;EACA,kBAAA;EACA,cAAA;AAXhB;AAcY;EACI,mBAAA;AAZhB;AAeY;EACI,gCAAA;AAbhB;AAgBY;EACI,mBAAA;AAdhB;AAiBY;EACI,gCAAA;AAfhB;AAkBY;EACI,mBAAA;AAhBhB;AAmBY;EACI,gCAAA;AAjBhB;;AAwBA;EACI,uBAAA;AArBJ;;AAwBA;EACI,uBAAA;AArBJ;;AAwBA;EACI,uBAAA;AArBJ;;AAyBA;EACI,gBAAA;EACA,2BAAA;EACA,wBAAA;EACA,oBAAA;EACA,uBAAA;EACA,gBAAA;EACA,QAAA;EACA,uBAAA;EACA,gBAAA;EACA,cAAA;EAEA,2BAAA;EACA,0BAAA;AAvBJ;;AA0BA;EACI;IACE,wBAAA;EAvBJ;EAyBE;IACE,2BAAA;EAvBJ;EAyBE;IACE,2BAAA;EAvBJ;AACF;AA0BA;EACI;IACI,gCAAA;IACA,wBAAA;EAxBN;EA0BE;IACI,0CAAA;IACA,kCAAA;EAxBN;AACF;AA2BA;EACI;IAAK,UAAA;EAxBP;EAyBE;IAAM,UAAA;IAAY,aAAA;EArBpB;EAsBE;IAAO,QAAA;IAAU,WAAA;EAlBnB;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap');\n\nhtml, body {\n    height: 100vh;\n    overflow: scroll;\n    scroll-snap-type: y mandatory;\n    scroll-behavior: smooth;\n}\n\n.landing > div {\n    user-select: none;\n    scroll-snap-align: start;\n    scroll-behavior: smooth;\n}\n\n#title-cont {\n    min-width: 100vw;\n    max-width: 100vw !important;\n    height: 100vh !important;\n    margin: 0 !important;\n    padding: 2vw !important;\n    position: relative;\n    top: 0vh;\n    background-size: cover !important;\n    overflow: hidden;\n\n    .overlay {\n        min-width: 100vw;\n        max-width: 100vw !important;\n        height: 96vh !important;\n        margin: 0 !important;\n        padding: 2vh 2vw !important;\n        position: absolute;\n        top: 0vh;\n        left: 0vw;\n        background-color: rgba(0, 0, 0, 0.299);\n    }\n\n    .overlay2 {\n        min-width: 100vw;\n        max-width: 150vw !important;\n        height: 80vh !important;\n        margin: 0 !important;\n        padding: 2vh 2vw !important;\n        position: absolute;\n        top: 30vh;\n        opacity: 60%;\n        left: 0vw;\n        background-repeat: repeat;\n        animation: moveClouds 50s linear infinite;\n        -webkit-animation: moveClouds 50s linear infinite;\n    }\n\n    .title-sec {\n        position: relative;\n        text-align: center;\n        z-index: 2;\n        padding: 8vh 8vw;\n        display: grid;\n        height: 75vh;\n        align-items: center;\n\n        .title {\n            cursor: pointer;\n            font-family:\"Monoton\", sans-serif !important;\n            color: #e9ae00;\n            font-size: 4vw;\n            font-style: normal;\n            text-decoration: none;\n\n            span {\n                font-family: \"Archivo Black\", sans-serif;\n                font-style: normal;\n                font-size: 1vw;\n                color: rgb(255 255 255 / 25%);\n                position: relative;\n                top: -4vw;\n            }\n        }\n\n        span img {\n            width: 3vw;\n            cursor: pointer;\n            border: 0.25vw solid #e9ae01;\n            border-radius: 50%;\n            background-color: #e9ae01;\n            animation: bounce 2s infinite;\n            // position: fixed;\n        }\n\n        span img:hover {\n            box-shadow: 0 0 1vw white;\n            background-color: #e9af0100;\n            \n        }\n    }\n}\n\n#who-we-are {\n    min-width: 100vw;\n    max-width: 100vw !important;\n    height: 100vh !important;\n    margin: 0 !important;\n    padding: 2vw !important;\n    position: sticky;\n    top: 0vh;\n    font-size: 2vw;\n\n    animation: swoosh 3s linear;\n    animation-timeline: view();\n}\n\n\n.descriptive-sec {\n    height: 70vh;\n    background-color: rgb(255, 255, 255);\n    padding: 3vh 5vw;\n    border-radius: 1vw;\n    box-shadow: 19px 20px 20px 4px #00000047;\n    color: black;\n    overflow: hidden;\n\n    .sec-headers {\n        position: relative;\n        width: 96vw;\n        left: -5vw;\n        top: -4vh;\n        height: 3vw;\n        background-color: darkslategray;\n    \n        div {\n            display: inline-flex;\n            margin-left: 1vw;\n    \n            dots {\n                width: 1vw;\n                height: 1vw;\n                border-radius: 50%;\n                background: white;\n                margin: 1.3vw 0.6vw;\n                color: white;\n                font-family: monospace;\n                font-size: 0.5vw;\n                text-align: center;\n                line-height: 2.3vh;\n                padding: 0.1vw\n            }\n    \n            dots:nth-child(1) {\n                background: #e40303;\n            }\n    \n            dots:nth-child(1):hover {\n                box-shadow: 0 0 12px 5px #e40303;\n            }\n    \n            dots:nth-child(2) {\n                background: #f8b415;\n            }\n    \n            dots:nth-child(2):hover {\n                box-shadow: 0 0 12px 5px #f8b415;\n            }\n    \n            dots:nth-child(3) {\n                background: #04a004;\n            }\n    \n            dots:nth-child(3):hover {\n                box-shadow: 0 0 12px 5px #04a004;\n            }\n        }\n        \n    }\n}\n\n.ds2 {\n    height: 75vh !important;\n}\n\n.ds3 {\n    height: 80vh !important;\n}\n\n.ds4 {\n    height: 85vh !important;\n}\n\n\n.who-we-are2 {\n    min-width: 100vw;\n    max-width: 100vw !important;\n    height: 100vh !important;\n    margin: 0 !important;\n    padding: 2vw !important;\n    position: sticky;\n    top: 0vh;\n    background: transparent;\n    overflow: hidden;\n    font-size: 2vw;\n\n    animation: swoosh 3s linear;\n    animation-timeline: view();\n}\n\n@keyframes bounce {\n    0%, 20%, 50%, 80%, 100% {\n      transform: translateY(0);\n    }\n    40% {\n      transform: translateY(-2vh);\n    }\n    60% {\n      transform: translateY(-1vh);\n    }\n}\n\n@keyframes moveClouds {\n    0% {\n        -webkit-transform: translateZ(0);\n        transform: translateZ(0);\n    }\n    100% {\n        -webkit-transform: translate3d(-50%, 0, 0);\n        transform: translate3d(-50%, 0, 0);\n    }\n}\n\n@keyframes swoosh {\n    0% { scale: 0.8; }\n    70% { scale: 0.9; opacity: 100%}\n    100% { scale: 0; opacity: 0%}\n}\n\n\n\n\n\n\n// .landing-cont1 {\n//     min-width: 100vw;\n//     max-width: 100vw !important;\n//     height: 150vh !important;\n//     margin: 0 !important;\n//     padding: 3vw !important;\n//     scroll-behavior: smooth;\n//     position: relative;\n//     top: -30vh;\n\n//     .what-is {\n//         width: 80vw;\n//         height: 80vh;\n//         font-family: \"Lexend Deca\", sans-serif;\n//         font-optical-sizing: auto;\n//         font-weight: 600;\n//         font-size: 2vw;\n//         font-style: normal;\n//         margin: 0;\n//         color: white;\n//         background: rgb(4 5 5 / 13%);\n//         position: fixed;\n//         top: 0;\n//         left: 0;\n//         padding: 10vh 10vw;\n//         display: flex;\n\n//         .what-is-title {\n//             cursor: pointer;\n//             font-family:\"Monoton\", sans-serif !important;\n//             color: #e9ae00;\n//             text-decoration: none;\n//         }\n//     }\n// }\n\n// .landing-cont2 {\n//     min-width: 100vw;\n//     max-width: 100vw !important;\n//     height: 100vh !important;\n//     margin: 0 !important;\n//     padding: 3vw !important;\n//     color: white;\n//     background: black;\n//     position: sticky;\n//     margin-top: -21vw !important;\n// }\n\n// .landing-cont3 {\n//     min-width: 100vw;\n//     max-width: 100vw !important;\n//     height: 100vh !important;\n//     margin: 0 !important;\n//     padding: 3vw !important;\n//     color: black;\n//     background: white;\n// }"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/ProfilePage.scss":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/ProfilePage.scss ***!
+  \***********************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26765,7 +27258,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.home-page {
   scroll-behavior: smooth;
-}`, "",{"version":3,"sources":["webpack://./src/Styles/MainPage/MainPage.scss"],"names":[],"mappings":"AAAA;EACI,uBAAA;AACJ","sourcesContent":[".home-page {\n    scroll-behavior: smooth;\n}\n  \n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Main/ProfilePage.scss"],"names":[],"mappings":"AAAA;EACI,uBAAA;AACJ","sourcesContent":[".home-page {\n    scroll-behavior: smooth;\n}\n  \n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27040,7 +27533,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.port-cont {
     transform: translateY(0);
     opacity: 1;
   }
-}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/PortPreview.scss"],"names":[],"mappings":"AAEA;EACI,0BAAA;EACA,YAAA;EACA,kBAAA;EACA,yBAAA;AAAJ;AAEI;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,YAAA;AAAR;AAGI;EACI,eAAA;EACA,gBAAA;EACA,oBAAA;EACA,YAAA;EACA,iCAAA;EACA,iBAAA;AADR;AAGQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EAEA,uCAAA;AAFZ;AAIY;EACI,cAAA;EACA,kBAAA;AAFhB;AAMQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EAEA,sCAAA;AALZ;AAQQ;EACI,cAAA;EACA,gBAAA;EACA,qCAAA;AANZ;AASQ;EACI,gBAAA;AAPZ;AAYI;EACI,eAAA;EACA,eAAA;EACA,kCAAA;AAVR;AAaI;EACI,2BAAA;EACA,qBAAA;EACA,WAAA;EACA,gBAAA;EACA,gBAAA;AAXR;AAaQ;EACI,cAAA;EACA,cAAA;EACA,kBAAA;AAXZ;AAcQ;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,kBAAA;EACA,cAAA;EACA,4BAAA;AAZZ;AAgBI;EACI,cAAA;EACA,cAAA;EACA,eAAA;EACA,2BAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;EACA,YAAA;EACA,gBAAA;EACA,4BAAA;AAdR;AAiBI;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,4BAAA;AAfR;;AAoBA;EACI;IACI,QAAA;EAjBN;EAoBE;IACI,QAAA;EAlBN;AACF;AAqBA;EACI;IACI,4BAAA;IACA,UAAA;EAnBN;EAsBE;IACI,wBAAA;IACA,UAAA;EApBN;AACF;AAuBA;EACI;IACI,2BAAA;IACA,UAAA;EArBN;EAwBE;IACI,wBAAA;IACA,UAAA;EAtBN;AACF;AAyBA;EACI;IACI,2BAAA;IACA,UAAA;EAvBN;EA0BE;IACI,wBAAA;IACA,UAAA;EAxBN;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');\n\n.port-cont {\n    max-width: 100% !important;\n    height: 50vw;\n    position: relative;\n    background-color: #20252c;\n\n    .portfolio {\n        width: 83vw;\n        height: 50vw;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 4vw;\n    }\n\n    .port-content {\n        max-width: 50vw;\n        overflow: hidden;\n        word-break: keep-all;\n        color: white;\n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        h3 {\n            font-size: 2vw;\n            font-weight: 400;\n            margin-left: 1vw;\n\n            animation: slideBottom 1s ease forwards;\n\n            span {\n                color: #E9AE00;\n                margin-left: 0.3vw;\n            }\n        }\n\n        h1 {\n            font-size: 3vw;\n            font-weight: 500;\n            margin-left: 1vw;\n            margin-top: -2vw;\n\n            animation: slideRight 1s ease forwards;\n        }\n\n        p {\n            font-size: 1vw;\n            margin-left: 1vw;\n            animation: slideLeft 1s ease forwards;\n        }\n\n        .port-title {\n            margin-top: -2vw;\n        }\n    }\n\n\n    .port-img img {\n        max-width: 23vw;\n        margin-top: 3vw;\n        animation: zoomIn 1s ease forwards;\n    }\n\n    .port-socials {\n        justify-content: flex-start;\n        align-items: baseline;\n        height: 6vw;\n        margin-top: -1vw;\n        margin-left: 1vw;\n\n        .svg_icons {\n            color: #E9AE00;\n            padding: 0.4vw;\n            border-radius: 50%;\n        }\n\n        .svg_icons:hover {\n            background-color: #E9AE00;\n            color: white;\n            box-shadow: 0 0 1vw #E9AE00;\n            border-radius: 50%;\n            padding: 0.4vw;\n            transition: 0.3s ease-in-out;\n        }\n    }\n\n    .download-resume {\n        font-size: 1vw;\n        color: #E9AE00;\n        cursor: pointer;\n        border: 0.2vw solid #E9AE00;\n        border-radius: 1vw;\n        width: fit-content;\n        height: fit-content;\n        padding: 1vw;\n        margin-left: 1vw;\n        transition: 0.5s ease-in-out;\n    }\n\n    .download-resume:hover {\n        background-color: #E9AE00;\n        color: white;\n        box-shadow: 0 0 1vw #E9AE00;\n        transition: 0.5s ease-in-out;\n    }\n}\n\n\n@keyframes zoomIn {\n    0% {\n        scale: 0;\n    }\n\n    100% {\n        scale: 1;\n    }\n}\n\n@keyframes slideRight {\n    0% {\n        transform: translateX(-10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideLeft {\n    0% {\n        transform: translateX(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideBottom {\n    0% {\n        transform: translateY(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateY(0);\n        opacity: 1;\n    }\n}\n"],"sourceRoot":""}]);
+}
+@media (min-width: 960px) {
+  .port-cont .portfolio {
+    height: 40vw;
+  }
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/PortPreview.scss"],"names":[],"mappings":"AAEA;EACI,0BAAA;EACA,YAAA;EACA,kBAAA;EACA,yBAAA;AAAJ;AAEI;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,YAAA;AAAR;AAGI;EACI,eAAA;EACA,gBAAA;EACA,oBAAA;EACA,YAAA;EACA,iCAAA;EACA,iBAAA;AADR;AAGQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EAEA,uCAAA;AAFZ;AAIY;EACI,cAAA;EACA,kBAAA;AAFhB;AAMQ;EACI,cAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EAEA,sCAAA;AALZ;AAQQ;EACI,cAAA;EACA,gBAAA;EACA,qCAAA;AANZ;AASQ;EACI,gBAAA;AAPZ;AAYI;EACI,eAAA;EACA,eAAA;EACA,kCAAA;AAVR;AAaI;EACI,2BAAA;EACA,qBAAA;EACA,WAAA;EACA,gBAAA;EACA,gBAAA;AAXR;AAaQ;EACI,cAAA;EACA,cAAA;EACA,kBAAA;AAXZ;AAcQ;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,kBAAA;EACA,cAAA;EACA,4BAAA;AAZZ;AAgBI;EACI,cAAA;EACA,cAAA;EACA,eAAA;EACA,2BAAA;EACA,kBAAA;EACA,kBAAA;EACA,mBAAA;EACA,YAAA;EACA,gBAAA;EACA,4BAAA;AAdR;AAiBI;EACI,yBAAA;EACA,YAAA;EACA,2BAAA;EACA,4BAAA;AAfR;;AAoBA;EACI;IACI,QAAA;EAjBN;EAoBE;IACI,QAAA;EAlBN;AACF;AAqBA;EACI;IACI,4BAAA;IACA,UAAA;EAnBN;EAsBE;IACI,wBAAA;IACA,UAAA;EApBN;AACF;AAuBA;EACI;IACI,2BAAA;IACA,UAAA;EArBN;EAwBE;IACI,wBAAA;IACA,UAAA;EAtBN;AACF;AAyBA;EACI;IACI,2BAAA;IACA,UAAA;EAvBN;EA0BE;IACI,wBAAA;IACA,UAAA;EAxBN;AACF;AA4BA;EACI;IACI,YAAA;EA1BN;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');\n\n.port-cont {\n    max-width: 100% !important;\n    height: 50vw;\n    position: relative;\n    background-color: #20252c;\n\n    .portfolio {\n        width: 83vw;\n        height: 50vw;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 4vw;\n    }\n\n    .port-content {\n        max-width: 50vw;\n        overflow: hidden;\n        word-break: keep-all;\n        color: white;\n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        h3 {\n            font-size: 2vw;\n            font-weight: 400;\n            margin-left: 1vw;\n\n            animation: slideBottom 1s ease forwards;\n\n            span {\n                color: #E9AE00;\n                margin-left: 0.3vw;\n            }\n        }\n\n        h1 {\n            font-size: 3vw;\n            font-weight: 500;\n            margin-left: 1vw;\n            margin-top: -2vw;\n\n            animation: slideRight 1s ease forwards;\n        }\n\n        p {\n            font-size: 1vw;\n            margin-left: 1vw;\n            animation: slideLeft 1s ease forwards;\n        }\n\n        .port-title {\n            margin-top: -2vw;\n        }\n    }\n\n\n    .port-img img {\n        max-width: 23vw;\n        margin-top: 3vw;\n        animation: zoomIn 1s ease forwards;\n    }\n\n    .port-socials {\n        justify-content: flex-start;\n        align-items: baseline;\n        height: 6vw;\n        margin-top: -1vw;\n        margin-left: 1vw;\n\n        .svg_icons {\n            color: #E9AE00;\n            padding: 0.4vw;\n            border-radius: 50%;\n        }\n\n        .svg_icons:hover {\n            background-color: #E9AE00;\n            color: white;\n            box-shadow: 0 0 1vw #E9AE00;\n            border-radius: 50%;\n            padding: 0.4vw;\n            transition: 0.3s ease-in-out;\n        }\n    }\n\n    .download-resume {\n        font-size: 1vw;\n        color: #E9AE00;\n        cursor: pointer;\n        border: 0.2vw solid #E9AE00;\n        border-radius: 1vw;\n        width: fit-content;\n        height: fit-content;\n        padding: 1vw;\n        margin-left: 1vw;\n        transition: 0.5s ease-in-out;\n    }\n\n    .download-resume:hover {\n        background-color: #E9AE00;\n        color: white;\n        box-shadow: 0 0 1vw #E9AE00;\n        transition: 0.5s ease-in-out;\n    }\n}\n\n\n@keyframes zoomIn {\n    0% {\n        scale: 0;\n    }\n\n    100% {\n        scale: 1;\n    }\n}\n\n@keyframes slideRight {\n    0% {\n        transform: translateX(-10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideLeft {\n    0% {\n        transform: translateX(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateX(0);\n        opacity: 1;\n    }\n}\n\n@keyframes slideBottom {\n    0% {\n        transform: translateY(10vw);\n        opacity: 0;\n    }\n\n    100% {\n        transform: translateY(0);\n        opacity: 1;\n    }\n}\n\n\n@media (min-width: 960px) {\n    .port-cont .portfolio {\n        height: 40vw;\n    }\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27067,11 +27565,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.port-body {
-  width: 100%;
-  height: 50vw;
-  background-color: #20252c;
-}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/Portfolio.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,YAAA;EACA,yBAAA;AACJ","sourcesContent":[".port-body {\n    width: 100%;\n    height: 50vw;\n    background-color: #20252c;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27105,12 +27599,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tech-stack-cont {
   background-color: #f1f2f4;
 }
 .tech-stack-cont .tech-stack {
-  width: 87vw;
+  width: 90vw;
   height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2vw 5vw;
+  padding: 2vw;
   font-family: "Lexend", sans-serif;
   user-select: none;
 }
@@ -27119,6 +27613,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tech-stack-cont {
 }
 .tech-stack-cont .tech-stack h1 {
   font-size: 2vw;
+}
+.tech-stack-cont .tech-stack #typed-stack-header {
+  margin-left: 3vw;
 }
 .tech-stack-cont .tech-stack .tech-stack-sec {
   height: fit-content;
@@ -27170,7 +27667,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tech-stack-cont {
   background-color: #20252c;
   color: #E9AE00;
   box-shadow: 0 0 1vw #20252c;
-}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/TechStack.scss"],"names":[],"mappings":"AAAA;EACI,0BAAA;EACA,mBAAA;EACA,kBAAA;EACA,yBAAA;AACJ;AACI;EACI,WAAA;EACA,mBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;EAEA,iCAAA;EACA,iBAAA;AAAR;AAEQ;EACI,cAAA;AAAZ;AAGQ;EACI,cAAA;AADZ;AAIQ;EACI,mBAAA;EACA,WAAA;EACA,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,gBAAA;AAFZ;AAIY;EACI,cAAA;EACA,gBAAA;AAFhB;AAKY;EACI,cAAA;EACA,gBAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,YAAA;EACA,oBAAA;AAHhB;AAMY;EACI,qBAAA;EACA,iBAAA;AAJhB;AAOY;EACI,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;AALhB;AAQY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AANhB;AASY;EACI,WAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;EACA,qBAAA;AAPhB;AAUY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AARhB","sourcesContent":[".tech-stack-cont {\n    max-width: 100% !important;\n    height: fit-content;\n    position: relative;\n    background-color: #f1f2f4;\n\n    .tech-stack {\n        width: 87vw;\n        height: fit-content;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 2vw 5vw;\n    \n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        code {\n            color: #d90c5a;\n        }\n\n        h1 {\n            font-size: 2vw;\n        }\n    \n        .tech-stack-sec {\n            height: fit-content;\n            width: 80vw;\n            display: flex;\n            justify-content: space-around;\n            align-items: center;\n            padding: 2vw 5vw;\n    \n            h1 {\n                font-size: 3vw;\n                font-weight: 600;\n            }\n    \n            .tech-sec-title {\n                font-size: 2vw;\n                font-weight: 400;\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: white;\n                border-radius: 0.5vw;\n            }\n    \n            .tech-row {\n                align-items: baseline;\n                font-size: 1.25vw;\n            }\n        \n            h3 {\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: #E9AE00;\n                border-radius: 0.5vw;\n            }\n        \n            h3:hover {\n                background-color: #E9AE00;\n                color: #20252c;\n                box-shadow: 0 0 1vw #E9AE00;\n            }\n        \n            li {\n                margin: 2vw;\n                width: max-content;\n                padding: 1vw;\n                background-color: #E9AE00;\n                color: #20252c;\n                border-radius: 0.5vw;\n                text-decoration: none;\n            }\n        \n            li:hover {\n                background-color: #20252c;\n                color: #E9AE00;\n                box-shadow: 0 0 1vw #20252c;\n            }\n        }\n    \n    }   \n}\n\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Portfolio/TechStack.scss"],"names":[],"mappings":"AAAA;EACI,0BAAA;EACA,mBAAA;EACA,kBAAA;EACA,yBAAA;AACJ;AACI;EACI,WAAA;EACA,mBAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,YAAA;EAEA,iCAAA;EACA,iBAAA;AAAR;AAEQ;EACI,cAAA;AAAZ;AAGQ;EACI,cAAA;AADZ;AAIQ;EACI,gBAAA;AAFZ;AAKQ;EACI,mBAAA;EACA,WAAA;EACA,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,gBAAA;AAHZ;AAKY;EACI,cAAA;EACA,gBAAA;AAHhB;AAMY;EACI,cAAA;EACA,gBAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,YAAA;EACA,oBAAA;AAJhB;AAOY;EACI,qBAAA;EACA,iBAAA;AALhB;AAQY;EACI,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;AANhB;AASY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AAPhB;AAUY;EACI,WAAA;EACA,kBAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;EACA,oBAAA;EACA,qBAAA;AARhB;AAWY;EACI,yBAAA;EACA,cAAA;EACA,2BAAA;AAThB","sourcesContent":[".tech-stack-cont {\n    max-width: 100% !important;\n    height: fit-content;\n    position: relative;\n    background-color: #f1f2f4;\n\n    .tech-stack {\n        width: 90vw;\n        height: fit-content;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        padding: 2vw;\n    \n        font-family: \"Lexend\", sans-serif;\n        user-select: none;\n\n        code {\n            color: #d90c5a;\n        }\n\n        h1 {\n            font-size: 2vw;\n        }\n\n        #typed-stack-header {\n            margin-left: 3vw;\n        }\n    \n        .tech-stack-sec {\n            height: fit-content;\n            width: 80vw;\n            display: flex;\n            justify-content: space-around;\n            align-items: center;\n            padding: 2vw 5vw;\n    \n            h1 {\n                font-size: 3vw;\n                font-weight: 600;\n            }\n    \n            .tech-sec-title {\n                font-size: 2vw;\n                font-weight: 400;\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: white;\n                border-radius: 0.5vw;\n            }\n    \n            .tech-row {\n                align-items: baseline;\n                font-size: 1.25vw;\n            }\n        \n            h3 {\n                width: fit-content;\n                padding: 1vw;\n                background-color: #20252c;\n                color: #E9AE00;\n                border-radius: 0.5vw;\n            }\n        \n            h3:hover {\n                background-color: #E9AE00;\n                color: #20252c;\n                box-shadow: 0 0 1vw #E9AE00;\n            }\n        \n            li {\n                margin: 2vw;\n                width: max-content;\n                padding: 1vw;\n                background-color: #E9AE00;\n                color: #20252c;\n                border-radius: 0.5vw;\n                text-decoration: none;\n            }\n        \n            li:hover {\n                background-color: #20252c;\n                color: #E9AE00;\n                box-shadow: 0 0 1vw #20252c;\n            }\n        }\n    }   \n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28462,6 +28959,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./public/images/landing/fogLow.webp":
+/*!*******************************************!*\
+  !*** ./public/images/landing/fogLow.webp ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "b8a340c6b47606f3e023cd2d55a08888.webp");
+
+/***/ }),
+
+/***/ "./public/images/landing/landing11.avif":
+/*!**********************************************!*\
+  !*** ./public/images/landing/landing11.avif ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "b5b4c21d0febb6696e9165bb868db7da.avif");
+
+/***/ }),
+
 /***/ "./public/images/myProfile.png":
 /*!*************************************!*\
   !*** ./public/images/myProfile.png ***!
@@ -28654,6 +29181,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "7d6b4c4d0f566b399cde58cdfd394829.jpg");
+
+/***/ }),
+
+/***/ "./public/svgs/downArrowWhite.svg":
+/*!****************************************!*\
+  !*** ./public/svgs/downArrowWhite.svg ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "02b89bc306556c0f3e0de0de0a8528b6.svg");
 
 /***/ }),
 
@@ -69469,10 +70011,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./src/Styles/MainPage/MainPage.scss":
-/*!*******************************************!*\
-  !*** ./src/Styles/MainPage/MainPage.scss ***!
-  \*******************************************/
+/***/ "./src/Styles/Main/LandingPage.scss":
+/*!******************************************!*\
+  !*** ./src/Styles/Main/LandingPage.scss ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -69492,7 +70034,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_MainPage_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./MainPage.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/MainPage/MainPage.scss");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_LandingPage_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./LandingPage.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/LandingPage.scss");
 
       
       
@@ -69512,12 +70054,65 @@ options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WE
 options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
 options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_MainPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_LandingPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_MainPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_MainPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_MainPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_LandingPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_LandingPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_LandingPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/Styles/Main/ProfilePage.scss":
+/*!******************************************!*\
+  !*** ./src/Styles/Main/ProfilePage.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ProfilePage_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./ProfilePage.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/ProfilePage.scss");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ProfilePage_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ProfilePage_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ProfilePage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ProfilePage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
