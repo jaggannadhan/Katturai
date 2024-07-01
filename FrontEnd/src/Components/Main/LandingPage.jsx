@@ -1,18 +1,29 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Container } from '@material-ui/core';
+import { 
+    Container
+} from '@material-ui/core';
+
+import { Stack } from '@mui/material';
+import Tilt from 'react-parallax-tilt';
 
 import '../../Styles/Main/LandingPage.scss';
 
 import downArw from "../../../public/svgs/downArrowWhite.svg";
 import fogLow from "../../../public/images/landing/fogLow.webp";
 import landing1 from "../../../public/images/landing/landing11.avif";
-import wall from "../../../public/images/landing/wall.webp";
+import wall from "../../../public/images/landing/wall1.avif";
+
+import card1 from "../../../public/images/cards/card1.avif";
+import card2 from "../../../public/images/cards/card2.avif";
+import card3 from "../../../public/images/cards/card3.avif";
+import card4 from "../../../public/images/cards/card4.avif";
+import card5 from "../../../public/images/cards/card5.avif";
 
 
 const LandingPage = (props) => { 
 
     const goToWhoWeR = () => {
-        document.querySelector('.who1').scrollIntoView({ behavior: "smooth"});
+        document.querySelector('.who-we-are').scrollIntoView({ behavior: "smooth"});
     }
 
     return (
@@ -32,71 +43,88 @@ const LandingPage = (props) => {
                 </section>
             </Container>
 
-            <Container className='who-we-are who1'>
-                <section className='descriptive-sec ds1' /* style={{background: `url(${wall}) center no-repeat`}} */ >
-                    <header className='sec-headers'>
-                        <div>
-                            <dots>J</dots>
-                            <dots>4</dots>
-                            <dots>N</dots>
-                        </div>
-                        
-                    </header>
-                    <h1>What is <span className='what-is-title'> Raconteur</span> ?</h1>
-                </section>
+            <Container className='who-we-are' style={{background: `url(${wall}) center no-repeat`}}>
+                <div className='overlay'></div>
+                <div className='what-is'>
+                    <h1>What is 
+                        <span className='title'> Raconteur.</span> ?
+                    </h1>
+
+                    <Stack direction="row" spacing={2} justifyContent="end">
+                        <p>We capture the essence of your personal and professional journeys, allowing you to chronicle unique narratives. </p>
+                        <p>Whether for private reflection or public inspiration, we empower you to curate and showcase the moments that matter. </p>
+                    </Stack>
+                    
+                </div>
             </Container>
 
-            <Container className='who-we-are who2'>
-                <section className='descriptive-sec ds2' /* style={{background: `url(${wall}) center no-repeat`}} */>
-                    <header className='sec-headers'>
-                        <div>
-                            <dots>J</dots>
-                            <dots>4</dots>
-                            <dots>N</dots>
-                        </div>
-                        
-                    </header>
 
-                    <p>We help you capture the essence of your personal and professional journeys, allowing you to chronicle and preserve unique narratives.</p>
-                    <p>Whether for private reflection or public inspiration, Raconteur empowers you to curate and showcase the moments that define you. </p>
-                </section>
+            <Container className='who-we-are who2'>
+                <div className='what-is'>
+                    <h1>What  <span className='title'> Else.</span> ?</h1>
+
+                    <Stack direction="row" spacing={2} justifyContent="end">
+                        <p>From cherished memories to career milestones, our platform celebrates diversity in storytelling, offering a personalized space to document and immortalize life's most meaningful chapters. </p>
+                        <p>Join us in shaping legacies and connecting through the power of personal narrative with  <span className='title'> Raconteur.</span></p>
+                    </Stack>
+                    
+                </div>
             </Container>
 
             <Container className='who-we-are who3'>
-                <section className='descriptive-sec ds3' /* style={{background: `url(${wall}) center no-repeat`}} */>
-                    <header className='sec-headers'>
-                        <div>
-                            <dots>J</dots>
-                            <dots>4</dots>
-                            <dots>N</dots>
-                        </div>
-                        
-                    </header>
+                <div className='frnt-row'>
+                    <Tilt tiltReverse className="card">
+                        <div className="card-content" style={{background: `url(${card1}) center no-repeat`}}> 
+                            <div className='card-overlay'>
+                                <p>
+                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
+                                </p>
+                            </div>
+                        </div> 
 
-                    <p>From cherished memories to career milestones, our platform celebrates diversity in storytelling, offering a personalized space to document and immortalize life's most meaningful chapters. </p>
-                    <p>Join us in shaping legacies and connecting through the power of personal narrative with Raconteur.</p>
-                </section>
-            </Container>
+                    </Tilt>
+                    
+                    <Tilt tiltReverse className="card">
+                        <div className="card-content" style={{background: `url(${card2}) center no-repeat`}}> 
+                            <div className='card-overlay'>
+                                <p>
+                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
+                                </p>
+                            </div>
+                        </div> 
+                    </Tilt>
 
-            <Container className='what-we-do'>
-                <section className='descriptive-sec ds2' >
-                    <header className='sec-headers'>
-                        <div>
-                            <dots>J</dots>
-                            <dots>4</dots>
-                            <dots>N</dots>
-                        </div>
-                    </header>
+                    <Tilt tiltReverse className="card">
+                        <div className="card-content" style={{background: `url(${card3}) center no-repeat`}}> 
+                            <div className='card-overlay'>
+                                <p>
+                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
+                                </p>
+                            </div>
+                        </div> 
+                    </Tilt>
 
-                    {/* <h1>What is <span className='what-is-title'> Raconteur</span> ?</h1>
+                    <Tilt tiltReverse className="card">
+                        <div className="card-content" style={{background: `url(${card4}) center no-repeat`}}> 
+                            <div className='card-overlay'>
+                                <p>
+                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
+                                </p>
+                            </div>
+                        </div> 
+                    </Tilt>
 
-                    <p>Welcome to Raconteur, where every life becomes a story worth sharing! 
-                        We help you capture the essence of your personal and professional journeys, allowing you to chronicle and preserve unique narratives. 
-                        Whether for private reflection or public inspiration, Raconteur empowers you to curate and showcase the moments that define you. 
-                        From cherished memories to career milestones, our platform celebrates diversity in storytelling, offering a personalized space to document and immortalize life's most meaningful chapters. 
-                        Join us in shaping legacies and connecting through the power of personal narrative with Raconteur.
-                    </p> */}
-                </section>
+                    <Tilt tiltReverse className="card">
+                        <div className="card-content" style={{background: `url(${card5}) center no-repeat`}}> 
+                            <div className='card-overlay'>
+                                <p>
+                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
+                                </p>
+                            </div>
+                        </div> 
+                    </Tilt>
+                </div>
+                
             </Container>
 
 

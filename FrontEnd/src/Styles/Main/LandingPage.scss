@@ -18,6 +18,10 @@ html, body {
     scroll-behavior: smooth;
 }
 
+.landing {
+
+}
+
 .landing > .what-we-do {
     user-select: none;
     scroll-snap-align: block;
@@ -29,10 +33,11 @@ html, body {
     height: 100vh !important;
     margin: 0 !important;
     padding: 2vw !important;
-    position: relative;
+    position: sticky;
     top: 0vh;
     background-size: cover !important;
     overflow: hidden;
+    z-index: 0;
 
     .overlay {
         min-width: 100vw;
@@ -93,9 +98,7 @@ html, body {
             cursor: pointer;
             border: 0.25vw solid #e9ae01;
             border-radius: 50%;
-            background-color: #e9ae01;
             animation: bounce 2s infinite;
-            // position: fixed;
         }
 
         span img:hover {
@@ -107,7 +110,7 @@ html, body {
 }
 
 .who-we-are {
-    width: 40vw !important;
+    width: 100vw !important;
     max-width: 100vw !important;
     height: 100vh !important;
     margin: 0 !important;
@@ -115,152 +118,159 @@ html, body {
     position: sticky;
     top: 0vh;
     font-size: 2vw;
-
-    animation: swoosh 3s linear;
-    animation-timeline: view();
+    background: white;
 }
 
-.who1 {
-    left: 0vw;
+.overlay {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: rgb(0 0 0 / 68%);
+    margin: -2vw;
+}
+
+
+.what-is {
+    width: 100% !important;
+    height: 17vh;
+    
+    h1 {
+        width: fit-content;
+        // background: #00000052;
+        color: white;
+
+        animation: slide-in 5s ease-in-out;
+        -webkit-animation: slide-in 5s ease-in-out;
+        animation-timeline: view();
+    }
+
+    p {
+        width: 40vw;
+        height: fit-content;
+        // background: #00000052;
+        color: white;
+        padding: 1.5vw;
+
+        animation: slide-out 5s ease-in-out;
+        -webkit-animation: slide-out 5s ease-in-out;
+        animation-timeline: view();
+    }
+    
 }
 
 .who2 {
-    left: 30vw;
+    background-color: transparent !important;
+
+    .what-is {
+        h1 {
+            margin-left: 5vw;
+        }
+    }
 }
 
 .who3 {
-    left: 64vw;
-}
+    // background-color: transparent !important;
+    // overflow: scroll;
 
+    .frnt-row {
+        width: 90%;
+        height: 100vw !important;
+        margin: 0vw 5vw;
+        height: auto;
 
-.descriptive-sec {
-    height: 80vh;
-    padding: 3vh 5vw;
-    border-radius: 1vw;
-    box-shadow: 19px 20px 20px 4px #00000047;
-    overflow: hidden;
-    background-size: cover !important;
-
-    color: black;
-    font-family: "Rubik Doodle Shadow", system-ui;
-    font-weight: 400;
-    font-style: normal;
-
-    h1, p {
-        margin-left: -2vw;
-        font-size: 1.5vw;
-    }
-
-    .sec-headers {
-        position: relative;
-        width: 36vw;
-        left: -5vw;
-        top: -4vh;
-        height: 3vw;
-        background-color: darkslategray;
-    
-        div {
-            height: 2.5vw;
-            display: flex;
-            align-items: center;
+        .card {
             position: relative;
-            top: 0.5vw;
-            margin-left: 1vw;
-    
-            dots {
-                width: 1vw;
-                height: 1vw;
-                border-radius: 50%;
-                background: white;
-                margin: 1.3vw 0.6vw;
+            background-size: cover !important;
+        }
+
+        .card:hover {
+            z-index: 10;
+            transform: scale(1.5);
+        }
+
+        .card:nth-child(1) {
+            width: 22vw;
+            height: 30vw;
+            background: purple;
+            left: 20vw;
+        }
+
+        .card:nth-child(2) {
+            width: 25vw;
+            height: 30vw;
+            background: navy;
+            left: 52vw;
+            top: -12vw
+        }
+
+        .card:nth-child(3) {
+            width: 35vw;
+            height: 25vw;
+            background: darkslategray;
+            left: 14vw;
+            top: -28vw;
+        }
+
+        .card:nth-child(4) {
+            width: 25vw;
+            height: 25vw;
+            background: gray;
+            left: 49vw;
+            top: -29vw;
+        }
+
+        .card:nth-child(5) {
+            width: 31vw;
+            height: 25vw;
+            background: mediumvioletred;
+            left: 15vw;
+            top: -46vw;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            background-size: cover !important;
+
+            .card-overlay {
+                width: 100%;
+                height: 100%;
+                background: rgb(0 0 0 / 68%);
+                opacity: 0;
                 color: white;
-                font-family: monospace;
-                font-size: 0.5vw;
-                text-align: center;
-                line-height: 2.3vh;
+                display: flex;
+                align-items: self-end;
+
+                p {
+                    margin: 2vw;
+                }
             }
-    
-            dots:nth-child(1) {
-                background: #e40303;
-            }
-    
-            dots:nth-child(1):hover {
-                box-shadow: 0 0 12px 5px #e40303;
-            }
-    
-            dots:nth-child(2) {
-                background: #f8b415;
-            }
-    
-            dots:nth-child(2):hover {
-                box-shadow: 0 0 12px 5px #f8b415;
-            }
-    
-            dots:nth-child(3) {
-                background: #04a004;
-            }
-    
-            dots:nth-child(3):hover {
-                box-shadow: 0 0 12px 5px #04a004;
+
+            .card-overlay:hover {
+                opacity: 1;
             }
         }
-        
+
+        .card-content:hover {
+            transform: scale(1.1);
+        }
     }
 }
 
-.ds1 {
-    background: black;
-    color: yellow;
-    font-family: "Moul", serif;
-    font-weight: 400;
+
+//  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> GENERAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
+
+
+.title {
+    cursor: pointer;
+    font-family:"Monoton", sans-serif !important;
+    color: #e9ae00;
+    font-size: 3vw;
     font-style: normal;
+    text-decoration: none;
 }
 
-.ds2 {
-    background: black;
-    color: yellow;
-    font-family: "Moul", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.ds3 {
-    background: black;
-    color: yellow;
-    font-family: "Moul", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
-.what-we-do {
-    min-width: 100vw;
-    max-width: 100vw !important;
-    height: 100vh !important;
-    margin: 0 !important;
-    padding: 2vw !important;
-    position: sticky;
-    top: 0vh;
-    background: transparent;
-    overflow: hidden;
-    font-size: 2vw;
-
-    animation: swoosh 3s linear;
-    animation-timeline: view();
-}
-
-.what-we-do2, .empty {
-    min-width: 100vw;
-    max-width: 100vw !important;
-    height: 100vh !important;
-    margin: 0 !important;
-    padding: 2vw !important;
-    position: relative;
-    top: 0vh;
-    background: transparent;
-    overflow: hidden;
-    font-size: 2vw;
-}
+//  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> KEYFRAMES <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
@@ -285,9 +295,20 @@ html, body {
     }
 }
 
-@keyframes swoosh {
-    0% { scale: 0.6; }
-    30% { scale: 0.8; opacity: 100%}
-    50% { scale: 0.8; opacity: 100%}
-    80% { scale: 0.8; opacity: 100%}
+@keyframes slide-in {
+    0% { transform: translateX(95%); opacity: 0.2; }
+    20% {  opacity: 0.5; }
+    30% {transform: translateX(30%); opacity: 1; z-index: 0;}
+    55% { transform: translateX(30%); opacity: 1; z-index: 0; }
+    65% { opacity: 0; }
+    100% { z-index: -1; opacity: 0;}
+}
+
+@keyframes slide-out {
+    0% { transform: translateX(-65%); opacity: 0; }
+    20% { opacity: 0; }
+    30% { transform: translateX(0%); opacity: 1;  z-index: 0;}
+    55% { transform: translateX(0%); opacity: 0; z-index: -1; }
+    65% { opacity: 0; }
+    100% { z-index: -1; opacity: 0;}
 }

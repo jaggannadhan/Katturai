@@ -9,7 +9,6 @@ import { ReactTyped } from "react-typed";
 import "../../Styles/Portfolio/PortPreview.scss";
 import * as CONSTANTS from "../../Constants/Constants";
 import myProfilePic from "../../../public/images/myProfileYlw.png";
-import codingGif from "../../../public/images/coding.webp";
 
 
 const PortPreview = (props) => {
@@ -57,9 +56,7 @@ const PortPreview = (props) => {
                     </div>
                 </div>
                 <div className="port-img">
-                    <img src={myProfilePic} alt="jagan" className="prot-profile-pic"/>
-                    {/* <img src={codingGif} alt="jagan" className="prot-profile-pic" /> */}
-                    
+                    <img src={myProfilePic} alt="jagan" className="prot-profile-pic"/>                    
                 </div>
             </section>
             </Container>        
