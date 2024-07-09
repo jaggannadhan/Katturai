@@ -2467,169 +2467,6 @@ var weakMemoize = function weakMemoize(func) {
 
 /***/ }),
 
-/***/ "./node_modules/@material-ui/core/esm/Container/Container.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/Container/Container.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   styles: () => (/* binding */ styles)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/@material-ui/core/node_modules/clsx/dist/clsx.m.js");
-/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
-/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
-
-
-
-
-
-
-
-
-var styles = function styles(theme) {
-  return {
-    /* Styles applied to the root element. */
-    root: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({
-      width: '100%',
-      marginLeft: 'auto',
-      boxSizing: 'border-box',
-      marginRight: 'auto',
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
-      display: 'block'
-    }, theme.breakpoints.up('sm'), {
-      paddingLeft: theme.spacing(3),
-      paddingRight: theme.spacing(3)
-    }),
-
-    /* Styles applied to the root element if `disableGutters={true}`. */
-    disableGutters: {
-      paddingLeft: 0,
-      paddingRight: 0
-    },
-
-    /* Styles applied to the root element if `fixed={true}`. */
-    fixed: Object.keys(theme.breakpoints.values).reduce(function (acc, breakpoint) {
-      var value = theme.breakpoints.values[breakpoint];
-
-      if (value !== 0) {
-        acc[theme.breakpoints.up(breakpoint)] = {
-          maxWidth: value
-        };
-      }
-
-      return acc;
-    }, {}),
-
-    /* Styles applied to the root element if `maxWidth="xs"`. */
-    maxWidthXs: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('xs'), {
-      maxWidth: Math.max(theme.breakpoints.values.xs, 444)
-    }),
-
-    /* Styles applied to the root element if `maxWidth="sm"`. */
-    maxWidthSm: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('sm'), {
-      maxWidth: theme.breakpoints.values.sm
-    }),
-
-    /* Styles applied to the root element if `maxWidth="md"`. */
-    maxWidthMd: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('md'), {
-      maxWidth: theme.breakpoints.values.md
-    }),
-
-    /* Styles applied to the root element if `maxWidth="lg"`. */
-    maxWidthLg: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('lg'), {
-      maxWidth: theme.breakpoints.values.lg
-    }),
-
-    /* Styles applied to the root element if `maxWidth="xl"`. */
-    maxWidthXl: (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.breakpoints.up('xl'), {
-      maxWidth: theme.breakpoints.values.xl
-    })
-  };
-};
-var Container = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(function Container(props, ref) {
-  var classes = props.classes,
-      className = props.className,
-      _props$component = props.component,
-      Component = _props$component === void 0 ? 'div' : _props$component,
-      _props$disableGutters = props.disableGutters,
-      disableGutters = _props$disableGutters === void 0 ? false : _props$disableGutters,
-      _props$fixed = props.fixed,
-      fixed = _props$fixed === void 0 ? false : _props$fixed,
-      _props$maxWidth = props.maxWidth,
-      maxWidth = _props$maxWidth === void 0 ? 'lg' : _props$maxWidth,
-      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "component", "disableGutters", "fixed", "maxWidth"]);
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(Component, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className, fixed && classes.fixed, disableGutters && classes.disableGutters, maxWidth !== false && classes["maxWidth".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(String(maxWidth)))]),
-    ref: ref
-  }, other));
-});
- true ? Container.propTypes = {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * @ignore
-   */
-  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node).isRequired,
-
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css) below for more details.
-   */
-  classes: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().object),
-
-  /**
-   * @ignore
-   */
-  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
-
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
-
-  /**
-   * If `true`, the left and right padding is removed.
-   */
-  disableGutters: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
-
-  /**
-   * Set the max-width to match the min-width of the current breakpoint.
-   * This is useful if you'd prefer to design for a fixed set of sizes
-   * instead of trying to accommodate a fully fluid viewport.
-   * It's fluid by default.
-   */
-  fixed: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
-
-  /**
-   * Determine the max-width of the container.
-   * The container width grows with the size of the screen.
-   * Set to `false` to disable `maxWidth`.
-   */
-  maxWidth: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(['lg', 'md', 'sm', 'xl', 'xs', false])
-} : 0;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_7__["default"])(styles, {
-  name: 'MuiContainer'
-})(Container));
-
-/***/ }),
-
 /***/ "./node_modules/@material-ui/core/esm/Typography/Typography.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Typography/Typography.js ***!
@@ -24813,6 +24650,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import LandingPage from './Components/Main/Landing1';
+
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Components_Main_LandingPage__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
@@ -25461,6 +25300,74 @@ var Preview = function Preview() {
 
 /***/ }),
 
+/***/ "./src/Components/Main/IntroAnimation.jsx":
+/*!************************************************!*\
+  !*** ./src/Components/Main/IntroAnimation.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Styles_Main_IntroAnimation_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Styles/Main/IntroAnimation.scss */ "./src/Styles/Main/IntroAnimation.scss");
+/* harmony import */ var _public_images_landing_introGossip_gif__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../public/images/landing/introGossip.gif */ "./public/images/landing/introGossip.gif");
+
+
+
+var IntroAnimation = function IntroAnimation(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    id: "intro"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "intro-overlay-img",
+    style: {
+      backgroundImage: "url(".concat(_public_images_landing_introGossip_gif__WEBPACK_IMPORTED_MODULE_2__["default"], ") ")
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "intro-strips"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "strip"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-ylw"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-noc"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "strip"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-ylw"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-noc"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "strip"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-ylw"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-noc"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "strip"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-ylw"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-noc"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "strip"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-ylw"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "strip-noc"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "title-intro logo"
+  }, "Raconteur"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "title-intro tag"
+  }, "Where stories never end"));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IntroAnimation);
+
+/***/ }),
+
 /***/ "./src/Components/Main/LandingPage.jsx":
 /*!*********************************************!*\
   !*** ./src/Components/Main/LandingPage.jsx ***!
@@ -25474,19 +25381,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
 /* harmony import */ var react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-parallax-tilt */ "./node_modules/react-parallax-tilt/dist/modern/index.js");
-/* harmony import */ var _Styles_Main_LandingPage_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Styles/Main/LandingPage.scss */ "./src/Styles/Main/LandingPage.scss");
-/* harmony import */ var _public_svgs_downArrowWhite_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../public/svgs/downArrowWhite.svg */ "./public/svgs/downArrowWhite.svg");
-/* harmony import */ var _public_images_landing_fogLow_webp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../public/images/landing/fogLow.webp */ "./public/images/landing/fogLow.webp");
-/* harmony import */ var _public_images_landing_landing11_avif__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/images/landing/landing11.avif */ "./public/images/landing/landing11.avif");
-/* harmony import */ var _public_images_landing_wall1_avif__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/images/landing/wall1.avif */ "./public/images/landing/wall1.avif");
-/* harmony import */ var _public_images_cards_card1_avif__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/images/cards/card1.avif */ "./public/images/cards/card1.avif");
-/* harmony import */ var _public_images_cards_card2_avif__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../public/images/cards/card2.avif */ "./public/images/cards/card2.avif");
-/* harmony import */ var _public_images_cards_card3_avif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../public/images/cards/card3.avif */ "./public/images/cards/card3.avif");
-/* harmony import */ var _public_images_cards_card4_avif__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../public/images/cards/card4.avif */ "./public/images/cards/card4.avif");
-/* harmony import */ var _public_images_cards_card5_avif__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../public/images/cards/card5.avif */ "./public/images/cards/card5.avif");
+/* harmony import */ var react_scroll_parallax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-scroll-parallax */ "./node_modules/react-scroll-parallax/dist/react-scroll-parallax.esm.js");
+/* harmony import */ var _IntroAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IntroAnimation */ "./src/Components/Main/IntroAnimation.jsx");
+/* harmony import */ var _Styles_Main_LandingPage_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Styles/Main/LandingPage.scss */ "./src/Styles/Main/LandingPage.scss");
+/* harmony import */ var _public_images_landing_landing1_avif__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/images/landing/landing1.avif */ "./public/images/landing/landing1.avif");
+/* harmony import */ var _public_images_cards_card1_avif__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/images/cards/card1.avif */ "./public/images/cards/card1.avif");
+/* harmony import */ var _public_images_cards_card2_avif__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../public/images/cards/card2.avif */ "./public/images/cards/card2.avif");
+/* harmony import */ var _public_images_cards_card3_avif__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../public/images/cards/card3.avif */ "./public/images/cards/card3.avif");
+/* harmony import */ var _public_images_cards_card4_avif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../public/images/cards/card4.avif */ "./public/images/cards/card4.avif");
+/* harmony import */ var _public_images_cards_card5_avif__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../public/images/cards/card5.avif */ "./public/images/cards/card5.avif");
+/* harmony import */ var _public_images_cards_card6_avif__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../public/images/cards/card6.avif */ "./public/images/cards/card6.avif");
+/* harmony import */ var _public_images_cards_card7_avif__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../public/images/cards/card7.avif */ "./public/images/cards/card7.avif");
+/* harmony import */ var _public_images_landing_wall2_avif__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../public/images/landing/wall2.avif */ "./public/images/landing/wall2.avif");
+
+
 
 
 
@@ -25502,114 +25411,118 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var LandingPage = function LandingPage(props) {
-  var goToWhoWeR = function goToWhoWeR() {
-    document.querySelector('.who-we-are').scrollIntoView({
-      behavior: "smooth"
-    });
-  };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "landing"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    id: "title-cont",
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "landing",
     style: {
-      background: "url(".concat(_public_images_landing_landing11_avif__WEBPACK_IMPORTED_MODULE_4__["default"], ") center no-repeat")
+      background: "url(".concat(_public_images_landing_landing1_avif__WEBPACK_IMPORTED_MODULE_4__["default"], ") center no-repeat")
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "overlay"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    className: "overlay2",
-    src: _public_images_landing_fogLow_webp__WEBPACK_IMPORTED_MODULE_3__["default"],
-    alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "title-sec"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "title"
-  }, "Raconteur.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Every life becomes a story worth sharing! ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: _public_svgs_downArrowWhite_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
-    alt: "Scroll V",
-    onClick: goToWhoWeR
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    className: "who-we-are",
-    style: {
-      background: "url(".concat(_public_images_landing_wall1_avif__WEBPACK_IMPORTED_MODULE_5__["default"], ") center no-repeat")
-    }
+    className: "main-landing"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "main-title"
+  }, "Raconteur."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "main-sub"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "sub-big"
+  }, "It's the season of stories!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "sub-mid"
+  }, "Good stories are alway amusing and we delight in sharing 'em captivating tales. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Whether for private reflection, public inspiration or just entertaiment. Join us in crafting extraordinary narratives that leave a lasting impact."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "right"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "overlay"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "what-is"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "What is", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "title"
-  }, " Raconteur."), " ?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    direction: "row",
-    spacing: 2,
-    justifyContent: "end"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "We capture the essence of your personal and professional journeys, allowing you to chronicle unique narratives. "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Whether for private reflection or public inspiration, we empower you to curate and showcase the moments that matter. ")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    className: "who-we-are who2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "what-is"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "What  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "title"
-  }, " Else."), " ?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    direction: "row",
-    spacing: 2,
-    justifyContent: "end"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "From cherished memories to career milestones, our platform celebrates diversity in storytelling, offering a personalized space to document and immortalize life's most meaningful chapters. "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Join us in shaping legacies and connecting through the power of personal narrative with  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "title"
-  }, " Raconteur."))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    className: "who-we-are who3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "frnt-row"
+    className: "right-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    tiltReverse: true,
-    className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "card-content",
+    className: "card big",
     style: {
-      background: "url(".concat(_public_images_cards_card1_avif__WEBPACK_IMPORTED_MODULE_6__["default"], ") center no-repeat")
-    }
+      background: "url(".concat(_public_images_cards_card1_avif__WEBPACK_IMPORTED_MODULE_5__["default"], ") center no-repeat")
+    },
+    tiltReverse: true,
+    tiltMaxAngleX: 5,
+    tiltMaxAngleY: 5
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "card-overlay"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    tiltReverse: true,
-    className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "card-content",
+    className: "card small",
     style: {
-      background: "url(".concat(_public_images_cards_card2_avif__WEBPACK_IMPORTED_MODULE_7__["default"], ") center no-repeat")
-    }
+      background: "url(".concat(_public_images_cards_card6_avif__WEBPACK_IMPORTED_MODULE_10__["default"], ") center no-repeat")
+    },
+    tiltReverse: true,
+    tiltMaxAngleX: 5,
+    tiltMaxAngleY: 5
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "card-overlay"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    tiltReverse: true,
-    className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "card-content",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Got some T, pour it here! Don't we all love some annonymous gossip?"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "right-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    className: "card small",
     style: {
-      background: "url(".concat(_public_images_cards_card3_avif__WEBPACK_IMPORTED_MODULE_8__["default"], ") center no-repeat")
-    }
+      background: "url(".concat(_public_images_cards_card2_avif__WEBPACK_IMPORTED_MODULE_6__["default"], ") center no-repeat")
+    },
+    tiltReverse: true,
+    tiltMaxAngleX: 5,
+    tiltMaxAngleY: 5
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "card-overlay"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    tiltReverse: true,
-    className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "card-content",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Explore and showcase your passion\u2014whether photography, cooking, travel, or DIY\u2014and inspire others along the way!")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    className: "card big",
     style: {
-      background: "url(".concat(_public_images_cards_card4_avif__WEBPACK_IMPORTED_MODULE_9__["default"], ") center no-repeat")
-    }
+      background: "url(".concat(_public_images_cards_card3_avif__WEBPACK_IMPORTED_MODULE_7__["default"], ") center no-repeat")
+    },
+    tiltReverse: true,
+    tiltMaxAngleX: 5,
+    tiltMaxAngleY: 5
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "card-overlay"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    tiltReverse: true,
-    className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "card-content",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Craft an exceptional PORTFOLIO that showcases your professional work and captivates recruiters. Exhibit Exemplary!"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "right-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    className: "card big",
     style: {
-      background: "url(".concat(_public_images_cards_card5_avif__WEBPACK_IMPORTED_MODULE_10__["default"], ") center no-repeat")
-    }
+      background: "url(".concat(_public_images_cards_card4_avif__WEBPACK_IMPORTED_MODULE_8__["default"], ") center no-repeat")
+    },
+    tiltReverse: true,
+    tiltMaxAngleX: 5,
+    tiltMaxAngleY: 5
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "card-overlay"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.")))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Make your voice heard\u2014whether it's social, political, or personal, your opinions matter here.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    className: "card small",
+    style: {
+      background: "url(".concat(_public_images_cards_card7_avif__WEBPACK_IMPORTED_MODULE_11__["default"], ") center no-repeat")
+    },
+    tiltReverse: true,
+    tiltMaxAngleX: 5,
+    tiltMaxAngleY: 5
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-overlay"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Thinkers may not be doers, just do it! This can be your personal blog."))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    className: "card thin",
+    style: {
+      background: "url(".concat(_public_images_cards_card5_avif__WEBPACK_IMPORTED_MODULE_9__["default"], ") center no-repeat")
+    },
+    tiltReverse: true,
+    tiltMaxAngleX: 5,
+    tiltMaxAngleY: 5
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "card-overlay"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Track your journey, from where you began to where you stand now\u2014grow, reminisce, and discover yourself along the way.")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "anchor-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Let's go!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Author")));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LandingPage);
 
@@ -25877,15 +25790,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Container/Container.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Link/Link.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Container/Container.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Link/Link.js");
 /* harmony import */ var react_typed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-typed */ "./node_modules/react-typed/dist/mjs/index.js");
 /* harmony import */ var _Styles_Portfolio_PortPreview_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Styles/Portfolio/PortPreview.scss */ "./src/Styles/Portfolio/PortPreview.scss");
 /* harmony import */ var _Constants_Constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Constants/Constants */ "./src/Constants/Constants.js");
 /* harmony import */ var _public_images_myProfileYlw_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../public/images/myProfileYlw.png */ "./public/images/myProfileYlw.png");
-/* harmony import */ var _public_images_coding_webp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../public/images/coding.webp */ "./public/images/coding.webp");
-
 
 
 
@@ -25893,7 +25804,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PortPreview = function PortPreview(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "port-cont"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: "portfolio"
@@ -25907,14 +25818,14 @@ var PortPreview = function PortPreview(props) {
     backSpeed: 100,
     backDelay: 1000,
     loop: true
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "From algorithms to user interfaces, I engineer robust software ecosystems that elevate user experiences and exceed expectations."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "From algorithms to user interfaces, I engineer robust software ecosystems that elevate user experiences and exceed expectations."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
     direction: "row",
     spacing: 2,
     alignItems: "center",
     justifyContent: "center",
     className: "port-socials"
   }, _Constants_Constants__WEBPACK_IMPORTED_MODULE_3__.socials.map(function (network) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
       display: "block",
       variant: "body1",
       href: network.link,
@@ -26345,6 +26256,123 @@ var uuid = function uuid() {
 var validateEmail = function validateEmail(email) {
   return String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 };
+
+/***/ }),
+
+/***/ "./node_modules/bezier-easing/src/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/bezier-easing/src/index.js ***!
+  \*************************************************/
+/***/ ((module) => {
+
+/**
+ * https://github.com/gre/bezier-easing
+ * BezierEasing - use bezier curve for transition easing function
+ * by Gaëtan Renaudeau 2014 - 2015 – MIT License
+ */
+
+// These values are established by empiricism with tests (tradeoff: performance VS precision)
+var NEWTON_ITERATIONS = 4;
+var NEWTON_MIN_SLOPE = 0.001;
+var SUBDIVISION_PRECISION = 0.0000001;
+var SUBDIVISION_MAX_ITERATIONS = 10;
+
+var kSplineTableSize = 11;
+var kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
+
+var float32ArraySupported = typeof Float32Array === 'function';
+
+function A (aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
+function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
+function C (aA1)      { return 3.0 * aA1; }
+
+// Returns x(t) given t, x1, and x2, or y(t) given t, y1, and y2.
+function calcBezier (aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
+
+// Returns dx/dt given t, x1, and x2, or dy/dt given t, y1, and y2.
+function getSlope (aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1); }
+
+function binarySubdivide (aX, aA, aB, mX1, mX2) {
+  var currentX, currentT, i = 0;
+  do {
+    currentT = aA + (aB - aA) / 2.0;
+    currentX = calcBezier(currentT, mX1, mX2) - aX;
+    if (currentX > 0.0) {
+      aB = currentT;
+    } else {
+      aA = currentT;
+    }
+  } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
+  return currentT;
+}
+
+function newtonRaphsonIterate (aX, aGuessT, mX1, mX2) {
+ for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
+   var currentSlope = getSlope(aGuessT, mX1, mX2);
+   if (currentSlope === 0.0) {
+     return aGuessT;
+   }
+   var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
+   aGuessT -= currentX / currentSlope;
+ }
+ return aGuessT;
+}
+
+function LinearEasing (x) {
+  return x;
+}
+
+module.exports = function bezier (mX1, mY1, mX2, mY2) {
+  if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) {
+    throw new Error('bezier x values must be in [0, 1] range');
+  }
+
+  if (mX1 === mY1 && mX2 === mY2) {
+    return LinearEasing;
+  }
+
+  // Precompute samples table
+  var sampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
+  for (var i = 0; i < kSplineTableSize; ++i) {
+    sampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
+  }
+
+  function getTForX (aX) {
+    var intervalStart = 0.0;
+    var currentSample = 1;
+    var lastSample = kSplineTableSize - 1;
+
+    for (; currentSample !== lastSample && sampleValues[currentSample] <= aX; ++currentSample) {
+      intervalStart += kSampleStepSize;
+    }
+    --currentSample;
+
+    // Interpolate to provide an initial guess for t
+    var dist = (aX - sampleValues[currentSample]) / (sampleValues[currentSample + 1] - sampleValues[currentSample]);
+    var guessForT = intervalStart + dist * kSampleStepSize;
+
+    var initialSlope = getSlope(guessForT, mX1, mX2);
+    if (initialSlope >= NEWTON_MIN_SLOPE) {
+      return newtonRaphsonIterate(aX, guessForT, mX1, mX2);
+    } else if (initialSlope === 0.0) {
+      return guessForT;
+    } else {
+      return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize, mX1, mX2);
+    }
+  }
+
+  return function BezierEasing (x) {
+    // Because JavaScript number are imprecise, we should guarantee the extremes are right.
+    if (x === 0) {
+      return 0;
+    }
+    if (x === 1) {
+      return 1;
+    }
+    return calcBezier(getTForX(x), mY1, mY2);
+  };
+};
+
 
 /***/ }),
 
@@ -27064,6 +27092,189 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.preview-img-container {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/IntroAnimation.scss":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/IntroAnimation.scss ***!
+  \**************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&family=Rubik+Doodle+Shadow&display=swap);"]);
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap);"]);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.landing {
+  width: 100%;
+  margin: 0;
+}
+.landing #intro {
+  position: fixed;
+  z-index: 100;
+}
+.landing #intro-overlay-img {
+  position: fixed;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: deleteLayer 0.1s 8s forwards;
+}
+.landing #intro-strips .strip {
+  position: fixed;
+  bottom: 0;
+  width: 20vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-right: 1px dashed gray;
+  animation: deleteLayer 0.1s 12s forwards;
+}
+.landing #intro-strips .strip .strip-ylw {
+  background: rgb(255, 209, 63);
+}
+.landing #intro-strips .strip .strip-noc {
+  background: transparent;
+}
+.landing #intro-strips .strip:nth-child(1) {
+  left: 0;
+}
+.landing #intro-strips .strip:nth-child(1) .strip-ylw {
+  animation: grow 0.5s 6s forwards ease-in, shrink 0.2s 11.2s forwards ease-out;
+}
+.landing #intro-strips .strip:nth-child(1) .strip-noc {
+  animation: grow 0.2s 11s forwards ease-in;
+}
+.landing #intro-strips .strip:nth-child(2) {
+  left: 20vw;
+}
+.landing #intro-strips .strip:nth-child(2) .strip-ylw {
+  animation: grow 0.9s 6s forwards ease-in, shrink 0.5s 11.5s forwards ease-out;
+}
+.landing #intro-strips .strip:nth-child(2) .strip-noc {
+  animation: grow 0.5s 11s forwards ease-in;
+}
+.landing #intro-strips .strip:nth-child(3) {
+  left: 40vw;
+}
+.landing #intro-strips .strip:nth-child(3) .strip-ylw {
+  animation: grow 0.6s 6s forwards ease-in, shrink 0.3s 11.3s forwards ease-out;
+}
+.landing #intro-strips .strip:nth-child(3) .strip-noc {
+  animation: grow 0.3s 11s forwards ease-in;
+}
+.landing #intro-strips .strip:nth-child(4) {
+  left: 60vw;
+}
+.landing #intro-strips .strip:nth-child(4) .strip-ylw {
+  animation: grow 0.8s 6s forwards ease-in, shrink 0.4s 11.4s forwards ease-out;
+}
+.landing #intro-strips .strip:nth-child(4) .strip-noc {
+  animation: grow 0.4s 11s forwards ease-in;
+}
+.landing #intro-strips .strip:nth-child(5) {
+  left: 80vw;
+}
+.landing #intro-strips .strip:nth-child(5) .strip-ylw {
+  animation: grow 0.7s 6s forwards ease-in, shrink 0.35s 11.35s forwards ease-out;
+}
+.landing #intro-strips .strip:nth-child(5) .strip-noc {
+  animation: grow 0.35s 11s forwards ease-in;
+}
+.landing .title-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+}
+.landing .title-intro.logo {
+  font-family: "Monoton", sans-serif;
+  font-size: 5vw;
+  animation: enlarge 2s 7s forwards ease-in-out;
+}
+.landing .title-intro.tag {
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-size: 5vw;
+  animation: fadeInOut 2.5s 9s forwards ease-in-out;
+}
+
+@keyframes grow {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 100vh;
+  }
+}
+@keyframes shrink {
+  from {
+    height: 100vh;
+  }
+  to {
+    height: 0vh;
+  }
+}
+@keyframes deleteLayer {
+  from {
+    display: block;
+  }
+  to {
+    display: none;
+  }
+}
+@keyframes enlarge {
+  0% {
+    scale: 1;
+    opacity: 0;
+    display: flex;
+  }
+  50% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 15;
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    display: flex;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Main/IntroAnimation.scss"],"names":[],"mappings":"AAMA;EACI,WAAA;EACA,SAAA;AAHJ;AAKI;EACI,eAAA;EACA,YAAA;AAHR;AAMI;EACI,eAAA;EACA,SAAA;EACA,aAAA;EACA,YAAA;EACA,sBAAA;EACA,2BAAA;EACA,4BAAA;EACA,uCAAA;AAJR;AAQQ;EACI,eAAA;EACA,SAAA;EACA,WAAA;EACA,aAAA;EACA,aAAA;EACA,sBAAA;EACA,yBAAA;EACA,6BAAA;EACA,wCAAA;AANZ;AAQY;EACI,6BAAA;AANhB;AASY;EACI,uBAAA;AAPhB;AAWQ;EACI,OAAA;AATZ;AAUY;EAAa,6EAAA;AAPzB;AAQY;EAAa,yCAAA;AALzB;AAQQ;EACI,UAAA;AANZ;AAOY;EAAa,6EAAA;AAJzB;AAKY;EAAa,yCAAA;AAFzB;AAIQ;EACI,UAAA;AAFZ;AAGY;EAAa,6EAAA;AAAzB;AACY;EAAa,yCAAA;AAEzB;AAAQ;EACI,UAAA;AAEZ;AADY;EAAa,6EAAA;AAIzB;AAHY;EAAa,yCAAA;AAMzB;AAJQ;EACI,UAAA;AAMZ;AALY;EAAa,+EAAA;AAQzB;AAPY;EAAa,0CAAA;AAUzB;AANI;EACI,eAAA;EACA,MAAA;EACA,OAAA;EACA,YAAA;EACA,YAAA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;EACA,UAAA;AAQR;AALI;EACI,kCAAA;EACA,cAAA;EACA,6CAAA;AAOR;AAJI;EACI,6CAAA;EACA,cAAA;EACA,iDAAA;AAMR;;AADA;EACI;IAAO,WAAA;EAKT;EAJE;IAAK,aAAA;EAOP;AACF;AALA;EACI;IAAO,aAAA;EAQT;EAPE;IAAK,WAAA;EAUP;AACF;AARA;EACI;IAAO,cAAA;EAWT;EAVE;IAAK,aAAA;EAaP;AACF;AAVA;EACI;IAAK,QAAA;IAAU,UAAA;IAAY,aAAA;EAe7B;EAdE;IAAM,QAAA;IAAU,UAAA;EAkBlB;EAjBE;IAAO,SAAA;IAAW,UAAA;IAAY,aAAA;EAsBhC;AACF;AApBA;EACI;IAAK,UAAA;IAAY,aAAA;EAwBnB;EAvBE;IAAM,UAAA;EA0BR;EAzBE;IAAO,UAAA;IAAY,aAAA;EA6BrB;AACF","sourcesContent":["\n\n@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&family=Rubik+Doodle+Shadow&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap');\n\n\n.landing {\n    width: 100%;\n    margin: 0;\n\n    #intro {\n        position: fixed;\n        z-index: 100;\n    }\n    \n    #intro-overlay-img {\n        position: fixed;\n        bottom: 0;\n        height: 100vh;\n        width: 100vw;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n        animation: deleteLayer 0.1s 8s forwards;\n    }\n\n    #intro-strips {\n        .strip {\n            position: fixed;\n            bottom: 0;\n            width: 20vw;\n            height: 100vh;\n            display: flex;\n            flex-direction: column;\n            justify-content: flex-end;\n            border-right: 1px dashed gray;\n            animation: deleteLayer 0.1s 12s forwards;\n    \n            .strip-ylw {\n                background: rgb(255, 209, 63);\n            }\n    \n            .strip-noc {\n                background: transparent;\n            }\n        }\n    \n        .strip:nth-child(1) {\n            left: 0;\n            .strip-ylw { animation: grow 0.5s 6s forwards ease-in, shrink 0.2s 11.2s forwards ease-out; }\n            .strip-noc { animation: grow 0.2s 11s forwards ease-in; }\n        }\n    \n        .strip:nth-child(2) {\n            left: 20vw;\n            .strip-ylw { animation: grow 0.9s 6s forwards ease-in, shrink 0.5s 11.5s forwards ease-out; }\n            .strip-noc { animation: grow 0.5s 11s forwards ease-in; }\n        }\n        .strip:nth-child(3) {\n            left: 40vw;\n            .strip-ylw { animation: grow 0.6s 6s forwards ease-in, shrink 0.3s 11.3s forwards ease-out; }\n            .strip-noc { animation: grow 0.3s 11s forwards ease-in; }\n        }\n        .strip:nth-child(4) {\n            left: 60vw;\n            .strip-ylw { animation: grow 0.8s 6s forwards ease-in, shrink 0.4s 11.4s forwards ease-out; }\n            .strip-noc { animation: grow 0.4s 11s forwards ease-in; }\n        }\n        .strip:nth-child(5) {\n            left: 80vw;\n            .strip-ylw { animation: grow 0.7s 6s forwards ease-in, shrink 0.35s 11.35s forwards ease-out; }\n            .strip-noc { animation: grow 0.35s 11s forwards ease-in; }\n        }\n    }\n\n    .title-intro {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100vw;\n        height: 70vh;\n        justify-content: center;\n        align-items: center;\n        color: white;\n        opacity: 0;\n    }\n\n    .title-intro.logo {\n        font-family: \"Monoton\", sans-serif;\n        font-size: 5vw;\n        animation: enlarge 2s 7s forwards ease-in-out;\n    }\n\n    .title-intro.tag {\n        font-family: \"Rubik Doodle Shadow\", system-ui;\n        font-size: 5vw;\n        animation: fadeInOut 2.5s 9s forwards ease-in-out;\n    }\n\n}\n\n@keyframes grow {\n    from { height: 0vh; }\n    to { height: 100vh; }\n}\n\n@keyframes shrink {\n    from { height: 100vh; }\n    to { height: 0vh; }\n}\n\n@keyframes deleteLayer {\n    from { display: block; }\n    to { display: none; }\n}\n\n\n@keyframes enlarge {\n    0% { scale: 1; opacity: 0; display: flex;}\n    50% { scale: 1; opacity: 1;}\n    100% { scale: 15; opacity: 0; display: none;}\n}\n\n@keyframes fadeInOut {\n    0% { opacity: 0; display: flex;}\n    50% { opacity: 1;}\n    100% { opacity: 0; display: none;}\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/LandingPage.scss":
 /*!***********************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/LandingPage.scss ***!
@@ -27090,292 +27301,142 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.c
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap);"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `html, body {
-  height: 100vh;
-  overflow: scroll;
-  scroll-snap-type: y;
   scroll-behavior: smooth;
+  overflow: scroll;
 }
 
-.landing > .what-we-do {
-  user-select: none;
-  scroll-snap-align: block;
-}
-
-#title-cont {
-  min-width: 100vw;
-  max-width: 100vw !important;
-  height: 100vh !important;
-  margin: 0 !important;
-  padding: 2vw !important;
-  position: sticky;
-  top: 0vh;
-  background-size: cover !important;
+.landing {
+  width: 100%;
+  margin: 0;
+  height: 100vh;
   overflow: hidden;
-  z-index: 0;
 }
-#title-cont .overlay {
-  min-width: 100vw;
-  max-width: 100vw !important;
-  height: 96vh !important;
-  margin: 0 !important;
-  padding: 2vh 2vw !important;
-  position: absolute;
-  top: 0vh;
-  left: 0vw;
-  background-color: rgba(0, 0, 0, 0.299);
+.landing .main-landing {
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  background: rgba(0, 0, 0, 0.4588235294);
 }
-#title-cont .overlay2 {
-  min-width: 100vw;
-  max-width: 150vw !important;
-  height: 80vh !important;
-  margin: 0 !important;
-  padding: 2vh 2vw !important;
-  position: absolute;
-  top: 30vh;
-  opacity: 60%;
-  left: 0vw;
-  background-repeat: repeat;
-  animation: moveClouds 50s linear infinite;
-  -webkit-animation: moveClouds 50s linear infinite;
+.landing .main-landing .left, .landing .main-landing .right {
+  height: 100vh;
 }
-#title-cont .title-sec {
-  position: relative;
-  text-align: center;
-  z-index: 2;
-  padding: 8vh 8vw;
-  display: grid;
-  height: 75vh;
-  align-items: center;
+.landing .main-landing .left {
+  width: 40vw;
+  user-select: none;
+  color: white;
 }
-#title-cont .title-sec .title {
-  cursor: pointer;
+.landing .main-landing .left .main-title {
+  padding: 9vh 4vw;
+  padding-bottom: 1vh;
   font-family: "Monoton", sans-serif !important;
   color: #e9ae00;
-  font-size: 4vw;
-  font-style: normal;
-  text-decoration: none;
+  font-size: 3.5vw;
 }
-#title-cont .title-sec .title span {
+.landing .main-landing .left .main-sub {
+  padding: 0vh 4vw;
+  width: 35vw;
+}
+.landing .main-landing .left .main-sub .sub-big {
+  margin: 8vh 0vw 1vw 0vw;
+  font-size: 2.5vw;
   font-family: "Archivo Black", sans-serif;
-  font-style: normal;
-  font-size: 1vw;
-  color: rgba(255, 255, 255, 0.25);
+}
+.landing .main-landing .left .main-sub .sub-mid {
+  margin: 4vh 0;
+  font-size: 1.5vw;
+  font-family: "Lexend Deca", sans-serif;
+}
+.landing .main-landing .right {
+  width: 58vw;
+  padding: 4vh 1vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.landing .main-landing .right .card {
   position: relative;
-  top: -4vw;
+  margin-bottom: 3vh;
+  margin-right: 2vw;
+  border-radius: 0.5vw;
+  z-index: 10;
+  background-size: cover !important;
 }
-#title-cont .title-sec span img {
-  width: 3vw;
-  cursor: pointer;
-  border: 0.25vw solid #e9ae01;
-  border-radius: 50%;
-  animation: bounce 2s infinite;
+.landing .main-landing .right .card .card-content {
+  font-size: 1.5vw;
+  width: 100%;
+  height: 100%;
 }
-#title-cont .title-sec span img:hover {
-  box-shadow: 0 0 1vw white;
-  background-color: rgba(233, 175, 1, 0);
-}
-
-.who-we-are {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: 100vh !important;
-  margin: 0 !important;
-  padding: 2vw !important;
-  position: sticky;
-  top: 0vh;
-  font-size: 2vw;
-  background: white;
-}
-
-.overlay {
-  position: absolute;
+.landing .main-landing .right .card .card-content .card-overlay {
   width: inherit;
   height: inherit;
-  background: rgba(0, 0, 0, 0.68);
-  margin: -2vw;
-}
-
-.what-is {
-  width: 100% !important;
-  height: 17vh;
-}
-.what-is h1 {
-  width: fit-content;
-  color: white;
-  animation: slide-in 5s ease-in-out;
-  -webkit-animation: slide-in 5s ease-in-out;
-  animation-timeline: view();
-}
-.what-is p {
-  width: 40vw;
-  height: fit-content;
-  color: white;
-  padding: 1.5vw;
-  animation: slide-out 5s ease-in-out;
-  -webkit-animation: slide-out 5s ease-in-out;
-  animation-timeline: view();
-}
-
-.who2 {
-  background-color: transparent !important;
-}
-.who2 .what-is h1 {
-  margin-left: 5vw;
-}
-
-.who3 .frnt-row {
-  width: 90%;
-  margin: 0vw 5vw;
-  height: auto;
-}
-.who3 .frnt-row .card {
-  position: relative;
-  background-size: cover !important;
-}
-.who3 .frnt-row .card:hover {
-  z-index: 10;
-  transform: scale(1.5);
-}
-.who3 .frnt-row .card:nth-child(1) {
-  width: 22vw;
-  height: 30vw;
-  background: purple;
-  left: 20vw;
-}
-.who3 .frnt-row .card:nth-child(2) {
-  width: 25vw;
-  height: 30vw;
-  background: navy;
-  left: 52vw;
-  top: -12vw;
-}
-.who3 .frnt-row .card:nth-child(3) {
-  width: 35vw;
-  height: 25vw;
-  background: darkslategray;
-  left: 14vw;
-  top: -28vw;
-}
-.who3 .frnt-row .card:nth-child(4) {
-  width: 25vw;
-  height: 25vw;
-  background: gray;
-  left: 49vw;
-  top: -29vw;
-}
-.who3 .frnt-row .card:nth-child(5) {
-  width: 31vw;
-  height: 25vw;
-  background: mediumvioletred;
-  left: 15vw;
-  top: -46vw;
-}
-.who3 .frnt-row .card-content {
-  width: 100%;
-  height: 100%;
-  background-size: cover !important;
-}
-.who3 .frnt-row .card-content .card-overlay {
-  width: 100%;
-  height: 100%;
   background: rgba(0, 0, 0, 0.68);
   opacity: 0;
   color: white;
   display: flex;
   align-items: self-end;
+  border-radius: 0.5vw;
 }
-.who3 .frnt-row .card-content .card-overlay p {
+.landing .main-landing .right .card .card-content .card-overlay p {
   margin: 2vw;
 }
-.who3 .frnt-row .card-content .card-overlay:hover {
+.landing .main-landing .right .card .card-content .card-overlay:hover {
   opacity: 1;
 }
-.who3 .frnt-row .card-content:hover {
-  transform: scale(1.1);
+.landing .main-landing .right .card:hover {
+  box-shadow: rgba(255, 255, 255, 0.48) 0px 0px 14px 1px;
+}
+.landing .main-landing .right .card.small {
+  width: 30vw;
+  height: 42vh;
+}
+.landing .main-landing .right .card.big {
+  width: 50vw;
+  height: 42vh;
+}
+.landing .main-landing .right .card.thin {
+  width: 35vw;
+  height: 40vh;
+  margin-bottom: 5vh;
+}
+.landing .main-landing .right .right-row {
+  width: 60vw;
+  display: flex;
+  justify-content: space-between;
 }
 
-.title {
+.anchor-details {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 2vw;
+  width: 13vw;
+  font-family: "Archivo Black";
+  font-size: 2vw;
+  user-select: none;
+  z-index: 10;
+}
+.anchor-details p {
+  margin: 0 1vw;
+  padding: 1vw;
   cursor: pointer;
-  font-family: "Monoton", sans-serif !important;
   color: #e9ae00;
-  font-size: 3vw;
-  font-style: normal;
-  text-decoration: none;
+  background: linear-gradient(to left, transparent 50%, #e9ae00 50%) right;
+  background-size: 200% 100%;
+  background-position: right;
+  transition: all 1s ease;
 }
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-2vh);
-  }
-  60% {
-    transform: translateY(-1vh);
-  }
+.anchor-details p:nth-child(1) {
+  width: 10vw;
+  border-left: 0.1vw solid #e9ae00;
 }
-@keyframes moveClouds {
-  0% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-  100% {
-    -webkit-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
-  }
+.anchor-details p:nth-child(2) {
+  width: 8vw;
+  border-left: 0.1vw solid #e9ae00;
 }
-@keyframes slide-in {
-  0% {
-    transform: translateX(95%);
-    opacity: 0.2;
-  }
-  20% {
-    opacity: 0.5;
-  }
-  30% {
-    transform: translateX(30%);
-    opacity: 1;
-    z-index: 0;
-  }
-  55% {
-    transform: translateX(30%);
-    opacity: 1;
-    z-index: 0;
-  }
-  65% {
-    opacity: 0;
-  }
-  100% {
-    z-index: -1;
-    opacity: 0;
-  }
-}
-@keyframes slide-out {
-  0% {
-    transform: translateX(-65%);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  30% {
-    transform: translateX(0%);
-    opacity: 1;
-    z-index: 0;
-  }
-  55% {
-    transform: translateX(0%);
-    opacity: 0;
-    z-index: -1;
-  }
-  65% {
-    opacity: 0;
-  }
-  100% {
-    z-index: -1;
-    opacity: 0;
-  }
-}`, "",{"version":3,"sources":["webpack://./src/Styles/Main/LandingPage.scss"],"names":[],"mappings":"AAaA;EACI,aAAA;EACA,gBAAA;EACA,mBAAA;EACA,uBAAA;AAPJ;;AAcA;EACI,iBAAA;EACA,wBAAA;AAXJ;;AAcA;EACI,gBAAA;EACA,2BAAA;EACA,wBAAA;EACA,oBAAA;EACA,uBAAA;EACA,gBAAA;EACA,QAAA;EACA,iCAAA;EACA,gBAAA;EACA,UAAA;AAXJ;AAaI;EACI,gBAAA;EACA,2BAAA;EACA,uBAAA;EACA,oBAAA;EACA,2BAAA;EACA,kBAAA;EACA,QAAA;EACA,SAAA;EACA,sCAAA;AAXR;AAcI;EACI,gBAAA;EACA,2BAAA;EACA,uBAAA;EACA,oBAAA;EACA,2BAAA;EACA,kBAAA;EACA,SAAA;EACA,YAAA;EACA,SAAA;EACA,yBAAA;EACA,yCAAA;EACA,iDAAA;AAZR;AAeI;EACI,kBAAA;EACA,kBAAA;EACA,UAAA;EACA,gBAAA;EACA,aAAA;EACA,YAAA;EACA,mBAAA;AAbR;AAeQ;EACI,eAAA;EACA,6CAAA;EACA,cAAA;EACA,cAAA;EACA,kBAAA;EACA,qBAAA;AAbZ;AAeY;EACI,wCAAA;EACA,kBAAA;EACA,cAAA;EACA,gCAAA;EACA,kBAAA;EACA,SAAA;AAbhB;AAiBQ;EACI,UAAA;EACA,eAAA;EACA,4BAAA;EACA,kBAAA;EACA,6BAAA;AAfZ;AAkBQ;EACI,yBAAA;EACA,sCAAA;AAhBZ;;AAsBA;EACI,uBAAA;EACA,2BAAA;EACA,wBAAA;EACA,oBAAA;EACA,uBAAA;EACA,gBAAA;EACA,QAAA;EACA,cAAA;EACA,iBAAA;AAnBJ;;AAsBA;EACI,kBAAA;EACA,cAAA;EACA,eAAA;EACA,+BAAA;EACA,YAAA;AAnBJ;;AAuBA;EACI,sBAAA;EACA,YAAA;AApBJ;AAsBI;EACI,kBAAA;EAEA,YAAA;EAEA,kCAAA;EACA,0CAAA;EACA,0BAAA;AAtBR;AAyBI;EACI,WAAA;EACA,mBAAA;EAEA,YAAA;EACA,cAAA;EAEA,mCAAA;EACA,2CAAA;EACA,0BAAA;AAzBR;;AA8BA;EACI,wCAAA;AA3BJ;AA8BQ;EACI,gBAAA;AA5BZ;;AAqCI;EACI,UAAA;EACA,eAAA;EACA,YAAA;AAlCR;AAoCQ;EACI,kBAAA;EACA,iCAAA;AAlCZ;AAqCQ;EACI,WAAA;EACA,qBAAA;AAnCZ;AAsCQ;EACI,WAAA;EACA,YAAA;EACA,kBAAA;EACA,UAAA;AApCZ;AAuCQ;EACI,WAAA;EACA,YAAA;EACA,gBAAA;EACA,UAAA;EACA,UAAA;AArCZ;AAwCQ;EACI,WAAA;EACA,YAAA;EACA,yBAAA;EACA,UAAA;EACA,UAAA;AAtCZ;AAyCQ;EACI,WAAA;EACA,YAAA;EACA,gBAAA;EACA,UAAA;EACA,UAAA;AAvCZ;AA0CQ;EACI,WAAA;EACA,YAAA;EACA,2BAAA;EACA,UAAA;EACA,UAAA;AAxCZ;AA2CQ;EACI,WAAA;EACA,YAAA;EACA,iCAAA;AAzCZ;AA2CY;EACI,WAAA;EACA,YAAA;EACA,+BAAA;EACA,UAAA;EACA,YAAA;EACA,aAAA;EACA,qBAAA;AAzChB;AA2CgB;EACI,WAAA;AAzCpB;AA6CY;EACI,UAAA;AA3ChB;AA+CQ;EACI,qBAAA;AA7CZ;;AAsDA;EACI,eAAA;EACA,6CAAA;EACA,cAAA;EACA,cAAA;EACA,kBAAA;EACA,qBAAA;AAnDJ;;AAwDA;EACI;IACE,wBAAA;EArDJ;EAuDE;IACE,2BAAA;EArDJ;EAuDE;IACE,2BAAA;EArDJ;AACF;AAwDA;EACI;IACI,gCAAA;IACA,wBAAA;EAtDN;EAwDE;IACI,0CAAA;IACA,kCAAA;EAtDN;AACF;AAyDA;EACI;IAAK,0BAAA;IAA4B,YAAA;EArDnC;EAsDE;IAAO,YAAA;EAnDT;EAoDE;IAAK,0BAAA;IAA4B,UAAA;IAAY,UAAA;EA/C/C;EAgDE;IAAM,0BAAA;IAA4B,UAAA;IAAY,UAAA;EA3ChD;EA4CE;IAAM,UAAA;EAzCR;EA0CE;IAAO,WAAA;IAAa,UAAA;EAtCtB;AACF;AAwCA;EACI;IAAK,2BAAA;IAA6B,UAAA;EApCpC;EAqCE;IAAM,UAAA;EAlCR;EAmCE;IAAM,yBAAA;IAA2B,UAAA;IAAa,UAAA;EA9BhD;EA+BE;IAAM,yBAAA;IAA2B,UAAA;IAAY,WAAA;EA1B/C;EA2BE;IAAM,UAAA;EAxBR;EAyBE;IAAO,WAAA;IAAa,UAAA;EArBtB;AACF","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Moul&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&family=Rubik+Doodle+Shadow&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap');\n\n\n// font-family: \"Archivo Black\", sans-serif;\n// font-family:\"Monoton\", sans-serif !important;\n// font-family: \"Rubik Doodle Shadow\", system-ui;\n// font-family: \"Lexend Deca\", sans-serif;\n// font-family: \"Moul\", serif;\n\nhtml, body {\n    height: 100vh;\n    overflow: scroll;\n    scroll-snap-type: y;\n    scroll-behavior: smooth;\n}\n\n.landing {\n\n}\n\n.landing > .what-we-do {\n    user-select: none;\n    scroll-snap-align: block;\n}\n\n#title-cont {\n    min-width: 100vw;\n    max-width: 100vw !important;\n    height: 100vh !important;\n    margin: 0 !important;\n    padding: 2vw !important;\n    position: sticky;\n    top: 0vh;\n    background-size: cover !important;\n    overflow: hidden;\n    z-index: 0;\n\n    .overlay {\n        min-width: 100vw;\n        max-width: 100vw !important;\n        height: 96vh !important;\n        margin: 0 !important;\n        padding: 2vh 2vw !important;\n        position: absolute;\n        top: 0vh;\n        left: 0vw;\n        background-color: rgba(0, 0, 0, 0.299);\n    }\n\n    .overlay2 {\n        min-width: 100vw;\n        max-width: 150vw !important;\n        height: 80vh !important;\n        margin: 0 !important;\n        padding: 2vh 2vw !important;\n        position: absolute;\n        top: 30vh;\n        opacity: 60%;\n        left: 0vw;\n        background-repeat: repeat;\n        animation: moveClouds 50s linear infinite;\n        -webkit-animation: moveClouds 50s linear infinite;\n    }\n\n    .title-sec {\n        position: relative;\n        text-align: center;\n        z-index: 2;\n        padding: 8vh 8vw;\n        display: grid;\n        height: 75vh;\n        align-items: center;\n\n        .title {\n            cursor: pointer;\n            font-family:\"Monoton\", sans-serif !important;\n            color: #e9ae00;\n            font-size: 4vw;\n            font-style: normal;\n            text-decoration: none;\n\n            span {\n                font-family: \"Archivo Black\", sans-serif;\n                font-style: normal;\n                font-size: 1vw;\n                color: rgb(255 255 255 / 25%);\n                position: relative;\n                top: -4vw;\n            }\n        }\n\n        span img {\n            width: 3vw;\n            cursor: pointer;\n            border: 0.25vw solid #e9ae01;\n            border-radius: 50%;\n            animation: bounce 2s infinite;\n        }\n\n        span img:hover {\n            box-shadow: 0 0 1vw white;\n            background-color: #e9af0100;\n            \n        }\n    }\n}\n\n.who-we-are {\n    width: 100vw !important;\n    max-width: 100vw !important;\n    height: 100vh !important;\n    margin: 0 !important;\n    padding: 2vw !important;\n    position: sticky;\n    top: 0vh;\n    font-size: 2vw;\n    background: white;\n}\n\n.overlay {\n    position: absolute;\n    width: inherit;\n    height: inherit;\n    background: rgb(0 0 0 / 68%);\n    margin: -2vw;\n}\n\n\n.what-is {\n    width: 100% !important;\n    height: 17vh;\n    \n    h1 {\n        width: fit-content;\n        // background: #00000052;\n        color: white;\n\n        animation: slide-in 5s ease-in-out;\n        -webkit-animation: slide-in 5s ease-in-out;\n        animation-timeline: view();\n    }\n\n    p {\n        width: 40vw;\n        height: fit-content;\n        // background: #00000052;\n        color: white;\n        padding: 1.5vw;\n\n        animation: slide-out 5s ease-in-out;\n        -webkit-animation: slide-out 5s ease-in-out;\n        animation-timeline: view();\n    }\n    \n}\n\n.who2 {\n    background-color: transparent !important;\n\n    .what-is {\n        h1 {\n            margin-left: 5vw;\n        }\n    }\n}\n\n.who3 {\n    // background-color: transparent !important;\n    // overflow: scroll;\n\n    .frnt-row {\n        width: 90%;\n        margin: 0vw 5vw;\n        height: auto;\n\n        .card {\n            position: relative;\n            background-size: cover !important;\n        }\n\n        .card:hover {\n            z-index: 10;\n            transform: scale(1.5);\n        }\n\n        .card:nth-child(1) {\n            width: 22vw;\n            height: 30vw;\n            background: purple;\n            left: 20vw;\n        }\n\n        .card:nth-child(2) {\n            width: 25vw;\n            height: 30vw;\n            background: navy;\n            left: 52vw;\n            top: -12vw\n        }\n\n        .card:nth-child(3) {\n            width: 35vw;\n            height: 25vw;\n            background: darkslategray;\n            left: 14vw;\n            top: -28vw;\n        }\n\n        .card:nth-child(4) {\n            width: 25vw;\n            height: 25vw;\n            background: gray;\n            left: 49vw;\n            top: -29vw;\n        }\n\n        .card:nth-child(5) {\n            width: 31vw;\n            height: 25vw;\n            background: mediumvioletred;\n            left: 15vw;\n            top: -46vw;\n        }\n\n        .card-content {\n            width: 100%;\n            height: 100%;\n            background-size: cover !important;\n\n            .card-overlay {\n                width: 100%;\n                height: 100%;\n                background: rgb(0 0 0 / 68%);\n                opacity: 0;\n                color: white;\n                display: flex;\n                align-items: self-end;\n\n                p {\n                    margin: 2vw;\n                }\n            }\n\n            .card-overlay:hover {\n                opacity: 1;\n            }\n        }\n\n        .card-content:hover {\n            transform: scale(1.1);\n        }\n    }\n}\n\n\n//  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> GENERAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //\n\n\n.title {\n    cursor: pointer;\n    font-family:\"Monoton\", sans-serif !important;\n    color: #e9ae00;\n    font-size: 3vw;\n    font-style: normal;\n    text-decoration: none;\n}\n\n//  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> KEYFRAMES <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //\n\n@keyframes bounce {\n    0%, 20%, 50%, 80%, 100% {\n      transform: translateY(0);\n    }\n    40% {\n      transform: translateY(-2vh);\n    }\n    60% {\n      transform: translateY(-1vh);\n    }\n}\n\n@keyframes moveClouds {\n    0% {\n        -webkit-transform: translateZ(0);\n        transform: translateZ(0);\n    }\n    100% {\n        -webkit-transform: translate3d(-50%, 0, 0);\n        transform: translate3d(-50%, 0, 0);\n    }\n}\n\n@keyframes slide-in {\n    0% { transform: translateX(95%); opacity: 0.2; }\n    20% {  opacity: 0.5; }\n    30% {transform: translateX(30%); opacity: 1; z-index: 0;}\n    55% { transform: translateX(30%); opacity: 1; z-index: 0; }\n    65% { opacity: 0; }\n    100% { z-index: -1; opacity: 0;}\n}\n\n@keyframes slide-out {\n    0% { transform: translateX(-65%); opacity: 0; }\n    20% { opacity: 0; }\n    30% { transform: translateX(0%); opacity: 1;  z-index: 0;}\n    55% { transform: translateX(0%); opacity: 0; z-index: -1; }\n    65% { opacity: 0; }\n    100% { z-index: -1; opacity: 0;}\n}"],"sourceRoot":""}]);
+.anchor-details p:hover {
+  color: white;
+  background-position: left;
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Main/LandingPage.scss"],"names":[],"mappings":"AAaA;EACI,uBAAA;EACA,gBAAA;AAPJ;;AAUA;EACI,WAAA;EACA,SAAA;EACA,aAAA;EACA,gBAAA;AAPJ;AAUI;EACI,YAAA;EACA,4BAAA;EACA,sBAAA;EACA,aAAA;EACA,uCAAA;AARR;AAUQ;EACI,aAAA;AARZ;AAWQ;EACI,WAAA;EACA,iBAAA;EACA,YAAA;AATZ;AAWY;EACI,gBAAA;EACA,mBAAA;EACA,6CAAA;EACA,cAAA;EACA,gBAAA;AAThB;AAYY;EACI,gBAAA;EACA,WAAA;AAVhB;AAYgB;EACI,uBAAA;EACA,gBAAA;EACA,wCAAA;AAVpB;AAagB;EACI,aAAA;EACA,gBAAA;EACA,sCAAA;AAXpB;AAgBQ;EACI,WAAA;EACA,gBAAA;EACA,kBAAA;EACA,kBAAA;AAdZ;AAgBY;EACI,kBAAA;EACA,kBAAA;EACA,iBAAA;EACA,oBAAA;EACA,WAAA;EACA,iCAAA;AAdhB;AAgBgB;EACI,gBAAA;EACA,WAAA;EACA,YAAA;AAdpB;AAgBoB;EACI,cAAA;EACA,eAAA;EACA,+BAAA;EACA,UAAA;EACA,YAAA;EACA,aAAA;EACA,qBAAA;EACA,oBAAA;AAdxB;AAgBwB;EACI,WAAA;AAd5B;AAkBoB;EACI,UAAA;AAhBxB;AAqBY;EACI,sDAAA;AAnBhB;AAsBY;EACI,WAAA;EACA,YAAA;AApBhB;AAuBY;EACI,WAAA;EACA,YAAA;AArBhB;AAwBY;EACI,WAAA;EACA,YAAA;EACA,kBAAA;AAtBhB;AAyBY;EACI,WAAA;EACA,aAAA;EACA,8BAAA;AAvBhB;;AA6BA;EACI,eAAA;EACA,OAAA;EACA,SAAA;EACA,YAAA;EACA,WAAA;EACA,4BAAA;EACA,cAAA;EACA,iBAAA;EACA,WAAA;AA1BJ;AA4BI;EACI,aAAA;EACA,YAAA;EACA,eAAA;EACA,cAAA;EACA,wEAAA;EACA,0BAAA;EACA,0BAAA;EACA,uBAAA;AA1BR;AA6BI;EACI,WAAA;EACA,gCAAA;AA3BR;AA8BI;EACI,UAAA;EACA,gCAAA;AA5BR;AA+BI;EACI,YAAA;EACA,yBAAA;AA7BR","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Moul&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend+Deca:wght@100..900&family=Rubik+Doodle+Shadow&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Audiowide&family=Basic&family=Chocolate+Classical+Sans&family=Cookie&family=Monoton&family=Satisfy&display=swap');\n\n\n// font-family: \"Archivo Black\", sans-serif;\n// font-family: \"Monoton\", sans-serif !important;\n// font-family: \"Rubik Doodle Shadow\", system-ui;\n// font-family: \"Lexend Deca\", sans-serif;\n// font-family: \"Moul\", serif;\n\nhtml, body {\n    scroll-behavior: smooth;\n    overflow: scroll;\n}\n\n.landing {\n    width: 100%;\n    margin: 0;\n    height: 100vh;\n    overflow: hidden;\n\n\n    .main-landing {\n        width: 100vw;\n        background-repeat: no-repeat;\n        background-size: cover;\n        display: flex;\n        background: #00000075;\n\n        .left, .right {\n            height: 100vh;\n        }\n    \n        .left {\n            width: 40vw;\n            user-select: none;\n            color: white;\n    \n            .main-title {\n                padding: 9vh 4vw;\n                padding-bottom: 1vh;\n                font-family: \"Monoton\", sans-serif !important;\n                color: #e9ae00;\n                font-size: 3.5vw;\n            }\n    \n            .main-sub {\n                padding: 0vh 4vw;\n                width: 35vw;\n    \n                .sub-big {\n                    margin: 8vh 0vw 1vw 0vw;\n                    font-size: 2.5vw;\n                    font-family: \"Archivo Black\", sans-serif;\n                }\n    \n                .sub-mid {\n                    margin: 4vh 0;\n                    font-size: 1.5vw;\n                    font-family: \"Lexend Deca\", sans-serif;\n                }\n            }\n        }\n    \n        .right {\n            width: 58vw;\n            padding: 4vh 1vw;\n            overflow-y: scroll;\n            overflow-x: hidden;\n\n            .card {\n                position: relative;\n                margin-bottom: 3vh;\n                margin-right: 2vw;\n                border-radius: 0.5vw;\n                z-index: 10;\n                background-size: cover !important;\n\n                .card-content {\n                    font-size: 1.5vw;\n                    width: 100%;\n                    height: 100%;\n                \n                    .card-overlay {\n                        width: inherit;\n                        height: inherit;\n                        background: rgb(0 0 0 / 68%);\n                        opacity: 0;\n                        color: white;\n                        display: flex;\n                        align-items: self-end;\n                        border-radius: 0.5vw;\n                \n                        p {\n                            margin: 2vw;\n                        }\n                    }\n                \n                    .card-overlay:hover {\n                        opacity: 1;\n                    }\n                }                    \n            }\n\n            .card:hover {\n                box-shadow: rgba(255, 255, 255, 0.48) 0px 0px 14px 1px;\n            }\n\n            .card.small {\n                width: 30vw;\n                height: 42vh;\n            }\n\n            .card.big {\n                width: 50vw;\n                height: 42vh;\n            }\n\n            .card.thin {\n                width: 35vw;\n                height: 40vh;\n                margin-bottom: 5vh;\n            }\n\n            .right-row {\n                width: 60vw;\n                display: flex;\n                justify-content: space-between;\n            }\n        }    \n    }\n}\n\n.anchor-details {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    padding: 2vw;\n    width: 13vw;\n    font-family: 'Archivo Black';\n    font-size: 2vw;\n    user-select: none;\n    z-index: 10;\n\n    p {\n        margin: 0 1vw;\n        padding: 1vw;\n        cursor: pointer;\n        color: #e9ae00;\n        background: linear-gradient(to left, transparent 50%, #e9ae00 50%) right;\n        background-size: 200% 100%; \n        background-position: right;\n        transition: all 1s ease;\n    }\n\n    p:nth-child(1) {\n        width: 10vw;\n        border-left: 0.1vw solid #e9ae00;\n    }\n\n    p:nth-child(2) {\n        width: 8vw;\n        border-left: 0.1vw solid #e9ae00;\n    }\n\n    p:hover {\n        color: white;\n        background-position: left;\n    }\n}\n\n    // .landing1, .landing2 {\n    //     height: 100vh;\n    //     background-position: 50% 50%;\n    //     background-size: cover;\n    //     background-repeat: no-repeat;\n    //     background-attachment: fixed;\n    // }\n\n    // .landing2 {\n    //     height: 50vh;\n    //     background-position: 50% 50%;\n    //     background-size: cover;\n    //     background-repeat: no-repeat;\n    //     background-attachment: fixed;\n    // }"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28985,10 +29046,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./public/images/coding.webp":
-/*!***********************************!*\
-  !*** ./public/images/coding.webp ***!
-  \***********************************/
+/***/ "./public/images/cards/card6.avif":
+/*!****************************************!*\
+  !*** ./public/images/cards/card6.avif ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28996,7 +29057,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "9a7374c20047758ac64050f2cdebba1f.webp");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "33081d038a0fea394263964d2feca369.avif");
+
+/***/ }),
+
+/***/ "./public/images/cards/card7.avif":
+/*!****************************************!*\
+  !*** ./public/images/cards/card7.avif ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "53ab4aea7d39b51e07ef933a93027ffa.avif");
 
 /***/ }),
 
@@ -29180,10 +29256,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./public/images/landing/fogLow.webp":
-/*!*******************************************!*\
-  !*** ./public/images/landing/fogLow.webp ***!
-  \*******************************************/
+/***/ "./public/images/landing/introGossip.gif":
+/*!***********************************************!*\
+  !*** ./public/images/landing/introGossip.gif ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -29191,14 +29267,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "b8a340c6b47606f3e023cd2d55a08888.webp");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "ad7c37c0a54187f9074738e4f434d7f2.gif");
 
 /***/ }),
 
-/***/ "./public/images/landing/landing11.avif":
-/*!**********************************************!*\
-  !*** ./public/images/landing/landing11.avif ***!
-  \**********************************************/
+/***/ "./public/images/landing/landing1.avif":
+/*!*********************************************!*\
+  !*** ./public/images/landing/landing1.avif ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -29206,13 +29282,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "b5b4c21d0febb6696e9165bb868db7da.avif");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "493612070ffd9a0df85318b168358c14.avif");
 
 /***/ }),
 
-/***/ "./public/images/landing/wall1.avif":
+/***/ "./public/images/landing/wall2.avif":
 /*!******************************************!*\
-  !*** ./public/images/landing/wall1.avif ***!
+  !*** ./public/images/landing/wall2.avif ***!
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -29221,7 +29297,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "1a12c9e4ed6b98024e4c57ff447e67bf.avif");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "be8573169d1f0564c61e572186d4c41d.avif");
 
 /***/ }),
 
@@ -29417,21 +29493,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "7d6b4c4d0f566b399cde58cdfd394829.jpg");
-
-/***/ }),
-
-/***/ "./public/svgs/downArrowWhite.svg":
-/*!****************************************!*\
-  !*** ./public/svgs/downArrowWhite.svg ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "02b89bc306556c0f3e0de0de0a8528b6.svg");
 
 /***/ }),
 
@@ -32941,6 +33002,1433 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/parallax-controller/dist/parallax-controller.esm.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/parallax-controller/dist/parallax-controller.esm.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EasingPreset: () => (/* binding */ EasingPreset),
+/* harmony export */   Element: () => (/* binding */ Element),
+/* harmony export */   Limits: () => (/* binding */ Limits),
+/* harmony export */   ParallaxController: () => (/* binding */ ParallaxController),
+/* harmony export */   Rect: () => (/* binding */ Rect),
+/* harmony export */   RotationUnits: () => (/* binding */ RotationUnits),
+/* harmony export */   ScaleUnits: () => (/* binding */ ScaleUnits),
+/* harmony export */   Scroll: () => (/* binding */ Scroll),
+/* harmony export */   ScrollAxis: () => (/* binding */ ScrollAxis),
+/* harmony export */   Units: () => (/* binding */ Units),
+/* harmony export */   ValidCSSEffects: () => (/* binding */ ValidCSSEffects),
+/* harmony export */   View: () => (/* binding */ View),
+/* harmony export */   createId: () => (/* binding */ createId),
+/* harmony export */   getProgressAmount: () => (/* binding */ getProgressAmount),
+/* harmony export */   isElementInView: () => (/* binding */ isElementInView),
+/* harmony export */   parseElementTransitionEffects: () => (/* binding */ parseElementTransitionEffects),
+/* harmony export */   parseValueAndUnit: () => (/* binding */ parseValueAndUnit),
+/* harmony export */   resetStyles: () => (/* binding */ resetStyles),
+/* harmony export */   scaleBetween: () => (/* binding */ scaleBetween),
+/* harmony export */   scaleEffectByProgress: () => (/* binding */ scaleEffectByProgress),
+/* harmony export */   setElementStyles: () => (/* binding */ setElementStyles),
+/* harmony export */   testForPassiveScroll: () => (/* binding */ testForPassiveScroll)
+/* harmony export */ });
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bezier-easing */ "./node_modules/bezier-easing/src/index.js");
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bezier_easing__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Limits = function Limits(properties) {
+  this.startX = properties.startX;
+  this.startY = properties.startY;
+  this.endX = properties.endX;
+  this.endY = properties.endY; // Used to calculate the progress of the element
+
+  this.totalX = this.endX - this.startX;
+  this.totalY = this.endY - this.startY; // Used to scale translate effects
+
+  this.startMultiplierX = properties.startMultiplierX || 1;
+  this.endMultiplierX = properties.endMultiplierX || 1;
+  this.startMultiplierY = properties.startMultiplierY || 1;
+  this.endMultiplierY = properties.endMultiplierY || 1;
+};
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var ValidCSSEffects;
+
+(function (ValidCSSEffects) {
+  ValidCSSEffects["speed"] = "speed";
+  ValidCSSEffects["translateX"] = "translateX";
+  ValidCSSEffects["translateY"] = "translateY";
+  ValidCSSEffects["rotate"] = "rotate";
+  ValidCSSEffects["rotateX"] = "rotateX";
+  ValidCSSEffects["rotateY"] = "rotateY";
+  ValidCSSEffects["rotateZ"] = "rotateZ";
+  ValidCSSEffects["scale"] = "scale";
+  ValidCSSEffects["scaleX"] = "scaleX";
+  ValidCSSEffects["scaleY"] = "scaleY";
+  ValidCSSEffects["scaleZ"] = "scaleZ";
+  ValidCSSEffects["opacity"] = "opacity";
+})(ValidCSSEffects || (ValidCSSEffects = {}));
+
+var Units;
+
+(function (Units) {
+  Units["px"] = "px";
+  Units["%"] = "%";
+  Units["vh"] = "vh";
+  Units["vw"] = "vw";
+})(Units || (Units = {}));
+
+var RotationUnits;
+
+(function (RotationUnits) {
+  RotationUnits["deg"] = "deg";
+  RotationUnits["turn"] = "turn";
+  RotationUnits["rad"] = "rad";
+})(RotationUnits || (RotationUnits = {}));
+
+var ScaleUnits;
+
+(function (ScaleUnits) {
+  ScaleUnits[""] = "";
+})(ScaleUnits || (ScaleUnits = {}));
+
+var ScrollAxis;
+
+(function (ScrollAxis) {
+  ScrollAxis["vertical"] = "vertical";
+  ScrollAxis["horizontal"] = "horizontal";
+})(ScrollAxis || (ScrollAxis = {}));
+
+var EasingPreset;
+
+(function (EasingPreset) {
+  EasingPreset["ease"] = "ease";
+  EasingPreset["easeIn"] = "easeIn";
+  EasingPreset["easeOut"] = "easeOut";
+  EasingPreset["easeInOut"] = "easeInOut";
+  EasingPreset["easeInQuad"] = "easeInQuad";
+  EasingPreset["easeInCubic"] = "easeInCubic";
+  EasingPreset["easeInQuart"] = "easeInQuart";
+  EasingPreset["easeInQuint"] = "easeInQuint";
+  EasingPreset["easeInSine"] = "easeInSine";
+  EasingPreset["easeInExpo"] = "easeInExpo";
+  EasingPreset["easeInCirc"] = "easeInCirc";
+  EasingPreset["easeOutQuad"] = "easeOutQuad";
+  EasingPreset["easeOutCubic"] = "easeOutCubic";
+  EasingPreset["easeOutQuart"] = "easeOutQuart";
+  EasingPreset["easeOutQuint"] = "easeOutQuint";
+  EasingPreset["easeOutSine"] = "easeOutSine";
+  EasingPreset["easeOutExpo"] = "easeOutExpo";
+  EasingPreset["easeOutCirc"] = "easeOutCirc";
+  EasingPreset["easeInOutQuad"] = "easeInOutQuad";
+  EasingPreset["easeInOutCubic"] = "easeInOutCubic";
+  EasingPreset["easeInOutQuart"] = "easeInOutQuart";
+  EasingPreset["easeInOutQuint"] = "easeInOutQuint";
+  EasingPreset["easeInOutSine"] = "easeInOutSine";
+  EasingPreset["easeInOutExpo"] = "easeInOutExpo";
+  EasingPreset["easeInOutCirc"] = "easeInOutCirc";
+  EasingPreset["easeInBack"] = "easeInBack";
+  EasingPreset["easeOutBack"] = "easeOutBack";
+  EasingPreset["easeInOutBack"] = "easeInOutBack";
+})(EasingPreset || (EasingPreset = {}));
+
+/**
+ * Creates a unique id to distinguish parallax elements.
+ */
+var id = 0;
+function createId() {
+  ++id;
+  return id;
+}
+
+var Rect = /*#__PURE__*/function () {
+  function Rect(options) {
+    var rect = options.el.getBoundingClientRect(); // rect is based on viewport -- must adjust for relative scroll container
+
+    if (options.view.scrollContainer) {
+      var scrollRect = options.view.scrollContainer.getBoundingClientRect();
+      rect = _extends({}, rect, {
+        top: rect.top - scrollRect.top,
+        right: rect.right - scrollRect.left,
+        bottom: rect.bottom - scrollRect.top,
+        left: rect.left - scrollRect.left
+      });
+    }
+
+    this.height = options.el.offsetHeight;
+    this.width = options.el.offsetWidth;
+    this.left = rect.left;
+    this.right = rect.right;
+    this.top = rect.top;
+    this.bottom = rect.bottom;
+
+    if (options.rootMargin) {
+      this._setRectWithRootMargin(options.rootMargin);
+    }
+  }
+  /**
+   * Apply root margin to all properties
+   */
+
+
+  var _proto = Rect.prototype;
+
+  _proto._setRectWithRootMargin = function _setRectWithRootMargin(rootMargin) {
+    var totalRootY = rootMargin.top + rootMargin.bottom;
+    var totalRootX = rootMargin.left + rootMargin.right;
+    this.top -= rootMargin.top;
+    this.right += rootMargin.right;
+    this.bottom += rootMargin.bottom;
+    this.left -= rootMargin.left;
+    this.height += totalRootY;
+    this.width += totalRootX;
+  };
+
+  return Rect;
+}();
+
+var VALID_UNITS = [ScaleUnits[''], Units.px, Units['%'], Units['vh'], Units['vw'], RotationUnits.deg, RotationUnits.turn, RotationUnits.rad];
+/**
+ * Determines the unit of a string and parses the value
+ */
+
+function parseValueAndUnit(str, defaultUnit) {
+  if (defaultUnit === void 0) {
+    defaultUnit = Units['%'];
+  }
+
+  var out = {
+    value: 0,
+    unit: defaultUnit
+  };
+  if (typeof str === 'undefined') return out;
+  var isValid = typeof str === 'number' || typeof str === 'string';
+
+  if (!isValid) {
+    throw new Error('Invalid value provided. Must provide a value as a string or number');
+  }
+
+  str = String(str);
+  out.value = parseFloat(str); // @ts-ignore
+
+  out.unit = str.match(/[\d.\-+]*\s*(.*)/)[1] || defaultUnit; // @ts-expect-error
+
+  var isValidUnit = VALID_UNITS.includes(out.unit);
+
+  if (!isValidUnit) {
+    throw new Error('Invalid unit provided.');
+  }
+
+  return out;
+}
+
+var easingPresets = {
+  ease: [0.25, 0.1, 0.25, 1.0],
+  easeIn: [0.42, 0.0, 1.0, 1.0],
+  easeOut: [0.0, 0.0, 0.58, 1.0],
+  easeInOut: [0.42, 0.0, 0.58, 1.0],
+
+  /* Ease IN curves */
+  easeInQuad: [0.55, 0.085, 0.68, 0.53],
+  easeInCubic: [0.55, 0.055, 0.675, 0.19],
+  easeInQuart: [0.895, 0.03, 0.685, 0.22],
+  easeInQuint: [0.755, 0.05, 0.855, 0.06],
+  easeInSine: [0.47, 0.0, 0.745, 0.715],
+  easeInExpo: [0.95, 0.05, 0.795, 0.035],
+  easeInCirc: [0.6, 0.04, 0.98, 0.335],
+
+  /* Ease Out Curves */
+  easeOutQuad: [0.25, 0.46, 0.45, 0.94],
+  easeOutCubic: [0.215, 0.61, 0.355, 1.0],
+  easeOutQuart: [0.165, 0.84, 0.44, 1.0],
+  easeOutQuint: [0.23, 1.0, 0.32, 1.0],
+  easeOutSine: [0.39, 0.575, 0.565, 1.0],
+  easeOutExpo: [0.19, 1.0, 0.22, 1.0],
+  easeOutCirc: [0.075, 0.82, 0.165, 1.0],
+
+  /* Ease IN Out Curves */
+  easeInOutQuad: [0.455, 0.03, 0.515, 0.955],
+  easeInOutCubic: [0.645, 0.045, 0.355, 1.0],
+  easeInOutQuart: [0.77, 0.0, 0.175, 1.0],
+  easeInOutQuint: [0.86, 0.0, 0.07, 1.0],
+  easeInOutSine: [0.445, 0.05, 0.55, 0.95],
+  easeInOutExpo: [1.0, 0.0, 0.0, 1.0],
+  easeInOutCirc: [0.785, 0.135, 0.15, 0.86],
+
+  /* Ease Bounce Curves */
+  easeInBack: [0.6, -0.28, 0.735, 0.045],
+  easeOutBack: [0.175, 0.885, 0.32, 1.275],
+  easeInOutBack: [0.68, -0.55, 0.265, 1.55]
+};
+
+function createEasingFunction(easing) {
+  if (Array.isArray(easing)) {
+    return bezier_easing__WEBPACK_IMPORTED_MODULE_0___default()(easing[0], easing[1], easing[2], easing[3]);
+  }
+
+  if (typeof easing === 'string' && typeof easingPresets[easing] !== 'undefined') {
+    var params = easingPresets[easing];
+    return bezier_easing__WEBPACK_IMPORTED_MODULE_0___default()(params[0], params[1], params[2], params[3]);
+  }
+
+  return;
+}
+
+var PARALLAX_EFFECTS = /*#__PURE__*/Object.values(ValidCSSEffects);
+var MAP_EFFECT_TO_DEFAULT_UNIT = {
+  speed: 'px',
+  translateX: '%',
+  translateY: '%',
+  rotate: 'deg',
+  rotateX: 'deg',
+  rotateY: 'deg',
+  rotateZ: 'deg',
+  scale: '',
+  scaleX: '',
+  scaleY: '',
+  scaleZ: '',
+  opacity: ''
+};
+/**
+ * Takes a parallax element effects and parses the properties to get the start and end values and units.
+ */
+
+function parseElementTransitionEffects(props, scrollAxis) {
+  var parsedEffects = {};
+  PARALLAX_EFFECTS.forEach(function (key) {
+    var defaultValue = MAP_EFFECT_TO_DEFAULT_UNIT[key]; // If the provided type is a number, this must be the speed prop
+    // in which case we need to construct the proper translate config
+
+    if (typeof (props == null ? void 0 : props[key]) === 'number') {
+      var value = props == null ? void 0 : props[key];
+      var startSpeed = (value || 0) * 10 + "px";
+      var endSpeed = (value || 0) * -10 + "px";
+      var startParsed = parseValueAndUnit(startSpeed);
+      var endParsed = parseValueAndUnit(endSpeed);
+      var speedConfig = {
+        start: startParsed.value,
+        end: endParsed.value,
+        unit: startParsed.unit
+      }; // Manually set translate y value
+
+      if (scrollAxis === ScrollAxis.vertical) {
+        parsedEffects.translateY = speedConfig;
+      } // Manually set translate y value
+
+
+      if (scrollAxis === ScrollAxis.horizontal) {
+        parsedEffects.translateX = speedConfig;
+      }
+    } // The rest are standard effect being parsed
+
+
+    if (Array.isArray(props == null ? void 0 : props[key])) {
+      var _value = props == null ? void 0 : props[key];
+
+      if (typeof _value[0] !== 'undefined' && typeof _value[1] !== 'undefined') {
+        var _startParsed = parseValueAndUnit(_value == null ? void 0 : _value[0], defaultValue);
+
+        var _endParsed = parseValueAndUnit(_value == null ? void 0 : _value[1], defaultValue);
+
+        var easing = createEasingFunction(_value == null ? void 0 : _value[2]);
+        parsedEffects[key] = {
+          start: _startParsed.value,
+          end: _endParsed.value,
+          unit: _startParsed.unit,
+          easing: easing
+        };
+
+        if (_startParsed.unit !== _endParsed.unit) {
+          throw new Error('Must provide matching units for the min and max offset values of each axis.');
+        }
+      }
+    }
+  });
+  return parsedEffects;
+}
+
+/**
+ * Returns the percent (0 - 100) moved based on position in the viewport
+ */
+function getProgressAmount(
+/*
+ * The start value from cache
+ */
+start,
+/*
+ * total dist the element has to move to be 100% complete (view width/height + element width/height)
+ */
+totalDist,
+/*
+ * Current scroll value
+ */
+currentScroll,
+/*
+ * an optional easing function to apply
+ */
+easing) {
+  // adjust cached value
+  var startAdjustedScroll = currentScroll - start; // Amount the element has moved based on current and total distance to move
+
+  var amount = startAdjustedScroll / totalDist; // Apply bezier easing if provided
+
+  if (easing) {
+    amount = easing(amount);
+  }
+
+  return amount;
+}
+
+/**
+ * Takes two values (start, end) and returns whether the current scroll is within range
+ * @param {number} start - start of scroll (x/y)
+ * @param {number} end - end of scroll (x/y)
+ * @param {number} scroll - current scroll (x/y)
+ * @return {boolean} isInView
+ */
+function isElementInView(start, end, scroll) {
+  var isInView = scroll >= start && scroll <= end;
+  return isInView;
+}
+
+// Scale between AKA normalize
+function scaleBetween(value, newMin, newMax, oldMin, oldMax) {
+  return (newMax - newMin) * (value - oldMin) / (oldMax - oldMin) + newMin;
+}
+
+/**
+ * Scales a start and end value of an effect based on percent moved and easing function
+ */
+
+function scaleEffectByProgress(effect, progress) {
+  var value = scaleBetween(typeof effect.easing === 'function' ? effect.easing(progress) : progress, (effect == null ? void 0 : effect.start) || 0, (effect == null ? void 0 : effect.end) || 0, 0, 1);
+  return {
+    value: value,
+    unit: effect == null ? void 0 : effect.unit
+  };
+}
+
+var TRANSFORM_EFFECTS = /*#__PURE__*/Object.values(ValidCSSEffects).filter(function (v) {
+  return v !== 'opacity';
+});
+function setWillChangeStyles(el, effects) {
+  var keys = Object.keys(effects);
+  var hasOpacity = keys.includes('opacity');
+  var willChange = "transform" + (hasOpacity ? ',opacity' : '');
+  el.style.willChange = willChange;
+}
+function setElementStyles(effects, progress, el) {
+  if (!el) return;
+  var transform = getTransformStyles(effects, progress);
+  var opacity = getOpacityStyles(effects, progress);
+  el.style.transform = transform;
+  el.style.opacity = opacity;
+}
+function getOpacityStyles(effects, progress) {
+  var scaledOpacity = effects['opacity'] && scaleEffectByProgress(effects['opacity'], progress);
+
+  if (typeof scaledOpacity === 'undefined' || typeof scaledOpacity.value === 'undefined' || typeof scaledOpacity.unit === 'undefined') {
+    return '';
+  }
+
+  var styleStr = "" + scaledOpacity.value;
+  return styleStr;
+}
+function getTransformStyles(effects, progress) {
+  var transform = TRANSFORM_EFFECTS.reduce(function (acc, key) {
+    var scaledEffect = // @ts-expect-error
+    effects[key] && scaleEffectByProgress(effects[key], progress);
+
+    if (typeof scaledEffect === 'undefined' || typeof scaledEffect.value === 'undefined' || typeof scaledEffect.unit === 'undefined') {
+      return acc;
+    }
+
+    var styleStr = key + "(" + scaledEffect.value + scaledEffect.unit + ")";
+    return acc + styleStr;
+  }, '');
+  return transform;
+}
+/**
+ * Takes a parallax element and removes parallax offset styles.
+ * @param {object} element
+ */
+
+function resetStyles(element) {
+  var el = element.el;
+  if (!el) return;
+  el.style.transform = '';
+  el.style.opacity = '';
+}
+
+function createLimitsForRelativeElements(rect, view, scroll, shouldAlwaysCompleteAnimation) {
+  var startY = rect.top - view.height;
+  var startX = rect.left - view.width;
+  var endY = rect.bottom;
+  var endX = rect.right; // add scroll
+
+  startX += scroll.x;
+  endX += scroll.x;
+  startY += scroll.y;
+  endY += scroll.y;
+
+  if (shouldAlwaysCompleteAnimation) {
+    if (scroll.y + rect.top < view.height) {
+      startY = 0;
+    }
+
+    if (scroll.x + rect.left < view.width) {
+      startX = 0;
+    }
+
+    if (endY > view.scrollHeight - view.height) {
+      endY = view.scrollHeight - view.height;
+    }
+
+    if (endX > view.scrollWidth - view.width) {
+      endX = view.scrollWidth - view.width;
+    }
+  }
+
+  var limits = new Limits({
+    startX: startX,
+    startY: startY,
+    endX: endX,
+    endY: endY
+  });
+  return limits;
+}
+
+function getTranslateScalar(startTranslatePx, endTranslatePx, totalDist) {
+  var slow = endTranslatePx > startTranslatePx; // calculating necessary scale to increase translations
+
+  var totalAbsOff = (Math.abs(startTranslatePx) + Math.abs(endTranslatePx)) * (slow ? -1 : 1);
+  var totalDistTrue = totalDist + totalAbsOff; // Determine multiple to scale by, only values greater than 1
+
+  var scale = Math.max(totalDist / totalDistTrue, 1);
+  return scale;
+}
+
+/**
+ * Return the start and end pixel values for an elements translations
+ */
+function getStartEndValueInPx(translate, elementSize) {
+  var start = translate.start,
+      end = translate.end,
+      unit = translate.unit;
+
+  if (unit === '%') {
+    var scale = elementSize / 100;
+    start = start * scale;
+    end = end * scale;
+  }
+
+  if (unit === 'vw') {
+    var startScale = start / 100;
+    var endScale = end / 100;
+    start = window.innerWidth * startScale;
+    end = window.innerWidth * endScale;
+  }
+
+  if (unit === 'vh') {
+    var _startScale = start / 100;
+
+    var _endScale = end / 100;
+
+    start = window.innerHeight * _startScale;
+    end = window.innerHeight * _endScale;
+  }
+
+  return {
+    start: start,
+    end: end
+  };
+}
+
+var DEFAULT_VALUE = {
+  start: 0,
+  end: 0,
+  unit: ''
+};
+function createLimitsWithTranslationsForRelativeElements(rect, view, effects, scroll, scrollAxis, shouldAlwaysCompleteAnimation) {
+  // get start and end accounting for percent effects
+  var translateX = effects.translateX || DEFAULT_VALUE;
+  var translateY = effects.translateY || DEFAULT_VALUE;
+
+  var _getStartEndValueInPx = getStartEndValueInPx(translateX, rect.width),
+      startTranslateXPx = _getStartEndValueInPx.start,
+      endTranslateXPx = _getStartEndValueInPx.end;
+
+  var _getStartEndValueInPx2 = getStartEndValueInPx(translateY, rect.height),
+      startTranslateYPx = _getStartEndValueInPx2.start,
+      endTranslateYPx = _getStartEndValueInPx2.end; // default starting values
+
+
+  var startY = rect.top - view.height;
+  var startX = rect.left - view.width;
+  var endY = rect.bottom;
+  var endX = rect.right;
+  var startMultiplierY = 1;
+  var endMultiplierY = 1;
+
+  if (scrollAxis === ScrollAxis.vertical) {
+    startMultiplierY = getTranslateScalar(startTranslateYPx, endTranslateYPx, view.height + rect.height);
+    endMultiplierY = startMultiplierY;
+  }
+
+  var startMultiplierX = 1;
+  var endMultiplierX = 1;
+
+  if (scrollAxis === ScrollAxis.horizontal) {
+    startMultiplierX = getTranslateScalar(startTranslateXPx, endTranslateXPx, view.width + rect.width);
+    endMultiplierX = startMultiplierX;
+  } // Apply the scale to initial values
+
+
+  if (startTranslateYPx < 0) {
+    startY = startY + startTranslateYPx * startMultiplierY;
+  }
+
+  if (endTranslateYPx > 0) {
+    endY = endY + endTranslateYPx * endMultiplierY;
+  }
+
+  if (startTranslateXPx < 0) {
+    startX = startX + startTranslateXPx * startMultiplierX;
+  }
+
+  if (endTranslateXPx > 0) {
+    endX = endX + endTranslateXPx * endMultiplierX;
+  } // add scroll
+
+
+  startX += scroll.x;
+  endX += scroll.x;
+  startY += scroll.y;
+  endY += scroll.y; // NOTE: please refactor and isolate this :(
+
+  if (shouldAlwaysCompleteAnimation) {
+    var topBeginsInView = scroll.y + rect.top < view.height;
+    var leftBeginsInView = scroll.x + rect.left < view.width;
+    var bottomEndsInView = scroll.y + rect.bottom > view.scrollHeight - view.height;
+    var rightEndsInView = scroll.x + rect.right > view.scrollWidth - view.height;
+
+    if (topBeginsInView && bottomEndsInView) {
+      startMultiplierY = 1;
+      endMultiplierY = 1;
+      startY = 0;
+      endY = view.scrollHeight - view.height;
+    }
+
+    if (leftBeginsInView && rightEndsInView) {
+      startMultiplierX = 1;
+      endMultiplierX = 1;
+      startX = 0;
+      endX = view.scrollWidth - view.width;
+    }
+
+    if (!topBeginsInView && bottomEndsInView) {
+      startY = rect.top - view.height + scroll.y;
+      endY = view.scrollHeight - view.height;
+      var totalDist = endY - startY;
+      startMultiplierY = getTranslateScalar(startTranslateYPx, endTranslateYPx, totalDist);
+      endMultiplierY = 1;
+
+      if (startTranslateYPx < 0) {
+        startY = startY + startTranslateYPx * startMultiplierY;
+      }
+    }
+
+    if (!leftBeginsInView && rightEndsInView) {
+      startX = rect.left - view.width + scroll.x;
+      endX = view.scrollWidth - view.width;
+
+      var _totalDist = endX - startX;
+
+      startMultiplierX = getTranslateScalar(startTranslateXPx, endTranslateXPx, _totalDist);
+      endMultiplierX = 1;
+
+      if (startTranslateXPx < 0) {
+        startX = startX + startTranslateXPx * startMultiplierX;
+      }
+    }
+
+    if (topBeginsInView && !bottomEndsInView) {
+      startY = 0;
+      endY = rect.bottom + scroll.y;
+
+      var _totalDist2 = endY - startY;
+
+      startMultiplierY = 1;
+      endMultiplierY = getTranslateScalar(startTranslateYPx, endTranslateYPx, _totalDist2);
+
+      if (endTranslateYPx > 0) {
+        endY = endY + endTranslateYPx * endMultiplierY;
+      }
+    }
+
+    if (leftBeginsInView && !rightEndsInView) {
+      startX = 0;
+      endX = rect.right + scroll.x;
+
+      var _totalDist3 = endX - startX;
+
+      startMultiplierX = 1;
+      endMultiplierX = getTranslateScalar(startTranslateXPx, endTranslateXPx, _totalDist3);
+
+      if (endTranslateXPx > 0) {
+        endX = endX + endTranslateXPx * endMultiplierX;
+      }
+    }
+  }
+
+  var limits = new Limits({
+    startX: startX,
+    startY: startY,
+    endX: endX,
+    endY: endY,
+    startMultiplierX: startMultiplierX,
+    endMultiplierX: endMultiplierX,
+    startMultiplierY: startMultiplierY,
+    endMultiplierY: endMultiplierY
+  });
+  return limits;
+}
+
+function scaleTranslateEffectsForSlowerScroll(effects, limits) {
+  var effectsCopy = _extends({}, effects);
+
+  if (effectsCopy.translateX) {
+    effectsCopy.translateX = _extends({}, effects.translateX, {
+      start: effectsCopy.translateX.start * limits.startMultiplierX,
+      end: effectsCopy.translateX.end * limits.endMultiplierX
+    });
+  }
+
+  if (effectsCopy.translateY) {
+    effectsCopy.translateY = _extends({}, effects.translateY, {
+      start: effectsCopy.translateY.start * limits.startMultiplierY,
+      end: effectsCopy.translateY.end * limits.endMultiplierY
+    });
+  }
+
+  return effectsCopy;
+}
+
+function getShouldScaleTranslateEffects(props, effects, scrollAxis) {
+  if (props.rootMargin || props.targetElement || props.shouldDisableScalingTranslations) {
+    return false;
+  }
+
+  if (!!effects.translateX && scrollAxis === ScrollAxis.horizontal || !!effects.translateY && scrollAxis === ScrollAxis.vertical) {
+    return true;
+  }
+
+  return false;
+}
+
+var clamp = function clamp(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+};
+
+var Element = /*#__PURE__*/function () {
+  function Element(options) {
+    this.el = options.el;
+    this.props = options.props;
+    this.scrollAxis = options.scrollAxis;
+    this.disabledParallaxController = options.disabledParallaxController || false;
+    this.id = createId();
+    this.effects = parseElementTransitionEffects(this.props, this.scrollAxis);
+    this.isInView = null;
+    this.progress = 0;
+
+    this._setElementEasing(options.props.easing);
+
+    setWillChangeStyles(options.el, this.effects);
+  }
+
+  var _proto = Element.prototype;
+
+  _proto.updateProps = function updateProps(nextProps) {
+    this.props = _extends({}, this.props, nextProps);
+    this.effects = parseElementTransitionEffects(nextProps, this.scrollAxis);
+
+    this._setElementEasing(nextProps.easing);
+
+    return this;
+  };
+
+  _proto.setCachedAttributes = function setCachedAttributes(view, scroll) {
+    // NOTE: Must reset styles before getting the rect, as it might impact the natural position
+    resetStyles(this);
+    this.rect = new Rect({
+      el: this.props.targetElement || this.el,
+      rootMargin: this.props.rootMargin,
+      view: view
+    });
+    var shouldScaleTranslateEffects = getShouldScaleTranslateEffects(this.props, this.effects, this.scrollAxis);
+
+    if (typeof this.props.startScroll === 'number' && typeof this.props.endScroll === 'number') {
+      this.limits = new Limits({
+        startX: this.props.startScroll,
+        startY: this.props.startScroll,
+        endX: this.props.endScroll,
+        endY: this.props.endScroll
+      }); // Undo the reset -- place it back at current position with styles
+
+      this._setElementStyles();
+
+      return this;
+    }
+
+    if (shouldScaleTranslateEffects) {
+      this.limits = createLimitsWithTranslationsForRelativeElements(this.rect, view, this.effects, scroll, this.scrollAxis, this.props.shouldAlwaysCompleteAnimation);
+      this.scaledEffects = scaleTranslateEffectsForSlowerScroll(this.effects, this.limits);
+    } else {
+      this.limits = createLimitsForRelativeElements(this.rect, view, scroll, this.props.shouldAlwaysCompleteAnimation);
+    } // Undo the reset -- place it back at current position with styles
+
+
+    this._setElementStyles();
+
+    return this;
+  };
+
+  _proto._updateElementIsInView = function _updateElementIsInView(nextIsInView) {
+    // NOTE: Check if this is the first change to make sure onExit isn't called
+    var isFirstChange = this.isInView === null;
+
+    if (nextIsInView !== this.isInView) {
+      if (nextIsInView) {
+        this.props.onEnter && this.props.onEnter(this);
+      } else if (!isFirstChange) {
+        this._setFinalProgress();
+
+        this._setElementStyles();
+
+        this.props.onExit && this.props.onExit(this);
+      }
+    }
+
+    this.isInView = nextIsInView;
+  };
+
+  _proto._setFinalProgress = function _setFinalProgress() {
+    var finalProgress = clamp(Math.round(this.progress), 0, 1);
+
+    this._updateElementProgress(finalProgress);
+  };
+
+  _proto._setElementStyles = function _setElementStyles() {
+    if (this.props.disabled || this.disabledParallaxController) return;
+    var effects = this.scaledEffects || this.effects;
+    setElementStyles(effects, this.progress, this.el);
+  };
+
+  _proto._updateElementProgress = function _updateElementProgress(nextProgress) {
+    this.progress = nextProgress;
+    this.props.onProgressChange && this.props.onProgressChange(this.progress);
+    this.props.onChange && this.props.onChange(this);
+  };
+
+  _proto._setElementEasing = function _setElementEasing(easing) {
+    this.easing = createEasingFunction(easing);
+  };
+
+  _proto.updateElementOptions = function updateElementOptions(options) {
+    this.scrollAxis = options.scrollAxis;
+    this.disabledParallaxController = options.disabledParallaxController || false;
+  };
+
+  _proto.updatePosition = function updatePosition(scroll) {
+    if (!this.limits) return this;
+    var isVertical = this.scrollAxis === ScrollAxis.vertical;
+    var isFirstChange = this.isInView === null; // based on scroll axis
+
+    var start = isVertical ? this.limits.startY : this.limits.startX;
+    var end = isVertical ? this.limits.endY : this.limits.endX;
+    var total = isVertical ? this.limits.totalY : this.limits.totalX;
+    var s = isVertical ? scroll.y : scroll.x; // check if in view
+
+    var nextIsInView = isElementInView(start, end, s);
+
+    this._updateElementIsInView(nextIsInView); // set the progress if in view or this is the first change
+
+
+    if (nextIsInView) {
+      var nextProgress = getProgressAmount(start, total, s, this.easing);
+
+      this._updateElementProgress(nextProgress);
+
+      this._setElementStyles();
+    } else if (isFirstChange) {
+      // NOTE: this._updateElementProgress -- dont use this because it will trigger onChange
+      this.progress = clamp(Math.round(getProgressAmount(start, total, s, this.easing)), 0, 1);
+
+      this._setElementStyles();
+    }
+
+    return this;
+  };
+
+  return Element;
+}();
+
+var View = /*#__PURE__*/function () {
+  function View(config) {
+    this.scrollContainer = config.scrollContainer;
+    this.width = config.width;
+    this.height = config.height;
+    this.scrollHeight = config.scrollHeight;
+    this.scrollWidth = config.scrollWidth;
+  }
+
+  var _proto = View.prototype;
+
+  _proto.hasChanged = function hasChanged(params) {
+    if (params.width !== this.width || params.height !== this.height || params.scrollWidth !== this.scrollWidth || params.scrollHeight !== this.scrollHeight) {
+      return true;
+    }
+
+    return false;
+  };
+
+  _proto.setSize = function setSize(params) {
+    this.width = params.width;
+    this.height = params.height;
+    this.scrollHeight = params.scrollHeight;
+    this.scrollWidth = params.scrollWidth;
+    return this;
+  };
+
+  return View;
+}();
+
+var Scroll = /*#__PURE__*/function () {
+  function Scroll(x, y) {
+    this.x = x;
+    this.y = y;
+    this.dx = 0;
+    this.dy = 0;
+  }
+
+  var _proto = Scroll.prototype;
+
+  _proto.setScroll = function setScroll(x, y) {
+    this.dx = x - this.x;
+    this.dy = y - this.y;
+    this.x = x;
+    this.y = y;
+    return this;
+  };
+
+  return Scroll;
+}();
+
+function testForPassiveScroll() {
+  var supportsPassiveOption = false;
+
+  try {
+    var opts = Object.defineProperty({}, 'passive', {
+      get: function get() {
+        supportsPassiveOption = true;
+        return true;
+      }
+    }); // @ts-expect-error
+
+    window.addEventListener('test', null, opts); // @ts-expect-error
+
+    window.removeEventListener('test', null, opts);
+  } catch (e) {}
+
+  return supportsPassiveOption;
+}
+
+/**
+ * -------------------------------------------------------
+ * Parallax Controller
+ * -------------------------------------------------------
+ *
+ * The global controller for setting up and managing a scroll view of elements.
+ *
+ */
+
+var ParallaxController = /*#__PURE__*/function () {
+  function ParallaxController(_ref) {
+    var _ref$scrollAxis = _ref.scrollAxis,
+        scrollAxis = _ref$scrollAxis === void 0 ? ScrollAxis.vertical : _ref$scrollAxis,
+        scrollContainer = _ref.scrollContainer,
+        _ref$disabled = _ref.disabled,
+        disabled = _ref$disabled === void 0 ? false : _ref$disabled;
+    this.disabled = disabled;
+    this.scrollAxis = scrollAxis; // All parallax elements to be updated
+
+    this.elements = [];
+    this._hasScrollContainer = !!scrollContainer;
+    this.viewEl = scrollContainer != null ? scrollContainer : window; // Scroll and View
+
+    var _this$_getScrollPosit = this._getScrollPosition(),
+        x = _this$_getScrollPosit[0],
+        y = _this$_getScrollPosit[1];
+
+    this.scroll = new Scroll(x, y);
+    this.view = new View({
+      width: 0,
+      height: 0,
+      scrollWidth: 0,
+      scrollHeight: 0,
+      scrollContainer: this._hasScrollContainer ? scrollContainer : undefined
+    }); // Ticking
+
+    this._ticking = false; // Passive support
+
+    this._supportsPassive = testForPassiveScroll(); // Bind methods to class
+
+    this._bindAllMethods(); // If this is initialized disabled, don't do anything below.
+
+
+    if (this.disabled) return;
+
+    this._addListeners(this.viewEl);
+
+    this._addResizeObserver();
+
+    this._setViewSize();
+  }
+  /**
+   * Static method to instantiate the ParallaxController.
+   * @returns {Class} ParallaxController
+   */
+
+
+  ParallaxController.init = function init(options) {
+    var hasWindow = typeof window !== 'undefined';
+
+    if (!hasWindow) {
+      throw new Error('Looks like ParallaxController.init() was called on the server. This method must be called on the client.');
+    }
+
+    return new ParallaxController(options);
+  };
+
+  var _proto = ParallaxController.prototype;
+
+  _proto._bindAllMethods = function _bindAllMethods() {
+    var _this = this;
+
+    ['_addListeners', '_removeListeners', '_getScrollPosition', '_handleScroll', '_handleUpdateCache', '_updateAllElements', '_updateElementPosition', '_setViewSize', '_addResizeObserver', '_checkIfViewHasChanged', '_getViewParams', 'getElements', 'createElement', 'removeElementById', 'resetElementStyles', 'updateElementPropsById', 'update', 'updateScrollContainer', 'destroy'].forEach(function (method) {
+      // @ts-expect-error
+      _this[method] = _this[method].bind(_this);
+    });
+  };
+
+  _proto._addListeners = function _addListeners(el) {
+    el.addEventListener('scroll', this._handleScroll, this._supportsPassive ? {
+      passive: true
+    } : false);
+    window.addEventListener('resize', this._handleUpdateCache, false);
+    window.addEventListener('blur', this._handleUpdateCache, false);
+    window.addEventListener('focus', this._handleUpdateCache, false);
+    window.addEventListener('load', this._handleUpdateCache, false);
+  };
+
+  _proto._removeListeners = function _removeListeners(el) {
+    var _this$_resizeObserver;
+
+    el.removeEventListener('scroll', this._handleScroll, false);
+    window.removeEventListener('resize', this._handleUpdateCache, false);
+    window.removeEventListener('blur', this._handleUpdateCache, false);
+    window.removeEventListener('focus', this._handleUpdateCache, false);
+    window.removeEventListener('load', this._handleUpdateCache, false);
+    (_this$_resizeObserver = this._resizeObserver) == null ? void 0 : _this$_resizeObserver.disconnect();
+  };
+
+  _proto._addResizeObserver = function _addResizeObserver() {
+    var _this2 = this;
+
+    try {
+      var observedEl = this._hasScrollContainer ? this.viewEl : document.documentElement;
+      this._resizeObserver = new ResizeObserver(function () {
+        return _this2.update();
+      });
+
+      this._resizeObserver.observe(observedEl);
+    } catch (e) {
+      console.warn('Failed to create the resize observer in the ParallaxContoller');
+    }
+  };
+
+  _proto._getScrollPosition = function _getScrollPosition() {
+    // Save current scroll
+    // Supports IE 9 and up.
+    var nx = this._hasScrollContainer ? // @ts-expect-error
+    this.viewEl.scrollLeft : window.pageXOffset;
+    var ny = this._hasScrollContainer ? // @ts-expect-error
+    this.viewEl.scrollTop : window.pageYOffset;
+    return [nx, ny];
+  }
+  /**
+   * Window scroll handler sets scroll position
+   * and then calls '_updateAllElements()'.
+   */
+  ;
+
+  _proto._handleScroll = function _handleScroll() {
+    var _this$elements;
+
+    var _this$_getScrollPosit2 = this._getScrollPosition(),
+        nx = _this$_getScrollPosit2[0],
+        ny = _this$_getScrollPosit2[1];
+
+    this.scroll.setScroll(nx, ny); // Only called if the last animation request has been
+    // completed and there are parallax elements to update
+
+    if (!this._ticking && ((_this$elements = this.elements) == null ? void 0 : _this$elements.length) > 0) {
+      this._ticking = true; // @ts-ignore
+
+      window.requestAnimationFrame(this._updateAllElements);
+    }
+  }
+  /**
+   * Window resize handler. Sets the new window inner height
+   * then updates parallax element attributes and positions.
+   */
+  ;
+
+  _proto._handleUpdateCache = function _handleUpdateCache() {
+    this._setViewSize();
+
+    this._updateAllElements({
+      updateCache: true
+    });
+  }
+  /**
+   * Update element positions.
+   * Determines if the element is in view based on the cached
+   * attributes, if so set the elements parallax styles.
+   */
+  ;
+
+  _proto._updateAllElements = function _updateAllElements(_temp) {
+    var _this3 = this;
+
+    var _ref2 = _temp === void 0 ? {} : _temp,
+        updateCache = _ref2.updateCache;
+
+    if (this.elements) {
+      this.elements.forEach(function (element) {
+        if (updateCache) {
+          element.setCachedAttributes(_this3.view, _this3.scroll);
+        }
+
+        _this3._updateElementPosition(element);
+      });
+    } // reset ticking so more animations can be called
+
+
+    this._ticking = false;
+  }
+  /**
+   * Update element positions.
+   * Determines if the element is in view based on the cached
+   * attributes, if so set the elements parallax styles.
+   */
+  ;
+
+  _proto._updateElementPosition = function _updateElementPosition(element) {
+    if (element.props.disabled || this.disabled) return;
+    element.updatePosition(this.scroll);
+  }
+  /**
+   * Gets the params to set in the View from the scroll container or the window
+   */
+  ;
+
+  _proto._getViewParams = function _getViewParams() {
+    if (this._hasScrollContainer) {
+      // @ts-expect-error
+      var _width = this.viewEl.offsetWidth; // @ts-expect-error
+
+      var _height = this.viewEl.offsetHeight; // @ts-expect-error
+
+      var _scrollHeight = this.viewEl.scrollHeight; // @ts-expect-error
+
+      var _scrollWidth = this.viewEl.scrollWidth;
+      return this.view.setSize({
+        width: _width,
+        height: _height,
+        scrollHeight: _scrollHeight,
+        scrollWidth: _scrollWidth
+      });
+    }
+
+    var html = document.documentElement;
+    var width = window.innerWidth || html.clientWidth;
+    var height = window.innerHeight || html.clientHeight;
+    var scrollHeight = html.scrollHeight;
+    var scrollWidth = html.scrollWidth;
+    return {
+      width: width,
+      height: height,
+      scrollHeight: scrollHeight,
+      scrollWidth: scrollWidth
+    };
+  }
+  /**
+   * Cache the view attributes
+   */
+  ;
+
+  _proto._setViewSize = function _setViewSize() {
+    return this.view.setSize(this._getViewParams());
+  }
+  /**
+   * Checks if any of the cached attributes of the view have changed.
+   * @returns boolean
+   */
+  ;
+
+  _proto._checkIfViewHasChanged = function _checkIfViewHasChanged() {
+    return this.view.hasChanged(this._getViewParams());
+  }
+  /**
+   * -------------------------------------------------------
+   * Public methods
+   * -------------------------------------------------------
+   */
+
+  /**
+   * Returns all the parallax elements in the controller
+   */
+  ;
+
+  _proto.getElements = function getElements() {
+    return this.elements;
+  }
+  /**
+   * Creates and returns new parallax element with provided options to be managed by the controller.
+   */
+  ;
+
+  _proto.createElement = function createElement(options) {
+    var newElement = new Element(_extends({}, options, {
+      scrollAxis: this.scrollAxis,
+      disabledParallaxController: this.disabled
+    }));
+    newElement.setCachedAttributes(this.view, this.scroll);
+    this.elements = this.elements ? [].concat(this.elements, [newElement]) : [newElement];
+
+    this._updateElementPosition(newElement); // NOTE: This checks if the view has changed then update the controller and all elements if it has
+    // This shouldn't always be necessary with a resize observer watching the view element
+    // but there seems to be cases where the resize observer does not catch and update.
+
+
+    if (this._checkIfViewHasChanged()) {
+      this.update();
+    }
+
+    return newElement;
+  }
+  /**
+   * Remove an element by id
+   */
+  ;
+
+  _proto.removeElementById = function removeElementById(id) {
+    if (!this.elements) return;
+    this.elements = this.elements.filter(function (el) {
+      return el.id !== id;
+    });
+  }
+  /**
+   * Updates an existing parallax element object with new options.
+   */
+  ;
+
+  _proto.updateElementPropsById = function updateElementPropsById(id, props) {
+    if (this.elements) {
+      this.elements = this.elements.map(function (el) {
+        if (el.id === id) {
+          return el.updateProps(props);
+        }
+
+        return el;
+      });
+    }
+
+    this.update();
+  }
+  /**
+   * Remove a target elements parallax styles
+   */
+  ;
+
+  _proto.resetElementStyles = function resetElementStyles(element) {
+    resetStyles(element);
+  }
+  /**
+   * Updates all cached attributes on parallax elements.
+   */
+  ;
+
+  _proto.update = function update() {
+    // Save the latest scroll position because window.scroll
+    // may be called and the handle scroll event may not be called.
+    var _this$_getScrollPosit3 = this._getScrollPosition(),
+        nx = _this$_getScrollPosit3[0],
+        ny = _this$_getScrollPosit3[1];
+
+    this.scroll.setScroll(nx, ny);
+
+    this._setViewSize();
+
+    this._updateAllElements({
+      updateCache: true
+    });
+  }
+  /**
+   * Updates the scroll container of the parallax controller
+   */
+  ;
+
+  _proto.updateScrollContainer = function updateScrollContainer(el) {
+    // remove existing listeners with current el first
+    this._removeListeners(this.viewEl);
+
+    this.viewEl = el;
+    this._hasScrollContainer = !!el;
+    this.view = new View({
+      width: 0,
+      height: 0,
+      scrollWidth: 0,
+      scrollHeight: 0,
+      scrollContainer: el
+    });
+
+    this._setViewSize();
+
+    this._addListeners(this.viewEl);
+
+    this._updateAllElements({
+      updateCache: true
+    });
+  };
+
+  _proto.disableParallaxController = function disableParallaxController() {
+    this.disabled = true; // remove listeners
+
+    this._removeListeners(this.viewEl); // reset all styles
+
+
+    if (this.elements) {
+      this.elements.forEach(function (element) {
+        return resetStyles(element);
+      });
+    }
+  };
+
+  _proto.enableParallaxController = function enableParallaxController() {
+    var _this4 = this;
+
+    this.disabled = false;
+
+    if (this.elements) {
+      this.elements.forEach(function (element) {
+        return element.updateElementOptions({
+          disabledParallaxController: false,
+          scrollAxis: _this4.scrollAxis
+        });
+      });
+    } // add back listeners
+
+
+    this._addListeners(this.viewEl);
+
+    this._addResizeObserver();
+
+    this._setViewSize();
+  }
+  /**
+   * Disable all parallax elements
+   */
+  ;
+
+  _proto.disableAllElements = function disableAllElements() {
+    console.warn('deprecated: use disableParallaxController() instead');
+
+    if (this.elements) {
+      this.elements = this.elements.map(function (el) {
+        return el.updateProps({
+          disabled: true
+        });
+      });
+    }
+
+    this.update();
+  }
+  /**
+   * Enable all parallax elements
+   */
+  ;
+
+  _proto.enableAllElements = function enableAllElements() {
+    console.warn('deprecated: use enableParallaxController() instead');
+
+    if (this.elements) {
+      this.elements = this.elements.map(function (el) {
+        return el.updateProps({
+          disabled: false
+        });
+      });
+    }
+
+    this.update();
+  }
+  /**
+   * Removes all listeners and resets all styles on managed elements.
+   */
+  ;
+
+  _proto.destroy = function destroy() {
+    this._removeListeners(this.viewEl);
+
+    if (this.elements) {
+      this.elements.forEach(function (element) {
+        return resetStyles(element);
+      });
+    } // @ts-expect-error
+
+
+    this.elements = undefined;
+  };
+
+  return ParallaxController;
+}();
+
+
+//# sourceMappingURL=parallax-controller.esm.js.map
 
 
 /***/ }),
@@ -63973,6 +65461,425 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-scroll-parallax/dist/react-scroll-parallax.esm.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/react-scroll-parallax/dist/react-scroll-parallax.esm.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EasingPreset: () => (/* reexport safe */ parallax_controller__WEBPACK_IMPORTED_MODULE_0__.EasingPreset),
+/* harmony export */   Parallax: () => (/* binding */ Parallax),
+/* harmony export */   ParallaxBanner: () => (/* binding */ ParallaxBanner),
+/* harmony export */   ParallaxBannerLayer: () => (/* binding */ ParallaxBannerLayer),
+/* harmony export */   ParallaxContext: () => (/* binding */ ParallaxContext),
+/* harmony export */   ParallaxProvider: () => (/* binding */ ParallaxProvider),
+/* harmony export */   useParallax: () => (/* binding */ useParallax),
+/* harmony export */   useParallaxController: () => (/* binding */ useParallaxController)
+/* harmony export */ });
+/* harmony import */ var parallax_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! parallax-controller */ "./node_modules/parallax-controller/dist/parallax-controller.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function removeUndefinedObjectKeys(obj) {
+  Object.keys(obj).forEach(function (key) {
+    return obj[key] === undefined && delete obj[key];
+  });
+  return obj;
+}
+
+var _excluded = ["disabled", "easing", "endScroll", "onChange", "onEnter", "onExit", "onProgressChange", "opacity", "rootMargin", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "shouldAlwaysCompleteAnimation", "shouldDisableScalingTranslations", "speed", "startScroll", "targetElement", "translateX", "translateY"];
+function getIsolatedParallaxProps(props) {
+  var disabled = props.disabled,
+      easing = props.easing,
+      endScroll = props.endScroll,
+      onChange = props.onChange,
+      onEnter = props.onEnter,
+      onExit = props.onExit,
+      onProgressChange = props.onProgressChange,
+      opacity = props.opacity,
+      rootMargin = props.rootMargin,
+      rotate = props.rotate,
+      rotateX = props.rotateX,
+      rotateY = props.rotateY,
+      rotateZ = props.rotateZ,
+      scale = props.scale,
+      scaleX = props.scaleX,
+      scaleY = props.scaleY,
+      scaleZ = props.scaleZ,
+      shouldAlwaysCompleteAnimation = props.shouldAlwaysCompleteAnimation,
+      shouldDisableScalingTranslations = props.shouldDisableScalingTranslations,
+      speed = props.speed,
+      startScroll = props.startScroll,
+      targetElement = props.targetElement,
+      translateX = props.translateX,
+      translateY = props.translateY,
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
+
+  var parallaxProps = removeUndefinedObjectKeys({
+    disabled: disabled,
+    easing: easing,
+    endScroll: endScroll,
+    onChange: onChange,
+    onEnter: onEnter,
+    onExit: onExit,
+    onProgressChange: onProgressChange,
+    opacity: opacity,
+    rootMargin: rootMargin,
+    rotate: rotate,
+    rotateX: rotateX,
+    rotateY: rotateY,
+    rotateZ: rotateZ,
+    scale: scale,
+    scaleX: scaleX,
+    scaleY: scaleY,
+    scaleZ: scaleZ,
+    shouldAlwaysCompleteAnimation: shouldAlwaysCompleteAnimation,
+    shouldDisableScalingTranslations: shouldDisableScalingTranslations,
+    speed: speed,
+    startScroll: startScroll,
+    targetElement: targetElement,
+    translateX: translateX,
+    translateY: translateY
+  });
+  return {
+    parallaxProps: parallaxProps,
+    rest: rest
+  };
+}
+
+function useVerifyController(controller) {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var isServer = typeof window === 'undefined'; // Make sure the provided controller is an instance of the Parallax Controller
+
+    var isInstance = controller instanceof parallax_controller__WEBPACK_IMPORTED_MODULE_0__.ParallaxController; // Throw if neither context or global is available
+
+    if (!isServer && !controller && !isInstance) {
+      throw new Error("Must wrap your application's <Parallax /> components in a <ParallaxProvider />.");
+    }
+  }, [controller]);
+}
+
+var ParallaxContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createContext(null);
+
+function useParallaxController() {
+  var parallaxController = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(ParallaxContext);
+  var isServer = typeof window === 'undefined';
+
+  if (isServer) {
+    return null;
+  }
+
+  if (!parallaxController) {
+    throw new Error('Could not find `react-scroll-parallax` context value. Please ensure the component is wrapped in a <ParallaxProvider>');
+  }
+
+  return parallaxController;
+}
+
+function useParallax(props) {
+  var controller = useParallaxController();
+  var ref = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+
+  var _getIsolatedParallaxP = getIsolatedParallaxProps(props),
+      parallaxProps = _getIsolatedParallaxP.parallaxProps;
+
+  useVerifyController(controller);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
+      element = _useState[0],
+      setElement = _useState[1]; // create element
+
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var newElement;
+
+    if (ref.current instanceof HTMLElement) {
+      var options = {
+        el: ref.current,
+        props: parallaxProps
+      };
+      newElement = controller == null ? void 0 : controller.createElement(options);
+      setElement(newElement);
+    } else {
+      throw new Error('You must assign the ref returned by the useParallax() hook to an HTML Element.');
+    }
+
+    return function () {
+      if (newElement) {
+        controller == null ? void 0 : controller.removeElementById(newElement.id);
+      }
+    };
+  }, []); // update element
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (element) {
+      if (props.disabled) {
+        controller == null ? void 0 : controller.resetElementStyles(element);
+        controller == null ? void 0 : controller.updateElementPropsById(element.id, parallaxProps);
+      } else {
+        controller == null ? void 0 : controller.updateElementPropsById(element.id, parallaxProps);
+      }
+    }
+  }, [props.disabled, props.easing, props.endScroll, props.onChange, props.onEnter, props.onExit, props.onProgressChange, props.opacity, props.rootMargin, props.rotate, props.rotateX, props.rotateY, props.rotateZ, props.scale, props.scaleX, props.scaleY, props.scaleZ, props.shouldAlwaysCompleteAnimation, props.shouldDisableScalingTranslations, props.speed, props.startScroll, props.targetElement, props.translateX, props.translateY]);
+  return {
+    ref: ref,
+    controller: controller,
+    element: element
+  };
+}
+
+function Parallax(props) {
+  var _getIsolatedParallaxP = getIsolatedParallaxProps(props),
+      parallaxProps = _getIsolatedParallaxP.parallaxProps,
+      rest = _getIsolatedParallaxP.rest;
+
+  var _useParallax = useParallax(parallaxProps),
+      ref = _useParallax.ref;
+
+  return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", Object.assign({
+    ref: ref
+  }, rest), props.children);
+}
+
+var FALLBACK_RECT = {
+  height: 0
+};
+function getExpandedStyle(layer) {
+  if (Array.isArray(layer.translateY)) {
+    var translateYStart = (0,parallax_controller__WEBPACK_IMPORTED_MODULE_0__.parseValueAndUnit)(layer.translateY[0]);
+    var translateYEnd = (0,parallax_controller__WEBPACK_IMPORTED_MODULE_0__.parseValueAndUnit)(layer.translateY[1]);
+
+    if (translateYStart.unit === 'px' && translateYEnd.unit === 'px') {
+      return {
+        top: Math.abs(translateYEnd.value) * -1 + "px",
+        bottom: Math.abs(translateYStart.value) * -1 + "px"
+      };
+    }
+
+    if (translateYStart.unit === '%' && translateYEnd.unit === '%') {
+      var _layer$targetElement$, _layer$targetElement;
+
+      var clientRect = (_layer$targetElement$ = (_layer$targetElement = layer.targetElement) == null ? void 0 : _layer$targetElement.getBoundingClientRect()) != null ? _layer$targetElement$ : FALLBACK_RECT;
+      var top = Math.abs(clientRect.height * 0.01 * translateYEnd.value) * -1;
+      var bottom = Math.abs(clientRect.height * 0.01 * translateYStart.value) * -1;
+      return {
+        top: top + "px",
+        bottom: bottom + "px"
+      };
+    }
+  }
+
+  if (layer.speed) {
+    var speed = layer.speed || 0;
+    var absSpeed = Math.abs(speed) * 10 * -1;
+    return {
+      top: absSpeed + "px",
+      bottom: absSpeed + "px"
+    };
+  }
+
+  return {};
+}
+
+function getImageStyle(layer) {
+  return layer.image ? {
+    backgroundImage: "url(" + layer.image + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'
+  } : {};
+}
+
+var _excluded$1 = ["children", "disabled", "style", "expanded", "image", "testId"];
+var absoluteStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0
+};
+var ParallaxBannerLayer = function ParallaxBannerLayer(props) {
+  var _getIsolatedParallaxP = getIsolatedParallaxProps(props),
+      parallaxProps = _getIsolatedParallaxP.parallaxProps,
+      rest = _getIsolatedParallaxP.rest;
+
+  var style = rest.style,
+      _rest$expanded = rest.expanded,
+      expanded = _rest$expanded === void 0 ? true : _rest$expanded,
+      testId = rest.testId,
+      divProps = _objectWithoutPropertiesLoose(rest, _excluded$1);
+
+  var imageStyle = getImageStyle(props);
+  var expandedStyle = expanded ? getExpandedStyle(props) : {};
+  var parallax = useParallax(_extends({
+    targetElement: props.targetElement,
+    shouldDisableScalingTranslations: true
+  }, parallaxProps));
+  return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", Object.assign({
+    "data-testid": testId,
+    ref: parallax.ref,
+    style: _extends({}, imageStyle, absoluteStyle, expandedStyle, style)
+  }, divProps), rest.children);
+};
+
+var _excluded$2 = ["disabled", "style", "layers"];
+var containerStyle = {
+  position: 'relative',
+  overflow: 'hidden',
+  width: '100%'
+};
+var ParallaxBanner = function ParallaxBanner(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+      targetElement = _useState[0],
+      setTargetElement = _useState[1];
+
+  var containerRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    setTargetElement(containerRef.current);
+  }, []);
+
+  var rootStyle = props.style,
+      _props$layers = props.layers,
+      layers = _props$layers === void 0 ? [] : _props$layers,
+      rootRest = _objectWithoutPropertiesLoose(props, _excluded$2);
+
+  function renderLayers() {
+    if (targetElement) {
+      var shouldUseLayers = layers && layers.length > 0;
+
+      if (shouldUseLayers) {
+        return layers.map(function (layer, i) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(ParallaxBannerLayer, Object.assign({}, layer, {
+            targetElement: targetElement,
+            key: "layer-" + i,
+            testId: "layer-" + i
+          }));
+        });
+      }
+    }
+
+    return null;
+  }
+
+  function renderChildren() {
+    if (targetElement) {
+      return react__WEBPACK_IMPORTED_MODULE_1___default().Children.map(props.children, function (child) {
+        var item = child; // adds the targetElement prop to any ParallaxBannerLayer components
+
+        if ((item == null ? void 0 : item.type) === ParallaxBannerLayer) {
+          var clone = react__WEBPACK_IMPORTED_MODULE_1___default().cloneElement(item, {
+            targetElement: targetElement
+          });
+          return clone;
+        }
+
+        return child;
+      });
+    }
+
+    return null;
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", Object.assign({
+    ref: containerRef,
+    style: _extends({}, containerStyle, rootStyle)
+  }, rootRest), renderLayers(), renderChildren());
+};
+
+var createController = function createController(options) {
+  // Don't initialize on the server
+  var isServer = typeof window === 'undefined';
+
+  if (!isServer) {
+    // Must not be the server so kick it off...
+    return parallax_controller__WEBPACK_IMPORTED_MODULE_0__.ParallaxController.init(options);
+  }
+
+  return null;
+};
+
+function ParallaxProvider(props) {
+  var controller = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+
+  if (!controller.current) {
+    controller.current = createController({
+      scrollAxis: props.scrollAxis || parallax_controller__WEBPACK_IMPORTED_MODULE_0__.ScrollAxis.vertical,
+      scrollContainer: props.scrollContainer,
+      disabled: props.isDisabled
+    });
+  } // update scroll container
+
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (props.scrollContainer && controller.current) {
+      controller.current.updateScrollContainer(props.scrollContainer);
+    }
+  }, [props.scrollContainer, controller.current]); // disable/enable parallax
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (props.isDisabled && controller.current) {
+      controller.current.disableParallaxController();
+    }
+
+    if (!props.isDisabled && controller.current) {
+      controller.current.enableParallaxController();
+    }
+  }, [props.isDisabled, controller.current]); // remove the controller when unmounting
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    return function () {
+      (controller == null ? void 0 : controller.current) && (controller == null ? void 0 : controller.current.destroy());
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(ParallaxContext.Provider, {
+    value: controller.current
+  }, props.children);
+}
+
+
+//# sourceMappingURL=react-scroll-parallax.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/react-transition-group/esm/Transition.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/Transition.js ***!
@@ -70243,6 +72150,59 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Preview_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Preview_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_Preview_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/Styles/Main/IntroAnimation.scss":
+/*!*********************************************!*\
+  !*** ./src/Styles/Main/IntroAnimation.scss ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_IntroAnimation_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./IntroAnimation.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Styles/Main/IntroAnimation.scss");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_IntroAnimation_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_IntroAnimation_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_IntroAnimation_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_IntroAnimation_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),

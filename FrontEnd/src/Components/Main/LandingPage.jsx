@@ -1,135 +1,148 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { 
-    Container
-} from '@material-ui/core';
-
-import { Stack } from '@mui/material';
 import Tilt from 'react-parallax-tilt';
 
+import IntroAnimation from './IntroAnimation';
 import '../../Styles/Main/LandingPage.scss';
 
-import downArw from "../../../public/svgs/downArrowWhite.svg";
-import fogLow from "../../../public/images/landing/fogLow.webp";
-import landing1 from "../../../public/images/landing/landing11.avif";
-import wall from "../../../public/images/landing/wall1.avif";
+import landing from "../../../public/images/landing/landing1.avif";
 
 import card1 from "../../../public/images/cards/card1.avif";
-import card2 from "../../../public/images/cards/card2.avif";
-import card3 from "../../../public/images/cards/card3.avif";
-import card4 from "../../../public/images/cards/card4.avif";
-import card5 from "../../../public/images/cards/card5.avif";
+import card3 from "../../../public/images/cards/card2.avif";
+import card4 from "../../../public/images/cards/card3.avif";
+import card5 from "../../../public/images/cards/card4.avif";
+import card7 from "../../../public/images/cards/card5.avif";
+import card2 from "../../../public/images/cards/card6.avif";
+import card6 from "../../../public/images/cards/card7.avif";
 
 
 const LandingPage = (props) => { 
 
-    const goToWhoWeR = () => {
-        document.querySelector('.who-we-are').scrollIntoView({ behavior: "smooth"});
-    }
-
     return (
-        <section className="landing">
+        <div className="landing" style={{background: `url(${landing}) center no-repeat`}} >
 
-            <Container id='title-cont' style={{background: `url(${landing1}) center no-repeat`}}>
-                <section className='overlay'></section>
-                <img className='overlay2' src={fogLow} alt="" />
-                <section className='title-sec' >
-                    <span className='title'>Raconteur.<br/>
-                        <span>Every life becomes a story worth sharing! </span>
-                    </span>
-                    
-                    <span>
-                        <img src={downArw} alt="Scroll V" onClick={goToWhoWeR}/>
-                    </span>
+            <IntroAnimation />
+
+            <section className='main-landing'>  
+                <section className='left'>
+                    <header className='main-title'>Raconteur.</header>
+                    <div className='main-sub'>
+                        <p className='sub-big'>It's the season of stories!</p>
+
+                        <p className='sub-mid'>
+                            Good stories are alway amusing and we delight in sharing 'em captivating tales. <br/> <br/>
+                            Whether for private reflection, public inspiration or just entertaiment. Join us in crafting extraordinary narratives that leave a lasting impact.
+                        </p>
+                    </div>
                 </section>
-            </Container>
 
-            <Container className='who-we-are' style={{background: `url(${wall}) center no-repeat`}}>
-                <div className='overlay'></div>
-                <div className='what-is'>
-                    <h1>What is 
-                        <span className='title'> Raconteur.</span> ?
-                    </h1>
+                <section className='right'>
+                    <div className='right-row'>
+                        <Tilt className="card big" style={{background: `url(${card1}) center no-repeat`}} 
+                            tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}
+                        >
+                            <div className="card-content" > 
+                                <div className='card-overlay'>
+                                    <p>
+                                        Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
+                                    </p>
+                                </div>
+                            </div> 
+                        </Tilt>
 
-                    <Stack direction="row" spacing={2} justifyContent="end">
-                        <p>We capture the essence of your personal and professional journeys, allowing you to chronicle unique narratives. </p>
-                        <p>Whether for private reflection or public inspiration, we empower you to curate and showcase the moments that matter. </p>
-                    </Stack>
+                        <Tilt className="card small" style={{background: `url(${card2}) center no-repeat`}} 
+                            tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}
+                        >
+                            <div className="card-content" > 
+                                <div className='card-overlay'>
+                                    <p>
+                                        Got some T, pour it here! Don't we all love some annonymous gossip?
+                                    </p>
+                                </div>
+                            </div> 
+                        </Tilt>
+                    </div>
                     
-                </div>
-            </Container>
+                    <div className='right-row'>
+                        <Tilt className="card small" style={{background: `url(${card3}) center no-repeat`}} 
+                            tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}
+                        >
+                            <div className="card-content"> 
+                                <div className='card-overlay'>
+                                    <p>
+                                        Explore and showcase your passion—whether photography, cooking, travel, or DIY—and inspire others along the way!
+                                    </p>
+                                </div>
+                            </div>
+                        </Tilt>
 
-
-            <Container className='who-we-are who2'>
-                <div className='what-is'>
-                    <h1>What  <span className='title'> Else.</span> ?</h1>
-
-                    <Stack direction="row" spacing={2} justifyContent="end">
-                        <p>From cherished memories to career milestones, our platform celebrates diversity in storytelling, offering a personalized space to document and immortalize life's most meaningful chapters. </p>
-                        <p>Join us in shaping legacies and connecting through the power of personal narrative with  <span className='title'> Raconteur.</span></p>
-                    </Stack>
+                        <Tilt className="card big" style={{background: `url(${card4}) center no-repeat`}} 
+                            tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}
+                        >
+                            <div className="card-content"> 
+                                <div className='card-overlay'>
+                                    <p>
+                                        Craft an exceptional PORTFOLIO that showcases your professional work and captivates recruiters. Exhibit Exemplary!
+                                    </p>
+                                </div>
+                            </div> 
+                        </Tilt>
+                    </div>
                     
-                </div>
-            </Container>
 
-            <Container className='who-we-are who3'>
-                <div className='frnt-row'>
-                    <Tilt tiltReverse className="card">
-                        <div className="card-content" style={{background: `url(${card1}) center no-repeat`}}> 
-                            <div className='card-overlay'>
-                                <p>
-                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
-                                </p>
+                    <div className='right-row'>
+                        <Tilt className="card big" style={{background: `url(${card5}) center no-repeat`}} 
+                            tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}
+                        >
+                            <div className="card-content" > 
+                                <div className='card-overlay'>
+                                    <p>
+                                        Make your voice heard—whether it's social, political, or personal, your opinions matter here.
+                                    </p>
+                                </div>
                             </div>
-                        </div> 
+                        </Tilt>
 
-                    </Tilt>
+                        <Tilt className="card small" style={{background: `url(${card6}) center no-repeat`}} 
+                            tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}
+                        >
+                            <div className="card-content" > 
+                                <div className='card-overlay'>
+                                    <p>
+                                        Thinkers may not be doers, just do it! This can be your personal blog.
+                                    </p>
+                                </div>
+                            </div> 
+                        </Tilt>
+
+                    </div>
                     
-                    <Tilt tiltReverse className="card">
-                        <div className="card-content" style={{background: `url(${card2}) center no-repeat`}}> 
+
+                    <Tilt className="card thin" style={{background: `url(${card7}) center no-repeat`}}
+                        tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}
+                    >
+                        <div className="card-content" > 
                             <div className='card-overlay'>
                                 <p>
-                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
+                                    Track your journey, from where you began to where you stand now—grow, reminisce, and discover yourself along the way.
                                 </p>
                             </div>
                         </div> 
                     </Tilt>
 
-                    <Tilt tiltReverse className="card">
-                        <div className="card-content" style={{background: `url(${card3}) center no-repeat`}}> 
-                            <div className='card-overlay'>
-                                <p>
-                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
-                                </p>
-                            </div>
-                        </div> 
-                    </Tilt>
+                </section>
+            </section>
 
-                    <Tilt tiltReverse className="card">
-                        <div className="card-content" style={{background: `url(${card4}) center no-repeat`}}> 
-                            <div className='card-overlay'>
-                                <p>
-                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
-                                </p>
-                            </div>
-                        </div> 
-                    </Tilt>
-
-                    <Tilt tiltReverse className="card">
-                        <div className="card-content" style={{background: `url(${card5}) center no-repeat`}}> 
-                            <div className='card-overlay'>
-                                <p>
-                                    Capture everything from diary entries to notes, calendars, important events, and cherish 'em forever with your loved ones.
-                                </p>
-                            </div>
-                        </div> 
-                    </Tilt>
-                </div>
-                
-            </Container>
+            <div className='anchor-details'>
+                <p>Let's go!</p>
+                <p>Author</p>
+            </div>
 
 
 
-        </section>
+            {/* <div style={{backgroundImage: `url(${landing2}) `}} className='landing1'></div>
+            <div style={{height: "50vh", background: "#f8deac"}}></div>
+            <div style={{backgroundImage: `url(${wall2}) `}} className='landing2'></div> */}
+        </div> 
     )
 }
 
