@@ -2,10 +2,10 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { Stack } from '@mui/material';
 import Link from '@mui/material/Link';
-import * as CONSTANTS from "../../../Constants/Constants";
+import * as CONSTANTS from "../../Constants/Constants";
 
-import '../../../Styles/Home/About/AboutMe.scss';
-import myProfile from "../../../../public/images/myProfile.png";
+import '../../Styles/Home/AboutMe.scss';
+import myProfile from "../../../public/images/myProfile.png";
 
 const AboutMe = (props) => {
     const { socials, description } = props;

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Grid } from '@mui/material';
 
-import '../../../Styles/Home/Gallery/Gallery.scss';
+import '../../Styles/Home/Gallery.scss';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import CameraIcon from '@mui/icons-material/Camera';
 import HikingIcon from '@mui/icons-material/Hiking';
 
-import bg1 from "../../../../public/images/bg1.jpg";
-import bg2 from "../../../../public/images/bg2.jpg";
-import bg3 from "../../../../public/images/bg3.jpg";
-import bg4 from "../../../../public/images/bg4.jpg";
-import bg5 from "../../../../public/images/bg5.jpg";
+import bg1 from "../../../public/images/bg1.jpg";
+import bg2 from "../../../public/images/bg2.jpg";
+import bg3 from "../../../public/images/bg3.jpg";
+import bg4 from "../../../public/images/bg4.jpg";
+import bg5 from "../../../public/images/bg5.jpg";
 
-import { uuid } from '../../../Helper/Helper';
+import { uuid } from '../../Helper/Helper';
 
 
 const galleryNav = {

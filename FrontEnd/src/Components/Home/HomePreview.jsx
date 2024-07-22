@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import bg6 from "../../../../public/images/preview/bg6.jpeg";
+import bg6 from "../../../public/images/preview/bg6.jpeg";
 
 
-import '../../../Styles/Home/Preview/Preview.scss';
+import '../../Styles/Home/Preview.scss';
 
 const Preview = () => {
   return (

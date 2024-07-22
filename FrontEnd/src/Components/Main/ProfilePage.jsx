@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import Footer from '../Footer/Footer';
 import * as CONSTANTS from "../../Constants/Constants";
+import * as APIS from "../../Apis/userApis";
 
 
 import '../../Styles/Main/ProfilePage.scss';
@@ -19,8 +20,18 @@ const useStyles = makeStyles((theme) => ({
 const ProfilePage = () => {
     const classes = useStyles();
     const [ isNavTrans, setIsNavTrans ] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
-    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.navItems[2]);
-    // const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
+    // const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.navItems[2]);
+    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
+    const [ currentUser, setCurrentUser ] = useState({});
+
+    useEffect(() => {
+        const getCurrentUser = async () => {
+            const currentUser = await APIS.getCurrentUser();
+            setCurrentUser(currentUser);
+        }
+
+        getCurrentUser();
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,6 +52,7 @@ const ProfilePage = () => {
             <ResponsiveAppBar 
                 isNavTrans={isNavTrans}
                 handleNavSelect={handleNavSelect}
+                currentUser={currentUser}
             />
             
             <Content />

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
-import Preview from './HomePreview/HomePreview';
-import AboutMe from './About/AboutMe';
-import Gallery from './Gallery/Gallery';
+import Preview from './HomePreview';
+import AboutMe from './AboutMe';
+import Gallery from './Gallery';
 
 
 const Home = (props) => {

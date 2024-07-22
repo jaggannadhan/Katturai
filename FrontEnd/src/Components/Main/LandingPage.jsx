@@ -133,7 +133,7 @@ const LandingPage = (props) => {
             </section>
 
             <div className='anchor-details'>
-                <p>Let's go!</p>
+                <p onClick={() => window.location = "./signin"}>Let's go!</p>
                 <p>Author</p>
             </div>
 

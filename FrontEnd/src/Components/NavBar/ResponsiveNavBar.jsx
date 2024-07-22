@@ -7,8 +7,9 @@ import {
     Typography,
     Menu,
     Stack,
-    MenuItem
-
+    MenuItem,
+    Avatar,
+    Tooltip
  } from '@mui/material';
 
 import { uuid } from "../../Helper/Helper.js";
@@ -19,13 +20,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 
 const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Logout'];
 
 function ResponsiveAppBar(props) {
-    const { isNavTrans, handleNavSelect } = props;
+    const { isNavTrans, handleNavSelect, currentUser } = props;
     const [ anchorElNav, setAnchorElNav ] = useState(null);
     const [ anchorElUser, setAnchorElUser ] = useState(null);
 
+    console.log(currentUser);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -40,6 +42,13 @@ function ResponsiveAppBar(props) {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    function handleProfileOptions(option) {
+        if(option == "Logout") {
+            window.location = "./logout";
+        }
+        handleCloseUserMenu();
+    }
 
     function handleNavSelectInner(navItem) {
         handleCloseNavMenu();
@@ -143,11 +152,12 @@ function ResponsiveAppBar(props) {
                     }
                 </Stack>
                 
-                { /* USE THIS DIV FOR PROFILE AVATAR IMAGE */ }
-                {/* <Box sx={{ flexGrow: 0 }}>
+                {
+                    currentUser ?
+                    <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            <Avatar alt={currentUser.name} src={currentUser.picture} />
                         </IconButton>
                     </Tooltip>
                     <Menu
@@ -167,12 +177,13 @@ function ResponsiveAppBar(props) {
                         onClose={handleCloseUserMenu}
                     >
                         {settings.map((setting) => (
-                            <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                            <MenuItem key={setting} onClick={() => handleProfileOptions(setting)}>
                                 <Typography textAlign="center">{setting}</Typography>
                             </MenuItem>
                         ))}
                     </Menu>
-                </Box> */}
+                    </Box> : ""
+                }
             </Toolbar>
         </AppBar>
     );
