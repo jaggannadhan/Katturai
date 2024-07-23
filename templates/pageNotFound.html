@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Raconteur</title>
+        <link rel="icon" href="./images/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="./static/css/pageNotFound.css?v=1.004">
+    </head>
+    <body>
+        <div class="cont_principal">
+            <div class="cont_error">
+                <h1>Oops</h1>  
+                <p>The Page you're looking for isn't here.</p>
+                <div id="home-btn">
+                    <h4 class="btn-txt">Home</h4>
+                </div>
+            </div>
+            <div class="cont_aura_1"></div>
+            <div class="cont_aura_2"></div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.querySelector('.cont_principal').className= "cont_principal cont_error_active";  
+        }
+        document.getElementById("home-btn").onclick = function () {
+            location.href = "./";
+        };
+    </script>
+</html>

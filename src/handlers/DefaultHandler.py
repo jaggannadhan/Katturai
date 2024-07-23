@@ -8,8 +8,17 @@ default = Blueprint("default", __name__)
 
 @default.route("/")
 def landingPage():
+    user = session.get("user")
+    if user:
+        return redirect(url_for("default.homePage"))
     return render_template("index.html")
 
+@default.route("/signin")
+def signin():
+    user = session.get("user")
+    if user:
+        return redirect(url_for("default.homePage"))
+    return render_template("index.html")
 
 @default.route("/home")
 def homePage():
@@ -23,7 +32,10 @@ def homePage():
 def getCurrentUser():
     user = session.get("user")
     if not user:
-        return None
+        return jsonify({
+            "success": False,
+            "user_info": None 
+        })
 
     userInfo, msg = UserInfo.getUser(user.get("email"))
     picture = user.get("picture")
@@ -32,4 +44,7 @@ def getCurrentUser():
     userInfo["picture"] = picture
 
     print(userInfo)
-    return jsonify(userInfo)
+    return jsonify({
+        "success": True,
+        "user_info": userInfo 
+    })

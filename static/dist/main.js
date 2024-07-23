@@ -40782,17 +40782,23 @@ var getCurrentUser = /*#__PURE__*/function () {
           return response.json();
         case 6:
           data = _context.sent;
-          return _context.abrupt("return", data);
-        case 10:
-          _context.prev = 10;
+          if (!data.success) {
+            _context.next = 9;
+            break;
+          }
+          return _context.abrupt("return", data.user_info);
+        case 9:
+          return _context.abrupt("return", null);
+        case 12:
+          _context.prev = 12;
           _context.t0 = _context["catch"](0);
           console.error("getCurrentUser: ", _context.t0);
           // return {'last_login': "21-July-2024", 'email': 'jegsirox@gmail.com', 'name': 'Jegsi Rox', 'picture': 'https://lh3.googleusercontent.com/a/ACg8ocLCqPHO3udwhxqXQAIsA_UhmR3VRJ_p7JdR8gFWNhjaFrhIJG2E=s96-c'}
-        case 13:
+        case 15:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 10]]);
+    }, _callee, null, [[0, 12]]);
   }));
   return function getCurrentUser() {
     return _ref.apply(this, arguments);
@@ -41271,7 +41277,7 @@ var AboutMe = function AboutMe(props) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
     variant: "h6",
     className: "about-content"
-  }, "Happiness can be a state of mind when you realize", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "there is no better time or way to live and ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "when this realization strikes, sharpen you brain and brawn, for only a ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "strong body and a healthy mind can sustain the epiphany.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Live Fluid, Train Hard! ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "Happiness can be a state of mind when you realize", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "there is no better time or way to live ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Only a strong body and a healthy mind can sustain the epiphany.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Live Fluid, Train Hard! ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
     variant: "h6",
     className: "about-content content-by"
   }, "-- That's just me.")));
@@ -42753,11 +42759,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.diary-card-cont {
   height: 14vw;
 }
 
-.diary-add-note {
-  width: 8vw;
-  height: 8vw;
-}
-
 .diary-buzz-bee {
   width: 2.5vw;
   height: 2.5vw;
@@ -42791,11 +42792,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.diary-card-cont {
   top: 46vw;
   z-index: 5;
   cursor: pointer;
+  user-select: none;
 }
 
 .diary-add-note:active {
   transform: translateY(4px);
-}`, "",{"version":3,"sources":["webpack://./src/Styles/Diary/Diary.scss"],"names":[],"mappings":"AAAA;EACI,0BAAA;EACA,gDAAA;EACA,oBAAA;EACA,YAAA;EACA,kBAAA;EACA,SAAA;AACJ;;AAEA;EACI,WAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;AACJ;;AAEA;EACI,UAAA;EACA,WAAA;AACJ;;AAEA;EACI,YAAA;EACA,aAAA;EACA,kBAAA;EACA,YAAA;EACA,SAAA;EACA,UAAA;EAEA,sBAAA;EACA,uBAAA;EACA,mCAAA;EACA,8BAAA;AAAJ;;AAIA;EACI;IACI,UAAA;IACA,SAAA;IACA,yBAAA;EADN;EAIE;IACI,YAAA;IACA,SAAA;IACA,oBAAA;EAFN;AACF;AAMA;EACI,UAAA;EACA,WAAA;EACA,kBAAA;EACA,YAAA;EACA,SAAA;EACA,UAAA;EACA,eAAA;AAJJ;;AAOA;EACI,0BAAA;AAJJ","sourcesContent":[".diary-card-cont {\n    max-width: 95vw !important;\n    box-shadow: 0px 2px 13px 3px rgba(0, 0, 0, 0.38);\n    border-radius: 0.5vw;\n    padding: 3vw;\n    position: relative;\n    top: -4vw;\n}\n\n.diary-pagination {\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 14vw;\n}\n\n.diary-add-note {\n    width: 8vw;\n    height: 8vw;\n}\n\n.diary-buzz-bee {\n    width: 2.5vw;\n    height: 2.5vw;\n    position: absolute;\n    left: 89.7vw;\n    top: 46vw;\n    z-index: 5;\n\n    animation-duration: 7s;\n    animation-name: moveBee;\n    animation-iteration-count: infinite;\n    animation-direction: alternate;\n    \n}\n\n@keyframes moveBee {\n    0%, 20% {\n        left: 18vw;\n        top: 32vw;\n        transform: rotate(-45deg);\n    }\n  \n    90%, 100% {\n        left: 89.7vw;\n        top: 46vw;\n        transform: rotate(0);\n    }\n}\n  \n\n.diary-add-note {\n    width: 8vw;\n    height: 8vw;\n    position: absolute;\n    left: 89.7vw;\n    top: 46vw;\n    z-index: 5;\n    cursor: pointer;\n}\n\n.diary-add-note:active {\n    transform: translateY(4px);\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/Styles/Diary/Diary.scss"],"names":[],"mappings":"AAAA;EACI,0BAAA;EACA,gDAAA;EACA,oBAAA;EACA,YAAA;EACA,kBAAA;EACA,SAAA;AACJ;;AAEA;EACI,WAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;AACJ;;AAEA;EACI,YAAA;EACA,aAAA;EACA,kBAAA;EACA,YAAA;EACA,SAAA;EACA,UAAA;EAEA,sBAAA;EACA,uBAAA;EACA,mCAAA;EACA,8BAAA;AAAJ;;AAIA;EACI;IACI,UAAA;IACA,SAAA;IACA,yBAAA;EADN;EAIE;IACI,YAAA;IACA,SAAA;IACA,oBAAA;EAFN;AACF;AAMA;EACI,UAAA;EACA,WAAA;EACA,kBAAA;EACA,YAAA;EACA,SAAA;EACA,UAAA;EACA,eAAA;EACA,iBAAA;AAJJ;;AAOA;EACI,0BAAA;AAJJ","sourcesContent":[".diary-card-cont {\n    max-width: 95vw !important;\n    box-shadow: 0px 2px 13px 3px rgba(0, 0, 0, 0.38);\n    border-radius: 0.5vw;\n    padding: 3vw;\n    position: relative;\n    top: -4vw;\n}\n\n.diary-pagination {\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 14vw;\n}\n\n.diary-buzz-bee {\n    width: 2.5vw;\n    height: 2.5vw;\n    position: absolute;\n    left: 89.7vw;\n    top: 46vw;\n    z-index: 5;\n\n    animation-duration: 7s;\n    animation-name: moveBee;\n    animation-iteration-count: infinite;\n    animation-direction: alternate;\n    \n}\n\n@keyframes moveBee {\n    0%, 20% {\n        left: 18vw;\n        top: 32vw;\n        transform: rotate(-45deg);\n    }\n  \n    90%, 100% {\n        left: 89.7vw;\n        top: 46vw;\n        transform: rotate(0);\n    }\n}\n  \n\n.diary-add-note {\n    width: 8vw;\n    height: 8vw;\n    position: absolute;\n    left: 89.7vw;\n    top: 46vw;\n    z-index: 5;\n    cursor: pointer;\n    user-select: none;\n}\n\n.diary-add-note:active {\n    transform: translateY(4px);\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

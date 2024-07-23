@@ -38,9 +38,8 @@ const AboutMe = (props) => {
 
                 <Typography variant="h6" className="about-content">
                     Happiness can be a state of mind when you realize<br />
-                    there is no better time or way to live and <br />
-                    when this realization strikes, sharpen you brain and brawn, for only a <br />
-                    strong body and a healthy mind can sustain the epiphany.<br />
+                    there is no better time or way to live <br />
+                    Only a strong body and a healthy mind can sustain the epiphany.<br />
                     Live Fluid, Train Hard! <br />
                 </Typography>
                 <Typography variant="h6" className="about-content content-by">

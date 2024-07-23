@@ -15,11 +15,6 @@
     height: 14vw;
 }
 
-.diary-add-note {
-    width: 8vw;
-    height: 8vw;
-}
-
 .diary-buzz-bee {
     width: 2.5vw;
     height: 2.5vw;
@@ -58,6 +53,7 @@
     top: 46vw;
     z-index: 5;
     cursor: pointer;
+    user-select: none;
 }
 
 .diary-add-note:active {
