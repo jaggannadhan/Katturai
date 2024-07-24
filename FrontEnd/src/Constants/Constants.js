@@ -17,13 +17,19 @@ export const socials = [
 ]
 
 export const navigation = {
-    default: { name: "Home", component: () => Home },
+    default: { name: "Home", route: "", component: () => Home },
     navItems: [
-        {name: "Diary", component: () => Diary},
-        {name: "Travel", component: () => Travel},
-        {name: "Portfolio", component: () => Portfolio},
-        {name: "Opinion", component: () => Home},
-        {name: "Recreation", component: () => Home},
-    ]
+        {name: "Diary", route: "diary", component: () => Diary},
+        {name: "Travel", route: "travel", component: () => Travel},
+        {name: "Portfolio", route: "portfolio", component: () => Portfolio},
+        {name: "Opinion", route: "opinion", component: () => Home},
+        {name: "Recreation", route: "recreation", component: () => Home},
+    ],
+    getRouteBasedComponent: function(route) {
+        console.log(">>>>>slug: ", route);
+        if(this.default.route == route) return this.default;
+        let component = this.navItems.filter(item => item.route == route)[0];
+        return component;
+    }
 };
     

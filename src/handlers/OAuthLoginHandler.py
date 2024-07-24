@@ -32,10 +32,5 @@ def authorize():
     current_user = OAuthLoginService.addUserIfNotExists(user_info)
     session['user'] = user_info
     print(user_info)
-    return redirect(url_for("default.homePage"))
+    return redirect(url_for("user.homePage", user_uid="jaggannadhan"))
 
-
-@login.route('/logout')
-def logout():
-    session.pop('user', None)
-    return redirect('./')

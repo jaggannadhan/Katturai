@@ -45,7 +45,7 @@ function Footer(props) {
 
   return (
         <React.Fragment>
-        <Box component="footer" sx={{py: 6, background: `url( ${bgImg[selectedNav.name]} ) no-repeat center`, backgroundSize: "cover"}} className='ldlz footer'>
+        <Box component="footer" sx={{py: 6, background: `url( ${bgImg[selectedNav?.name || "Home"]} ) no-repeat center`, backgroundSize: "cover"}} className='ldlz footer'>
             <div className="edge-mask">
                 <div className="ldlz" style={{opacity: 1, visibility: "visible", backgroundImage: `url(${valleyWhite})`, dataSrc:{bgImg}}}></div>
             </div>

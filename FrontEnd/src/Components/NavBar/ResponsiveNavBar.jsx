@@ -17,17 +17,18 @@ import "../../Styles/NavBar/NavBar.scss";
  
 import * as CONSTANTS from "../../Constants/Constants";
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from "react-router-dom";
 
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Logout'];
 
 function ResponsiveAppBar(props) {
-    const { isNavTrans, handleNavSelect, currentUser } = props;
+    const { isNavTrans, handleNavSelect, currentUser, user_route } = props;
     const [ anchorElNav, setAnchorElNav ] = useState(null);
     const [ anchorElUser, setAnchorElUser ] = useState(null);
+    const navigate = useNavigate();
 
-    console.log(currentUser);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -53,6 +54,7 @@ function ResponsiveAppBar(props) {
     function handleNavSelectInner(navItem) {
         handleCloseNavMenu();
         handleNavSelect(navItem);
+        navigate(`/${user_route}/${navItem.route}`);
     }
 
     return (

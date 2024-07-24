@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from src.handlers.DefaultHandler import default
 from src.handlers.OAuthLoginHandler import login
+from src.handlers.UserHandler import user
 from src.AppSecrets import AppSecrets
 
 app = Flask(__name__)
@@ -8,6 +9,7 @@ app.secret_key = AppSecrets.SECRET_KEY
 
 app.register_blueprint(default)
 app.register_blueprint(login)
+app.register_blueprint(user)
 
 @app.errorhandler(404)
 def not_found(e):
