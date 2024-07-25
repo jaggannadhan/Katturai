@@ -1,4 +1,4 @@
-from flask import session, redirect, url_for
+from flask import session, redirect, url_for, render_template
 from functools import wraps
 from src.models.UserInfo import UserInfo
 
@@ -35,4 +35,15 @@ def handle_loggedin_user(handle):
         
         return redirect(url_for("user.homePage", user_uid=userInfo.get("user_uid")))
 
+    return wrapper
+
+def check_user_uid(handle):
+    @wraps(handle)
+    def wrapper(user_uid):
+            
+        userInfo, msg = UserInfo.getUserByUID(user_uid)
+        if not userInfo:
+            return render_template("pageNotFound.html")
+            
+        return handle(user_uid)
     return wrapper

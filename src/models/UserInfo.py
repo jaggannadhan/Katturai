@@ -24,6 +24,20 @@ class UserInfo:
             return False, f"Unable to retrieve user: {email}!"
         
     @classmethod
+    def getUserByUID(cls, user_uid):
+        print(f"Retrieving user by uid: {user_uid}")
+        try:
+            query = USERINFO.query(kind=cls.kind)
+            query.add_filter(filter=PropertyFilter("user_uid", "=", user_uid))
+            entity = list(query.fetch())
+
+            entity = entity[0] if entity else None
+            return entity, f"Successully retrieved user by uid: {entity} "
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"Unable to retrieve user by uid: {user_uid}!"
+        
+    @classmethod
     def addUser(cls, email, user_name):
         print(f"Adding user: {email} to UserInfo")
         try:
