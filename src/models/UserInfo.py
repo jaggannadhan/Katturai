@@ -31,6 +31,7 @@ class UserInfo:
             new_entity["email"] = email
             new_entity["name"] = user_name
             new_entity["last_login"] = datetime.now()
+            new_entity["user_uid"] = email.split("@", 1)[0]
             USERINFO.put(new_entity)
 
             return new_entity, f"Successully added {email}"

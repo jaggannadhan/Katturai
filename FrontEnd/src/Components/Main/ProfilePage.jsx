@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import Footer from '../Footer/Footer';
+import PageLoader from './PageLoader';
 
 import * as CONSTANTS from "../../Constants/Constants";
 import * as APIS from "../../Apis/userApis";
@@ -28,8 +29,8 @@ const ProfilePage = () => {
     
     const classes = useStyles();
     const [ isNavTrans, setIsNavTrans ] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
-    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
-    const [ currentUser, setCurrentUser ] = useState({});
+    const [ selectedNav, setSelectedNav ] = useState(null);
+    const [ currentUser, setCurrentUser ] = useState(null);
 
 
     useEffect(() => {
@@ -76,18 +77,14 @@ const ProfilePage = () => {
                 currentUser={currentUser}
                 user_route={user_route}
             />
-            
-            <Routes>
-                {
-                    selectedNav ?
-                    <Route path={`/${selectedNav.route}`} element={ <Content /> } /> :
-                    <Route path={`/*`} element={ <PageNotFound /> } />
-
-                }
-                
-            </Routes>
-            
-            {/* <Content /> */}
+                                
+            {
+                selectedNav ?
+                <Routes>
+                    <Route path={`/${selectedNav.route}`} element={ <Content /> } /> 
+                    <Route path={`/*`} element={  <PageLoader /> } /> 
+                </Routes> : <PageLoader />
+            }
             
             <Footer 
                 selectedNav={selectedNav} 

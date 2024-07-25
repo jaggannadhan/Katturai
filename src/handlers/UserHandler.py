@@ -1,17 +1,40 @@
 from flask import Blueprint, render_template
 from flask import session, redirect, url_for, jsonify
-from src.services.DefaultService import login_required
+from src.services.DecoratorService import login_required
 from src.models.UserInfo import UserInfo
 
 user = Blueprint("user", __name__)
 
 
 @user.route("/<user_uid>/", methods=["GET"])
-@login_required
 def homePage(user_uid):
     print(user_uid)
     return render_template("index.html")
 
+@user.route("/<user_uid>/diary", methods=["GET"])
+@login_required
+def diary(user_uid):
+    return render_template("index.html")
+
+@user.route("/<user_uid>/travel", methods=["GET"])
+def travel(user_uid):
+    print(user_uid)
+    return render_template("index.html")
+
+@user.route("/<user_uid>/portfolio", methods=["GET"])
+def portfolio(user_uid):
+    print(user_uid)
+    return render_template("index.html")
+
+@user.route("/<user_uid>/opinion", methods=["GET"])
+def opinion(user_uid):
+    print(user_uid)
+    return render_template("index.html")
+
+@user.route("/<user_uid>/recreation", methods=["GET"])
+def recreation(user_uid):
+    print(user_uid)
+    return render_template("index.html")
 
 @user.route("/<user_uid>/getCurrentUser", methods=["GET"])
 def getCurrentUser(user_uid):

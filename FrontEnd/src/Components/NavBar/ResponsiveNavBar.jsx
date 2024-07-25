@@ -54,7 +54,7 @@ function ResponsiveAppBar(props) {
     function handleNavSelectInner(navItem) {
         handleCloseNavMenu();
         handleNavSelect(navItem);
-        navigate(`/${user_route}/${navItem.route}`);
+        window.location = `/${user_route}/${navItem.route}`;
     }
 
     return (

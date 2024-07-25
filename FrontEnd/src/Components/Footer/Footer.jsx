@@ -40,7 +40,9 @@ function Footer(props) {
     "Home": HomeFooterImg,
     "Diary": DiaryFooterImg,
     "Travel": TravelFooterImg,
-    "Portfolio": PortfolioFooterImg
+    "Portfolio": PortfolioFooterImg,
+    "Opinion": TravelFooterImg,
+    "Recreation": TravelFooterImg
   } 
 
   return (

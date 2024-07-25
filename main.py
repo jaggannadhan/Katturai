@@ -5,7 +5,10 @@ from src.handlers.UserHandler import user
 from src.AppSecrets import AppSecrets
 
 app = Flask(__name__)
-app.secret_key = AppSecrets.SECRET_KEY
+app.config.update(
+    SECRET_KEY=AppSecrets.SECRET_KEY,
+    SESSION_COOKIE_SECURE=True,
+)
 
 app.register_blueprint(default)
 app.register_blueprint(login)

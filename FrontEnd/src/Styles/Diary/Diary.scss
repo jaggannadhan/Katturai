@@ -4,7 +4,7 @@
     border-radius: 0.5vw;
     padding: 3vw;
     position: relative;
-    top: -4vw;
+    top: -12vw;
 }
 
 .diary-pagination {
@@ -48,9 +48,9 @@
 .diary-add-note {
     width: 8vw;
     height: 8vw;
-    position: absolute;
+    position: relative;
     left: 89.7vw;
-    top: 46vw;
+    top: -14vw;
     z-index: 5;
     cursor: pointer;
     user-select: none;
