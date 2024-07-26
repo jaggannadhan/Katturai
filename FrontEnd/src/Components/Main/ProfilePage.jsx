@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
@@ -8,7 +8,6 @@ import PageLoader from './PageLoader';
 import * as CONSTANTS from "../../Constants/Constants";
 import * as APIS from "../../Apis/userApis";
 import { Routes, Route, useParams, useLocation, useNavigate } from "react-router-dom";
-import PageNotFound from '../Main/PageNotFound';
 
 import '../../Styles/Main/ProfilePage.scss';
 
@@ -29,9 +28,8 @@ const ProfilePage = () => {
     
     const classes = useStyles();
     const [ isNavTrans, setIsNavTrans ] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
-    const [ selectedNav, setSelectedNav ] = useState(null);
+    const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
     const [ currentUser, setCurrentUser ] = useState(null);
-
 
     useEffect(() => {
         const navigateToPage = async () => {
@@ -73,6 +71,7 @@ const ProfilePage = () => {
         <div className={`home-page ${classes.root}`}>
             <ResponsiveAppBar 
                 isNavTrans={isNavTrans}
+                selectedNav={selectedNav} 
                 handleNavSelect={handleNavSelect}
                 currentUser={currentUser}
                 user_route={user_route}
@@ -81,9 +80,14 @@ const ProfilePage = () => {
             {
                 selectedNav ?
                 <Routes>
-                    <Route path={`/${selectedNav.route}`} element={ <Content /> } /> 
+                    <Route path={`/${selectedNav.route}`} element={ 
+                        <Content 
+                            currentUser={currentUser}
+                        /> 
+                    } /> 
                     <Route path={`/*`} element={  <PageLoader /> } /> 
-                </Routes> : <PageLoader />
+                </Routes> : <PageLoader /> 
+                
             }
             
             <Footer 

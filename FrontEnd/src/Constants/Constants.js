@@ -9,6 +9,8 @@ import Diary from '../Components/Diary/Diary';
 import Travel from '../Components/Travel/Travel';
 import Portfolio from '../Components/Portfolio/Portfolio';
 
+import ProfileEditor from '../Components/ProfileEditor/ProfileEditor';
+
 export const socials = [
     { name: 'GitHub', icon: GitHubIcon, link: "https://github.com/jaggannadhan" },
     { name: 'YouTube', icon: YouTubeIcon, link: "https://www.youtube.com/@jegsirox3674"  },
@@ -25,9 +27,11 @@ export const navigation = {
         {name: "Opinion", route: "opinion", component: () => Home},
         {name: "Recreation", route: "recreation", component: () => Home},
     ],
+    profileEditor: {name: "Profile", route: "profile", component: () => ProfileEditor },
     getRouteBasedComponent: function(route) {
-        console.log(">>>>>slug: ", route);
+        // console.log(">>>>>slug: ", route);
         if(this.default.route == route) return this.default;
+        if(this.profileEditor.route == route) return this.profileEditor;
         let component = this.navItems.filter(item => item.route == route)[0];
         return component;
     }

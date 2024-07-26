@@ -19,12 +19,10 @@ import * as CONSTANTS from "../../Constants/Constants";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
 
-
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Logout'];
+const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar(props) {
-    const { isNavTrans, handleNavSelect, currentUser, user_route } = props;
+    const { isNavTrans, selectedNav, handleNavSelect, currentUser, user_route } = props;
     const [ anchorElNav, setAnchorElNav ] = useState(null);
     const [ anchorElUser, setAnchorElUser ] = useState(null);
     const navigate = useNavigate();
@@ -47,6 +45,9 @@ function ResponsiveAppBar(props) {
     function handleProfileOptions(option) {
         if(option == "Logout") {
             window.location = "./logout";
+        } else if(option == "Profile") {
+            handleNavSelect(CONSTANTS.navigation.profileEditor);
+            window.location = `/${user_route}/profile`;
         }
         handleCloseUserMenu();
     }
@@ -57,9 +58,10 @@ function ResponsiveAppBar(props) {
         window.location = `/${user_route}/${navItem.route}`;
     }
 
+    let navClassOpts = isNavTrans && selectedNav.name != "Profile";
     return (
         <AppBar position="fixed" className="navbar">
-            <Toolbar className={isNavTrans ? "toolbar-trans" : "toolbar-opq"} >
+            <Toolbar className={ navClassOpts ? "toolbar-trans" : "toolbar-opq"} >
                 <Stack direction="row" spacing={2}>
                     <Typography
                         variant="h5"
@@ -70,7 +72,7 @@ function ResponsiveAppBar(props) {
                             display: { xs: 'none', md: 'flex' },
                             textDecoration: 'none',
                         }}
-                        className={`navbar-title ${isNavTrans ? "nav-items-colord" : "nav-items-white"}`}
+                        className={`navbar-title ${navClassOpts ? "nav-items-colord" : "nav-items-white"}`}
                     >
                         Raconteur
                     </Typography>
@@ -132,7 +134,7 @@ function ResponsiveAppBar(props) {
                             flexGrow: 1,
                             textDecoration: 'none',
                         }}
-                        className={`navbar-title-center ${isNavTrans ? "nav-items-colord" : "nav-items-white"}`}
+                        className={`navbar-title-center ${navClassOpts ? "nav-items-colord" : "nav-items-white"}`}
                     >
                         Raconteur
                     </Typography>
@@ -179,7 +181,7 @@ function ResponsiveAppBar(props) {
                         onClose={handleCloseUserMenu}
                     >
                         {settings.map((setting) => (
-                            <MenuItem key={setting} onClick={() => handleProfileOptions(setting)}>
+                            <MenuItem key={setting} onClick={() => handleProfileOptions(setting)} disabled={selectedNav.name == setting}>
                                 <Typography textAlign="center">{setting}</Typography>
                             </MenuItem>
                         ))}

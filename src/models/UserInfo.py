@@ -43,7 +43,11 @@ class UserInfo:
         try:
             new_entity = datastore.Entity(USERINFO.key(cls.kind))
             new_entity["email"] = email
-            new_entity["name"] = user_name
+            
+            firstName, lastName = user_name.split(" ", 1)
+            new_entity["first_name"] = firstName
+            new_entity["last_name"] = lastName
+
             new_entity["last_login"] = datetime.now()
             new_entity["user_uid"] = email.split("@", 1)[0]
             USERINFO.put(new_entity)

@@ -58,7 +58,6 @@
     width: 70vw;
     max-width: 72vw;
     justify-content: space-evenly;
-    cursor: pointer;
     font-family:"Monoton", sans-serif !important;
 }
 
@@ -67,6 +66,7 @@
     font-weight: 400;
     font-style: normal;
     user-select: none;
+    cursor: pointer;
 }
 
 .nav-menu-item {
