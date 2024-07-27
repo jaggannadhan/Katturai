@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
     AppBar,
     Box,
@@ -23,9 +23,15 @@ const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar(props) {
     const { isNavTrans, selectedNav, handleNavSelect, currentUser, user_route } = props;
+    const [ userInfo, setUserInfo ] = useState(currentUser?.user_info);
     const [ anchorElNav, setAnchorElNav ] = useState(null);
     const [ anchorElUser, setAnchorElUser ] = useState(null);
     const navigate = useNavigate();
+
+
+    useEffect(() => {
+        setUserInfo(currentUser?.user_info);
+    }, [currentUser])
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -161,7 +167,7 @@ function ResponsiveAppBar(props) {
                     <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            <Avatar alt={currentUser.name} src={currentUser.picture} />
+                            <Avatar alt={userInfo?.name} src={userInfo?.picture} />
                         </IconButton>
                     </Tooltip>
                     <Menu

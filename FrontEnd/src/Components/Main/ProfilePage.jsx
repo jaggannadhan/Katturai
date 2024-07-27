@@ -61,6 +61,19 @@ const ProfilePage = () => {
         document.body.addEventListener('scroll', handleScroll);
     }, []);
 
+    function handleCurrentUserChange({newDetails, _changeKey}) {
+        let _currUsr = {...currentUser};
+        if(!["user_info", "profile_info", "portfolio_info", "multiple"].includes(_changeKey))
+            console.log("Invalid _changeKey");
+
+        if(_changeKey == "multiple") {
+            setCurrentUser({...newDetails});
+        } else {
+            _currUsr[_changeKey] = newDetails;
+            setCurrentUser(_currUsr);
+        }
+    }
+
     function handleNavSelect(navItem) {
         setSelectedNav(navItem);
     }
@@ -83,6 +96,7 @@ const ProfilePage = () => {
                     <Route path={`/${selectedNav.route}`} element={ 
                         <Content 
                             currentUser={currentUser}
+                            handleCurrentUserChange={handleCurrentUserChange}
                         /> 
                     } /> 
                     <Route path={`/*`} element={  <PageLoader /> } /> 

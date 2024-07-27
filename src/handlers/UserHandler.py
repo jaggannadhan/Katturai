@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, json
 from flask import session, redirect, url_for, jsonify
-from src.services.DecoratorService import login_required, check_user_uid
-from src.models.UserInfo import UserInfo
+from src.services.DecoratorService import login_required, check_user_uid, login_required_strict
+from src.services.UserService import UserService
 
 user = Blueprint("user", __name__)
 
@@ -42,6 +42,25 @@ def recreation(user_uid):
     print(user_uid)
     return render_template("index.html")
 
+@user.route("/<user_uid>/profile", methods=["GET"])
+@login_required
+@check_user_uid
+def profileSettings(user_uid):
+    print(user_uid)
+    return render_template("index.html")
+
+@user.route("/<user_uid>/userDetails", methods=["POST"])
+@login_required_strict
+def setUserDetails(user_uid):
+    profileData = json.loads(request.data)
+    print(user_uid, profileData)
+
+    user_details, success = UserService.setUserDetails(user_uid, profileData)
+    return jsonify({
+        "success": True if user_details else False  ,
+        "user_details": user_details
+    })
+
 @user.route("/<user_uid>/getCurrentUser", methods=["GET"])
 @check_user_uid
 def getCurrentUser(user_uid):
@@ -49,19 +68,13 @@ def getCurrentUser(user_uid):
     if not user:
         return jsonify({
             "success": False,
-            "user_info": None 
+            "current_user": None
         })
 
-    userInfo, msg = UserInfo.getUser(user.get("email"))
-    picture = user.get("picture")
-    
-    userInfo = dict(userInfo)
-    userInfo["picture"] = picture
-
-    print(userInfo)
+    current_user = UserService.getCurrentUser(user.get("email"), user_uid)
     return jsonify({
         "success": True,
-        "user_info": userInfo 
+        "current_user": current_user 
     })
 
 @user.route('/<user_uid>/logout')

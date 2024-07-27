@@ -1,17 +1,64 @@
 import React, { useState, useEffect} from "react";
+import { validatePhNumber } from "../../Helper/Helper";
+import { postUserDetails } from "../../Apis/userApis";
 
 const UserInfo = (props) => {
-    const { currentUser } = props;
+    const { userDetails, handleCurrentUserChange } = props;
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const [ firstName, setFirstName ] = useState(userDetails?.first_name || "");
+    const [ lastName, setLastName ] = useState(userDetails?.last_name || "");
+    const [ phNumber, setPhNumber ] = useState(userDetails?.phone_number || "");
+    const [ address, setAddress ] = useState(userDetails?.address || "");
+    const [ userRoute, setUserRoute ] = useState(userDetails?.user_uid || "");
+
+    const [ phValueError, setPhValueError ] = useState(false);
+    const [ isLoading, setIsLoading ] = useState(false);
+
+    useEffect(() => {
+        const setFields = () => {
+            if(userDetails) {
+                setFirstName(userDetails.first_name);
+                setLastName(userDetails.last_name);
+                setPhNumber(userDetails.phone_number);
+                setAddress(userDetails.address);
+                setUserRoute(userDetails.user_uid);
+            }   
+        }
+
+        setFields();
+    }, [userDetails]);
+
+    const noErrors = () => {
+        return !phValueError && firstName && lastName;
     }
 
-    const [ firstName, setFirstName ] = useState(currentUser?.first_name || "");
-    const [ lastName, setLastName ] = useState(currentUser?.last_name || "");
-    const [ phNumber, setPhNumber ] = useState(currentUser?.phone_number || "");
-    const [ address, setAddress ] = useState(currentUser?.address || "");
-    const [ userRoute, setUserRoute ] = useState(currentUser?.user_uid || "");
+    const hasChanged = () => {
+        return (
+            !(!firstName && !userDetails?.first_name) && (firstName != userDetails?.first_name) ||
+            !(!lastName && !userDetails?.last_name) && (lastName != userDetails?.last_name) || 
+            !(!phNumber && !userDetails?.phone_number) && (phNumber != userDetails?.phone_number) ||
+            !(!address && !userDetails?.address) && (address != userDetails?.address)
+        )
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if(noErrors() && hasChanged()) {
+            setIsLoading(true);
+            await postUserDetails({
+                "address": address,
+                "first_name": firstName,
+                "last_name": lastName,
+                "phone_number": phNumber
+            }).then((response) => {
+                console.log("postUserDetails: ", response);
+                if(response.success)
+                    handleCurrentUserChange({newDetails: response.user_details, _changeKey:"user_info"})
+                setIsLoading(false);
+            });
+            
+        }
+    }
 
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
@@ -22,7 +69,9 @@ const UserInfo = (props) => {
     }
 
     const handlePhNumberChange = (e) => {
-        setPhNumber(e.target.value);
+        let val = e.target.value;
+        setPhNumber(val);
+        !val ? setPhValueError(false) : setPhValueError(!validatePhNumber(val));
     }
 
     const handleAddressChange = (e) => {
@@ -33,20 +82,6 @@ const UserInfo = (props) => {
         setUserRoute(e.target.value);
     }
 
-    const setFields = () => {
-        if(currentUser) {
-            setFirstName(currentUser.first_name);
-            setLastName(currentUser.last_name);
-            setPhNumber(currentUser.phone_number);
-            setAddress(currentUser.address);
-            setUserRoute(currentUser.user_uid);
-        }   
-    }
-
-    useEffect(() => {
-
-        setFields();
-    }, [currentUser]);
 
     return (
         <div className="formbold-main-wrapper">
@@ -87,7 +122,7 @@ const UserInfo = (props) => {
                                 id="email"
                                 placeholder="jane@gmail.com"
                                 className="formbold-form-input"
-                                value={currentUser?.email || ""}
+                                value={userDetails?.email || ""}
                                 disabled
                             />
                             <label htmlFor="email" className="formbold-form-label"> Email </label>
@@ -97,12 +132,12 @@ const UserInfo = (props) => {
                                 type="text"
                                 name="phone"
                                 id="phone"
-                                placeholder="(319) 555-0115"
-                                className="formbold-form-input"
+                                placeholder="+1 (319) 555 0115"
+                                className={`formbold-form-input ${phValueError ? "error-input" : ""}`}
                                 value={phNumber}
                                 onChange={handlePhNumberChange}
                             />
-                            <label htmlFor="phone" className="formbold-form-label"> Phone </label>
+                            <label htmlFor="phone" className={`formbold-form-label ${phValueError ? "error-label" : ""}`}> Phone </label>
                         </div>
                     </div>
 
@@ -145,6 +180,7 @@ const UserInfo = (props) => {
                                 className="formbold-form-input"
                                 value={userRoute}
                                 onChange={handleRouteChange}
+                                disabled
                             />
 
                             <label htmlFor="route" className="formbold-form-label marL1">
@@ -155,8 +191,9 @@ const UserInfo = (props) => {
                     
                     </div>
 
-                    <button className="formbold-btn">
+                    <button className="formbold-btn" disabled={isLoading}>
                         Save Profile
+                        {isLoading ? <span className="req-loader"></span> : ""}
                     </button>
                 </form>
             </div>

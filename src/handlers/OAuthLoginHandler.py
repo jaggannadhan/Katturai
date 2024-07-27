@@ -29,8 +29,11 @@ def authorize():
     token = google.authorize_access_token()
     user_info = token.get('userinfo')
 
-    current_user = OAuthLoginService.addUserIfNotExists(user_info)
+    current_user, msg = OAuthLoginService.addUserIfNotExists(user_info)
+    if not current_user:
+        return redirect(url_for("default.signin"))
+    
     session['user'] = user_info
     print(user_info)
-    return redirect(url_for("user.homePage", user_uid="jaggannadhan"))
+    return redirect(url_for("user.homePage", user_uid=current_user.get("user_uid")))
 

@@ -8,7 +8,7 @@ import {
 
 import PageEditorLoader from "./ProfileEditorLoader";
 import UserInfo from "./UserInfo";
-import HomeSettings from "./HomeSettings";
+import ProfileSettings from "./ProfileSettings";
 import PortfolioSettings from "./PortflioSettings";
 
 import '../../Styles/ProfileEditor/ProfileEditor.scss';
@@ -17,17 +17,27 @@ import { uuid } from "../../Helper/Helper";
 
 const editorNav = [ 
     {name: "User Info", component: UserInfo}, 
-    {name: "Profile", component: HomeSettings}, 
+    {name: "Profile", component: ProfileSettings}, 
     {name: "Portfolio", component: PortfolioSettings} 
 ];
 
 
 const ProfileEditor = (props) => {
-    const { currentUser } = props;
+    const { currentUser, handleCurrentUserChange } = props;
+    const [ userDetails, setUserDetails ] = useState(currentUser?.user_info);
+    const [ profileDetails, setProfileDetails ] = useState(currentUser?.profile_info);
+    const [ portfolioDetails, setPortfolioDetails ] = useState(currentUser?.portfolio_info);
     const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
     // console.log(">>>>>>currentUser: ", currentUser);
 
-    const Nav = selectedNav.component;
+    useEffect(() => {
+
+        setUserDetails(currentUser?.user_info);
+        setProfileDetails(currentUser?.profile_info);
+        setPortfolioDetails(currentUser?.portfolio_info);
+    }, [currentUser])
+
+    const Editor = selectedNav.component;
 
     return (
         <Fragment>
@@ -37,8 +47,8 @@ const ProfileEditor = (props) => {
                     <section className="profile-editor-avatar">
                         <IconButton sx={{ p: 0 }} className="icon-btn">
                             {
-                                currentUser ?
-                                <Avatar className="avatar" alt={currentUser.name} src={currentUser.picture} /> :
+                                userDetails?.picture ?
+                                <Avatar className="avatar" alt={userDetails?.name} src={userDetails?.picture} /> :
                                 <Avatar className="avatar"> 
                                     <HourglassTopIcon className="avatar-loader"/>
                                 </Avatar> 
@@ -60,8 +70,11 @@ const ProfileEditor = (props) => {
                             }
                         </header>
 
-                        <Nav 
-                            currentUser={currentUser}
+                        <Editor 
+                            userDetails={userDetails}
+                            profileDetails={profileDetails}
+                            portfolioDetails={portfolioDetails}
+                            handleCurrentUserChange={handleCurrentUserChange}
                         />
                     </section>
                     

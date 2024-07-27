@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .profile-editor{
-    height: 150vh;
+    height: fit-content;
 }
 
 .profile-editor-input {
@@ -78,11 +78,19 @@
         outline: none;
         resize: none;
     }
+    .error-input {
+        border-bottom: 0.3vh solid #CF0000ed;
+        color: #CF0000;
+    }
+
     .formbold-form-input::placeholder {
         color: #536387;
     }
     .formbold-form-input:focus {
         border-color: #6A64F1;
+    }
+    .error-input:focus {
+        border-color: #CF0000;
     }
     .formbold-form-label {
         color: #07074D;
@@ -92,9 +100,19 @@
         display: block;
         margin-bottom: 2.5vh;
     }
+    .error-label {
+        color: #CF0000
+    }
     .formbold-form-input:focus + .formbold-form-label {
         color: #6A64F1;
     }
+
+    .error-input:focus + .error-label {
+        color: #CF0000
+    }
+
+
+
 
     .formbold-form-label-flex {
         color: #07074D;
@@ -209,3 +227,27 @@
         }
     }
 }
+
+
+////////////////////////////////////////////////// SIMPLE CSS LOADER //////////////////////////////////////////////////
+.req-loader {
+    width: 1.8vw;
+    height: 1.8vw;
+    border: 0.2vw solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-left: 1vw;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

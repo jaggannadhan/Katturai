@@ -6,12 +6,12 @@ class OAuthLoginService:
         if not userInfo:
             return None
         
+        print(userInfo)
         email = userInfo.get("email")
-        name =  userInfo.get("name")
         user, msg = UserInfo.getUser(email)
 
         if not user:
-            user, msg = UserInfo.addUser(email, name)
+            user, msg = UserInfo.addUser(userInfo)
             
         print(f">>>>>User entity: {user}, msg: {msg}<<<<<")
-        return user
+        return user, msg

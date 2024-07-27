@@ -47,3 +47,24 @@ def check_user_uid(handle):
             
         return handle(user_uid)
     return wrapper
+
+def login_required_strict(handle):
+    @wraps(handle)
+    def wrapper(user_uid):
+        loggedInUser = session.get("user")
+        print(f">>>>>>>>@login_required_strict: {loggedInUser}<<<<<<<<")
+        if not loggedInUser:
+            return redirect("/signin")
+        
+        loggedInEmail = loggedInUser.get("email")
+
+        userInfo, msg = UserInfo.getUser(loggedInEmail)
+        if not userInfo:
+            session.pop('user', None)
+            return redirect("/signin")
+    
+        if userInfo.get("user_uid") != user_uid:
+            return render_template("pageNotFound.html")
+            
+        return handle(user_uid)
+    return wrapper
