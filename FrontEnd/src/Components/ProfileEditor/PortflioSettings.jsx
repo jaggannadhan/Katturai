@@ -1,10 +1,54 @@
 import React, { useState, useEffect } from "react";
+import { postPortfolioDetails } from "../../Apis/userApis";
 
 const PortfolioSettings = (props) => {
+    const { portfolioDetails, handleCurrentUserChange } = props;
+
+    const [ greetings, setGreeting ] = useState(portfolioDetails?.greetings || "");
+    const [ titles, setTitles ] = useState((portfolioDetails?.titles || []).join(", "));
+    const [ description, setDescription ] = useState(portfolioDetails?.titles || "");
     const [ files, setFiles ] = useState([]);
 
-    const handleSubmit = (e) => {
+    const [ titlesError, setTitlesError ] = useState(false);
+    const [ isLoading, setIsLoading ] = useState(false);
+
+    useEffect(() => {
+        if(portfolioDetails) {
+            setGreeting(portfolioDetails.greetings);
+            setTitles((portfolioDetails.titles || []).join(", "));
+            setDescription(portfolioDetails.description);
+
+            setTitlesError(!(portfolioDetails.titles || []).join(''));
+        }
+    }, [portfolioDetails]);
+
+    const noErrors = () => {
+        return !titlesError;
+    }
+
+    const hasChanged = () => {
+        return (
+            !(!greetings && !portfolioDetails?.greetings) && (greetings != portfolioDetails?.greetings) ||
+            !(!titles && !portfolioDetails?.titles) && (titles != portfolioDetails?.titles) || 
+            !(!description && !portfolioDetails?.description) && (description != portfolioDetails?.description)
+        )
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        if(noErrors() && hasChanged()) {
+            setIsLoading(true);
+            await postPortfolioDetails({
+                "greetings": greetings,
+                "titles": titles.split(","),
+                "description": description,
+            }).then((response) => {
+                console.log("postPortfolioDetails: ", response);
+                if(response.success)
+                    handleCurrentUserChange({newDetails: response.portfolio_details, _changeKey:"portfolio_info"})
+                setIsLoading(false);
+            });
+        }
     }
 
     const onFileChange = (e) => {
@@ -13,11 +57,62 @@ const PortfolioSettings = (props) => {
         setFiles([...newFiles]);
     }
 
+    const handleGreetingChange = (e) => {
+        setGreeting(e.target.value);
+    }
+
+    const handleTitlesChange = (e) => {
+        let val = e.target.value;
+        let titlesArr = val.split(",");
+        setTitles(val);
+        setTitlesError(!titlesArr.join(''));
+    }
+
+    const handleDescriptionChange = (e) => {
+        setDescription(e.target.value);
+    }
+
 
     return (
         <div className="formbold-main-wrapper">
             <div className="formbold-form-wrapper">
                 <form onSubmit={handleSubmit}>
+
+                    <div className="formbold-mb-3">
+                        <div>
+                            <input
+                                type="text"
+                                name="greetings"
+                                id="greetings"
+                                placeholder="Greet your viewers"
+                                className="formbold-form-input"
+                                value={greetings}
+                                onChange={handleGreetingChange}
+                            />
+
+                            <label htmlFor="greetings" className="formbold-form-label">
+                                Greetings
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="formbold-mb-3">
+                        <div>
+                            <input
+                                type="text"
+                                name="titles"
+                                id="titles"
+                                placeholder="Add one or more titles seperated by a comma(,)"
+                                className={`formbold-form-input ${titlesError ? "error-input" : ""}`}
+                                value={titles}
+                                onChange={handleTitlesChange}
+                            />
+
+                            <label htmlFor="greetings" className={`formbold-form-label ${titlesError ? "error-label" : ""}`}>
+                                Titles
+                            </label>
+                        </div>
+                    </div>
 
                     <div className="formbold-textarea">
                         <textarea
@@ -26,11 +121,13 @@ const PortfolioSettings = (props) => {
                             id="prof-descr"
                             placeholder="Describe your professional journey!"
                             className="formbold-form-input"
+                            value={description}
+                            onChange={handleDescriptionChange}
                         ></textarea>
                         <label htmlFor="prof-descr" className="formbold-form-label"> Description </label>
                     </div>
                     
-                    <div className="formbold-input-file">
+                    {/* <div className="formbold-input-file">
                         <div className="formbold-filename-wrapper">
                             {
                                 files?.map(file => {
@@ -67,10 +164,11 @@ const PortfolioSettings = (props) => {
                             Attach files
                             <input type="file" name="upload" id="upload" onChange={onFileChange} />
                         </label>
-                    </div>
+                    </div> */}
 
-                    <button className="formbold-btn">
+                    <button className="formbold-btn" disabled={isLoading}>
                         Save Profile
+                        {isLoading ? <span className="req-loader"></span> : ""}
                     </button>
                 </form>
             </div>

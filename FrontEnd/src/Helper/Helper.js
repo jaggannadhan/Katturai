@@ -17,3 +17,10 @@ export const validatePhNumber = (phNumber) => {
       /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
     );
 }; 
+
+export const validateURL = (phNumber) => {
+  return String(phNumber)
+    .match(
+      /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?/gm
+    );
+}; 

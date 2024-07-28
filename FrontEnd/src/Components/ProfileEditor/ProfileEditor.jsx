@@ -4,6 +4,9 @@ import {
     IconButton,
     Avatar
  } from '@mui/material';
+
+ import CancelIcon from '@mui/icons-material/Cancel';
+
  import HourglassTopIcon from '@mui/icons-material/HourglassTop';
 
 import PageEditorLoader from "./ProfileEditorLoader";
@@ -28,6 +31,8 @@ const ProfileEditor = (props) => {
     const [ profileDetails, setProfileDetails ] = useState(currentUser?.profile_info);
     const [ portfolioDetails, setPortfolioDetails ] = useState(currentUser?.portfolio_info);
     const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
+
+    const [ tempPic, setTempPic ] = useState(null);
     // console.log(">>>>>>currentUser: ", currentUser);
 
     useEffect(() => {
@@ -37,23 +42,54 @@ const ProfileEditor = (props) => {
         setPortfolioDetails(currentUser?.portfolio_info);
     }, [currentUser])
 
-    const Editor = selectedNav.component;
+    const handleChangePicture = (e) => {
+        if(tempPic) {
+            URL.revokeObjectURL(tempPic);
+        }
 
+        let file = e.target.files[0];
+        setTempPic(URL.createObjectURL(file));
+    }
+
+    const removeTempProfilePic = (e) => {
+        URL.revokeObjectURL(tempPic);
+        setTempPic(null);
+    }
+
+    const uploadTempProfilePic = (e) => {
+
+    }
+
+    const Editor = selectedNav.component;
     return (
         <Fragment>
             {
                 currentUser ?
                 <Stack direction="row" spacing={2} className="profile-editor">
-                    <section className="profile-editor-avatar">
+                    <section className="profile-editor-left">
                         <IconButton sx={{ p: 0 }} className="icon-btn">
                             {
                                 userDetails?.picture ?
-                                <Avatar className="avatar" alt={userDetails?.name} src={userDetails?.picture} /> :
+                                <div>
+                                    <Avatar className="avatar" alt={userDetails?.name} src={tempPic || userDetails.picture} /> 
+
+                                    <label htmlFor="avatar-overlay" className="avatar-overlay">Change Picture</label>
+                                    <input type="file" id="avatar-overlay" onChange={handleChangePicture} />
+                                </div>  :
                                 <Avatar className="avatar"> 
                                     <HourglassTopIcon className="avatar-loader"/>
                                 </Avatar> 
                             }
                         </IconButton>
+                        {
+                            tempPic ? 
+                            <div> 
+                                <CancelIcon className="avatar-clear" onClick={removeTempProfilePic} /> 
+                                <button className="formbold-btn upload-avatar" onClick={uploadTempProfilePic}>
+                                    Upload Picture
+                                </button>
+                            </div> : ""
+                        }
                     </section>
                     <section className="profile-editor-input">
                         <header className="profile-editor-nav">

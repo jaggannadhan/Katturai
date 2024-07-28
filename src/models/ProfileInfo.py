@@ -1,6 +1,4 @@
 from google.cloud import datastore
-from google.cloud.datastore.query import PropertyFilter
-from google.cloud.datastore.key import Key
 from datetime import datetime
 import traceback
 from src.AppSecrets import AppSecrets
@@ -11,11 +9,13 @@ class ProfileInfo:
     kind = "ProfileInfo"
 
     @classmethod
-    def getProfileInfo(cls, user_uid):
+    def getProfile(cls, user_uid, _getdict=True):
         print(f"Retrieving profile: {user_uid}")
         try:
             entity = PROFILEINFO.get(PROFILEINFO.key(cls.kind, user_uid))
-            return dict(entity), f"Successully retrieved profile: {user_uid}"
+
+            entity = (dict(entity) if _getdict else entity) if entity else None
+            return entity, f"Successully retrieved profile: {user_uid}"
         except Exception:
             print(traceback.format_exc())
             return False, f"Unable to retrieve profile: {user_uid}!"
@@ -25,6 +25,10 @@ class ProfileInfo:
     def createProfile(cls, user_uid, profile_details={}):
         print(f"Create user profile: {user_uid}")
         try:
+            entity, msg = cls.getProfile(user_uid)
+            if entity:
+                return entity, f"Profile: {user_uid} already exists"
+
             new_entity = datastore.Entity(PROFILEINFO.key(cls.kind, user_uid))
             new_entity["title"] = profile_details.get("title", "")
             new_entity["tagline"] = profile_details.get("tagline", "")
@@ -46,26 +50,28 @@ class ProfileInfo:
             return False, f"Unable to create profile: {user_uid}"
     
     @classmethod
-    def updateUserProfile(cls, user_uid, user_details):
+    def updateProfile(cls, user_uid, profile_details):
         print(f"Updating user profile: {user_uid} login")
         try:
-            entity, msg = cls.getProfileInfo(user_uid)
+            entity, msg = cls.getProfile(user_uid, _getdict=False)
 
             if not entity:
                 return False, f"No profile: {user_uid} found"
             
-            entity["title"] = user_details.get("title", "")
-            entity["tagline"] = user_details.get("tagline", "")
-            entity["subtext"] = user_details.get("subtext", "")
+            entity.update({
+                "title": profile_details.get("title", entity["title"]),
+                "tagline": profile_details.get("tagline", entity["tagline"]),
+                "subtext": profile_details.get("subtext", entity["subtext"]),
 
-            entity["github"] = user_details.get("github", "")
-            entity["youtube"] = user_details.get("youtube", "")
-            entity["linkedin"] = user_details.get("linkedin", "")
-            entity["instagram"] = user_details.get("instagram", "")
+                "github": profile_details.get("github", entity["github"]),
+                "youtube": profile_details.get("youtube", entity["youtube"]),
+                "linkedin": profile_details.get("linkedin", entity["linkedin"]),
+                "instagram": profile_details.get("instagram", entity["instagram"]),
 
-            entity["epigraph"] = user_details.get("epigraph", "")
+                "epigraph": profile_details.get("epigraph", entity["epigraph"]),
 
-            entity["last_updated"] = datetime.now()
+                "last_updated": datetime.now()
+            }) 
             PROFILEINFO.put(entity)
 
             return dict(entity), f"Successully updated user profile: {user_uid}"
@@ -74,10 +80,10 @@ class ProfileInfo:
             return False, f"Unable to update user profile: {user_uid}!"
 
     @classmethod   
-    def deleteUserProfile(cls, user_uid):
+    def deleteProfile(cls, user_uid):
         print(f"Deleteing user profile: {user_uid}")
         try:
-            entity = cls.getProfileInfo(user_uid)
+            entity = cls.getProfile(user_uid)
             if not entity:
                 raise Exception
             PROFILEINFO.delete(entity.key)

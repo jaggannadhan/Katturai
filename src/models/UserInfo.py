@@ -4,6 +4,7 @@ from datetime import datetime
 import traceback
 from src.AppSecrets import AppSecrets
 from src.models.ProfileInfo import ProfileInfo
+from src.models.PortfolioInfo import PortfolioInfo
 
 USERINFO = datastore.Client(AppSecrets.PROJECT_ID)
 
@@ -48,6 +49,10 @@ class UserInfo:
             user_name = user_details.get("name")
             picture = user_details.get("picture")
 
+            entity, msg = cls.getUser(email)
+            if entity:
+                return entity, f"User: {email} already exists"
+
             new_entity = datastore.Entity(USERINFO.key(cls.kind))
             new_entity["email"] = email
 
@@ -66,6 +71,10 @@ class UserInfo:
 
             user_profile, msg = ProfileInfo.createProfile(user_uid)
             if not user_profile:
+                return False, msg
+            
+            user_portfolio, msg = PortfolioInfo.createPortfolio(user_uid)
+            if not user_portfolio:
                 return False, msg
             
             USERINFO.put(new_entity)
@@ -94,25 +103,19 @@ class UserInfo:
     def updateUser(cls, user_uid, user_details):
         print(f"Updating user: {user_details} to UserInfo")
         try:
-            firstName = user_details.get("first_name")
-            lastName = user_details.get("last_name")
-            phoneNumber = user_details.get("phone_number")
-            address = user_details.get("address")
-
             entity, msg = cls.getUserByUID(user_uid, _getdict=False)
             if not entity:
                 raise Exception
             print("\n\nEntity in update:\n", entity, msg)
 
             entity.update({
-                "first_name": firstName,
-                "last_name": lastName,
-                "address": address,
-                "phone_number": phoneNumber
+                "first_name": user_details.get("first_name", entity["first_name"]),
+                "last_name": user_details.get("last_name", entity["last_name"]),
+                "address": user_details.get("address", entity["address"]),
+                "phone_number": user_details.get("phone_number", entity["phone_number"])
             }) 
-            
-
             USERINFO.put(entity)
+
             return dict(entity), f"Successully updated user: {user_uid} and profiles!"
         except Exception:
             print(traceback.format_exc())

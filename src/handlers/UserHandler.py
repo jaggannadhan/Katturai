@@ -52,13 +52,37 @@ def profileSettings(user_uid):
 @user.route("/<user_uid>/userDetails", methods=["POST"])
 @login_required_strict
 def setUserDetails(user_uid):
-    profileData = json.loads(request.data)
-    print(user_uid, profileData)
+    userDetails = json.loads(request.data)
+    print(user_uid, userDetails)
 
-    user_details, success = UserService.setUserDetails(user_uid, profileData)
+    user_details, success = UserService.setUserDetails(user_uid, userDetails)
     return jsonify({
-        "success": True if user_details else False  ,
+        "success": True if user_details else False,
         "user_details": user_details
+    })
+
+@user.route("/<user_uid>/profileDetails", methods=["POST"])
+@login_required_strict
+def setProfileDetails(user_uid):
+    profileDetails = json.loads(request.data)
+    print(user_uid, profileDetails)
+
+    profile_details, success = UserService.setProfileDetails(user_uid, profileDetails)
+    return jsonify({
+        "success": True if profile_details else False,
+        "profile_details": profile_details
+    })
+
+@user.route("/<user_uid>/portfolioDetails", methods=["POST"])
+@login_required_strict
+def setPortfolioDetails(user_uid):
+    portfolioDetails = json.loads(request.data)
+    print(user_uid, portfolioDetails)
+
+    portfolio_details, success = UserService.setPortfolioDetails(user_uid, portfolioDetails)
+    return jsonify({
+        "success": True if portfolio_details else False,
+        "portfolio_details": portfolio_details
     })
 
 @user.route("/<user_uid>/getCurrentUser", methods=["GET"])
