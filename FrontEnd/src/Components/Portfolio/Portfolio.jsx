@@ -5,11 +5,19 @@ import TechStack from "./TechStack";
 import resume from "../../Files/Resume_4.pdf";
 import "../../Styles/Portfolio/Portfolio.scss"
 
-const Portfolio = () => {
+const Portfolio = (props) => {
+    const { currentUser } = props;
+    const { protfolio_info } = currentUser || {}; 
+    
+    console.log(currentUser);
     return(
         <Fragment>
-            <PortPreview />
-            <TechStack />
+            <PortPreview 
+                currentUser={currentUser}
+            />
+            <TechStack 
+                protfolio_info={protfolio_info}
+            />
             {/* <embed src={resume} style={{ height: "60vw", width: "100vw" }} /> */}
             
         </Fragment>

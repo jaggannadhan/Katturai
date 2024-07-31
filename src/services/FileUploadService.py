@@ -1,41 +1,143 @@
 from google.cloud import storage
+from google.cloud import storage_control_v2
 import os, traceback
 from src.AppSecrets import AppSecrets
 
+
 STORAGE_CLIENT = storage.Client(AppSecrets.PROJECT_ID)
+STORAGE_CONTROL_CLIENT = storage_control_v2.StorageControlClient()
 
 class FileUploadService:
 
     @classmethod
-    def createBucket(user_uid):
+    def get_bucket(cls, user_uid):
         try:
-            bucket = STORAGE_CLIENT.create_bucket(user_uid)
+            bucket = STORAGE_CLIENT.get_bucket(user_uid)
+            return bucket, f"Successfully retreived cloud storage bucket: {user_uid}"
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"Unable to retreive cloud storage bucket: {user_uid}"
+        
+    @classmethod
+    def get_folder(cls, user_uid, folder_name):
+        try:
+            print(f"Retreving folder: {user_uid}/{folder_name}")
+            folder_path = STORAGE_CONTROL_CLIENT.folder_path(
+                project="_", bucket=user_uid, folder=folder_name
+            )
+
+            request = storage_control_v2.GetFolderRequest(
+                name=folder_path,
+            )
+            response = STORAGE_CONTROL_CLIENT.get_folder(request=request)
+            print(f"Get folder response: {response}")
+            return response, f"Successfully retrived folder: {user_uid}/{folder_name}"
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"{user_uid}/{folder_name} does not exist!"
+    
+    @classmethod
+    def createBucket(cls, user_uid):
+        """Creates a bucket with hierarchical namespace enabled."""
+        try:
+            print(f"Creating cloud storage bucket: {user_uid}")
+
+            bucket = STORAGE_CLIENT.bucket(user_uid)
+            # bucket.iam_configuration.uniform_bucket_level_access_enabled = True
+            # bucket.hierarchical_namespace_enabled = True
+            bucket.create()
+
             return bucket, f"Sucessfully created bucket for user: {user_uid}!"
         except Exception:
             print(traceback.format_exc())
             return False, f"Unable to create bucket for user: {user_uid}!"
+        
+    @classmethod
+    def createBucketIfNotExists(cls, user_uid):
+        try:
+            print(f"In service createBucketIfNotExists: {user_uid}")
+            bucket, msg = cls.get_bucket(user_uid)
+
+            if bucket:
+                print("Bucket exists")
+                return bucket, msg
+        
+            bucket, msg = cls.createBucket(user_uid)
+            return bucket, msg
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"Unable to create bucket for user: {user_uid}!"
+        
+    @classmethod
+    def create_folder(user_uid, folder_name):
+        try:
+            # The storage bucket path uses the global access pattern, in which the "_"
+            # denotes this bucket exists in the global namespace.
+            project_path = STORAGE_CONTROL_CLIENT.common_project_path("_")
+            bucket_path = f"{project_path}/buckets/{user_uid}"
+
+            request = storage_control_v2.CreateFolderRequest(
+                parent=bucket_path,
+                folder_id=folder_name,
+            )
+            response = STORAGE_CONTROL_CLIENT.create_folder(request=request)
+
+            print(f"Created folder: {response.name}")
+            return True, f"Unable to create folder: {folder_name} in bucket: {user_uid}!"
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"Unable to create folder: {folder_name} in bucket: {user_uid}!"
             
 
     @classmethod
-    def uploadFile(cls, user_uid, fileName):
-        bucket = STORAGE_CLIENT.bucket(user_uid)
+    def uploadFile(cls, user_uid, file, fileType="resume"):
+        try: 
+            print(f"Uploading {fileType} user: {user_uid}")
+            fileName = file.filename
+            print(f"file name: {fileName}")
 
-        if not bucket:
-            bucket = cls.createBucket(user_uid)
+            # Save file in temp location
+            tmp_file_loc = f'/tmp/{fileName}'
+            file.save(tmp_file_loc)
+            print(f"File saved successfully in temp loc: {tmp_file_loc}")
 
-        blob = bucket.blob(fileName.split("/")[-1])
-        blob.upload_from_filename(fileName)
-        blob.make_public()
-        public_url = blob.public_url
-        print(f"File uploaded to {public_url}")
-        os.remove(fileName)
-        return public_url
+            try:
+                bucket, msg = cls.createBucketIfNotExists(user_uid)
+                if not bucket:
+                    print(msg)
+                    raise Exception
+
+                # Get file from bucket
+                blob = bucket.blob(f"{fileType}/{fileName}")
+                if not blob.exists():
+                    blob.upload_from_filename(tmp_file_loc)
+                    blob.make_public()
+                    msg = f"Successfully uploaded {user_uid}/{fileType}"
+                    print(msg)
+                else:
+                    msg = f"File: {fileType}/{fileName} already exists"
+
+                public_url = blob.public_url
+                os.remove(tmp_file_loc)
+
+                return public_url, msg
+            except Exception:
+                    os.remove(tmp_file_loc)
+                    print(traceback.format_exc())
+                    return False, f"Unable to upload {user_uid}/{fileType}!"
+            
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"Unable to upload {fileType} to {user_uid}'s storage!"
 
 
     @classmethod
-    def deleteBucket(user_uid):
+    def deleteBucket(cls, user_uid):
         try:
-            bucket = STORAGE_CLIENT.get_bucket(user_uid)
+            bucket, msg = cls.get_bucket(user_uid)
+            if not bucket:
+                return True, msg
+            
             bucket.delete()
             return True, f"Bucket {user_uid} deleted"
         except Exception:

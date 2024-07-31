@@ -1,47 +1,96 @@
 import React, { useState, useEffect } from "react";
 import { postPortfolioDetails } from "../../Apis/userApis";
+import { uuid, validateURL } from "../../Helper/Helper";
+
+import "../../Styles/ProfileEditor/PortflioSettings.scss";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import Skills from "./Skills";
 
 const PortfolioSettings = (props) => {
     const { portfolioDetails, handleCurrentUserChange } = props;
+    const { 
+        greetings: greetingsProp, 
+        titles: titlesProp, 
+        description: descProp,
+        resume: resumeProp,
+        skills: skillCategoryProp
+    } = portfolioDetails || {};
+    
+    const getTitlesAsString = (arr, join) => {
+        return (arr || []).join(join);
+    }
 
-    const [ greetings, setGreeting ] = useState(portfolioDetails?.greetings || "");
-    const [ titles, setTitles ] = useState((portfolioDetails?.titles || []).join(", "));
-    const [ description, setDescription ] = useState(portfolioDetails?.titles || "");
-    const [ files, setFiles ] = useState([]);
+    const [ greetings, setGreeting ] = useState(greetingsProp || "");
+    const [ titles, setTitles ] = useState(getTitlesAsString(titlesProp, ", "));
+    const [ description, setDescription ] = useState(descProp || "");
+    const [ resume, setResume ] = useState(resumeProp || "");
+
+    const [ skillCategory, setSkillCategory ] = useState(skillCategoryProp || []);
+    const [ numberOfCategories, setNumberOfCategories ] = useState([]);
 
     const [ titlesError, setTitlesError ] = useState(false);
+    const [ resumeError, setResumeError ] = useState(false);
+
     const [ isLoading, setIsLoading ] = useState(false);
 
     useEffect(() => {
         if(portfolioDetails) {
-            setGreeting(portfolioDetails.greetings);
-            setTitles((portfolioDetails.titles || []).join(", "));
-            setDescription(portfolioDetails.description);
+            setGreeting(greetingsProp);
+            setTitles(getTitlesAsString(titlesProp, ", "));
+            setDescription(descProp);
+            setResume(resumeProp);
 
-            setTitlesError(!(portfolioDetails.titles || []).join(''));
+            setSkillCategory(skillCategoryProp || [])
+            setTitlesError(!getTitlesAsString(titlesProp, ''));
         }
     }, [portfolioDetails]);
 
     const noErrors = () => {
-        return !titlesError;
+        return !titlesError && !resumeError;
     }
 
     const hasChanged = () => {
+        let oldTitles = getTitlesAsString(titlesProp, ", ");
+        
         return (
-            !(!greetings && !portfolioDetails?.greetings) && (greetings != portfolioDetails?.greetings) ||
-            !(!titles && !portfolioDetails?.titles) && (titles != portfolioDetails?.titles) || 
-            !(!description && !portfolioDetails?.description) && (description != portfolioDetails?.description)
+            !(!greetings && !greetingsProp) && (greetings != greetingsProp) ||
+            !(!titles && !oldTitles) && (titles != oldTitles) || 
+            !(!description && descProp) && (description != descProp) ||
+            !(!resume && !resumeProp) && (resume != resumeProp)
+            || checkSkillCategoryChanged()
         )
+    }
+
+    const checkSkillCategoryChanged = () => {
+        let changedSkills = skillCategory.reduce((newSkills, category) => {
+            newSkills.push(category.name, [...category.skills.map(skill => {return [skill.name, skill.subSkills]})]);
+            return newSkills;
+        }, []);
+
+        let oldSkills = (skillCategoryProp||[]).reduce((newSkills, category) => {
+            newSkills.push(category.name, [...category.skills.map(skill => {return [skill.name, skill.subSkills]})]);
+            return newSkills;
+        }, []);
+
+        oldSkills = oldSkills.flat(4);
+        changedSkills = changedSkills.flat(4);
+
+        return oldSkills.toString().replace(',', '') != changedSkills.toString().replace(',', '');
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        prepSkillsForExport();
+
         if(noErrors() && hasChanged()) {
             setIsLoading(true);
             await postPortfolioDetails({
                 "greetings": greetings,
                 "titles": titles.split(","),
                 "description": description,
+                "resume": resume,
+                "skills": skillCategory
             }).then((response) => {
                 console.log("postPortfolioDetails: ", response);
                 if(response.success)
@@ -51,11 +100,23 @@ const PortfolioSettings = (props) => {
         }
     }
 
-    const onFileChange = (e) => {
-        let newFiles = [...files];
-        newFiles.push(e.target.files[0]);
-        setFiles([...newFiles]);
-    }
+    // const onFileChange = (e) => {
+    //     let selectedFile = e.target.files[0];
+    //     if(!selectedFile) return;
+
+    //     let newFiles = [...files];
+    //     newFiles.push(selectedFile);
+    //     setFiles([...newFiles]);
+    // }
+
+    // const removeSelectedFile = (fileToRemove) => {
+    //     let selectedFiles = [...files];
+    //     let newSet = selectedFiles.filter((file) => {
+    //         return file.name != fileToRemove.name;
+    //     });
+
+    //     setFiles([...newSet]);
+    // }
 
     const handleGreetingChange = (e) => {
         setGreeting(e.target.value);
@@ -72,13 +133,131 @@ const PortfolioSettings = (props) => {
         setDescription(e.target.value);
     }
 
+    const handelResumeChange = (e) => {
+        let value = e.target.value;
+        setResume(value);
+        !value ? setResumeError(false) : setResumeError(!validateURL(value));
+    }
 
+    const canCreateNewSkillCategory = () => {
+        if(!skillCategory.length) return true;
+        let emptyCategories = skillCategory.filter(category => !category.name);
+
+        return emptyCategories.length < 1;
+    }
+
+    const createNewSkillCategory = () => {
+        if(!canCreateNewSkillCategory()) return;
+
+        let categories = [...skillCategory];
+        categories.push({
+            name: "",
+            skills: [{
+                name: "",
+                subSkills: []
+            }]
+        });
+
+        let numCategories = [...numberOfCategories];
+        numCategories.push(`Category${numCategories.length + 1}`);
+        
+        setSkillCategory([...categories]);
+        setNumberOfCategories([...numCategories]);
+    }
+
+    const handleCategoryNameChange = (e, index) => {
+        let categoryName = e.target.value;
+        let tempSkillCategory = [...skillCategory];
+        tempSkillCategory[index].name = categoryName;
+        setSkillCategory([...tempSkillCategory]);
+    }
+
+    const handleSkillNameChange = (e, index) => {
+        let skillNames = e.target.value;
+        let skillsArr = skillNames.split(",");
+        // skillsArr = skillsArr.map(skill => skill.trim());
+
+        let tempCategory = [...skillCategory];
+        let changedCategory = tempCategory[index];
+        let tempSkills = changedCategory.skills;
+
+        changedCategory.skills = skillsArr.map((skill, idx) => {
+            return {
+                name: skill,
+                subSkills: tempSkills[idx]?.subSkills || []
+            }
+        });
+
+        setSkillCategory([...tempCategory]);
+    }
+
+    const handleSubSkillsChange = (e, catIdx, skillIdx) => {
+        let subSkillNames = e.target.value;
+        let subSkillArr = subSkillNames.split(",");
+        // subSkillArr = subSkillArr.map(subSkill => subSkill.trim());
+
+        let tempCategory = [...skillCategory];
+        let changedCategory = tempCategory[catIdx];
+        let tempSkills = changedCategory.skills;
+
+        let tempSkill = tempSkills[skillIdx];
+        tempSkill.subSkills = subSkillArr;
+
+        setSkillCategory([...tempCategory]);
+    }
+
+    const removeCategory = (catIdx) => {
+        let tempCategory = [...skillCategory];
+        tempCategory = tempCategory.filter((category, idx) => idx!=catIdx);
+        setSkillCategory([...tempCategory]);
+    }
+
+    const removeSkills = (catIdx) => {
+        let tempCategory = [...skillCategory];
+        tempCategory = tempCategory.map((category, idx) => {
+           if(idx!=catIdx) return category;
+            category.skills = [{
+                name: "",
+                subSkills: []
+            }]
+            return category;
+        });
+        setSkillCategory([...tempCategory]);
+    }
+
+    const prepSkillsForExport = () => {
+        let tempCategory = [...skillCategory];
+        let prepedCategory = tempCategory.map((category) => {
+            let newskills = (category.skills || []).reduce((newSkillArr, skill) => {
+                if(!skill.name) return newSkillArr;
+
+                let newSubSkills = (skill.subSkills || []).reduce((newSubSkillArr, subSkill) => {
+                    if(!subSkill) return newSubSkillArr;
+                    
+                    newSubSkillArr.push(subSkill);
+                    return newSubSkillArr;
+                }, []);
+
+                
+                skill.subSkills = newSubSkills;
+                newSkillArr.push(skill);
+                return newSkillArr;
+            }, []);
+
+            category.skills = newskills;
+            return category;
+        });
+
+        setSkillCategory([...tempCategory]);
+    }
+
+    const changesMade = hasChanged() && noErrors();
     return (
         <div className="formbold-main-wrapper">
             <div className="formbold-form-wrapper">
                 <form onSubmit={handleSubmit}>
 
-                    <div className="formbold-mb-3">
+                    {/* <div className="formbold-mb-3">
                         <div>
                             <input
                                 type="text"
@@ -126,15 +305,37 @@ const PortfolioSettings = (props) => {
                         ></textarea>
                         <label htmlFor="prof-descr" className="formbold-form-label"> Description </label>
                     </div>
+                    <br/><br/>
+                    <div className="formbold-mb-3">
+                        <div>
+                            <input
+                                type="text"
+                                name="resume"
+                                id="resume"
+                                placeholder="Enter the link to your resume"
+                                className={`formbold-form-input ${resumeError ? "error-input" : ""}`}
+                                value={resume}
+                                onChange={handelResumeChange}
+                            />
+
+                            <label htmlFor="resume" className={`formbold-form-label ${resumeError ? "error-label" : ""}`}>
+                                Resume
+                            </label>
+                        </div>
+                    </div> */}
                     
                     {/* <div className="formbold-input-file">
                         <div className="formbold-filename-wrapper">
                             {
                                 files?.map(file => {
                                     return(
-                                        <span className="formbold-filename">
-                                            {file.name}
-                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <span className="formbold-filename" key={uuid()}>
+                                            {file?.name}
+                                            <svg width="18" height="18" 
+                                                viewBox="0 0 18 18" fill="none" 
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                onClick={() => { removeSelectedFile(file) }}
+                                            >
                                                 <g clipPath="url(#clip0_1670_1541)">
                                                 <path d="M9.00005 7.93906L12.7126 4.22656L13.7731 5.28706L10.0606 8.99956L13.7731 12.7121L12.7126 13.7726L9.00005 10.0601L5.28755 13.7726L4.22705 12.7121L7.93955 8.99956L4.22705 5.28706L5.28755 4.22656L9.00005 7.93906Z" fill="#536387"/>
                                                 </g>
@@ -161,12 +362,44 @@ const PortfolioSettings = (props) => {
                                 </clipPath>
                                 </defs>
                             </svg>
-                            Attach files
-                            <input type="file" name="upload" id="upload" onChange={onFileChange} />
+                            Upload Resume
+                            <input 
+                                type="file" name="upload" id="upload" 
+                                accept="application/pdf"
+                                onChange={onFileChange} 
+                            />
                         </label>
                     </div> */}
 
-                    <button className="formbold-btn" disabled={isLoading}>
+                    <section className="skills-section">
+                        <div className="add-skills">
+                            <p>Skills</p>
+                            <AddCircleOutlineIcon 
+                                className="add-btn"
+                                onClick={createNewSkillCategory}
+                            />
+                        </div>
+
+                        {
+                            skillCategory.map((category, index) => {
+                                return (
+                                    <Skills 
+                                        key={`skillCategory-${index+1}`}
+                                        catIndex={index}
+                                        category={category}
+                                        handleCategoryNameChange={handleCategoryNameChange}
+                                        handleSkillNameChange={handleSkillNameChange}
+                                        handleSubSkillsChange={handleSubSkillsChange}
+                                        removeCategory={removeCategory}
+                                        removeSkills={removeSkills}
+                                    />
+                                )
+                            })
+                        }
+                    </section>
+                    
+
+                    <button className="formbold-btn" disabled={!changesMade || isLoading}>
                         Save Profile
                         {isLoading ? <span className="req-loader"></span> : ""}
                     </button>

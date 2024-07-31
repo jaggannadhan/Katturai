@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from src.handlers.DefaultHandler import default
 from src.handlers.OAuthLoginHandler import login
 from src.handlers.UserHandler import user
-from src.handlers.FileUploadHandler import fileupload
+from src.handlers.FileUploadHandler import fileuploader
 from src.AppSecrets import AppSecrets
 
 app = Flask(__name__)
@@ -14,7 +14,7 @@ app.config.update(
 app.register_blueprint(default)
 app.register_blueprint(login)
 app.register_blueprint(user)
-app.register_blueprint(fileupload)
+app.register_blueprint(fileuploader)
 
 @app.errorhandler(404)
 def not_found(e):
@@ -22,10 +22,10 @@ def not_found(e):
 
 ################ UNCOMMENT THESE LINES WHILE DEPLOYING IN LOCAL ENV #####################
 
-# from google.cloud import storage
-# import os
-# credential_path = "/Users/jv/.config/gcloud/application_default_credentials.json"
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+from google.cloud import storage
+import os
+credential_path = "/Users/jv/.config/gcloud/application_default_credentials.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
 #########################################################################################
 

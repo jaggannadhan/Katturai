@@ -30,7 +30,29 @@ const ProfilePage = () => {
     const [ isNavTrans, setIsNavTrans ] = useState(document.body.scrollTop < (document.body.scrollHeight/10));
     const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
     const [ currentUser, setCurrentUser ] = useState(null);
+    const [ profileCompletion, setProfileCompletion ] = useState(null);
 
+    useEffect(() => {
+        setProfileCompletion(getProfileCompletion());
+        if(currentUser && profileCompletion != null) {
+            if(user_route == currentUser?.user_info?.user_uid && profileCompletion < 50) {
+                handleNavSelect(CONSTANTS.navigation.profileEditor);
+                navigate(`/${user_route}/profile`);
+            }
+        }
+    }, [currentUser, profileCompletion]);
+
+    const getProfileCompletion = () => {
+        if(!currentUser) return null;
+        const { user_info, profile_info, portfolio_info } = currentUser;
+        let allFields = [...Object.values(user_info), ...Object.values(profile_info), ...Object.values(portfolio_info)];
+        let emptyFields = allFields.filter(field => !field).length;
+
+        let _check = allFields.length == allFields.flat(2).length;
+        let completedFields =  _check ? allFields.length -1 : allFields.length;
+        return 100 - (emptyFields/completedFields * 100).toFixed();
+    }
+    
     useEffect(() => {
         const navigateToPage = async () => {
             if(slug==user_route) {
@@ -79,7 +101,7 @@ const ProfilePage = () => {
     }
     
     const Content = selectedNav ? selectedNav.component(): null;
-
+    
     return (
         <div className={`home-page ${classes.root}`}>
             <ResponsiveAppBar 
@@ -97,6 +119,7 @@ const ProfilePage = () => {
                         <Content 
                             currentUser={currentUser}
                             handleCurrentUserChange={handleCurrentUserChange}
+                            profileCompletion={profileCompletion}
                         /> 
                     } /> 
                     <Route path={`/*`} element={  <PageLoader /> } /> 

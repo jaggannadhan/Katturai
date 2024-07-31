@@ -6,12 +6,20 @@ import Gallery from './Gallery';
 
 
 const Home = (props) => {
-    const { socials } = props;
+    const { currentUser } = props;
+    const { user_info, profile_info } = currentUser || {};
+
 
     return(
         <Fragment>
-            <Preview />
-            <AboutMe />
+            <Preview  
+                tagline={profile_info?.tagline}
+                subtext={profile_info?.subtext}
+            />
+            <AboutMe 
+                userInfo={user_info}
+                profileInfo={profile_info}
+            />
             <Gallery />
         </Fragment>
     );

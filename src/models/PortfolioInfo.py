@@ -31,10 +31,11 @@ class PortfolioInfo:
             
             new_entity = datastore.Entity(PORTFOLIOINFO.key(cls.kind, user_uid))
             new_entity["greetings"] = portfolio_details.get("greetings", "")
-            new_entity["titles"] = portfolio_details.get("titles", "")
+            new_entity["titles"] = portfolio_details.get("titles", [])
             new_entity["description"] = portfolio_details.get("description", "")
 
             new_entity["resume"] = portfolio_details.get("resume", "")
+            new_entity["skills"] = portfolio_details.get("skills", [])
             new_entity["last_updated"] = datetime.now()
             PORTFOLIOINFO.put(new_entity)
 
@@ -58,6 +59,7 @@ class PortfolioInfo:
                 "description": portfolio_details.get("description", entity["description"]),
 
                 "resume": portfolio_details.get("resume", entity["resume"]),
+                "skills": portfolio_details.get("skills", entity["skills"]),
                 "last_updated": datetime.now()
             })
             PORTFOLIOINFO.put(entity)

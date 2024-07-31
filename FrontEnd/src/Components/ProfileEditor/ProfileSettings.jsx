@@ -123,7 +123,7 @@ const ProfileSettings = (props) => {
         setEpigraph(e.target.value);
     }
 
-
+    const changesMade = hasChanged() && noErrors();
     return (
         <div className="formbold-main-wrapper">
             <div className="formbold-form-wrapper">
@@ -259,7 +259,7 @@ const ProfileSettings = (props) => {
                         <label htmlFor="epigraph" className="formbold-form-label"> Share Your Thoughts </label>
                     </div>
 
-                    <button className="formbold-btn" disabled={isLoading}>
+                    <button className="formbold-btn" disabled={!changesMade || isLoading}>
                         Save Profile
                         {isLoading ? <span className="req-loader"></span> : ""}
                     </button>

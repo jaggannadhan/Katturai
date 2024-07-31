@@ -12,16 +12,16 @@ import Portfolio from '../Components/Portfolio/Portfolio';
 import ProfileEditor from '../Components/ProfileEditor/ProfileEditor';
 
 export const socials = [
-    { name: 'GitHub', icon: GitHubIcon, link: "https://github.com/jaggannadhan" },
-    { name: 'YouTube', icon: YouTubeIcon, link: "https://www.youtube.com/@jegsirox3674"  },
-    { name: 'IG', icon: InstagramIcon, link: "https://www.instagram.com/jagg4n/"  },
-    { name: 'Linkedin', icon: LinkedInIcon, link: "https://www.linkedin.com/in/jvenu94/"  },
+    { name: 'github', icon: GitHubIcon, link: "https://github.com/jaggannadhan" },
+    { name: 'youtube', icon: YouTubeIcon, link: "https://www.youtube.com/@jegsirox3674"  },
+    { name: 'instagram', icon: InstagramIcon, link: "https://www.instagram.com/jagg4n/"  },
+    { name: 'linkedin', icon: LinkedInIcon, link: "https://www.linkedin.com/in/jvenu94/"  },
 ]
 
 export const navigation = {
     default: { name: "Home", route: "", component: () => Home },
     navItems: [
-        {name: "Diary", route: "diary", component: () => Diary},
+        {name: "Diary", route: "diary", component: () => Diary, isLocked: true},
         {name: "Travel", route: "travel", component: () => Travel},
         {name: "Portfolio", route: "portfolio", component: () => Portfolio},
         {name: "Opinion", route: "opinion", component: () => Home},

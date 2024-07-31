@@ -8,43 +8,51 @@ import '../../Styles/Home/AboutMe.scss';
 import myProfile from "../../../public/images/myProfile.png";
 
 const AboutMe = (props) => {
-    const { socials, description } = props;
+    const { userInfo, profileInfo } = props;
+    const { name, picture } = userInfo || {};
+    const { title, epigraph } = profileInfo || {};
+
     return (
         <div className="about-me">
             <div className="avatar-container">
-                <img className="avatar" src={myProfile} alt="Avatar" />
+                <img className="avatar" src={picture} alt={name} />
             </div>
             
             <div className="content">
-                <Typography variant="h4" className="about-name">Jaggannadhan Venugopal</Typography>
-                <Typography variant="h6" className="about-title">Software Engineer, MS Computer Science</Typography>
+                <Typography variant="h4" className="about-name">{name}</Typography>
+                <Typography variant="h6" className="about-title">{title}</Typography>
 
                 <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" className='about-socials'> 
-                    {CONSTANTS.socials.map((network) => (
-                        <Link
-                            display="block"
-                            variant="body1"
-                            href={network.link}
-                            key={network.name}
-                            sx={{ mb: 0.5 }}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <network.icon className="svg_icons" /> 
-                        </Link>
-                    ))}
+                    {CONSTANTS.socials.map((network) =>  {
+                        let userLink = profileInfo?.[network.name];
+                        return (
+                            userLink ?  
+                            <Link
+                                display="block"
+                                variant="body1"
+                                href={userLink || "#"}
+                                key={network.name}
+                                sx={{ mb: 0.5 }}
+                                target={userLink ? "_blank" : ""}
+                                rel="noreferrer"
+                            >
+                                <network.icon className="svg_icons" /> 
+                            </Link> : ""
+                        )
+                    })}
                 </Stack>
 
 
                 <Typography variant="h6" className="about-content">
-                    Happiness can be a state of mind when you realize<br />
-                    there is no better time or way to live <br />
-                    Only a strong body and a healthy mind can sustain the epiphany.<br />
-                    Live Fluid, Train Hard! <br />
+                    {epigraph} <br />
                 </Typography>
-                <Typography variant="h6" className="about-content content-by">
-                    -- That's just me.
-                </Typography>
+                {
+                    epigraph ? 
+                    <Typography variant="h6" className="about-content content-by">
+                        -- That's just me.
+                    </Typography> : ""
+                }
+                
                 
             </div>
         </div>

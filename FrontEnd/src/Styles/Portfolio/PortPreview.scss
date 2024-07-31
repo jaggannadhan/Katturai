@@ -86,9 +86,7 @@
         }
     }
 
-    .download-resume {
-        font-size: 1vw;
-        color: #E9AE00;
+    .view-resume {
         cursor: pointer;
         border: 0.2vw solid #E9AE00;
         border-radius: 1vw;
@@ -97,13 +95,24 @@
         padding: 1vw;
         margin-left: 1vw;
         transition: 0.5s ease-in-out;
+
+        a {
+            text-decoration: none;
+            color: #E9AE00;
+            font-family: 'Lexend';
+            font-size: 1.5vw;
+            margin: 0;
+        }
     }
 
-    .download-resume:hover {
+    .view-resume:hover {
         background-color: #E9AE00;
-        color: white;
         box-shadow: 0 0 1vw #E9AE00;
         transition: 0.5s ease-in-out;
+
+        a {
+            color: white;
+        }
     }
 }
 

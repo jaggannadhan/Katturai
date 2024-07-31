@@ -1,0 +1,51 @@
+
+
+.add-skills {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1vw;
+
+    p {
+        user-select: none;
+        color: #07074D;
+        font-weight: 500;
+        font-size: 1.8vw;
+        line-height: 2vw;
+        display: block;
+        margin-bottom: 2.5vh;
+    }
+
+    .add-btn {
+        font-size: 3vw;
+        color: #E9AE01;
+        cursor: pointer;
+        margin-bottom: 0.5vh;
+    }
+
+    .add-btn.disabled {
+        color: lavender;
+    }
+
+    .add-btn:active {
+        transform: translateY(2px);
+    }
+}
+
+.remove-category {
+    width: 1.7vw !important;
+    position: relative;
+    left: 96%;
+    top: -3vh;
+    cursor: pointer;
+    animation: spinCancel 0.5s forwards ease-out;
+}
+
+.remove-category:active {
+    transform: translateY(1px);
+}
+
+@keyframes spinCancel {
+    from {rotate: 0deg;}
+    to {rotate: 360deg;}
+}

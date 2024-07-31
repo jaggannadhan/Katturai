@@ -12,18 +12,23 @@ import myProfilePic from "../../../public/images/myProfileYlw.png";
 
 
 const PortPreview = (props) => {
+    const { currentUser } = props;
+    const { user_info, portfolio_info, profile_info } = currentUser || {};
+    const { name } = user_info || {};
+    const { greetings, description, titles, resume } = portfolio_info || {};
+
     return (
         <Container className="port-cont"> 
             <section className="portfolio">
                 <div className="port-content">
 
-                    <h3>Ola, It's Me</h3>
-                    <h1>Jaggannadhan Venugopal</h1>
+                    <h3>{greetings || "Hey! How are you?"}</h3>
+                    <h1>{name}</h1>
                     
-                    <h3 className="port-title">I'm a 
+                    <h3 className="port-title">{titles ? "I'm a" : "I'm an"}
                         <span> 
                             <ReactTyped 
-                                strings={[" Software Engineer", " Blogger", " Martial Artist"]} 
+                                strings={titles || ['Extrordianary Person']} 
                                 typeSpeed={100} 
                                 backSpeed={100}
                                 backDelay={1000}
@@ -32,28 +37,46 @@ const PortPreview = (props) => {
                         </span>
                     </h3>
                     <p>
-                        From algorithms to user interfaces, I engineer robust software ecosystems that elevate user experiences and exceed expectations.
+                        {description}
                     </p>
 
                     <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" className='port-socials'> 
-                        {CONSTANTS.socials.map((network) => (
+                        {CONSTANTS.socials.map((network) => {
+                            let userLink = profile_info?.[network.name];
+                            return (
+                                userLink ?
+                                <Link
+                                    display="block"
+                                    variant="body1"
+                                    href={userLink || "#"}
+                                    key={network.name}
+                                    sx={{ mb: 0.5 }}
+                                    target={userLink ? "_blank" : ""}
+                                    rel="noreferrer"
+                                >
+                                    <network.icon className="svg_icons" /> 
+                                </Link> : ""
+                            )
+                        })}
+                    </Stack>
+
+                    {
+                        resume ? 
+                        <div className="view-resume">
                             <Link
                                 display="block"
                                 variant="body1"
-                                href={network.link}
-                                key={network.name}
+                                href={resume}
                                 sx={{ mb: 0.5 }}
-                                target="_blank"
+                                target={"_blank"}
                                 rel="noreferrer"
                             >
-                                <network.icon className="svg_icons" /> 
+                                Resume
                             </Link>
-                        ))}
-                    </Stack>
+                        </div> : ""
+                    }
+                    
 
-                    <div className="download-resume">
-                        Download Resume
-                    </div>
                 </div>
                 <div className="port-img">
                     <img src={myProfilePic} alt="jagan" className="prot-profile-pic"/>                    

@@ -16,6 +16,7 @@ import PortfolioSettings from "./PortflioSettings";
 
 import '../../Styles/ProfileEditor/ProfileEditor.scss';
 import { uuid } from "../../Helper/Helper";
+import { uploadProfilePic } from "../../Apis/userApis";
 
 
 const editorNav = [ 
@@ -26,37 +27,68 @@ const editorNav = [
 
 
 const ProfileEditor = (props) => {
-    const { currentUser, handleCurrentUserChange } = props;
+    const { currentUser, handleCurrentUserChange, profileCompletion } = props;
     const [ userDetails, setUserDetails ] = useState(currentUser?.user_info);
     const [ profileDetails, setProfileDetails ] = useState(currentUser?.profile_info);
     const [ portfolioDetails, setPortfolioDetails ] = useState(currentUser?.portfolio_info);
-    const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
+    const [ selectedNav, setSelectedNav ] = useState(editorNav[2]);
 
     const [ tempPic, setTempPic ] = useState(null);
-    // console.log(">>>>>>currentUser: ", currentUser);
+    const [ tempPicURL, setTempPicURL ] = useState(null);
+    const [ newProfPic, setNewProfPic ] = useState(null);
+
+    
+    const [ isLoading, setIsLoading ] = useState(null);
+    console.log(">>>>>>currentUser: ", currentUser);
 
     useEffect(() => {
 
         setUserDetails(currentUser?.user_info);
         setProfileDetails(currentUser?.profile_info);
         setPortfolioDetails(currentUser?.portfolio_info);
-    }, [currentUser])
+
+    }, [currentUser]);
 
     const handleChangePicture = (e) => {
         if(tempPic) {
             URL.revokeObjectURL(tempPic);
         }
 
+        // Navigate to User Info tab while changing picture
+        if(selectedNav.name != "User Info")
+            setSelectedNav(editorNav[0]);
+
         let file = e.target.files[0];
-        setTempPic(URL.createObjectURL(file));
+        setTempPic(file)
+        setTempPicURL(URL.createObjectURL(file));
     }
 
-    const removeTempProfilePic = (e) => {
-        URL.revokeObjectURL(tempPic);
+    const resetProfilePicChanges = (deleteNew=false) => {
+        if(tempPic)
+            URL.revokeObjectURL(tempPic);
         setTempPic(null);
+        setTempPicURL(null);
+
+        if(deleteNew) setNewProfPic(null);
     }
 
-    const uploadTempProfilePic = (e) => {
+    const uploadTempProfilePic = async (e) => {
+        setIsLoading(true);
+
+        const formData = new FormData();
+        formData.append('profilePic', tempPic);
+
+        setIsLoading(true);
+        await uploadProfilePic(formData).then(response => {
+            console.log(response);
+            if(response.success) {
+                let newDetails = {...userDetails};
+                newDetails.picture = response.url;
+                setNewProfPic(response.url);
+                resetProfilePicChanges();
+            }
+            setIsLoading(false);
+        })
 
     }
 
@@ -71,10 +103,22 @@ const ProfileEditor = (props) => {
                             {
                                 userDetails?.picture ?
                                 <div>
-                                    <Avatar className="avatar" alt={userDetails?.name} src={tempPic || userDetails.picture} /> 
+                                    <Avatar className="avatar" alt={userDetails?.name} 
+                                        src={
+                                            tempPicURL || 
+                                            newProfPic ||
+                                            userDetails.picture
+                                        } 
+                                    /> 
 
                                     <label htmlFor="avatar-overlay" className="avatar-overlay">Change Picture</label>
-                                    <input type="file" id="avatar-overlay" onChange={handleChangePicture} />
+                                    <input 
+                                        id="avatar-overlay" 
+                                        type="file" 
+                                        accept="image/*"
+                                        onClick={(e) => e.target.value = null}
+                                        onChange={handleChangePicture} 
+                                    />
                                 </div>  :
                                 <Avatar className="avatar"> 
                                     <HourglassTopIcon className="avatar-loader"/>
@@ -82,14 +126,37 @@ const ProfileEditor = (props) => {
                             }
                         </IconButton>
                         {
-                            tempPic ? 
+                            
                             <div> 
-                                <CancelIcon className="avatar-clear" onClick={removeTempProfilePic} /> 
-                                <button className="formbold-btn upload-avatar" onClick={uploadTempProfilePic}>
-                                    Upload Picture
-                                </button>
-                            </div> : ""
+                                {
+                                    tempPic || newProfPic ?
+                                    <CancelIcon className="avatar-clear" 
+                                        onClick={() => { resetProfilePicChanges(true) }} 
+                                    /> : ""
+                                }
+                                
+                                {
+                                    tempPic ? 
+                                    <button className="formbold-btn upload-avatar" 
+                                            disabled={isLoading}
+                                            onClick={uploadTempProfilePic}
+                                        >
+                                            Upload Picture
+                                            {isLoading ? <span className="req-loader"></span> : ""}
+                                        </button> : ""
+                                }
+                            </div> 
                         }
+
+                        <div className="profile-completion-cont">Profile completion:
+                            <div className="profile-completion">
+                                <div className="bar">
+                                    <div className="completion" style={{width: `${profileCompletion}%`}}></div>
+                                </div>
+                                <p style={{marginLeft: `${profileCompletion - 3}%`}}>{profileCompletion}%</p>
+                            </div>
+                        </div>
+                        
                     </section>
                     <section className="profile-editor-input">
                         <header className="profile-editor-nav">
@@ -110,7 +177,10 @@ const ProfileEditor = (props) => {
                             userDetails={userDetails}
                             profileDetails={profileDetails}
                             portfolioDetails={portfolioDetails}
+
                             handleCurrentUserChange={handleCurrentUserChange}
+                            newProfPic={newProfPic}
+                            setNewProfPic={setNewProfPic}
                         />
                     </section>
                     

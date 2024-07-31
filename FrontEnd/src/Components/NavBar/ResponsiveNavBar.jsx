@@ -11,6 +11,7 @@ import {
     Avatar,
     Tooltip
  } from '@mui/material';
+ import LockIcon from '@mui/icons-material/Lock';
 
 import { uuid } from "../../Helper/Helper.js";
 import "../../Styles/NavBar/NavBar.scss";
@@ -53,7 +54,7 @@ function ResponsiveAppBar(props) {
             window.location = "./logout";
         } else if(option == "Profile") {
             handleNavSelect(CONSTANTS.navigation.profileEditor);
-            window.location = `/${user_route}/profile`;
+            navigate(`/${user_route}/profile`);
         }
         handleCloseUserMenu();
     }
@@ -123,6 +124,9 @@ function ResponsiveAppBar(props) {
                                         textAlign="center"
                                     >
                                         {item.name}
+                                        {
+                                            item.isLocked ? <LockIcon className='route-lock' /> : ""
+                                        }
                                     </Typography>
                                 </MenuItem>
                             )})
@@ -157,6 +161,10 @@ function ResponsiveAppBar(props) {
                                 onClick={() => handleNavSelectInner(item)}
                             >
                                 {item.name}
+                                {
+                                    item.isLocked ? <LockIcon className='route-lock' /> : ""
+                                }
+                                
                             </Typography>
                         )})
                     }

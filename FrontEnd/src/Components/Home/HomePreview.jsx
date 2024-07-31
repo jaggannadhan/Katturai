@@ -5,7 +5,9 @@ import bg6 from "../../../public/images/preview/bg6.jpeg";
 
 import '../../Styles/Home/Preview.scss';
 
-const Preview = () => {
+const Preview = (props) => {
+  const { tagline, subtext } = props;
+
   return (
     <div className="preview-img-container">
       <img
@@ -15,8 +17,8 @@ const Preview = () => {
       />
       <div className="overlay">
         <div className="overlay-content">
-          <Typography className="overlay-text">戦い</Typography>
-          <Typography className="overlay-text-small">Tatakai</Typography>
+          <Typography className="overlay-text">{tagline}</Typography>
+          <Typography className="overlay-text-small">{subtext}</Typography>
         </div>
       </div>
     </div>

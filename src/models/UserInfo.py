@@ -108,11 +108,16 @@ class UserInfo:
                 raise Exception
             print("\n\nEntity in update:\n", entity, msg)
 
+            firstName = user_details.get("first_name", entity["first_name"])
+            lastName = user_details.get("last_name", entity["last_name"])
+
             entity.update({
-                "first_name": user_details.get("first_name", entity["first_name"]),
-                "last_name": user_details.get("last_name", entity["last_name"]),
+                "first_name": firstName,
+                "last_name": lastName,
+                "name": firstName + " " + lastName,
                 "address": user_details.get("address", entity["address"]),
-                "phone_number": user_details.get("phone_number", entity["phone_number"])
+                "phone_number": user_details.get("phone_number", entity["phone_number"]),
+                "picture": user_details.get("picture", entity["picture"])
             }) 
             USERINFO.put(entity)
 

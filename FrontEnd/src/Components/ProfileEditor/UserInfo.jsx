@@ -3,13 +3,14 @@ import { validatePhNumber } from "../../Helper/Helper";
 import { postUserDetails } from "../../Apis/userApis";
 
 const UserInfo = (props) => {
-    const { userDetails, handleCurrentUserChange } = props;
+    const { userDetails, handleCurrentUserChange, newProfPic, setNewProfPic } = props;
     
     const [ firstName, setFirstName ] = useState(userDetails?.first_name || "");
     const [ lastName, setLastName ] = useState(userDetails?.last_name || "");
     const [ phNumber, setPhNumber ] = useState(userDetails?.phone_number || "");
     const [ address, setAddress ] = useState(userDetails?.address || "");
     const [ userRoute, setUserRoute ] = useState(userDetails?.user_uid || "");
+    const [ profilePicture, setProfilePicture ] = useState(userDetails?.picture || "");
 
     const [ phValueError, setPhValueError ] = useState(false);
     const [ isLoading, setIsLoading ] = useState(false);
@@ -22,11 +23,16 @@ const UserInfo = (props) => {
                 setPhNumber(userDetails.phone_number);
                 setAddress(userDetails.address);
                 setUserRoute(userDetails.user_uid);
+                setProfilePicture(userDetails.picture);
             }   
         }
 
         setFields();
     }, [userDetails]);
+
+    useEffect(() => {
+        if(newProfPic) setProfilePicture(newProfPic);
+    }, [newProfPic]);
 
     const noErrors = () => {
         return !phValueError && firstName && lastName;
@@ -37,7 +43,8 @@ const UserInfo = (props) => {
             !(!firstName && !userDetails?.first_name) && (firstName != userDetails?.first_name) ||
             !(!lastName && !userDetails?.last_name) && (lastName != userDetails?.last_name) || 
             !(!phNumber && !userDetails?.phone_number) && (phNumber != userDetails?.phone_number) ||
-            !(!address && !userDetails?.address) && (address != userDetails?.address)
+            !(!address && !userDetails?.address) && (address != userDetails?.address) ||
+            !(!profilePicture && !userDetails?.picture) && (profilePicture != userDetails?.picture)
         )
     }
 
@@ -49,14 +56,17 @@ const UserInfo = (props) => {
                 "address": address,
                 "first_name": firstName,
                 "last_name": lastName,
-                "phone_number": phNumber
+                "phone_number": phNumber,
+                "picture": profilePicture
             }).then((response) => {
                 console.log("postUserDetails: ", response);
-                if(response.success)
-                    handleCurrentUserChange({newDetails: response.user_details, _changeKey:"user_info"})
+                if(response.success) {
+                    handleCurrentUserChange({newDetails: response.user_details, _changeKey:"user_info"});
+                    setNewProfPic(null);
+                }
+                    
                 setIsLoading(false);
             });
-            
         }
     }
 
@@ -82,7 +92,7 @@ const UserInfo = (props) => {
         setUserRoute(e.target.value);
     }
 
-
+    const changesMade = hasChanged() && noErrors();
     return (
         <div className="formbold-main-wrapper">
             <div className="formbold-form-wrapper">
@@ -188,10 +198,9 @@ const UserInfo = (props) => {
                                 {/* <small>(This is how people find you)</small> */}
                             </label>
                         </div>
-                    
                     </div>
 
-                    <button className="formbold-btn" disabled={isLoading}>
+                    <button className="formbold-btn" disabled={!changesMade || isLoading}>
                         Save Profile
                         {isLoading ? <span className="req-loader"></span> : ""}
                     </button>
