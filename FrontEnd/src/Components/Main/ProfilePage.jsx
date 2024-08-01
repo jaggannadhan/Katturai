@@ -46,11 +46,11 @@ const ProfilePage = () => {
         if(!currentUser) return null;
         const { user_info, profile_info, portfolio_info } = currentUser;
         let allFields = [...Object.values(user_info), ...Object.values(profile_info), ...Object.values(portfolio_info)];
-        let emptyFields = allFields.filter(field => !field).length;
+        let emptyFields = allFields.filter(field => (!field || !field.length)).length;
 
-        let _check = allFields.length == allFields.flat(2).length;
-        let completedFields =  _check ? allFields.length -1 : allFields.length;
-        return 100 - (emptyFields/completedFields * 100).toFixed();
+        // let _check = allFields.length == allFields.flat(2).length;
+        // let completedFields =  _check ? allFields.length -1 : allFields.length;
+        return 100 - (emptyFields/allFields.length * 100).toFixed();
     }
     
     useEffect(() => {

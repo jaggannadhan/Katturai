@@ -7,16 +7,16 @@ import "../../Styles/Portfolio/Portfolio.scss"
 
 const Portfolio = (props) => {
     const { currentUser } = props;
-    const { protfolio_info } = currentUser || {}; 
+    const { portfolio_info } = currentUser || {}; 
     
-    console.log(currentUser);
+    // console.log(currentUser);
     return(
         <Fragment>
             <PortPreview 
                 currentUser={currentUser}
             />
             <TechStack 
-                protfolio_info={protfolio_info}
+                portfolio_info={portfolio_info}
             />
             {/* <embed src={resume} style={{ height: "60vw", width: "100vw" }} /> */}
             

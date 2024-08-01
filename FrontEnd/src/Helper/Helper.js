@@ -24,3 +24,7 @@ export const validateURL = (phNumber) => {
       /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?/gm
     );
 }; 
+
+export const deepCloneNested = (obj) => {
+  return JSON.parse(JSON.stringify(obj))
+}

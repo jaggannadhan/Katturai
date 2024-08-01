@@ -1,4 +1,35 @@
 
+.portfolio-editor-nav {
+    // width: 100%;
+    background-color: grey;
+    display: flex;
+    justify-content: start;
+    padding: 0 8vw;
+
+    .items {
+        margin-right: 5vw;
+        cursor: pointer;
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-size: 1.5vw;
+        user-select: none;
+    }
+    .selected {
+        color: #E9AE00;
+    }
+}
+
+.skills-section {
+    margin-top: -5vw;
+}
+
+.expand-skills {
+    position: relative;
+    font-size: 3.5vw !important;
+    left: 96%;
+    top: 5vw;
+    cursor: pointer;
+}
 
 .add-skills {
     display: flex;

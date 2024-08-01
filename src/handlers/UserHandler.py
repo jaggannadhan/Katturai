@@ -8,43 +8,41 @@ user = Blueprint("user", __name__)
 
 @user.route("/<user_uid>/", methods=["GET"])
 @check_user_uid
-def homePage(user_uid):
+def homePage(user_uid, userInfo, isLoggedIn):
     print(user_uid)
     return render_template("index.html")
 
 @user.route("/<user_uid>/diary", methods=["GET"])
-@login_required
-@check_user_uid
+@login_required_strict
 def diary(user_uid):
     return render_template("index.html")
 
 @user.route("/<user_uid>/travel", methods=["GET"])
 @check_user_uid
-def travel(user_uid):
+def travel(user_uid, userInfo, isLoggedIn):
     print(user_uid)
     return render_template("index.html")
 
 @user.route("/<user_uid>/portfolio", methods=["GET"])
 @check_user_uid
-def portfolio(user_uid):
+def portfolio(user_uid, userInfo, isLoggedIn):
     print(user_uid)
     return render_template("index.html")
 
 @user.route("/<user_uid>/opinion", methods=["GET"])
 @check_user_uid
-def opinion(user_uid):
+def opinion(user_uid, userInfo, isLoggedIn):
     print(user_uid)
     return render_template("index.html")
 
 @user.route("/<user_uid>/recreation", methods=["GET"])
 @check_user_uid
-def recreation(user_uid):
+def recreation(user_uid, userInfo, isLoggedIn):
     print(user_uid)
     return render_template("index.html")
 
 @user.route("/<user_uid>/profile", methods=["GET"])
-@login_required
-@check_user_uid
+@login_required_strict
 def profileSettings(user_uid):
     print(user_uid)
     return render_template("index.html")
@@ -87,15 +85,8 @@ def setPortfolioDetails(user_uid):
 
 @user.route("/<user_uid>/getCurrentUser", methods=["GET"])
 @check_user_uid
-def getCurrentUser(user_uid):
-    user = session.get("user")
-    if not user:
-        return jsonify({
-            "success": False,
-            "current_user": None
-        })
-
-    current_user = UserService.getCurrentUser(user.get("email"), user_uid)
+def getCurrentUser(user_uid, userInfo, isLoggedIn):
+    current_user = UserService.getCurrentUser(user_uid, userInfo, isLoggedIn)
     return jsonify({
         "success": True,
         "current_user": current_user 

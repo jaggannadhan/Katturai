@@ -86,12 +86,80 @@
         }
     }
 
+    .port-btns-sec1 {
+        display: flex;
+        height: 9vh;
+
+        .buy-me {
+            cursor: pointer;
+            border: 0.2vw solid #E9AE00;
+            border-radius: 1vw;
+            width: fit-content;
+            height: 2.5vh;
+            padding: 1vw;
+            margin-left: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: 0.5s ease-in-out;
+
+            p {
+                font-size: 1.5vw;
+                color: #E9AE00
+            }
+
+            .shaker-btl {
+                width: 3vw;
+                height: 3vw;
+                margin-left: 0.6vw;
+            }
+
+            .overlay {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 2;
+                cursor: pointer;
+              }
+              
+              .qr-code{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                font-size: 50px;
+                color: white;
+                transform: translate(-50%,-50%);
+                -ms-transform: translate(-50%,-50%);
+            }
+        }
+
+        .buy-me:hover {
+            background-color: #E9AE00;
+            box-shadow: 0 0 1vw #E9AE00;
+            transition: 0.5s ease-in-out;
+    
+            p {
+                color: white;
+            }
+
+            .shaker-btl {
+                animation: proteinShake 1s infinite ease-in-out;
+            }
+        }
+    }
+
     .view-resume {
         cursor: pointer;
         border: 0.2vw solid #E9AE00;
         border-radius: 1vw;
         width: fit-content;
-        height: fit-content;
+        height: 2.5vh;
         padding: 1vw;
         margin-left: 1vw;
         transition: 0.5s ease-in-out;
@@ -102,6 +170,7 @@
             font-family: 'Lexend';
             font-size: 1.5vw;
             margin: 0;
+            line-height: 2vh;
         }
     }
 
@@ -161,6 +230,21 @@
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+
+@keyframes proteinShake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 

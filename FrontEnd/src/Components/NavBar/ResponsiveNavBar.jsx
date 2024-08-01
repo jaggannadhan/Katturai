@@ -27,11 +27,14 @@ function ResponsiveAppBar(props) {
     const [ userInfo, setUserInfo ] = useState(currentUser?.user_info);
     const [ anchorElNav, setAnchorElNav ] = useState(null);
     const [ anchorElUser, setAnchorElUser ] = useState(null);
+
+    const [ isLoggedin, setIsLoggedIn ] = useState(false);
     const navigate = useNavigate();
 
 
     useEffect(() => {
         setUserInfo(currentUser?.user_info);
+        setIsLoggedIn(currentUser?.is_logged_in);
     }, [currentUser])
 
     const handleOpenNavMenu = (event) => {
@@ -74,7 +77,7 @@ function ResponsiveAppBar(props) {
                         variant="h5"
                         noWrap
                         component="a"
-                        href="."
+                        href={window.location.origin}
                         sx={{
                             display: { xs: 'none', md: 'flex' },
                             textDecoration: 'none',
@@ -115,7 +118,7 @@ function ResponsiveAppBar(props) {
                         }}
                     >
                         {
-                            CONSTANTS.navigation.navItems.map(item => {
+                            (isLoggedin) && CONSTANTS.navigation.navItems.map(item => {
                             return (
                                 <MenuItem key={uuid()} onClick={() => handleNavSelectInner(item)}>
                                     <Typography 
@@ -138,7 +141,7 @@ function ResponsiveAppBar(props) {
                         variant="h5"
                         noWrap
                         component="a"
-                        href="."
+                        href={window.location.origin}
                         sx={{
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
@@ -152,7 +155,7 @@ function ResponsiveAppBar(props) {
 
                 <Stack direction="row" spacing={2} className="navbar-nav" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     {
-                        CONSTANTS.navigation.navItems.map(item => {
+                        (isLoggedin) && CONSTANTS.navigation.navItems.map(item => {
                         return (
                             <Typography 
                                 variant="h6" 
@@ -171,7 +174,7 @@ function ResponsiveAppBar(props) {
                 </Stack>
                 
                 {
-                    currentUser ?
+                    (isLoggedin) && currentUser ?
                     <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

@@ -38,11 +38,11 @@ class FileUploadService:
     
     @classmethod
     def createBucket(cls, user_uid):
-        """Creates a bucket with hierarchical namespace enabled."""
         try:
             print(f"Creating cloud storage bucket: {user_uid}")
 
             bucket = STORAGE_CLIENT.bucket(user_uid)
+            """Creates a bucket with hierarchical namespace enabled."""
             # bucket.iam_configuration.uniform_bucket_level_access_enabled = True
             # bucket.hierarchical_namespace_enabled = True
             bucket.create()

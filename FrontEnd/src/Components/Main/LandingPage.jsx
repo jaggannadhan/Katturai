@@ -134,7 +134,7 @@ const LandingPage = (props) => {
 
             <div className='anchor-details'>
                 <p onClick={() => window.location = "./signin"}>Let's go!</p>
-                <p>Author</p>
+                <p onClick={() => window.location = "./jegsirox/portfolio"}>Author</p>
             </div>
 
 

@@ -22,10 +22,10 @@ def not_found(e):
 
 ################ UNCOMMENT THESE LINES WHILE DEPLOYING IN LOCAL ENV #####################
 
-from google.cloud import storage
-import os
-credential_path = "/Users/jv/.config/gcloud/application_default_credentials.json"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+# from google.cloud import storage
+# import os
+# credential_path = "/Users/jv/.config/gcloud/application_default_credentials.json"
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
 #########################################################################################
 

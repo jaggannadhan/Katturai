@@ -40,12 +40,29 @@ def handle_loggedin_user(handle):
 def check_user_uid(handle):
     @wraps(handle)
     def wrapper(user_uid):
-            
+        loggedInUser = session.get("user")
+        loggedInEmail = loggedInUser.get("email") if loggedInUser else None
+        
         userInfo, msg = UserInfo.getUserByUID(user_uid)
         if not userInfo:
             return render_template("pageNotFound.html")
+        
+        isSameUser = userInfo.get("email") == loggedInEmail
+        if isSameUser:
+            loggedInUser = userInfo
+        elif loggedInUser:
+            loggedInUser, msg = UserInfo.getUser(loggedInEmail)
+            if not loggedInUser:
+                session.pop('user', None)
+                return redirect("/signin")
+        
+        
+        if (not loggedInUser) or (not isSameUser):
+            userInfo.pop("last_login", None)
+            userInfo.pop("address", None)
+            userInfo.pop("phone_number", None)
             
-        return handle(user_uid)
+        return handle(user_uid, userInfo, isLoggedIn=loggedInUser)
     return wrapper
 
 def login_required_strict(handle):

@@ -12,7 +12,7 @@ import {
 import PageEditorLoader from "./ProfileEditorLoader";
 import UserInfo from "./UserInfo";
 import ProfileSettings from "./ProfileSettings";
-import PortfolioSettings from "./PortflioSettings";
+import PortfolioSettings from "./Portfolio/PortfolioSettings";
 
 import '../../Styles/ProfileEditor/ProfileEditor.scss';
 import { uuid } from "../../Helper/Helper";
@@ -39,7 +39,7 @@ const ProfileEditor = (props) => {
 
     
     const [ isLoading, setIsLoading ] = useState(null);
-    console.log(">>>>>>currentUser: ", currentUser);
+    // console.log(">>>>>>currentUser: ", currentUser);
 
     useEffect(() => {
 
