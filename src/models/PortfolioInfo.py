@@ -36,7 +36,9 @@ class PortfolioInfo:
 
             new_entity["resume"] = portfolio_details.get("resume", "")
             new_entity["skills"] = portfolio_details.get("skills", [])
+            new_entity["buy_me_something"] = portfolio_details.get("buy_me_something", [])
             new_entity["last_updated"] = datetime.now()
+            
             PORTFOLIOINFO.put(new_entity)
 
             return dict(new_entity), f"Successully created portfolio: {user_uid}"
@@ -60,6 +62,7 @@ class PortfolioInfo:
 
                 "resume": portfolio_details.get("resume", entity["resume"]),
                 "skills": portfolio_details.get("skills", entity["skills"]),
+                "buy_me_something": portfolio_details.get("buy_me_something", entity["buy_me_something"]),
                 "last_updated": datetime.now()
             })
             PORTFOLIOINFO.put(entity)

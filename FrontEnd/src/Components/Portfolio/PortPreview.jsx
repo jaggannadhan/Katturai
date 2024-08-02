@@ -10,18 +10,14 @@ import "../../Styles/Portfolio/PortPreview.scss";
 import * as CONSTANTS from "../../Constants/Constants";
 import myProfilePic from "../../../public/images/myProfileYlw.png";
 
-import protein from "../../../public/images/protein-shake.png";
-import coffee from "../../../public/images/coffee-cup.png";
-import lipstick from "../../../public/images/lipstick.png";
-
 
 const PortPreview = (props) => {
     const { currentUser } = props;
     const { user_info, portfolio_info, profile_info } = currentUser || {};
     const { name } = user_info || {};
-    const { greetings, description, titles, resume, skills } = portfolio_info || {};
+    const { greetings, description, titles, resume, buy_me_something } = portfolio_info || {};
 
-    const [ showQR, setShowQR ] = useState(false);
+
 
     return (
         <Container className="port-cont"> 
@@ -67,19 +63,25 @@ const PortPreview = (props) => {
                     </Stack>
 
                     <section className="port-btns-sec1">
-                        <div className="buy-me"> 
-                            <p>Buy me</p>
-                            <img className="shaker-btl" src={protein} onClick={() => setShowQR(true)} />
 
-                            {   
-                                showQR ? 
-                                <div className="overlay" onClick={() => setShowQR(false)}>
-                                    <img className="qr-code" 
-                                        src="https://miro.medium.com/v2/resize:fit:789/1*A9YcoX1YxBUsTg7p-P6GBQ.png"
+                        {
+                            buy_me_something?.[0] ? 
+                            <div className="buy-me"> 
+                                <Link
+                                    display="block"
+                                    variant="body1"
+                                    href={buy_me_something[1]}
+                                    sx={{ mb: 0.5 }}
+                                    target={"_blank"}
+                                    rel="noreferrer"
+                                >
+                                    Buy me  
+                                    <img className="shaker-btl" 
+                                        src={getBuyMeIcon(buy_me_something[0])} 
                                     />
-                                </div> : ""
-                            }
-                        </div>
+                                </Link>
+                            </div> : ""
+                        }
                         {
                             resume ? 
                             <div className="view-resume">
@@ -106,6 +108,16 @@ const PortPreview = (props) => {
             </section>
             </Container>        
     );
+}
+
+const getBuyMeIcon = (wish) => {
+    let icon = CONSTANTS.buyMeItems.reduce((icon, item) => {
+        if(item.name == wish) icon = item.icon;
+
+        return icon;
+    }, CONSTANTS.buyMeItems[0].icon);
+
+    return icon
 }
 
 export default PortPreview;

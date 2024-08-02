@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { postPortfolioDetails } from "../../../Apis/userApis";
 import { validateURL, deepCloneNested } from "../../../Helper/Helper";
 
-import "../../../Styles/ProfileEditor/PortflioSettings.scss";
-
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';

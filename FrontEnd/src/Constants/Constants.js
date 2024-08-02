@@ -11,6 +11,11 @@ import Portfolio from '../Components/Portfolio/Portfolio';
 
 import ProfileEditor from '../Components/ProfileEditor/ProfileEditor';
 
+import protein from "../../public/images/protein.png";
+import coffee from "../../public/images/coffee.png";
+import makeup from "../../public/images/makeup.png";
+import dress from "../../public/images/dress.png";
+
 export const socials = [
     { name: 'github', icon: GitHubIcon, link: "https://github.com/jaggannadhan" },
     { name: 'youtube', icon: YouTubeIcon, link: "https://www.youtube.com/@jegsirox3674"  },
@@ -45,3 +50,9 @@ export const DOMAIN = {
     self: "https://hopeful-flame-420906.uc.r.appspot.com/"
 }
     
+export const buyMeItems = [
+    {name: "Coffee", icon: coffee},
+    {name: "Protein",icon: protein},
+    {name: "Makeup", icon: makeup},
+    {name: "Dress", icon: dress}
+];

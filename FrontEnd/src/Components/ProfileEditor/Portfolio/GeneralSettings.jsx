@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { postPortfolioDetails } from "../../../Apis/userApis";
-import { validateURL, deepCloneNested } from "../../../Helper/Helper";
+import { validateURL } from "../../../Helper/Helper";
+import { buyMeItems } from "../../../Constants/Constants";
 
-import "../../../Styles/ProfileEditor/PortflioSettings.scss";
+import { 
+    Select, MenuItem, Checkbox,
+    FormControl, FormControlLabel,
+    OutlinedInput, InputLabel
+} from '@mui/material';
 
 
 const GeneralSettings = (props) => {
@@ -12,6 +17,7 @@ const GeneralSettings = (props) => {
         titles: titlesProp, 
         description: descProp,
         resume: resumeProp,
+        buy_me_something: buyMeSomethingProp,
         skills: skillCategoryProp
     } = portfolioDetails || {};
     
@@ -24,8 +30,13 @@ const GeneralSettings = (props) => {
     const [ description, setDescription ] = useState(descProp || "");
     const [ resume, setResume ] = useState(resumeProp || "");
 
+    const [ buyMe, setBuyMe ] = useState(false);
+    const [ buyMeSelection, setBuyMeSelection ] = useState(buyMeItems[0]);
+    const [ paymentMethod, setPaymentMethod ] = useState("");
+
     const [ titlesError, setTitlesError ] = useState(false);
     const [ resumeError, setResumeError ] = useState(false);
+    const [ paymentLinkError, setPaymentLinkError ] = useState(false);
 
     const [ isLoading, setIsLoading ] = useState(false);
 
@@ -36,12 +47,37 @@ const GeneralSettings = (props) => {
             setDescription(descProp);
             setResume(resumeProp);
 
+            getBuyMeSelection((buyMeSomethingProp || []));
+
             setTitlesError(!getTitlesAsString(titlesProp, ''));
         }
     }, [portfolioDetails]);
 
+
+    const getBuyMeSelection = (toBuy) => {
+        let [something, mode] = toBuy;
+
+        if(!something) {
+            setBuyMe(false);
+            setPaymentLinkError(false);
+            return;
+        }
+
+        let mySelection = buyMeItems.reduce((myItem, item) => {
+            if(item.name == something) 
+                myItem = item;
+        
+            return myItem
+        }, undefined);
+
+        setBuyMe(true);
+        setBuyMeSelection(mySelection);
+        setPaymentMethod(mode);
+        setPaymentLinkError(!validateURL(mode));
+    }
+
     const noErrors = () => {
-        return !titlesError && !resumeError;
+        return !titlesError && !resumeError && !paymentLinkError;
     }
 
     const hasChanged = () => {
@@ -51,7 +87,12 @@ const GeneralSettings = (props) => {
             !(!greetings && !greetingsProp) && (greetings != greetingsProp) ||
             !(!titles && !oldTitles) && (titles != oldTitles) || 
             !(!description && descProp) && (description != descProp) ||
-            !(!resume && !resumeProp) && (resume != resumeProp)
+            !(!resume && !resumeProp) && (resume != resumeProp) ||
+            // Read for changes only if buyMe is checked
+            buyMe && !(!buyMeSelection.name && !buyMeSomethingProp[0]) && (buyMeSelection.name != buyMeSomethingProp[0]) || 
+            buyMe && !(!paymentMethod && !buyMeSomethingProp[1]) && (paymentMethod != buyMeSomethingProp[1]) ||
+            // Read changes if buyMe is added/removed
+            !!buyMeSomethingProp[0] != buyMe
         )
     }
 
@@ -65,7 +106,8 @@ const GeneralSettings = (props) => {
                 "titles": titles.split(","),
                 "description": description,
                 "resume": resume,
-                "skills": skillCategoryProp
+                "skills": skillCategoryProp,
+                "buy_me_something": buyMe ? [buyMeSelection.name, paymentMethod] : []
             }).then((response) => {
                 console.log("postPortfolioDetails: ", response);
                 if(response.success)
@@ -95,6 +137,18 @@ const GeneralSettings = (props) => {
         let value = e.target.value;
         setResume(value);
         !value ? setResumeError(false) : setResumeError(!validateURL(value));
+    }
+
+    const handleSetBuyMe = () => {
+        setPaymentLinkError(!buyMe ? (!validateURL(paymentMethod)) : false);
+        setBuyMe(!buyMe);
+    }
+        
+
+    const handlePaymentChange = (e) => {
+        let value = e.target.value;
+        setPaymentMethod(value);
+        setPaymentLinkError(!validateURL(value));
     }
 
     const changesMade = hasChanged() && noErrors();
@@ -151,9 +205,61 @@ const GeneralSettings = (props) => {
                         ></textarea>
                         <label htmlFor="prof-descr" className="formbold-form-label"> Description </label>
                     </div>
-                    <br/><br/>
+                    <br/>
 
-                    
+                    <div className="buy-me-something">
+                        <FormControlLabel sx={{ marginTop: "2vh" }} className="buy-me-chkbox"
+                            control={
+                                <Checkbox checked={buyMe} onChange={handleSetBuyMe}  />
+                            }
+                            label={`Buy me ${!buyMe ? "something!": ""}`}
+                        />
+                        {
+                            buyMe ?
+                            <Fragment>
+                                <FormControl sx={{ m: 1, width: 200, marginTop: "1vh" }}>
+                                    <InputLabel id="demo-multiple-name-label">Wish List</InputLabel>
+                                    <Select
+                                        className="buyme-select"
+                                        multiple
+                                        value={[buyMeSelection]}
+                                        onChange={ (e) => { setBuyMeSelection(e.target.value[1]) } }
+                                        input={<OutlinedInput label="Wish List" />}
+                                    >
+                                        {buyMeItems.map((item) => (
+                                            <MenuItem
+                                                key={item.name}
+                                                value={item}
+                                            >
+                                                {item.name} 
+                                                <img className="buyme-icon" src={item.icon} alt="" />
+                                            </MenuItem>
+                                        ))}
+                                    </Select> 
+                                </FormControl> 
+
+                                <div className="formbold-mb-3">
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="payment-info"
+                                            id="payment-info"
+                                            placeholder="Upload your banking QR to GDrive and enter the link here"
+                                            className={`formbold-form-input ${paymentLinkError ? "error-input" : ""}`}
+                                            value={paymentMethod}
+                                            onChange={handlePaymentChange}
+                                        />
+
+                                        <label htmlFor="payment-info" className={`formbold-form-label ${paymentLinkError ? "error-label" : ""}`}>
+                                            Link to payment
+                                        </label>
+                                    </div>
+                                </div> 
+                            </Fragment>: ""
+                        }                        
+                    </div>
+
+                    <br/>
                     <div className="formbold-mb-3">
                         <div>
                             <input
