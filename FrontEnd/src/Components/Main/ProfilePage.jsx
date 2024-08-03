@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { Toaster } from "react-hot-toast";
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import Footer from '../Footer/Footer';
 import PageLoader from './PageLoader';
@@ -104,6 +105,7 @@ const ProfilePage = () => {
     
     return (
         <div className={`home-page ${classes.root}`}>
+            <div><Toaster/></div>
             <ResponsiveAppBar 
                 isNavTrans={isNavTrans}
                 selectedNav={selectedNav} 

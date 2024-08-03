@@ -21,6 +21,18 @@
     }
 }
 
+//////////////////////////////////////////////////////////////COMMON//////////////////////////////////////////////////////////////
+
+.chkbox {
+    span {
+        font-size: 1.5vw;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+    }
+}
+
+/////////////////////////////////////////////////////////BUY ME SOMETHING/////////////////////////////////////////////////////////
+
 .buy-me-something {
 
     .buyme-select {
@@ -28,11 +40,7 @@
     }
 
     .buy-me-chkbox {
-        span {
-            font-size: 1.5vw;
-            font-family: "Inter", sans-serif;
-            font-weight: 600;
-        }
+        
     }
 
     .manage-payment {
@@ -74,10 +82,9 @@
 }
 
 
-
-
+//////////////////////////////////////////////////////SKILLS SECTION//////////////////////////////////////////////////////////////
 .skills-section {
-    margin-top: -5vw;
+    // margin-top: -5vw;
 }
 
 .expand-skills {
@@ -136,4 +143,12 @@
 @keyframes spinCancel {
     from {rotate: 0deg;}
     to {rotate: 360deg;}
+}
+
+/////////////////////////////////////////////////////UPLOAD PROFESSIONAL PIC/////////////////////////////////////////////////////////
+
+.upload-professional-pic {
+    margin: 3vh auto;
+
+
 }

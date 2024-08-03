@@ -59,7 +59,7 @@
 
     .port-img img {
         max-width: 23vw;
-        margin-top: 3vw;
+        border-radius: 50%;
         animation: zoomIn 1s ease forwards;
     }
 
@@ -95,7 +95,7 @@
             border: 0.2vw solid #E9AE00;
             border-radius: 1vw;
             width: fit-content;
-            height: 2.5vh;
+            height: 2vw;
             padding: 1vw;
             margin-left: 1vw;
             display: flex;
@@ -141,9 +141,12 @@
         border: 0.2vw solid #E9AE00;
         border-radius: 1vw;
         width: fit-content;
-        height: 2.5vh;
+        height: 2vw;
         padding: 1vw;
         margin-left: 1vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         transition: 0.5s ease-in-out;
 
         a {
@@ -233,5 +236,18 @@
 @media (min-width: 960px) {
     .port-cont .portfolio {
         height: 40vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .port-cont .portfolio {
+        height: 53vw;
+    }
+}
+
+
+@media (max-width: 490px) {
+    .port-cont .portfolio {
+        height: 62vw;
     }
 }

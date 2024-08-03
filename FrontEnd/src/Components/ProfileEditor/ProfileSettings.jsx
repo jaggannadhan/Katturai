@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
+
 import { postProfileDetails } from "../../Apis/userApis";
 import { DOMAIN } from "../../Constants/Constants";
 import { validateURL } from "../../Helper/Helper";
@@ -75,8 +77,13 @@ const ProfileSettings = (props) => {
                 "epigraph": epigraph,
             }).then((response) => {
                 console.log("postProfileDetails: ", response);
-                if(response.success)
-                    handleCurrentUserChange({newDetails: response.profile_details, _changeKey:"profile_info"})
+                if(response.success) {
+                    handleCurrentUserChange({newDetails: response.profile_details, _changeKey:"profile_info"});
+                    toast("Profile details updated successfully!");
+                } else {
+                    toast("Unable to update profile details, please try again later!");
+                }
+                    
                 setIsLoading(false);
             });
             

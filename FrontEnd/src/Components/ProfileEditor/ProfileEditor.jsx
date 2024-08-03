@@ -1,22 +1,21 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { 
-    Stack,
-    IconButton,
-    Avatar
- } from '@mui/material';
+import React, { useState, useEffect, useRef, Fragment } from "react";
+import { uuid } from "../../Helper/Helper";
+import { uploadProfilePic } from "../../Apis/userApis";
 
- import CancelIcon from '@mui/icons-material/Cancel';
-
- import HourglassTopIcon from '@mui/icons-material/HourglassTop';
-
+import { toast } from "react-hot-toast";
 import PageEditorLoader from "./ProfileEditorLoader";
 import UserInfo from "./UserInfo";
 import ProfileSettings from "./ProfileSettings";
 import PortfolioSettings from "./Portfolio/PortfolioSettings";
 
 import '../../Styles/ProfileEditor/ProfileEditor.scss';
-import { uuid } from "../../Helper/Helper";
-import { uploadProfilePic } from "../../Apis/userApis";
+import { 
+    Stack,
+    IconButton,
+    Avatar
+} from '@mui/material';
+import CancelIcon from '@mui/icons-material/Cancel';
+import HourglassTopIcon from '@mui/icons-material/HourglassTop';
 
 
 const editorNav = [ 
@@ -27,17 +26,21 @@ const editorNav = [
 
 
 const ProfileEditor = (props) => {
-    const { currentUser, handleCurrentUserChange, profileCompletion } = props;
+    const { currentUser, 
+        handleCurrentUserChange, 
+        profileCompletion 
+    } = props;
+    
     const [ userDetails, setUserDetails ] = useState(currentUser?.user_info);
     const [ profileDetails, setProfileDetails ] = useState(currentUser?.profile_info);
     const [ portfolioDetails, setPortfolioDetails ] = useState(currentUser?.portfolio_info);
-    const [ selectedNav, setSelectedNav ] = useState(editorNav[2]);
+    const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
 
     const [ tempPic, setTempPic ] = useState(null);
     const [ tempPicURL, setTempPicURL ] = useState(null);
     const [ newProfPic, setNewProfPic ] = useState(null);
 
-    
+    const profileImgIp = useRef(null);
     const [ isLoading, setIsLoading ] = useState(null);
     // console.log(">>>>>>currentUser: ", currentUser);
 
@@ -55,7 +58,7 @@ const ProfileEditor = (props) => {
         }
 
         // Navigate to User Info tab while changing picture
-        if(selectedNav.name != "User Info")
+        if(selectedNav.name == "Profile")
             setSelectedNav(editorNav[0]);
 
         let file = e.target.files[0];
@@ -86,13 +89,30 @@ const ProfileEditor = (props) => {
                 newDetails.picture = response.url;
                 setNewProfPic(response.url);
                 resetProfilePicChanges();
+                toast.success("Upload successful, make sure you hit the save button!");
+            } else {
+                toast.error("Unable to upload image, please try again!");
             }
             setIsLoading(false);
-        })
-
+        });
     }
 
+    const triggerPicUpload = () => {
+        profileImgIp?.current?.click();
+    }
+
+    const setDisplayPic = () => {
+        if(selectedNav.name == "Portfolio") {
+            return  portfolioDetails?.picture || userDetails?.picture;
+        } else {
+            return userDetails?.picture;
+        }
+    }
+
+
     const Editor = selectedNav.component;
+    const displayPic = setDisplayPic();
+
     return (
         <Fragment>
             {
@@ -107,13 +127,14 @@ const ProfileEditor = (props) => {
                                         src={
                                             tempPicURL || 
                                             newProfPic ||
-                                            userDetails.picture
+                                            displayPic
                                         } 
                                     /> 
 
                                     <label htmlFor="avatar-overlay" className="avatar-overlay">Change Picture</label>
                                     <input 
                                         id="avatar-overlay" 
+                                        ref={profileImgIp}
                                         type="file" 
                                         accept="image/*"
                                         onClick={(e) => e.target.value = null}
@@ -179,6 +200,7 @@ const ProfileEditor = (props) => {
                             portfolioDetails={portfolioDetails}
 
                             handleCurrentUserChange={handleCurrentUserChange}
+                            
                             newProfPic={newProfPic}
                             setNewProfPic={setNewProfPic}
                         />

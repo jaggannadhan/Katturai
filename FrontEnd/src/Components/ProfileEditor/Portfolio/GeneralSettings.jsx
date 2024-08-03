@@ -1,4 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
+import { toast } from "react-hot-toast";
+
 import { postPortfolioDetails } from "../../../Apis/userApis";
 import { validateURL } from "../../../Helper/Helper";
 import { buyMeItems } from "../../../Constants/Constants";
@@ -11,14 +13,22 @@ import {
 
 
 const GeneralSettings = (props) => {
-    const { portfolioDetails, handleCurrentUserChange } = props;
+    const { 
+        portfolioDetails, 
+        handleCurrentUserChange, 
+
+        newProfPic, 
+        setNewProfPic
+    } = props;
+
     const { 
         greetings: greetingsProp, 
         titles: titlesProp, 
         description: descProp,
         resume: resumeProp,
         buy_me_something: buyMeSomethingProp,
-        skills: skillCategoryProp
+        skills: skillCategoryProp,
+        picture: pictureProp
     } = portfolioDetails || {};
     
     const getTitlesAsString = (arr, join) => {
@@ -34,6 +44,9 @@ const GeneralSettings = (props) => {
     const [ buyMeSelection, setBuyMeSelection ] = useState(buyMeItems[0]);
     const [ paymentMethod, setPaymentMethod ] = useState("");
 
+    const [ professionalPicture, setProfessionalPicture ] = useState(pictureProp || "");
+    const [ uPP, setUPP ] = useState(false);
+
     const [ titlesError, setTitlesError ] = useState(false);
     const [ resumeError, setResumeError ] = useState(false);
     const [ paymentLinkError, setPaymentLinkError ] = useState(false);
@@ -47,11 +60,18 @@ const GeneralSettings = (props) => {
             setDescription(descProp);
             setResume(resumeProp);
 
+            setUPP(pictureProp ? true: false);
             getBuyMeSelection((buyMeSomethingProp || []));
-
             setTitlesError(!getTitlesAsString(titlesProp, ''));
         }
     }, [portfolioDetails]);
+
+    useEffect(() => {
+        if(newProfPic) {
+            setProfessionalPicture(newProfPic);
+        }
+
+    }, [newProfPic]);
 
 
     const getBuyMeSelection = (toBuy) => {
@@ -88,6 +108,8 @@ const GeneralSettings = (props) => {
             !(!titles && !oldTitles) && (titles != oldTitles) || 
             !(!description && descProp) && (description != descProp) ||
             !(!resume && !resumeProp) && (resume != resumeProp) ||
+            !(!professionalPicture && !pictureProp) && (professionalPicture != pictureProp) ||
+
             // Read for changes only if buyMe is checked
             buyMe && !(!buyMeSelection.name && !buyMeSomethingProp[0]) && (buyMeSelection.name != buyMeSomethingProp[0]) || 
             buyMe && !(!paymentMethod && !buyMeSomethingProp[1]) && (paymentMethod != buyMeSomethingProp[1]) ||
@@ -107,11 +129,17 @@ const GeneralSettings = (props) => {
                 "description": description,
                 "resume": resume,
                 "skills": skillCategoryProp,
-                "buy_me_something": buyMe ? [buyMeSelection.name, paymentMethod] : []
+                "buy_me_something": buyMe ? [buyMeSelection.name, paymentMethod] : [],
+                "picture": professionalPicture
             }).then((response) => {
                 console.log("postPortfolioDetails: ", response);
-                if(response.success)
-                    handleCurrentUserChange({newDetails: response.portfolio_details, _changeKey:"portfolio_info"})
+                if(response.success) {
+                    handleCurrentUserChange({newDetails: response.portfolio_details, _changeKey:"portfolio_info"});
+                    setNewProfPic(null);
+                    toast("Settings updated successfully!");
+                } else {
+                    toast("Unable to update settings, please try again later!");
+                }
                 setIsLoading(false);
             });
         }
@@ -188,14 +216,14 @@ const GeneralSettings = (props) => {
                             />
 
                             <label htmlFor="greetings" className={`formbold-form-label ${titlesError ? "error-label" : ""}`}>
-                                Titles
+                                Job Titles
                             </label>
                         </div>
                     </div>
 
                     <div className="formbold-textarea">
                         <textarea
-                            rows="6"
+                            rows="4"
                             name="prof-descr"
                             id="prof-descr"
                             placeholder="Describe your professional journey!"
@@ -208,7 +236,7 @@ const GeneralSettings = (props) => {
                     <br/>
 
                     <div className="buy-me-something">
-                        <FormControlLabel sx={{ marginTop: "2vh" }} className="buy-me-chkbox"
+                        <FormControlLabel sx={{ marginTop: "2vh" }} className="buy-me-chkbox chkbox"
                             control={
                                 <Checkbox checked={buyMe} onChange={handleSetBuyMe}  />
                             }

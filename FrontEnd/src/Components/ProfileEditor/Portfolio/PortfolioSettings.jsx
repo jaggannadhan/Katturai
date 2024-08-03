@@ -14,7 +14,13 @@ const editorNav = [
 
 const PortfolioSettings = (props) => {
     const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
-    const { portfolioDetails, handleCurrentUserChange } = props;
+    const { 
+        portfolioDetails, 
+        handleCurrentUserChange, 
+
+        newProfPic,
+        setNewProfPic,
+    } = props;
     
     const Editor = selectedNav.component;
     return (
@@ -36,6 +42,9 @@ const PortfolioSettings = (props) => {
             <Editor 
                 portfolioDetails={portfolioDetails}
                 handleCurrentUserChange={handleCurrentUserChange}
+
+                newProfPic={newProfPic}
+                setNewProfPic={setNewProfPic}
             />
         </section>
     );

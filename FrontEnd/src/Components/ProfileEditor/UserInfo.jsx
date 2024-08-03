@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import { toast } from "react-hot-toast";
 import { validatePhNumber } from "../../Helper/Helper";
 import { postUserDetails } from "../../Apis/userApis";
 
@@ -63,6 +64,9 @@ const UserInfo = (props) => {
                 if(response.success) {
                     handleCurrentUserChange({newDetails: response.user_details, _changeKey:"user_info"});
                     setNewProfPic(null);
+                    toast("User details updated successfully!");
+                } else {
+                    toast("Unable to update user details, please try again later!");
                 }
                     
                 setIsLoading(false);

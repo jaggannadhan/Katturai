@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
+
 import { postPortfolioDetails } from "../../../Apis/userApis";
 import { validateURL, deepCloneNested } from "../../../Helper/Helper";
 
@@ -71,8 +73,12 @@ const SkillSettings = (props) => {
                 "skills": skillCategory
             }).then((response) => {
                 console.log("postPortfolioDetails: ", response);
-                if(response.success)
-                    handleCurrentUserChange({newDetails: response.portfolio_details, _changeKey:"portfolio_info"})
+                if(response.success) {
+                    handleCurrentUserChange({newDetails: response.portfolio_details, _changeKey:"portfolio_info"});
+                    toast("Skills updated successfully!");
+                } else {
+                    toast("Unable to skills, please try again later!");
+                }
                 setIsLoading(false);
             });
         }
@@ -223,6 +229,46 @@ const SkillSettings = (props) => {
             <div className="formbold-form-wrapper">
                 <form onSubmit={handleSubmit}>
 
+                    <section className="skills-section">
+                        {
+                            skillCategory?.length ?
+                            expandSkills ?
+                            <ExpandLessIcon className="expand-skills" onClick={() => setExpandSkills(!expandSkills)}/> :
+                            <ExpandMoreIcon className="expand-skills" onClick={() => setExpandSkills(!expandSkills)}/> : ""
+                        }
+
+                        <div className="add-skills">
+                            <p>Skills</p>
+                            <AddCircleOutlineIcon 
+                                className="add-btn"
+                                onClick={createNewSkillCategory}
+                            />
+                        </div>
+
+                        {
+                            expandSkills && skillCategory.map((category, index) => {
+                                return (
+                                    <Skills 
+                                        key={`skillCategory-${index+1}`}
+                                        catIndex={index}
+                                        category={category}
+                                        handleCategoryNameChange={handleCategoryNameChange}
+                                        handleSkillNameChange={handleSkillNameChange}
+                                        handleSubSkillsChange={handleSubSkillsChange}
+                                        removeCategory={removeCategory}
+                                        removeSkills={removeSkills}
+                                    />
+                                )
+                            })
+                        }
+                    </section>
+                    
+
+                    <button className="formbold-btn" disabled={!changesMade || isLoading}>
+                        Save Profile
+                        {isLoading ? <span className="req-loader"></span> : ""}
+                    </button>
+
                     {/* <div className="formbold-input-file">
                         <div className="formbold-filename-wrapper">
                             {
@@ -269,46 +315,6 @@ const SkillSettings = (props) => {
                             />
                         </label>
                     </div>  */}
-
-                    <section className="skills-section">
-                        {
-                            skillCategory?.length ?
-                            expandSkills ?
-                            <ExpandLessIcon className="expand-skills" onClick={() => setExpandSkills(!expandSkills)}/> :
-                            <ExpandMoreIcon className="expand-skills" onClick={() => setExpandSkills(!expandSkills)}/> : ""
-                        }
-
-                        <div className="add-skills">
-                            <p>Skills</p>
-                            <AddCircleOutlineIcon 
-                                className="add-btn"
-                                onClick={createNewSkillCategory}
-                            />
-                        </div>
-
-                        {
-                            expandSkills && skillCategory.map((category, index) => {
-                                return (
-                                    <Skills 
-                                        key={`skillCategory-${index+1}`}
-                                        catIndex={index}
-                                        category={category}
-                                        handleCategoryNameChange={handleCategoryNameChange}
-                                        handleSkillNameChange={handleSkillNameChange}
-                                        handleSubSkillsChange={handleSubSkillsChange}
-                                        removeCategory={removeCategory}
-                                        removeSkills={removeSkills}
-                                    />
-                                )
-                            })
-                        }
-                    </section>
-                    
-
-                    <button className="formbold-btn" disabled={!changesMade || isLoading}>
-                        Save Profile
-                        {isLoading ? <span className="req-loader"></span> : ""}
-                    </button>
                 </form>
             </div>
         </div>

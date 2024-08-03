@@ -13,7 +13,6 @@ import ProfileEditor from '../Components/ProfileEditor/ProfileEditor';
 
 import protein from "../../public/images/protein.png";
 import coffee from "../../public/images/coffee.png";
-import makeup from "../../public/images/makeup.png";
 import dress from "../../public/images/dress.png";
 
 export const socials = [
@@ -53,6 +52,5 @@ export const DOMAIN = {
 export const buyMeItems = [
     {name: "Coffee", icon: coffee},
     {name: "Protein",icon: protein},
-    {name: "Makeup", icon: makeup},
     {name: "Dress", icon: dress}
 ];

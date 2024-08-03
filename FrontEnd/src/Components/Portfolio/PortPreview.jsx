@@ -8,16 +8,14 @@ import { ReactTyped } from "react-typed";
 
 import "../../Styles/Portfolio/PortPreview.scss";
 import * as CONSTANTS from "../../Constants/Constants";
-import myProfilePic from "../../../public/images/myProfileYlw.png";
 
 
 const PortPreview = (props) => {
     const { currentUser } = props;
     const { user_info, portfolio_info, profile_info } = currentUser || {};
-    const { name } = user_info || {};
-    const { greetings, description, titles, resume, buy_me_something } = portfolio_info || {};
-
-
+    const { name, picture: user_pic } = user_info || {};
+    const { greetings, description, titles, resume, buy_me_something, picture: port_pic } = portfolio_info || {};
+    const picture = port_pic || user_pic;
 
     return (
         <Container className="port-cont"> 
@@ -103,7 +101,7 @@ const PortPreview = (props) => {
 
                 </div>
                 <div className="port-img">
-                    <img src={myProfilePic} alt="jagan" className="prot-profile-pic"/>                    
+                    <img src={picture} alt={name} className="prot-profile-pic"/>                    
                 </div>
             </section>
             </Container>        
