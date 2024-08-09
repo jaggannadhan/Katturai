@@ -2,11 +2,11 @@
 **Raconteur is a versatile platform designed to let you share your stories, whether they are professional or personal.** 
 
 With Raconteur, you can:
-- Showcase your portfolio
-- Write diaries
-- Create blogs
-- Track your progress
-**and so much more.
+- Showcase your portfolio,
+- Write diaries,
+- Create blogs,
+- Track your progress,
+  and so much more.
 
 #### Raconteur is a free-to-use platform with the potential to be more than just a regular blog. It's specially designed for starters, providing an easy and engaging way to express yourself and share your journey.
 
