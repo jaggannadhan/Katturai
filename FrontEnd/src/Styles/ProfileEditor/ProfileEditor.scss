@@ -6,6 +6,7 @@
 
 .profile-editor-input {
     width: 100vw;
+    margin-top: 8vh !important;
 
     .formbold-main-wrapper {
         font-family: "Inter", sans-serif;
@@ -192,7 +193,7 @@
         // width: 100%;
         background-color: black;
         display: flex;
-        margin-top: 7vh;
+        margin-top: 0vh;
         justify-content: start;
         padding: 0 8vw;
 
@@ -363,3 +364,9 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 600px) {
+    .profile-editor-nav {
+        margin-top: 2vh !important;
+    }
+}

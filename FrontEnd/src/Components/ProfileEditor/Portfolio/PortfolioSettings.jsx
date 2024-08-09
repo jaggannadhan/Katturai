@@ -3,17 +3,19 @@ import { uuid } from "../../../Helper/Helper";
 
 import GeneralSettings from "./GeneralSettings";
 import SkillSettings from "./SkillSettings";
+import WorkSettings from "./WorkSettings";
+
 import "../../../Styles/ProfileEditor/PortflioSettings.scss";
 
 const editorNav = [ 
     {name: "General", component: GeneralSettings}, 
     {name: "Skills", component: SkillSettings}, 
-    // {name: "Work", component: () => {<Fragment></ Fragment>}} 
+    {name: "Work", component: WorkSettings} 
 ];
 
 
 const PortfolioSettings = (props) => {
-    const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
+    const [ selectedNav, setSelectedNav ] = useState(editorNav[2]);
     const { 
         portfolioDetails, 
         handleCurrentUserChange, 

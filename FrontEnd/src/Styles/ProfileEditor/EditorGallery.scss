@@ -1,0 +1,18 @@
+.gallery-section {
+    margin: 4vh 0;
+
+    .gallery-item {
+        width: 20vw;
+        height: 10vw;
+        cursor: pointer;
+        margin-right: 1vw;
+    }
+
+    .remove-gallery-item {
+        cursor: pointer;
+        position: absolute;
+        margin-left: -3.5vw;
+        margin-top: 0.5vw;
+        width: 2vw;
+    }
+}

@@ -1,5 +1,5 @@
 export const uuid = () => {
-    return Math.trunc(Math.random()*10**9)
+    return Math.trunc(Math.random()*10**9);
 }
 
 export const validateEmail = (email) => {
@@ -18,8 +18,8 @@ export const validatePhNumber = (phNumber) => {
     );
 }; 
 
-export const validateURL = (phNumber) => {
-  return String(phNumber)
+export const validateURL = (url) => {
+  return String(url)
     .match(
       /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?/gm
     );

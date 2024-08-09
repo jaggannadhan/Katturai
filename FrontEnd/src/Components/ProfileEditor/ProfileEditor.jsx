@@ -34,7 +34,7 @@ const ProfileEditor = (props) => {
     const [ userDetails, setUserDetails ] = useState(currentUser?.user_info);
     const [ profileDetails, setProfileDetails ] = useState(currentUser?.profile_info);
     const [ portfolioDetails, setPortfolioDetails ] = useState(currentUser?.portfolio_info);
-    const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
+    const [ selectedNav, setSelectedNav ] = useState(editorNav[2]);
 
     const [ tempPic, setTempPic ] = useState(null);
     const [ tempPicURL, setTempPicURL ] = useState(null);

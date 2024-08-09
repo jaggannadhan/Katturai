@@ -84,24 +84,6 @@ const SkillSettings = (props) => {
         }
     }
 
-    // const onFileChange = (e) => {
-    //     let selectedFile = e.target.files[0];
-    //     if(!selectedFile) return;
-
-    //     let newFiles = [...files];
-    //     newFiles.push(selectedFile);
-    //     setFiles([...newFiles]);
-    // }
-
-    // const removeSelectedFile = (fileToRemove) => {
-    //     let selectedFiles = [...files];
-    //     let newSet = selectedFiles.filter((file) => {
-    //         return file.name != fileToRemove.name;
-    //     });
-
-    //     setFiles([...newSet]);
-    // }
-
     const canCreateNewSkillCategory = () => {
         if(!skillCategory.length) return true;
         let emptyCategories = skillCategory.filter(category => !category.name);

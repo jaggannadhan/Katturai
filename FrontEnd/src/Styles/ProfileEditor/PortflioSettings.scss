@@ -84,7 +84,8 @@
 
 //////////////////////////////////////////////////////SKILLS SECTION//////////////////////////////////////////////////////////////
 .skills-section {
-    // margin-top: -5vw;
+    position: relative;
+    top: -6vh;
 }
 
 .expand-skills {
@@ -149,6 +150,66 @@
 
 .upload-professional-pic {
     margin: 3vh auto;
-
-
 }
+
+
+//////////////////////////////////////////////////////////WORK SECTION////////////////////////////////////////////////////////////////
+
+.recent-work-section {
+    height: fit-content;
+
+    .add-recent-work {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1vw;
+    
+        p {
+            user-select: none;
+            color: #07074D;
+            font-weight: 500;
+            font-size: 1.8vw;
+            line-height: 2vw;
+            display: block;
+            margin-bottom: 2.5vh;
+        }
+    
+        .add-btn {
+            font-size: 3vw;
+            color: #E9AE01;
+            cursor: pointer;
+        }
+    
+        .add-btn.disabled {
+            color: lavender;
+        }
+    
+        .add-btn:active {
+            transform: translateY(2px);
+        }
+    }
+
+    .expand-recent-work {
+        position: relative;
+        font-size: 3.5vw !important;
+        left: 96%;
+        top: 3vw;
+        cursor: pointer;
+    }
+    .wrk-sumry {
+        cursor: pointer;
+    }
+
+    .my-work {
+        width: 50vw;
+        padding: 1vh 2vw;
+        border: 0.2vw solid black;
+        border-radius: 1vw;
+        margin-bottom: 2vw;
+        margin-left: -2vw;
+        box-shadow: 0 0 3px 0px black;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
