@@ -23,6 +23,12 @@ const PortfolioSettings = (props) => {
         newProfPic,
         setNewProfPic,
     } = props;
+
+    useEffect(() => {
+        if(newProfPic) {
+            setSelectedNav(editorNav[0]);
+        }
+    }, [newProfPic])
     
     const Editor = selectedNav.component;
     return (

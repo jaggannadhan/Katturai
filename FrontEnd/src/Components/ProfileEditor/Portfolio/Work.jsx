@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { toast } from "react-hot-toast";
 
 import EditorGallery from "./EditorGallery";
-import { postPortfolioDetails } from "../../../Apis/userApis";
+import { uploadMultipleFiles } from "../../../Apis/userApis";
 import { uuid, validateURL } from "../../../Helper/Helper";
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -14,36 +14,25 @@ const Work = (props) => {
         work,
         wrkIdx,
         recentWork,
-        setRecentWork,
-        errors,
-        setErrors
+        setRecentWork
     } = props;
 
     const [ files, setFiles ] = useState([]);
     const [ titleError, setTitleError ] = useState(true);
     const [ linkError, setLinkError ] = useState(false);
-    const [ filesUpload, setFilesUpload ] = useState(false);
+    const [ areFilesSelected, setFilesSelected ] = useState(false);
 
     const [ expandWork, setExpandWork ] = useState(false);
     const [ isLoading, setIsLoading ] = useState(false);
 
-    useEffect(() => {
-        setSaveProf();
-    });
 
     useEffect(() => {
         if(work) {
-            setTitleError(work.title ? true : false);
-            let er = !validateURL(work.link);
-
-            setLinkError(work.link ? er : false);
+            setTitleError(!work.title);
+            setLinkError(work.link ? !validateURL(work.link) : false);
         }
     }, [work]);
-
-    const setSaveProf = () => {
-        if(errors != (titleError || linkError || filesUpload))
-            setErrors( titleError || linkError || filesUpload );
-    }    
+  
 
     const onFileChange = (e, cap=5) => {
         let selectedFiles = e.target.files;
@@ -58,7 +47,7 @@ const Work = (props) => {
         newFiles.push(...selectedFiles);
         setFiles([...newFiles]);
 
-        setFilesUpload(true);
+        setFilesSelected(true);
     }
 
     const removeSelectedFile = (fileToRemove) => {
@@ -68,7 +57,12 @@ const Work = (props) => {
         });
 
         setFiles([...newSet]);
-        if(!newSet.length) setFilesUpload(false);
+        if(!newSet.length) setFilesSelected(false);
+    }
+
+    const removeAllFiles = () => {
+        setFiles([]);
+        setFilesSelected(false);
     }
 
     const removeUploadedImage = (imgIdx) => {
@@ -111,7 +105,36 @@ const Work = (props) => {
         !val ? setLinkError(false) : setLinkError(!validateURL(val));
     }
 
-    const uploadImages = () => {
+    const handleImageChange = (images) => {
+        let newRecentWork = [...recentWork];
+        let changedWork = newRecentWork[wrkIdx];
+        changedWork.images = images;
+
+        setRecentWork([...newRecentWork]);
+    }
+
+    const uploadImages = async (e) => {
+        e.preventDefault();
+
+        setIsLoading(true);
+        let data = new FormData();
+
+        files.forEach(file => {
+            data.append("recentWork", file);
+        });
+        console.log("uploadMultipleFiles data: ", [...data]);
+
+        await uploadMultipleFiles(data).then((response) => {
+            console.log("uploadMultipleFiles: ", response);
+            if(response.success) {
+                removeAllFiles();
+                handleImageChange(response.urls);
+                toast("Images uploaded successfully!");
+            } else {
+                toast("Unable to upload images, please try again later!");
+            }
+            setIsLoading(false);
+        });
 
     }
 
@@ -171,9 +194,9 @@ const Work = (props) => {
                     <div className="formbold-input-file">
                         <div className="formbold-filename-wrapper">
                             {
-                                files?.map(file => {
+                                files?.map((file, idx) => {
                                     return(
-                                        <span className="formbold-filename" key={`img-upload-label-${work.name}`}>
+                                        <span className="formbold-filename" key={`img-upload-label-${work.name}-${idx}`}>
                                             {file?.name}
                                             <svg width="18" height="18" 
                                                 viewBox="0 0 18 18" fill="none" 
@@ -216,7 +239,10 @@ const Work = (props) => {
                         </label>
                         {
                             files.length ? 
-                            <button className="formbold-btn" disabled={isLoading}>
+                            <button className="formbold-btn" 
+                                disabled={isLoading}
+                                onClick={uploadImages}
+                            >
                                 Upload Images
                                 {isLoading ? <span className="req-loader"></span> : ""}
                             </button> : ""
@@ -244,10 +270,10 @@ const Work = (props) => {
                 </Fragment> :
 
                 <label 
-                    className={`formbold-form-label wrk-sumry ${(titleError || linkError || filesUpload) ? "error-label" : ""}`}
+                    className={`formbold-form-label wrk-sumry ${(titleError || linkError || areFilesSelected) ? "error-label" : ""}`}
                     onClick={() => setExpandWork(true)}
                 >
-                    {work.name || "Add Work"}
+                    {work.name || "<Add Work>"}
                 </label>
             }
         </div>

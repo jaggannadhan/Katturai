@@ -182,3 +182,18 @@ export const uploadProfilePic = async(formData) => {
         return {}
     }
 }
+
+export const uploadMultipleFiles = async(formData) => {
+    try {
+        const response = await fetch("./uploadMultipleFiles", {
+            method: "POST",
+            body: formData,
+        });
+
+        const data = await response.json();
+        return data;
+    } catch(error) {
+        console.error("uploadMultipleFiles: ", error);
+        return {}
+    }
+}

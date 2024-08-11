@@ -1,11 +1,13 @@
 from google.cloud import storage
 from google.cloud import storage_control_v2
+from google.cloud.storage import transfer_manager as TRANSFR_MGR
 import os, traceback
 from src.AppSecrets import AppSecrets
 
 
 STORAGE_CLIENT = storage.Client(AppSecrets.PROJECT_ID)
 STORAGE_CONTROL_CLIENT = storage_control_v2.StorageControlClient()
+
 
 class FileUploadService:
 
@@ -92,7 +94,7 @@ class FileUploadService:
     @classmethod
     def uploadFile(cls, user_uid, file, fileType="resume"):
         try: 
-            print(f"Uploading {fileType} user: {user_uid}")
+            print(f"Uploading {fileType}, user: {user_uid}")
             fileName = file.filename
             print(f"file name: {fileName}")
 
@@ -125,6 +127,74 @@ class FileUploadService:
                     os.remove(tmp_file_loc)
                     print(traceback.format_exc())
                     return False, f"Unable to upload {user_uid}/{fileType}!"
+            
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"Unable to upload {fileType} to {user_uid}'s storage!"
+
+
+    @classmethod
+    def uploadMultipleFiles(cls, user_uid, files, fileType="resume"):
+        try: 
+            print(f"Uploading multiples {fileType}, user: {user_uid}")
+
+            fileNames = []
+            tmp_file_locs = []
+
+            try:
+                for file in files:
+                    fileName = file.filename
+                    fileNames.append(fileName)
+
+                    file_loc = f'/tmp/{fileName}'
+                    tmp_file_locs.append(file_loc)
+
+                    file.save(file_loc)
+            except Exception:
+                print(traceback.format_exc())
+                for file in tmp_file_locs: os.remove(file)
+                return False, "Unable to save files"
+
+            print(f"Files saved successfully in temp loc: {tmp_file_locs}")
+
+            try:
+                bucket, msg = cls.createBucketIfNotExists(user_uid)
+                if not bucket:
+                    print(msg)
+                    raise Exception
+                
+
+                results = TRANSFR_MGR.upload_many_from_filenames(
+                    bucket, fileNames, source_directory='/tmp/', max_workers=8
+                )
+
+                urls = []
+
+                for name, result in zip(fileNames, results):
+                    # The results list is either `None` or an exception for each filename in
+                    # the input list, in order.
+
+                    if isinstance(result, Exception):
+                        print("Failed to upload {} due to exception: {}".format(name, result))
+                        urls.append(None)
+                        continue
+
+                    print("Uploaded {} to {}.".format(name, bucket.name))
+                    blob = bucket.blob(f"{name}")
+                    if blob.exists():
+                        blob.make_public()
+                        public_url = blob.public_url
+                        print(f"url for {name}: {public_url}")
+                        urls.append(public_url)
+
+
+                for file in tmp_file_locs: os.remove(file)
+
+                return urls, "Files uploaded successfully!" 
+            except Exception:
+                    for file in tmp_file_locs: os.remove(file)
+                    print(traceback.format_exc())
+                    return False, f"Unable to upload multiple files {user_uid}/{fileType}!"
             
         except Exception:
             print(traceback.format_exc())

@@ -9,7 +9,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 
 const WorkSettings = (props) => {
-    const { portfolioDetails } = props;
+    const { portfolioDetails, handleCurrentUserChange } = props;
     const { recent_work: recentWorkProp } = portfolioDetails || {};
 
     const [ recentWork, setRecentWork ] = useState([]);
@@ -24,6 +24,22 @@ const WorkSettings = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(!errors && hasChanged()) {
+            setIsLoading(true);
+            let params = {...portfolioDetails};
+            params.recent_work = recentWork;
+            await postPortfolioDetails(params).then((response) => {
+                console.log("postPortfolioDetails: ", response);
+                if(response.success) {
+                    handleCurrentUserChange({newDetails: response.portfolio_details, _changeKey:"portfolio_info"});
+                    toast("Work updated successfully!");
+                } else {
+                    toast("Unable to update work, please try again later!");
+                }
+                setIsLoading(false);
+            });
+        }
     }
 
     const hasChanged = () => {
@@ -93,8 +109,6 @@ const WorkSettings = (props) => {
                                         wrkIdx={wrkIdx}
                                         recentWork={recentWork}
                                         setRecentWork={setRecentWork}
-                                        errors={errors}
-                                        setErrors={setErrors}
                                     />
                                 )
                             })

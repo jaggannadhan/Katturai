@@ -32,3 +32,17 @@ def uploadResume(user_uid):
         'url': url,
         'msg': msg
     })
+
+@fileuploader.route("/<user_uid>/uploadMultipleFiles", methods=["POST"])
+@login_required_strict
+def uploadMultipleFiles(user_uid):
+    files = request.files.getlist('recentWork')
+    if not files:
+        return jsonify({'error': 'Unable to get files'}), 400
+
+    urls, msg = FileUploadService.uploadMultipleFiles(user_uid, files, fileType="work")
+    return jsonify({
+        "success": True if urls else False,
+        'urls': urls,
+        'msg': msg
+    })
