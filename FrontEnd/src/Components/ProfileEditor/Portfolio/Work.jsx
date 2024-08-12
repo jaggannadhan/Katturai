@@ -6,7 +6,8 @@ import { uploadMultipleFiles } from "../../../Apis/userApis";
 import { uuid, validateURL } from "../../../Helper/Helper";
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess'
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const Work = (props) => {
@@ -14,7 +15,8 @@ const Work = (props) => {
         work,
         wrkIdx,
         recentWork,
-        setRecentWork
+        setRecentWork,
+        deleteRecentWork
     } = props;
 
     const [ files, setFiles ] = useState([]);
@@ -77,7 +79,7 @@ const Work = (props) => {
         const val = e.target.value;
         let newRecentWork = [...recentWork];
         let changedWork = newRecentWork[wrkIdx];
-        changedWork.name = val;
+        changedwork.title = val;
 
         !val ? setTitleError(true) : setTitleError(false);
         setRecentWork([...newRecentWork]);
@@ -140,11 +142,17 @@ const Work = (props) => {
 
     return (
         <div className="my-work">
-            {
-                expandWork ?
-                <ExpandLessIcon className="expand-recent-work" onClick={() => setExpandWork(false)}/> :
-                <ExpandMoreIcon className="expand-recent-work" onClick={() => setExpandWork(true)}/> 
-            }
+            <div className="wrk-optns">
+
+                {
+                    expandWork ?
+                    <ExpandLessIcon className="expand-recent-work" onClick={() => setExpandWork(false)} /> :
+                    <ExpandMoreIcon className="expand-recent-work" onClick={() => setExpandWork(true)}/> 
+
+                }
+                <DeleteIcon className="delete-recent-work" onClick={() => deleteRecentWork(wrkIdx)} />
+
+            </div>
 
             {
                 expandWork ? 
@@ -158,7 +166,7 @@ const Work = (props) => {
                                 id={`work-title-${wrkIdx}`}
                                 placeholder="Name of your project"
                                 className={`formbold-form-input ${titleError ? "error-input" : ""}`}
-                                value={work.name}
+                                value={work.title}
                                 onChange={handleTitleChange}
                             />
 
@@ -173,7 +181,7 @@ const Work = (props) => {
                             rows="4"
                             name={`work-desc-${wrkIdx}`}
                             id={`work-desc-${wrkIdx}`}
-                            placeholder={`Write a little about ${work.name}`}
+                            placeholder={`Write a little about ${work.title}`}
                             className="formbold-form-input"
                             value={work.desc}
                             onChange={handleDescChange}
@@ -196,7 +204,7 @@ const Work = (props) => {
                             {
                                 files?.map((file, idx) => {
                                     return(
-                                        <span className="formbold-filename" key={`img-upload-label-${work.name}-${idx}`}>
+                                        <span className="formbold-filename" key={`img-upload-label-${work.title}-${idx}`}>
                                             {file?.name}
                                             <svg width="18" height="18" 
                                                 viewBox="0 0 18 18" fill="none" 
@@ -273,7 +281,7 @@ const Work = (props) => {
                     className={`formbold-form-label wrk-sumry ${(titleError || linkError || areFilesSelected) ? "error-label" : ""}`}
                     onClick={() => setExpandWork(true)}
                 >
-                    {work.name || "<Add Work>"}
+                    {work.title || "<Add Work>"}
                 </label>
             }
         </div>

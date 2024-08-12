@@ -31,6 +31,13 @@
     }
 }
 
+blink {
+    -webkit-animation-name: blink; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+    -webkit-animation-duration: 1s;
+}
+
 /////////////////////////////////////////////////////////BUY ME SOMETHING/////////////////////////////////////////////////////////
 
 .buy-me-something {
@@ -189,15 +196,11 @@
         }
     }
 
-    .expand-recent-work {
-        position: relative;
-        font-size: 3.5vw !important;
-        left: 96%;
-        top: 3vw;
-        cursor: pointer;
-    }
     .wrk-sumry {
+        width: fit-content;
         cursor: pointer;
+        text-decoration: blink;
+        user-select: none;
     }
 
     .my-work {
@@ -208,6 +211,24 @@
         margin-bottom: 2vw;
         margin-left: -2vw;
         box-shadow: 0 0 3px 0px black;
+
+        .wrk-optns {
+            position: relative;
+            left: 90%;
+            top: 3vw;
+            display: flex;
+            align-items: center;
+
+            .expand-recent-work {
+                font-size: 3.5vw !important;
+                cursor: pointer;
+            }
+
+            .delete-recent-work {
+                font-size: 2.5vw !important;
+                cursor: pointer;
+            }
+        }
     }
 }
 

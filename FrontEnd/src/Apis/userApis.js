@@ -75,7 +75,7 @@ export const getCurrentUser = async () => {
                 ],
                 "recent_work": [
                     {
-                        name: "Raconteur",
+                        title: "Raconteur",
                         desc: "A simple portfolio website",
                         images: [
                             "https://picsum.photos/id/1018/1000/600/",

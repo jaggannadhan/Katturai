@@ -44,12 +44,12 @@ const WorkSettings = (props) => {
 
     const hasChanged = () => {
         let changedWork = recentWork.reduce((newWork, task) => {
-            newWork.push(task.name, task.desc, task.images, task.link);
+            newWork.push(task.title, task.desc, task.images, task.link);
             return newWork;
         }, []);
 
         let oldWork = (recentWorkProp||[]).reduce((oldWork, task) => {
-            oldWork.push(task.name, task.desc, task.images, task.link);
+            oldWork.push(task.title, task.desc, task.images, task.link);
             return oldWork;
         }, []);
 
@@ -59,9 +59,27 @@ const WorkSettings = (props) => {
         return oldWork.toString().replace(',', '') != changedWork.toString().replace(',', '');
     }
 
+    const noErrors = () => {
+        let hasError = false;
+        
+        recentWork.forEach(work => {
+            if(!work.title) {
+                hasError = true;
+                return;
+            } else if(work.link ? !validateURL(work.link): false) {
+                hasError = true;
+                return;
+            } 
+        });
+
+        if(errors != hasError)
+            setErrors(hasError);
+
+    }
+
     const canCreateNewWork = () => {
         if(!recentWork.length) return true;
-        let emptyWork = recentWork.filter(task => !task.name);
+        let emptyWork = recentWork.filter(task => !task.title);
 
         return emptyWork.length  < 1;
     }
@@ -84,7 +102,12 @@ const WorkSettings = (props) => {
         setRecentWork(existingWork);
     }
 
-    const changesMade = hasChanged() && !errors;
+    const deleteRecentWork = (wrkIdx) => {
+        let newRecentWork = recentWork.filter((work, idx) => idx != wrkIdx);
+        setRecentWork(newRecentWork);
+    }
+
+    const changesMade = hasChanged() && !noErrors();
 
     return (
         <section className="recent-work-section">
@@ -109,6 +132,7 @@ const WorkSettings = (props) => {
                                         wrkIdx={wrkIdx}
                                         recentWork={recentWork}
                                         setRecentWork={setRecentWork}
+                                        deleteRecentWork={deleteRecentWork}
                                     />
                                 )
                             })
