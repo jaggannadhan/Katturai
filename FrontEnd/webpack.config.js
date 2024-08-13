@@ -48,7 +48,7 @@ module.exports = {
                 loader: 'file-loader'
             },
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.(s[ac]ss|css)$/i,
                 use: [
                   // Creates `style` nodes from JS strings
                   "style-loader",
@@ -62,6 +62,7 @@ module.exports = {
                 test: /\.mp4$/,
                 use: 'file-loader?name=videos/[name].[ext]',
             },
+            { test: /\.txt$/, use: 'raw-loader' }
         ]
     },
     plugins: [

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
+import { Reorder, useDragControls } from "framer-motion";
 import { toast } from "react-hot-toast";
 
 import Work from "./Work";
@@ -108,6 +109,7 @@ const WorkSettings = (props) => {
     }
 
     const changesMade = hasChanged() && !noErrors();
+    const dragControls = useDragControls();
 
     return (
         <section className="recent-work-section">
@@ -123,12 +125,13 @@ const WorkSettings = (props) => {
                             />
                         </div>
 
+                        <Reorder.Group axis="y" values={recentWork} onReorder={setRecentWork}>
                         {
                             recentWork.map((work, wrkIdx) => {
                                 return (
-                                    <Work
-                                        key={`work-${wrkIdx}`}
-                                        work={work}
+                                    <WorkItem 
+                                        key={work.title} 
+                                        work={work} 
                                         wrkIdx={wrkIdx}
                                         recentWork={recentWork}
                                         setRecentWork={setRecentWork}
@@ -137,6 +140,7 @@ const WorkSettings = (props) => {
                                 )
                             })
                         }
+                        </Reorder.Group>
                         
                         <button className="formbold-btn" disabled={!changesMade || isLoading}>
                             Save Profile
@@ -150,5 +154,23 @@ const WorkSettings = (props) => {
     )
 }
 
-
 export default WorkSettings;
+
+const WorkItem = (props) => {
+    const { work, wrkIdx } = props;
+    const dragControls = useDragControls();
+  
+    return (
+      <Reorder.Item
+        value={work}
+        id={"workItem-"+wrkIdx}
+        dragListener={false}
+        dragControls={dragControls}
+      >
+        <Work 
+            {...props}
+            dragControls={dragControls}
+        />
+      </Reorder.Item>
+    );
+  };

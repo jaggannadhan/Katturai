@@ -8,6 +8,7 @@ import { uuid, validateURL } from "../../../Helper/Helper";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ReorderIcon from '@mui/icons-material/Reorder';
 
 
 const Work = (props) => {
@@ -16,7 +17,8 @@ const Work = (props) => {
         wrkIdx,
         recentWork,
         setRecentWork,
-        deleteRecentWork
+        deleteRecentWork,
+        dragControls
     } = props;
 
     const [ files, setFiles ] = useState([]);
@@ -79,7 +81,7 @@ const Work = (props) => {
         const val = e.target.value;
         let newRecentWork = [...recentWork];
         let changedWork = newRecentWork[wrkIdx];
-        changedwork.title = val;
+        changedWork.title = val;
 
         !val ? setTitleError(true) : setTitleError(false);
         setRecentWork([...newRecentWork]);
@@ -144,13 +146,14 @@ const Work = (props) => {
         <div className="my-work">
             <div className="wrk-optns">
 
+                <DeleteIcon className="delete-recent-work" onClick={() => deleteRecentWork(wrkIdx)} />
+                <ReorderIcon className="drag-recent-work" onPointerDown={(e) => dragControls.start(e)} />
                 {
                     expandWork ?
                     <ExpandLessIcon className="expand-recent-work" onClick={() => setExpandWork(false)} /> :
                     <ExpandMoreIcon className="expand-recent-work" onClick={() => setExpandWork(true)}/> 
 
                 }
-                <DeleteIcon className="delete-recent-work" onClick={() => deleteRecentWork(wrkIdx)} />
 
             </div>
 

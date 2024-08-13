@@ -196,6 +196,12 @@ blink {
         }
     }
 
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
     .wrk-sumry {
         width: fit-content;
         cursor: pointer;
@@ -209,15 +215,16 @@ blink {
         border: 0.2vw solid black;
         border-radius: 1vw;
         margin-bottom: 2vw;
-        margin-left: -2vw;
         box-shadow: 0 0 3px 0px black;
 
         .wrk-optns {
+            width: 15vw;
             position: relative;
-            left: 90%;
+            left: calc(100% - 15vw);
             top: 3vw;
             display: flex;
             align-items: center;
+            justify-content: flex-end;
 
             .expand-recent-work {
                 font-size: 3.5vw !important;
@@ -227,6 +234,15 @@ blink {
             .delete-recent-work {
                 font-size: 2.5vw !important;
                 cursor: pointer;
+            }
+
+            .drag-recent-work {
+                font-size: 2.5vw !important;
+                cursor: grab;
+            }
+
+            .drag-recent-work:active {
+                cursor: grabbing;
             }
         }
     }
