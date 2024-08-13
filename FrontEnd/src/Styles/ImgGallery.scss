@@ -1,0 +1,64 @@
+
+.img-gallery {
+    max-width: 84vw;
+    height: 54vw;
+    margin: auto;
+
+    .gallery-controls {
+        position: absolute;
+        margin: 21vw 5vw !important;
+        width: 75vw;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .next, .prev {
+            background: white;
+            border-radius: 30px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 2;
+        }
+        
+        .next {
+            right: 10vw;
+        }
+        
+        .prev {
+            left: 10vw;
+            transform: scale(-1);
+        }
+    }
+
+    img {
+        position: absolute;
+        width: 94%;
+        height: 70%;
+    }
+    .refresh {
+        padding: 10px;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}
+
+
+
+  

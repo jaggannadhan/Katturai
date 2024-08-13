@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import PortPreview from "./PortPreview";
 import TechStack from "./TechStack";
+import RecentWork from "./RecentWork";
 
 import resume from "../../Files/Resume_4.pdf";
 import "../../Styles/Portfolio/Portfolio.scss"
@@ -11,16 +12,20 @@ const Portfolio = (props) => {
     
     // console.log(currentUser);
     return(
-        <Fragment>
+        <section className="portfolio-section">
             <PortPreview 
                 currentUser={currentUser}
             />
             <TechStack 
                 portfolio_info={portfolio_info}
             />
+
+            <RecentWork 
+                portfolio_info={portfolio_info}
+            />
             {/* <embed src={resume} style={{ height: "60vw", width: "100vw" }} /> */}
             
-        </Fragment>
+        </section>
     );
 }
 

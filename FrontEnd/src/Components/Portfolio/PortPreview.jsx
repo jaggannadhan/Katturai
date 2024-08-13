@@ -18,7 +18,7 @@ const PortPreview = (props) => {
     const picture = port_pic || user_pic;
 
     return (
-        <Container className="port-cont"> 
+        <Container className="port-preview-cont"> 
             <section className="portfolio">
                 <div className="port-content">
 

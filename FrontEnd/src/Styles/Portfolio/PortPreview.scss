@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-.port-cont {
+.port-preview-cont {
     max-width: 100% !important;
     height: 50vw;
     position: relative;
@@ -234,20 +234,20 @@
 
 
 @media (min-width: 960px) {
-    .port-cont .portfolio {
+    .port-preview-cont .portfolio {
         height: 40vw;
     }
 }
 
 @media (max-width: 600px) {
-    .port-cont .portfolio {
+    .port-preview-cont .portfolio {
         height: 53vw;
     }
 }
 
 
 @media (max-width: 490px) {
-    .port-cont .portfolio {
+    .port-preview-cont .portfolio {
         height: 62vw;
     }
 }
