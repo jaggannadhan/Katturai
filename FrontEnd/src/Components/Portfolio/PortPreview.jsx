@@ -104,7 +104,7 @@ const PortPreview = (props) => {
                     <img src={picture} alt={name} className="prot-profile-pic"/>                    
                 </div>
             </section>
-            </Container>        
+        </Container>        
     );
 }
 

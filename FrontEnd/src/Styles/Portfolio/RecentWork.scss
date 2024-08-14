@@ -17,6 +17,8 @@
         code {
             color: #d90f5a;
         }
+        position: sticky;
+        top: 9vh;
     }
 
     .work-preview {
@@ -26,55 +28,50 @@
         margin-bottom: 5vw;
 
         position: sticky;
-        top: 9vh;
-        background: white;
+        top: 27vh;
+        
 
         .work-info {
             padding: 0 3vw;
+            background: white;
 
-            .headerNlink {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+            position: relative;
+            right: -34vw;
+            width: 50vw;
+            
+            .work-title {
+                text-align: end;
+                margin-bottom: 0;
+                cursor: pointer;
 
-                .work-title {
+                a {
                     font-family: "Lexend", sans-serif;
                     font-size: 3vw;
                     user-select: none;
-                }
-
-                button {
-                    font-size: 1.6vw;
-                    border-radius: 1vw;
-                    padding: 1.2vh 2.5vw;
-                    font-weight: 500;
-                    background: white;
-                    border: 0.2vw solid #E9AE01;
-                    cursor: pointer;
-                    margin-top: 2.5vh;
-
-                    a {
-                        text-decoration: none;
-                        color: black;
-                        font-weight: bold;
-                        user-select: none;
-                    }
-                }
-
-                button:hover {
-                    background: #E9AE01;
-                    box-shadow: 0 0 1vw #E9AE00;
-                    a {
-                        color: white;
-                    }
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
                 }
             }
-
+            
             .work-desc {
                 font-family: "Lexend", sans-serif;
                 font-size: 2vw;
                 user-select: none;
+                text-align: end;
+                margin-top: 0;
             }
+        }
+
+        .work-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: black;
+            z-index: 999; 
         }
     }
 }

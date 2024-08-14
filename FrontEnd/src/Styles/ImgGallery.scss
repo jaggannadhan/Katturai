@@ -1,14 +1,16 @@
 
 .img-gallery {
+    position: relative;
+    top: 16vh;
     max-width: 84vw;
     height: 54vw;
     margin: auto;
 
     .gallery-controls {
         position: absolute;
-        margin: 21vw 5vw !important;
+        height: inherit;
+        margin: auto 5vw !important;
         width: 75vw;
-        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -40,8 +42,10 @@
 
     img {
         position: absolute;
-        width: 94%;
-        height: 70%;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
     }
     .refresh {
         padding: 10px;

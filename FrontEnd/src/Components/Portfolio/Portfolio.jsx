@@ -3,7 +3,7 @@ import PortPreview from "./PortPreview";
 import TechStack from "./TechStack";
 import RecentWork from "./RecentWork";
 
-import resume from "../../Files/Resume_4.pdf";
+import boston from "../../../public/images/boston.png";
 import "../../Styles/Portfolio/Portfolio.scss"
 
 const Portfolio = (props) => {
@@ -16,11 +16,13 @@ const Portfolio = (props) => {
             <PortPreview 
                 currentUser={currentUser}
             />
-            <TechStack 
+            {/* <img src={boston}/> */}
+            
+            <RecentWork 
                 portfolio_info={portfolio_info}
             />
 
-            <RecentWork 
+            <TechStack 
                 portfolio_info={portfolio_info}
             />
             {/* <embed src={resume} style={{ height: "60vw", width: "100vw" }} /> */}
