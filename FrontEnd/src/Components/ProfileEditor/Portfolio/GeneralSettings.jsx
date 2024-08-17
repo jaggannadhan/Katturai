@@ -8,7 +8,8 @@ import { buyMeItems } from "../../../Constants/Constants";
 import { 
     Select, MenuItem, Checkbox,
     FormControl, FormControlLabel,
-    OutlinedInput, InputLabel
+    OutlinedInput, InputLabel,
+    TextField
 } from '@mui/material';
 
 
@@ -52,6 +53,7 @@ const GeneralSettings = (props) => {
     const [ paymentLinkError, setPaymentLinkError ] = useState(false);
 
     const [ isLoading, setIsLoading ] = useState(false);
+    const DESC_CHARACTER_LIMIT = 300;
 
     useEffect(() => {
         if(portfolioDetails) {
@@ -222,15 +224,21 @@ const GeneralSettings = (props) => {
                     </div>
 
                     <div className="formbold-textarea">
-                        <textarea
+                        <TextField
                             rows="4"
                             name="prof-descr"
                             id="prof-descr"
+                            multiline
                             placeholder="Describe your professional journey!"
-                            className="formbold-form-input"
+                            className="formbold-form-input gs-pd"
+                            variant="standard"
+                            inputProps={{
+                                maxlength: DESC_CHARACTER_LIMIT,
+                            }}
                             value={description}
                             onChange={handleDescriptionChange}
-                        ></textarea>
+                            helperText={`${description.length}/${DESC_CHARACTER_LIMIT}`}
+                        ></TextField>
                         <label htmlFor="prof-descr" className="formbold-form-label"> Description </label>
                     </div>
                     <br/>
@@ -245,7 +253,7 @@ const GeneralSettings = (props) => {
                         {
                             buyMe ?
                             <Fragment>
-                                <FormControl sx={{ m: 1, width: 200, marginTop: "1vh" }}>
+                                <FormControl sx={{ m: "1vw", width: "25vw", marginTop: "1vh" }}>
                                     <InputLabel id="demo-multiple-name-label">Wish List</InputLabel>
                                     <Select
                                         className="buyme-select"

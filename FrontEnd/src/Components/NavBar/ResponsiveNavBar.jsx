@@ -23,7 +23,14 @@ import { useNavigate } from "react-router-dom";
 const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar(props) {
-    const { isNavTrans, selectedNav, handleNavSelect, currentUser, user_route } = props;
+    const { 
+        isNavTrans, 
+        selectedNav, 
+        handleNavSelect, 
+        currentUser, 
+        user_route, 
+        showUserPrompt 
+    } = props;
     const [ userInfo, setUserInfo ] = useState(currentUser?.user_info);
     const [ anchorElNav, setAnchorElNav ] = useState(null);
     const [ anchorElUser, setAnchorElUser ] = useState(null);
@@ -52,9 +59,17 @@ function ResponsiveAppBar(props) {
         setAnchorElUser(null);
     };
 
+    const logoutUser = () => {
+        window.location = "./logout";
+    }
+
     function handleProfileOptions(option) {
         if(option == "Logout") {
-            window.location = "./logout";
+            showUserPrompt({
+                show: true, 
+                title: "Logout!", msg:"Are you sure?", 
+                callback: logoutUser
+            });
         } else if(option == "Profile") {
             handleNavSelect(CONSTANTS.navigation.profileEditor);
             navigate(`/${user_route}/profile`);

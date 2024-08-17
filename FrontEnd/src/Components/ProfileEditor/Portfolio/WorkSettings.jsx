@@ -6,11 +6,12 @@ import Work from "./Work";
 import { postPortfolioDetails } from "../../../Apis/userApis";
 import { deepCloneNested, validateURL } from "../../../Helper/Helper";
 
+import Tooltip from '@mui/material/Tooltip';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 
 const WorkSettings = (props) => {
-    const { portfolioDetails, handleCurrentUserChange } = props;
+    const { portfolioDetails, handleCurrentUserChange, showUserPrompt } = props;
     const { recent_work: recentWorkProp } = portfolioDetails || {};
 
     const [ recentWork, setRecentWork ] = useState([]);
@@ -119,10 +120,12 @@ const WorkSettings = (props) => {
                     
                         <div className="add-recent-work">
                             <p>Work</p>
-                            <AddCircleOutlineIcon 
-                                className="add-btn"
-                                onClick={createNewWork}
-                            />
+                            <Tooltip title="Add new work" placement="right">
+                                <AddCircleOutlineIcon 
+                                    className="add-btn"
+                                    onClick={createNewWork}
+                                />
+                            </Tooltip>
                         </div>
 
                         <Reorder.Group axis="y" values={recentWork} onReorder={setRecentWork}>
@@ -130,12 +133,13 @@ const WorkSettings = (props) => {
                             recentWork.map((work, wrkIdx) => {
                                 return (
                                     <WorkItem 
-                                        key={work.title} 
+                                        key={`wrk-item-${wrkIdx}`} 
                                         work={work} 
                                         wrkIdx={wrkIdx}
                                         recentWork={recentWork}
                                         setRecentWork={setRecentWork}
                                         deleteRecentWork={deleteRecentWork}
+                                        showUserPrompt={showUserPrompt}
                                     />
                                 )
                             })

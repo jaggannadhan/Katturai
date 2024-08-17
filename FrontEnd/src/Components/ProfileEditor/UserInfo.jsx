@@ -161,14 +161,14 @@ const UserInfo = (props) => {
                                 type="text"
                                 name="address"
                                 id="address"
-                                placeholder="1 South Pt Dr"
+                                placeholder="Boston"
                                 className="formbold-form-input"
                                 value={address}
                                 onChange={handleAddressChange}
                             />
 
                             <label htmlFor="address" className="formbold-form-label">
-                                Street Address
+                                City
                             </label>
                         </div>
                     

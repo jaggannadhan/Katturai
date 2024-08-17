@@ -14,17 +14,23 @@ export const getCurrentUser = async () => {
         return {
             "is_logged_in": true,
             "portfolio_info": {
+                "buy_me_something": [
+                    "Protein",
+                    "https://drive.google.com/file/d/1seKRvVE7be5WAl6vcZBjZI8jvonFnmPB/view?usp=sharing"
+                ],
                 "description": "From algorithms to user interfaces, I engineer robust software ecosystems that elevate user experiences and exceed expectations.",
                 "greetings": "Ola, It's Me",
-                "last_updated": "Sat, 27 Jul 2024 23:19:58 GMT",
-                "resume": "https://google.com",
-                "buy_me_something": ["Coffee", "https://drive.google.com/file/d/1seKRvVE7be5WAl6vcZBjZI8jvonFnmPB/view?usp=sharing"],
+                "last_updated": "Sun, 11 Aug 2024 00:28:56 GMT",
                 "picture": "https://storage.googleapis.com/jegsirox/profilePic/myProfileYlw.png",
-                "titles": [
-                    "Software Engineer",
-                    " Blogger",
-                    " Martial Artist"
+                "recent_work": [
+                    {
+                        "desc": "A simple portfolio website",
+                        "images": [],
+                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
+                        "title": "Raconteur"
+                    }
                 ],
+                "resume": "https://drive.google.com/file/d/1unqkbr1GhRruoo3sk78Y8ackuQzleUXD/view?usp=sharing",
                 "skills": [
                     {
                         "name": "Frontend",
@@ -69,60 +75,64 @@ export const getCurrentUser = async () => {
                                 "subSkills": [
                                     "MongoDB"
                                 ]
+                            },
+                            {
+                                "name": "Google Cloud Platform",
+                                "subSkills": [
+                                    "AppEngine",
+                                    "ComputeEngine"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Testing",
+                        "skills": [
+                            {
+                                "name": "Jest",
+                                "subSkills": []
+                            },
+                            {
+                                "name": "React Testing Library",
+                                "subSkills": []
+                            },
+                            {
+                                "name": "PyTest",
+                                "subSkills": []
+                            },
+                            {
+                                "name": "UnitTest",
+                                "subSkills": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "AI / ML",
+                        "skills": [
+                            {
+                                "name": "CNN's",
+                                "subSkills": []
+                            },
+                            {
+                                "name": "Conversational AI",
+                                "subSkills": [
+                                    "OpenAI"
+                                ]
+                            },
+                            {
+                                "name": "Frameworks",
+                                "subSkills": [
+                                    "TensorFlow",
+                                    "PyTorch"
+                                ]
                             }
                         ]
                     }
                 ],
-                "recent_work": [
-                    {
-                        title: "Raconteur",
-                        desc: "A simple portfolio website",
-                        images: [
-                            "https://picsum.photos/id/1018/1000/600/",
-                            "https://picsum.photos/id/1015/1000/600/",
-                            "https://picsum.photos/id/1019/1000/600/"
-                        ],
-                        link: "https://hopeful-flame-420906.uc.r.appspot.com/raconteur"
-                    },
-
-                    {
-                        title: "Fletch Homes",
-                        desc: "Real Estate Investment App",
-                        images: [
-                            "https://picsum.photos/id/1018/1000/600/",
-                            "https://picsum.photos/id/1015/1000/600/",
-                            "https://picsum.photos/id/1019/1000/600/",
-                            "https://picsum.photos/id/1018/1000/600/",
-                            "https://picsum.photos/id/1015/1000/600/"
-                        ],
-                        link: "https://hopeful-flame-420906.uc.r.appspot.com/fletch"
-                    },
-
-                    {
-                        title: "Fact Extraction",
-                        desc: "Extract answers from txt files",
-                        images: [
-                            "https://picsum.photos/id/1018/1000/600/",
-                            "https://picsum.photos/id/1015/1000/600/",
-                            "https://picsum.photos/id/1019/1000/600/",
-                            "https://picsum.photos/id/1018/1000/600/",
-                            "https://picsum.photos/id/1015/1000/600/"
-                        ],
-                        link: "https://hopeful-flame-420906.uc.r.appspot.com/cleric"
-                    },
-
-                    {
-                        title: "Dev Docs",
-                        desc: "A secure document management service",
-                        images: [
-                            "https://picsum.photos/id/1018/1000/600/",
-                            "https://picsum.photos/id/1015/1000/600/",
-                            "https://picsum.photos/id/1019/1000/600/",
-                            "https://picsum.photos/id/1018/1000/600/",
-                            "https://picsum.photos/id/1015/1000/600/"
-                        ],
-                        link: "https://hopeful-flame-420906.uc.r.appspot.com/dev-docs"
-                    }
+                "titles": [
+                    "Software Engineer",
+                    " Blogger",
+                    " Martial Artist"
                 ]
             },
             "profile_info": {
@@ -137,7 +147,7 @@ export const getCurrentUser = async () => {
                 "youtube": "https://www.youtube.com/@jegsirox3674"
             },
             "user_info": {
-                "address": "1 South Point Drive",
+                "address": "Boston",
                 "email": "jegsirox@gmail.com",
                 "first_name": "Jaggannadhan",
                 "last_login": "Sat, 27 Jul 2024 18:26:09 GMT",

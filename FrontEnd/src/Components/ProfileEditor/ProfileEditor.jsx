@@ -28,13 +28,14 @@ const editorNav = [
 const ProfileEditor = (props) => {
     const { currentUser, 
         handleCurrentUserChange, 
-        profileCompletion 
+        profileCompletion,
+        showUserPrompt
     } = props;
     
     const [ userDetails, setUserDetails ] = useState(currentUser?.user_info);
     const [ profileDetails, setProfileDetails ] = useState(currentUser?.profile_info);
     const [ portfolioDetails, setPortfolioDetails ] = useState(currentUser?.portfolio_info);
-    const [ selectedNav, setSelectedNav ] = useState(editorNav[2]);
+    const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
 
     const [ tempPic, setTempPic ] = useState(null);
     const [ tempPicURL, setTempPicURL ] = useState(null);
@@ -169,7 +170,7 @@ const ProfileEditor = (props) => {
                             </div> 
                         }
 
-                        <div className="profile-completion-cont">Profile completion:
+                        <div className="profile-completion-cont">Profile completion
                             <div className="profile-completion">
                                 <div className="bar">
                                     <div className="completion" style={{width: `${profileCompletion}%`}}></div>
@@ -203,6 +204,7 @@ const ProfileEditor = (props) => {
                             
                             newProfPic={newProfPic}
                             setNewProfPic={setNewProfPic}
+                            showUserPrompt={showUserPrompt}
                         />
                     </section>
                     

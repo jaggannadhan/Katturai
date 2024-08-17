@@ -9,6 +9,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ReorderIcon from '@mui/icons-material/Reorder';
+import Tooltip from '@mui/material/Tooltip';
 
 
 const Work = (props) => {
@@ -18,11 +19,12 @@ const Work = (props) => {
         recentWork,
         setRecentWork,
         deleteRecentWork,
-        dragControls
+        dragControls,
+        showUserPrompt
     } = props;
 
     const [ files, setFiles ] = useState([]);
-    const [ titleError, setTitleError ] = useState(true);
+    const [ titleError, setTitleError ] = useState(false);
     const [ linkError, setLinkError ] = useState(false);
     const [ areFilesSelected, setFilesSelected ] = useState(false);
 
@@ -79,12 +81,13 @@ const Work = (props) => {
 
     const handleTitleChange = (e) => {
         const val = e.target.value;
+
         let newRecentWork = [...recentWork];
         let changedWork = newRecentWork[wrkIdx];
         changedWork.title = val;
 
-        !val ? setTitleError(true) : setTitleError(false);
         setRecentWork([...newRecentWork]);
+        !val ? setTitleError(true) : setTitleError(false);
     }
 
     const handleDescChange = (e) => {
@@ -105,7 +108,6 @@ const Work = (props) => {
         changedWork.link = val;
 
         setRecentWork([...newRecentWork]);
-        
         !val ? setLinkError(false) : setLinkError(!validateURL(val));
     }
 
@@ -142,16 +144,32 @@ const Work = (props) => {
 
     }
 
+    const handleDeleteWork = () => {
+        showUserPrompt({
+            show: true, 
+            title: "Delete Work!", msg:"Are you sure?", 
+            callback: () => deleteRecentWork(wrkIdx)
+        });
+    }
+
     return (
         <div className="my-work">
             <div className="wrk-optns">
 
-                <DeleteIcon className="delete-recent-work" onClick={() => deleteRecentWork(wrkIdx)} />
-                <ReorderIcon className="drag-recent-work" onPointerDown={(e) => dragControls.start(e)} />
+                <Tooltip title="Delete" placement="top">
+                    <DeleteIcon className="delete-recent-work" onClick={handleDeleteWork} />
+                </Tooltip>
+                <Tooltip title="Rearrange" placement="top">
+                    <ReorderIcon className="drag-recent-work" onPointerDown={(e) => dragControls.start(e)} />
+                </Tooltip>  
                 {
                     expandWork ?
-                    <ExpandLessIcon className="expand-recent-work" onClick={() => setExpandWork(false)} /> :
-                    <ExpandMoreIcon className="expand-recent-work" onClick={() => setExpandWork(true)}/> 
+                    <Tooltip title="Minimize" placement="top">
+                        <ExpandLessIcon className="expand-recent-work" onClick={() => setExpandWork(false)} /> 
+                    </Tooltip> :
+                    <Tooltip title="Expand" placement="top">
+                        <ExpandMoreIcon className="expand-recent-work" onClick={() => setExpandWork(true)}/>
+                    </Tooltip>
 
                 }
 

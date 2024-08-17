@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 
+import Tooltip from "@mui/material/Tooltip";
 import CloseIcon from '@mui/icons-material/Close';
 
 const Skills  = (props) => {
@@ -18,9 +19,11 @@ const Skills  = (props) => {
         <Fragment>
             <div className="formbold-input-flex">
                 <div>
-                    <CloseIcon className="remove-category"
-                        onClick={() => removeCategory(catIndex)}
-                    />
+                    <Tooltip title="Remove Category" placement="top">
+                        <CloseIcon className="remove-category"
+                            onClick={() => removeCategory(catIndex)}
+                        />
+                    </Tooltip>
                     <input
                         type="text"
                         name={categoryId}
@@ -35,9 +38,11 @@ const Skills  = (props) => {
                 {
                     category.name?
                     <div>
-                        <CloseIcon className="remove-category"
-                            onClick={() => removeSkills(catIndex)}
-                        />
+                        <Tooltip title="Remove All Skills" placement="top">
+                            <CloseIcon className="remove-category"
+                                onClick={() => removeSkills(catIndex)}
+                            />
+                        </Tooltip>
                         <input
                             type="text"
                             name={skillId}

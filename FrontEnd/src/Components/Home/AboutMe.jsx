@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { Stack } from '@mui/material';
-import Link from '@mui/material/Link';
+import { Stack, Avatar, Link } from '@mui/material';
 import * as CONSTANTS from "../../Constants/Constants";
 
 import '../../Styles/Home/AboutMe.scss';
@@ -15,7 +14,7 @@ const AboutMe = (props) => {
     return (
         <div className="about-me">
             <div className="avatar-container">
-                <img className="avatar" src={picture} alt={name} />
+                <Avatar className="avatar" src={picture} alt={name} />
             </div>
             
             <div className="content">

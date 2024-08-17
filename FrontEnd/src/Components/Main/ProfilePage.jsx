@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Toaster } from "react-hot-toast";
+import UserPrompts from '../UserPrompts';
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import Footer from '../Footer/Footer';
 import PageLoader from './PageLoader';
@@ -32,6 +33,7 @@ const ProfilePage = () => {
     const [ selectedNav, setSelectedNav ] = useState(CONSTANTS.navigation.default);
     const [ currentUser, setCurrentUser ] = useState(null);
     const [ profileCompletion, setProfileCompletion ] = useState(null);
+    const [ showPrompt, setShowPrompt ] = useState(false);
 
     useEffect(() => {
         setProfileCompletion(getProfileCompletion());
@@ -77,12 +79,15 @@ const ProfilePage = () => {
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsNavTrans(document.body.scrollTop < (document.body.scrollHeight/10));
-        };
         handleScroll();
+        document.addEventListener('scroll', handleScroll);
         document.body.addEventListener('scroll', handleScroll);
     }, []);
+
+    const handleScroll = () => {
+        let val = (document.body.scrollTop || window.scrollY) < document.body.scrollHeight/10;
+        setIsNavTrans(val);
+    };
 
     function handleCurrentUserChange({newDetails, _changeKey}) {
         let _currUsr = {...currentUser};
@@ -100,18 +105,29 @@ const ProfilePage = () => {
     function handleNavSelect(navItem) {
         setSelectedNav(navItem);
     }
+
+    function showUserPrompt({show=true, title, msg, callback}) {
+        setShowPrompt({show, title, msg, callback});
+    }
     
     const Content = selectedNav ? selectedNav.component(): null;
     
     return (
         <div className={`home-page ${classes.root}`}>
             <div><Toaster/></div>
+            
+            <UserPrompts 
+                {...showPrompt}
+                setShowPrompt={setShowPrompt}
+            />
+
             <ResponsiveAppBar 
                 isNavTrans={isNavTrans}
                 selectedNav={selectedNav} 
                 handleNavSelect={handleNavSelect}
                 currentUser={currentUser}
                 user_route={user_route}
+                showUserPrompt={showUserPrompt}
             />
                                 
             {
@@ -122,6 +138,7 @@ const ProfilePage = () => {
                             currentUser={currentUser}
                             handleCurrentUserChange={handleCurrentUserChange}
                             profileCompletion={profileCompletion}
+                            showUserPrompt={showUserPrompt}
                         /> 
                     } /> 
                     <Route path={`/*`} element={  <PageLoader /> } /> 

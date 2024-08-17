@@ -2,26 +2,30 @@
 
 .port-preview-cont {
     max-width: 100% !important;
-    height: 50vw;
+    height: 52vw;
     position: relative;
-    background-color: #20252c;
+    background-color: #20252C;
 
-    .portfolio {
+    .preview {
+        position: absolute;
         width: 83vw;
-        height: 50vw;
+        margin: auto;
+        margin-top: 9vh;
+        height: 28vw;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 4vw;
     }
 
-    .port-content {
-        max-width: 50vw;
+    .content {
+        width: 50vw;
         overflow: hidden;
         word-break: keep-all;
         color: white;
         font-family: "Lexend", sans-serif;
         user-select: none;
+        height: 30vw;
 
         h3 {
             font-size: 2vw;
@@ -51,16 +55,20 @@
             animation: slideLeft 1s ease forwards;
         }
 
-        .port-title {
+        .title {
             margin-top: -2vw;
         }
     }
 
 
-    .port-img img {
-        max-width: 23vw;
-        border-radius: 50%;
-        animation: zoomIn 1s ease forwards;
+    .port-img {
+        margin: auto;
+        .port-profile-pic {
+            width: 23vw;
+            height: 23vw;
+            border-radius: 50%;
+            animation: zoomIn 1s ease forwards;
+        }
     }
 
     .port-socials {
@@ -168,8 +176,41 @@
             color: white;
         }
     }
+
+    .inf-banner {
+        --ch: 18ch;
+        --clr: black;
+        position: absolute;
+        left: 0;
+        top: 45vw;
+        font-size: 2vw;
+        width: 111vw;
+        color: transparent;
+        height: 2.5vw;
+        background: white;
+        transform: skew(13deg, -11deg);
+        text-shadow:calc(var(--ch)* 0) 0 1px var(--clr), 
+                    calc(var(--ch)* 1) 0 1px var(--clr), 
+                    calc(var(--ch)* 2) 0 1px var(--clr), 
+                    calc(var(--ch)* 3) 0 1px var(--clr), 
+                    calc(var(--ch)* 4) 0 1px var(--clr),
+                    calc(var(--ch)* 5) 0 1px var(--clr),
+                    calc(var(--ch)* 6) 0 1px var(--clr);
+        animation: rollBanner 4s linear infinite;
+    }
 }
 
+@keyframes rollBanner {
+    to {
+        text-shadow: calc(var(--ch) * -1) 0 1px var(--clr), 
+        calc(var(--ch) * 0) 0 1px var(--clr), 
+        calc(var(--ch) * 1) 0 1px var(--clr), 
+        calc(var(--ch) * 2) 0 1px var(--clr), 
+        calc(var(--ch) * 3) 0 1px var(--clr), 
+        calc(var(--ch) * 4) 0 1px var(--clr), 
+        calc(var(--ch) * 5) 0 1px var(--clr), 
+    }
+}
 
 @keyframes zoomIn {
     0% {

@@ -38,6 +38,14 @@ blink {
     -webkit-animation-duration: 1s;
 }
 
+#prof-descr {
+    font-size: 1.6vw;
+    line-height: normal;
+}
+
+.gs-pd {
+    border: none !important;
+}
 /////////////////////////////////////////////////////////BUY ME SOMETHING/////////////////////////////////////////////////////////
 
 .buy-me-something {
@@ -116,7 +124,6 @@ blink {
         font-size: 1.8vw;
         line-height: 2vw;
         display: block;
-        margin-bottom: 2.5vh;
     }
 
     .add-btn {
@@ -138,9 +145,11 @@ blink {
 .remove-category {
     width: 1.7vw !important;
     position: relative;
-    left: 96%;
-    top: -3vh;
+    left: 92%;
+    top: -4vh;
+    padding-left: 1vw;
     cursor: pointer;
+    background-color: white;
     animation: spinCancel 0.5s forwards ease-out;
 }
 

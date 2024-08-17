@@ -2,7 +2,8 @@ import React, { useState, useEffect, Fragment } from "react";
 import { 
     Container,
     Link,
-    Stack
+    Stack,
+    Avatar
   } from '@mui/material';
 import { ReactTyped } from "react-typed";
 
@@ -19,13 +20,13 @@ const PortPreview = (props) => {
 
     return (
         <Container className="port-preview-cont"> 
-            <section className="portfolio">
-                <div className="port-content">
+            <section className="preview">
+                <div className="content">
 
                     <h3>{greetings || "Hey! How are you?"}</h3>
                     <h1>{name}</h1>
                     
-                    <h3 className="port-title">{titles ? "I'm a" : "I'm an"}
+                    <h3 className="title">{titles ? "I'm a" : "I'm an"}
                         <span> 
                             <ReactTyped 
                                 strings={titles || ['Extrordianary Person']} 
@@ -101,9 +102,12 @@ const PortPreview = (props) => {
 
                 </div>
                 <div className="port-img">
-                    <img src={picture} alt={name} className="prot-profile-pic"/>                    
+                    <Avatar src={picture} alt={name} className="port-profile-pic"/>                    
                 </div>
             </section>
+            <div className="inf-banner"> 
+                <span>&#183;</span> Based out of Boston
+            </div>
         </Container>        
     );
 }

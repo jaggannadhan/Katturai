@@ -193,7 +193,7 @@
         // width: 100%;
         background-color: black;
         display: flex;
-        margin-top: 0vh;
+        margin-top: 1vh;
         justify-content: start;
         padding: 0 8vw;
 
@@ -334,6 +334,7 @@
             width: 21vw;
             height: 1vh;
             border: 0.2vh solid black;
+            border-radius: 0.5vw;
 
             .completion {
                 width: 100%;
@@ -367,6 +368,6 @@
 
 @media screen and (min-width: 600px) {
     .profile-editor-nav {
-        margin-top: 2vh !important;
+        margin-top: 1vh !important;
     }
 }

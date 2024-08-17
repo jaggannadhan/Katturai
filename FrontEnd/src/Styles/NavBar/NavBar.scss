@@ -8,18 +8,25 @@
     box-shadow: none;
     transition: background-color 0.3s ease;
     padding: 0 !important;
-    height: fit-content;
+    height: 9vh;
 }
+
+.css-hyum1k-MuiToolbar-root {
+    height: 9vh !important;
+}
+
 
 .toolbar-trans {
     background-color: transparent !important;
     z-index: 2;
+    min-height: 9vh !important;
 }
 
 .toolbar-opq {
     background-color: #e9ae00 !important;
     transition: background-color 0.7s ease;
     z-index: 2;
+    min-height: 9vh !important;
 }
  
 .navbar-title {

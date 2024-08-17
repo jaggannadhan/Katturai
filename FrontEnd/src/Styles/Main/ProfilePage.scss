@@ -8,3 +8,9 @@
     font-size: 1vw !important;
     font-weight: bolder;
 }
+
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}

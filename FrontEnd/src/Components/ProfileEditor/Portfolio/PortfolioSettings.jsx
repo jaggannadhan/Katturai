@@ -15,13 +15,14 @@ const editorNav = [
 
 
 const PortfolioSettings = (props) => {
-    const [ selectedNav, setSelectedNav ] = useState(editorNav[2]);
+    const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
     const { 
         portfolioDetails, 
         handleCurrentUserChange, 
 
         newProfPic,
         setNewProfPic,
+        showUserPrompt,
     } = props;
 
     useEffect(() => {
@@ -53,6 +54,7 @@ const PortfolioSettings = (props) => {
 
                 newProfPic={newProfPic}
                 setNewProfPic={setNewProfPic}
+                showUserPrompt={showUserPrompt}
             />
         </section>
     );

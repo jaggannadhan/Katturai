@@ -20,11 +20,11 @@
     &:before {
         content: '';
         position: absolute;
-        top: -5vw;
+        top: -10vw;
         left: 50%;
         transform: translateX(-50%);
-        width: 10vw; /* Adjust circle size as needed */
-        height: 10vw; /* Adjust circle size as needed */
+        width: 17vw; /* Adjust circle size as needed */
+        height: 17vw; /* Adjust circle size as needed */
         background-color: #fff; /* Color of the circle */
         border: 2px solid #ccc; /* Border of the circle */
         border-radius: 50%; /* Make it a circle */
@@ -38,8 +38,8 @@
     }
   
     .avatar {
-      width: 15vw; /* Adjust avatar size as needed */
-      height: 15vw; /* Adjust avatar size as needed */
+      width: 20vw; /* Adjust avatar size as needed */
+      height: 20vw; /* Adjust avatar size as needed */
       border-radius: 50%; /* Make it a circle */
       border: 0.2vw solid #fffdfd; /* Border of the avatar */
       box-shadow: 0px 5px 18px 9px rgb(0 0 0 / 51%);
