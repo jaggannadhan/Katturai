@@ -40,18 +40,18 @@ export default function UserPrompts(props) {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ m: 0, fontSize: "2vw" }}>
                     {title}
                 </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                <Typography id="modal-modal-description" sx={{ m: 0, mb: "1vw", fontSize: "1.5vw" }}>
                     {msg}
                 </Typography>
 
-                <Stack direction="row" spacing={1} sx={{ mb: 1, justifyContent: "flex-end" }}>
-                    <Button size="small" onClick={handleUserCallBack}>
+                <Stack direction="row" spacing={1} sx={{ width: "40vw", mt:"2vw", mb: "1vw", justifyContent: "flex-end" }}>
+                    <Button size="small" onClick={handleUserCallBack} sx={{ minWidth: "10vw", padding: 0, fontSize: "1.5vw" }}>
                         Yes
                     </Button>
-                    <Button size="small" onClick={handleClose}>
+                    <Button size="small" onClick={handleClose} sx={{ minWidth: "10vw", padding: 0, fontSize: "1.5vw" }}>
                         No
                     </Button>
                 </Stack>
