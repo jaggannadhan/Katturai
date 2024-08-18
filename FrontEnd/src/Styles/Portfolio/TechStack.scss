@@ -24,7 +24,16 @@
         }
 
         #typed-stack-header {
-            margin-left: 3vw;
+            font-family: "Lexend", sans-serif;
+            font-size: 1.5vw;
+            font-weight: bold;
+            height: 2vw;
+            padding: 1vw 3vw;
+            user-select: none;
+            position: sticky;
+            top: 9vh;
+            background: #F1F2F4;
+            z-index: 10;
         }
     
         .tech-stack-sec {

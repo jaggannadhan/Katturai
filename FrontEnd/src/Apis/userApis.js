@@ -25,9 +25,35 @@ export const getCurrentUser = async () => {
                 "recent_work": [
                     {
                         "desc": "A simple portfolio website",
-                        "images": [],
-                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
+                        "images": [
+                            "https://static-cse.canva.com/blob/1100617/create_portfolio_lead.fdac0721.jpg"
+                        ],
+                        "link": "",
                         "title": "Raconteur"
+                    },
+                    {
+                        "desc": "Real estate invetments on the go!",
+                        "images": [
+                            "https://raw.githubusercontent.com/jaggannadhan/FletchHomes/main/images/banner1.jpeg"
+                        ],
+                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
+                        "title": "Flech Homes"
+                    },
+                    {
+                        "desc": "Developer friendly & secure documentations",
+                        "images": [
+                            "https://na.rdcpix.com/f6aab73cb67fe985808b67b0456a7ee5w-c4139114723rd-w832_h468_r4_q80.webp"
+                        ],
+                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
+                        "title": "Dev Docs"
+                    },
+                    {
+                        "desc": "A fact extraction API using GPT-4",
+                        "images": [
+                            "https://a.storyblok.com/f/139616/1200x800/9fb0f91e0e/information-extraction-demystified.webp"
+                        ],
+                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
+                        "title": "Extract"
                     }
                 ],
                 "resume": "https://drive.google.com/file/d/1unqkbr1GhRruoo3sk78Y8ackuQzleUXD/view?usp=sharing",

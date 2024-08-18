@@ -181,13 +181,14 @@
         --ch: 18ch;
         --clr: black;
         position: absolute;
-        left: 0;
-        top: 45vw;
+        left: -1vw;
+        top: 42vw;
+        z-index: 20;
         font-size: 2vw;
         width: 111vw;
         color: transparent;
         height: 2.5vw;
-        background: white;
+        background: #FDD502;
         transform: skew(13deg, -11deg);
         text-shadow:calc(var(--ch)* 0) 0 1px var(--clr), 
                     calc(var(--ch)* 1) 0 1px var(--clr), 

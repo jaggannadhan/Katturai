@@ -2,15 +2,15 @@
 .img-gallery {
     position: relative;
     top: 16vh;
-    max-width: 84vw;
-    height: 54vw;
+    max-width: 65vw;
+    height: 40vw;
     margin: auto;
 
     .gallery-controls {
         position: absolute;
         height: inherit;
-        margin: auto 5vw !important;
-        width: 75vw;
+        margin: auto -5vw !important;
+        width: 74vw;
         display: flex;
         justify-content: space-between;
         align-items: center;
