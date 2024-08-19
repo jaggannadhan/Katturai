@@ -29,17 +29,21 @@ const RecentWork = (props) => {
                 />
             </section>
 
+            <div style={{width: "92vw", margin: "auto" }}> 
             {
-                recent_work?.map((work, idx) => {
-                    return (
-                        <TiledWorkTemplate
-                            key={`work-preview-${idx}`}
-                            work={work}
-                            idx={idx}
-                        />
-                    )
-                })
+                
+                    recent_work?.map((work, idx) => {
+                        return (
+                            <TiledWorkTemplate
+                                key={`work-preview-${idx}`}
+                                work={work}
+                                idx={idx}
+                            />
+                        )
+                    })
+                
             }
+            </div>
 
             
             

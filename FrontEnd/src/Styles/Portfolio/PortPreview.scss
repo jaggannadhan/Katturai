@@ -8,7 +8,7 @@
 
     .preview {
         position: absolute;
-        width: 83vw;
+        width: 89vw;
         margin: auto;
         margin-top: 9vh;
         height: 28vw;
@@ -45,8 +45,25 @@
             font-weight: 500;
             margin-left: 1vw;
             margin-top: -2vw;
+            text-shadow: -0.3vw -0.1vw #45FED8;
+            color: #f82156;
+        }
 
-            animation: slideRight 1s ease forwards;
+        h1:hover {
+            opacity: 0.9;
+            text-shadow: 0px -5px #ec2225, 0px 5px #00c2cb, -5px 0px #ec2225, 5px 0px #00c2cb;
+        }
+
+        h1::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 5vw;
+            color: #e0ffff;
+            z-index: -1;
+        }
+        h1:hover::before {
+            animation: glitch 1ms ease-in-out infinite;
+            z-index: 1;
         }
 
         p {
@@ -59,7 +76,6 @@
             margin-top: -2vw;
         }
     }
-
 
     .port-img {
         margin: auto;
@@ -201,6 +217,7 @@
     }
 }
 
+
 @keyframes rollBanner {
     to {
         text-shadow: calc(var(--ch) * -1) 0 1px var(--clr), 
@@ -212,6 +229,7 @@
         calc(var(--ch) * 5) 0 1px var(--clr), 
     }
 }
+
 
 @keyframes zoomIn {
     0% {
@@ -292,4 +310,34 @@
     .port-preview-cont .portfolio {
         height: 62vw;
     }
+}
+
+@keyframes glitch {
+    0%, 100% {
+        opacity: 1;
+    }
+    20% {
+        left: 4.9vw;
+        opacity: 0.7;
+    }
+    30% {
+        opacity: 0.9;
+    }
+    40% {
+        left: 5.1vw;
+        opacity: 0.2;
+    }
+    60% {
+        opacity: 0.3;
+    }
+    80% {
+        left: 4.9vw;
+        opacity: 0.9;
+    }
+}
+
+
+
+.content:hover + .preview { 
+    box-shadow: inset -3px -6px red !important;
 }

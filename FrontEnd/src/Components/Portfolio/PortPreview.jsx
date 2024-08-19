@@ -24,7 +24,7 @@ const PortPreview = (props) => {
                 <div className="content">
 
                     <h3>{greetings || "Hey! How are you?"}</h3>
-                    <h1>{name}</h1>
+                    <h1 className="pp-name" data-text={name}>{name}</h1>
                     
                     <h3 className="title">{titles ? "I'm a" : "I'm an"}
                         <span> 

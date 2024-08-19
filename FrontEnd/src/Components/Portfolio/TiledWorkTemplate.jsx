@@ -19,13 +19,13 @@ const TiledWorkTemplate = (props) => {
     useEffect(() => {}, [work]);
 
     return (
-        <section className="work-preview-tiled" >
+        <section className="work-tiles" >
             
             <Tilt
                 key={`work-info-${idx}`}
                 tiltReverse tiltMaxAngleX={15} tiltMaxAngleY={15}
             >
-                <div className="work-info-tiled">
+                <div className="work-info">
                     <header> 
                         <span></span> 
                         <span></span>

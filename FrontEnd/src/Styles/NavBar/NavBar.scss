@@ -8,25 +8,25 @@
     box-shadow: none;
     transition: background-color 0.3s ease;
     padding: 0 !important;
-    height: 9vh;
+    height: 7vh;
 }
 
 .css-hyum1k-MuiToolbar-root {
-    height: 9vh !important;
+    height: 7vh !important;
 }
 
 
 .toolbar-trans {
     background-color: transparent !important;
     z-index: 2;
-    min-height: 9vh !important;
+    min-height: 7vh !important;
 }
 
 .toolbar-opq {
     background-color: #e9ae00 !important;
     transition: background-color 0.7s ease;
     z-index: 2;
-    min-height: 9vh !important;
+    min-height: 7vh !important;
 }
  
 .navbar-title {
@@ -104,4 +104,9 @@
 
 .route-lock {
     width: 1.5vw !important;
+}
+
+.nav-avatar {
+    width: 5vh !important;
+    height: 5vh !important;
 }
