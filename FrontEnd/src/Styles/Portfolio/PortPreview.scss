@@ -215,6 +215,22 @@
                     calc(var(--ch)* 6) 0 1px var(--clr);
         animation: rollBanner 4s linear infinite;
     }
+
+    .inf-banner:hover {
+        --clr: #46FED8;
+    }
+
+    .shadow {
+        --clr: #f82156;
+        display: none;
+        background: transparent;
+        left: 5vw;
+        top: 41vw;
+    }
+
+    .inf-banner:hover + .shadow{
+        display: block;
+    }
 }
 
 
@@ -334,10 +350,4 @@
         left: 4.9vw;
         opacity: 0.9;
     }
-}
-
-
-
-.content:hover + .preview { 
-    box-shadow: inset -3px -6px red !important;
 }

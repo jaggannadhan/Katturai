@@ -6,16 +6,20 @@ import {
   } from '@mui/material';
 
 import { ReactTyped } from "react-typed";
-import SimpleWorkTemplate from "./SimpleWorkTemplate";
-import TiledWorkTemplate from "./TiledWorkTemplate";
-
+import { WORKTHEMES } from "../../Constants/Constants";
 import "../../Styles/Portfolio/RecentWork.scss";
 
 
 const RecentWork = (props) => {
     const { portfolio_info } = props;
-    const { recent_work } = portfolio_info || {};
+    const { recent_work, theme } = portfolio_info || {};
     
+    const getThemedTemplate = () => {
+        let myTheme = WORKTHEMES.filter(wrkTheme => wrkTheme.name == theme) 
+        return myTheme.length ? myTheme[0].theme : WORKTHEMES[0].theme;
+    }
+
+    const ThemedTemplate = getThemedTemplate();
     return (
         <Container className="recent-work-cont"> 
             <section className="recent-work-preview">
@@ -34,7 +38,7 @@ const RecentWork = (props) => {
                 
                     recent_work?.map((work, idx) => {
                         return (
-                            <TiledWorkTemplate
+                            <ThemedTemplate
                                 key={`work-preview-${idx}`}
                                 work={work}
                                 idx={idx}

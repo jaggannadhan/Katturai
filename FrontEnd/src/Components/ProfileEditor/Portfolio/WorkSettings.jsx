@@ -8,19 +8,23 @@ import { deepCloneNested, validateURL } from "../../../Helper/Helper";
 
 import Tooltip from '@mui/material/Tooltip';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-
+import { WORKTHEMES } from "../../../Constants/Constants";
 
 const WorkSettings = (props) => {
     const { portfolioDetails, handleCurrentUserChange, showUserPrompt } = props;
-    const { recent_work: recentWorkProp } = portfolioDetails || {};
+    const { recent_work: recentWorkProp, theme: themeProp } = portfolioDetails || {};
 
     const [ recentWork, setRecentWork ] = useState([]);
     const [ errors, setErrors ] = useState(true);
+    const [ myTheme, setMyTheme ] = useState(WORKTHEMES[0].name);
     const [ isLoading, setIsLoading ] = useState(false);
 
     useEffect(() => {
-        if(portfolioDetails)
+        if(portfolioDetails) {
             setRecentWork(deepCloneNested(portfolioDetails.recent_work || []));
+            let theme = WORKTHEMES.filter(theme => theme.name == portfolioDetails.theme);
+            theme.length ? setMyTheme(theme[0].name) : setMyTheme(WORKTHEMES[0].name);
+        }
 
     }, [portfolioDetails]);
 
@@ -31,6 +35,7 @@ const WorkSettings = (props) => {
             setIsLoading(true);
             let params = {...portfolioDetails};
             params.recent_work = recentWork;
+            params.theme = theme;
             await postPortfolioDetails(params).then((response) => {
                 console.log("postPortfolioDetails: ", response);
                 if(response.success) {
@@ -58,7 +63,10 @@ const WorkSettings = (props) => {
         oldWork = oldWork.flat(4);
         changedWork = changedWork.flat(4);
 
-        return oldWork.toString().replace(',', '') != changedWork.toString().replace(',', '');
+        let workChanged = oldWork.toString().replace(',', '') != changedWork.toString().replace(',', '');
+        let themeChanged = myTheme != themeProp;
+
+        return workChanged || themeChanged;
     }
 
     const noErrors = () => {
@@ -117,6 +125,25 @@ const WorkSettings = (props) => {
             <div className="formbold-main-wrapper">
                 <div className="formbold-form-wrapper">
                     <form onSubmit={handleSubmit}>
+
+                        <div className="work-theme-cont">
+                            <span>Themes</span>
+
+                            {
+                                WORKTHEMES.map((wrkTheme) => {
+                                    let themeName = wrkTheme.name;
+                                    return (
+                                        <div 
+                                            key={`${themeName}`}
+                                            className={`work-theme ${ themeName == myTheme ? 'selected' : ''}`}
+                                            onClick={() => setMyTheme(themeName) }
+                                        >
+                                            {themeName}
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
                     
                         <div className="add-recent-work">
                             <p>Work</p>
@@ -140,6 +167,7 @@ const WorkSettings = (props) => {
                                         setRecentWork={setRecentWork}
                                         deleteRecentWork={deleteRecentWork}
                                         showUserPrompt={showUserPrompt}
+                                        dragControls={dragControls}
                                     />
                                 )
                             })

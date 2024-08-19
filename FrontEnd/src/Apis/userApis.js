@@ -159,7 +159,8 @@ export const getCurrentUser = async () => {
                     "Software Engineer",
                     " Blogger",
                     " Martial Artist"
-                ]
+                ],
+                "theme": "Tiled"
             },
             "profile_info": {
                 "epigraph": "Happiness can be a state of mind when you realize there is no better time or way to live. \nOnly a strong body and a healthy mind can sustain the epiphany.  \nLive Fluid, Train Hard!",

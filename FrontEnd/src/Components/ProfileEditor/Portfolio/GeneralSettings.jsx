@@ -233,7 +233,7 @@ const GeneralSettings = (props) => {
                             className="formbold-form-input gs-pd"
                             variant="standard"
                             inputProps={{
-                                maxlength: DESC_CHARACTER_LIMIT,
+                                maxLength: DESC_CHARACTER_LIMIT,
                             }}
                             value={description}
                             onChange={handleDescriptionChange}

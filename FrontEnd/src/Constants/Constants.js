@@ -15,6 +15,9 @@ import protein from "../../public/images/protein.png";
 import coffee from "../../public/images/coffee.png";
 import dress from "../../public/images/dress.png";
 
+import SimpleWorkTemplate from "../Components/Portfolio/SimpleWorkTemplate";
+import TiledWorkTemplate from "../Components/Portfolio/TiledWorkTemplate";
+
 export const socials = [
     { name: 'github', icon: GitHubIcon, link: "https://github.com/jaggannadhan" },
     { name: 'youtube', icon: YouTubeIcon, link: "https://www.youtube.com/@jegsirox3674"  },
@@ -53,4 +56,16 @@ export const buyMeItems = [
     {name: "Coffee", icon: coffee},
     {name: "Protein",icon: protein},
     {name: "Dress", icon: dress}
+];
+
+export const WORKTHEMES = [
+    { 
+        name: "Simple",
+        theme: SimpleWorkTemplate
+
+    }, 
+    { 
+        name: "Tiled",
+        theme: TiledWorkTemplate
+    }
 ];

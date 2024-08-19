@@ -108,6 +108,9 @@ const PortPreview = (props) => {
             <div className="inf-banner"> 
                 <span>&#183;</span> Based out of Boston
             </div>
+            <div className="inf-banner shadow"> 
+                <span>&#183;</span> Based out of Boston
+            </div>
         </Container>        
     );
 }
