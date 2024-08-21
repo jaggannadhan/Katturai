@@ -37,7 +37,7 @@ export const getCurrentUser = async () => {
                             "https://raw.githubusercontent.com/jaggannadhan/FletchHomes/main/images/banner1.jpeg"
                         ],
                         "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
-                        "title": "Flech Homes"
+                        "title": "Fletch Homes"
                     },
                     {
                         "desc": "Developer friendly & secure documentations",

@@ -45,25 +45,7 @@
             font-weight: 500;
             margin-left: 1vw;
             margin-top: -2vw;
-            text-shadow: -0.3vw -0.1vw #45FED8;
-            color: #f82156;
-        }
-
-        h1:hover {
-            opacity: 0.9;
-            text-shadow: 0px -5px #ec2225, 0px 5px #00c2cb, -5px 0px #ec2225, 5px 0px #00c2cb;
-        }
-
-        h1::before {
-            content: attr(data-text);
-            position: absolute;
-            left: 5vw;
-            color: #e0ffff;
-            z-index: -1;
-        }
-        h1:hover::before {
-            animation: glitch 1ms ease-in-out infinite;
-            z-index: 1;
+            text-shadow: rgb(177 49 57 / 80%) 10.75px -0.05px, rgb(70 70 70) 13.4375px -0.0666667px, rgba(0, 159, 227, 0.7) -0.0571429px 8.95833px;
         }
 
         p {
@@ -84,6 +66,8 @@
             height: 23vw;
             border-radius: 50%;
             animation: zoomIn 1s ease forwards;
+            position: relative;
+            z-index: 1;
         }
     }
 
@@ -328,26 +312,4 @@
     }
 }
 
-@keyframes glitch {
-    0%, 100% {
-        opacity: 1;
-    }
-    20% {
-        left: 4.9vw;
-        opacity: 0.7;
-    }
-    30% {
-        opacity: 0.9;
-    }
-    40% {
-        left: 5.1vw;
-        opacity: 0.2;
-    }
-    60% {
-        opacity: 0.3;
-    }
-    80% {
-        left: 4.9vw;
-        opacity: 0.9;
-    }
-}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

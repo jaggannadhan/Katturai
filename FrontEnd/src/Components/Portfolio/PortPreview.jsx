@@ -18,13 +18,24 @@ const PortPreview = (props) => {
     const { greetings, description, titles, resume, buy_me_something, picture: port_pic } = portfolio_info || {};
     const picture = port_pic || user_pic;
 
+    useEffect(() => {
+        let elm = document.getElementById('pp-name');
+        elm.addEventListener("mousemove", (e2) => {
+            var rXP = (e2.pageX - elm.offsetLeft-elm.offsetWidth/2);
+            var rYP = (e2.pageY - elm.offsetTop-elm.offsetHeight/2);
+            
+            elm.style.textShadow = +rYP/10+'px '+rXP/80+'px rgba(227,6,19,.8), '+rYP/8+'px '+rXP/60+'px rgba(255,237,0,1), '+rXP/70+'px '+rYP/12+'px rgba(0,159,227,.7)';
+        });
+
+    }, [currentUser]);
+
     return (
         <Container className="port-preview-cont"> 
             <section className="preview">
                 <div className="content">
 
                     <h3>{greetings || "Hey! How are you?"}</h3>
-                    <h1 className="pp-name" data-text={name}>{name}</h1>
+                    <h1 id="pp-name" data-text={name}>{name}</h1>
                     
                     <h3 className="title">{titles ? "I'm a" : "I'm an"}
                         <span> 
@@ -126,3 +137,4 @@ const getBuyMeIcon = (wish) => {
 }
 
 export default PortPreview;
+

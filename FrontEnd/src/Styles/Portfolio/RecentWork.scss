@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     padding-top: 5vw;
-    padding-bottom: 10vw;
+    padding-bottom: 5vw;
     height: fit-content;
     max-width: 100vw !important;
 
@@ -142,7 +142,7 @@
 
             div {
                 height: fit-content;
-                padding-bottom: 3vw;
+                padding: 1vw 0vw 2vw 0vw;
                 background-color: var(--tile-clr);
                 color: white;
 
@@ -228,6 +228,6 @@
         50% { top: -1vw; }
         100% { top: 0vw; }
     }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    
 }

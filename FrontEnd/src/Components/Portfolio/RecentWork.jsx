@@ -49,8 +49,6 @@ const RecentWork = (props) => {
             }
             </div>
 
-            
-            
             <br />
         </Container>
     );
