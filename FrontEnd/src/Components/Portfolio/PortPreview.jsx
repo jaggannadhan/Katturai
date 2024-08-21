@@ -14,7 +14,7 @@ import * as CONSTANTS from "../../Constants/Constants";
 const PortPreview = (props) => {
     const { currentUser } = props;
     const { user_info, portfolio_info, profile_info } = currentUser || {};
-    const { name, picture: user_pic } = user_info || {};
+    const { name, picture: user_pic, address } = user_info || {};
     const { greetings, description, titles, resume, buy_me_something, picture: port_pic } = portfolio_info || {};
     const picture = port_pic || user_pic;
 
@@ -26,6 +26,11 @@ const PortPreview = (props) => {
             
             elm.style.textShadow = +rYP/10+'px '+rXP/80+'px rgba(227,6,19,.8), '+rYP/8+'px '+rXP/60+'px rgba(255,237,0,1), '+rXP/70+'px '+rYP/12+'px rgba(0,159,227,.7)';
         });
+
+        let infoBanner = document.getElementsByClassName("inf-banner")?.[0];
+        if(infoBanner) {
+            infoBanner.style.setProperty("--ch", `${(user_info?.address?.length || 0) + 12}ch`);
+        }
 
     }, [currentUser]);
 
@@ -116,12 +121,18 @@ const PortPreview = (props) => {
                     <Avatar src={picture} alt={name} className="port-profile-pic"/>                    
                 </div>
             </section>
-            <div className="inf-banner"> 
-                <span>&#183;</span> Based out of Boston
-            </div>
-            <div className="inf-banner shadow"> 
-                <span>&#183;</span> Based out of Boston
-            </div>
+            {
+                address ?
+                <Fragment>
+                    <div className="inf-banner"> 
+                        <span>&#183;</span>{` Based out of ${address} `} 
+                    </div>
+                    <div className="inf-banner shadow"> 
+                        <span>&#183;</span>{` Based out of ${address} `} 
+                    </div>
+                </Fragment> : ""
+            }
+            
         </Container>        
     );
 }
