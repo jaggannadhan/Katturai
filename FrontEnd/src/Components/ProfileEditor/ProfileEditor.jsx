@@ -8,6 +8,7 @@ import UserInfo from "./UserInfo";
 import ProfileSettings from "./ProfileSettings";
 import PortfolioSettings from "./Portfolio/PortfolioSettings";
 
+
 import '../../Styles/ProfileEditor/ProfileEditor.scss';
 import { 
     Stack,
@@ -17,11 +18,10 @@ import {
 import CancelIcon from '@mui/icons-material/Cancel';
 import HourglassTopIcon from '@mui/icons-material/HourglassTop';
 
-
 const editorNav = [ 
     {name: "User Info", component: UserInfo}, 
     {name: "Profile", component: ProfileSettings}, 
-    {name: "Portfolio", component: PortfolioSettings} 
+    {name: "Portfolio", component: PortfolioSettings}
 ];
 
 

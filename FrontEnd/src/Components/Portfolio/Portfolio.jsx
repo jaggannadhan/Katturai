@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import PortPreview from "./PortPreview";
 import TechStack from "./TechStack";
 import RecentWork from "./RecentWork";
+import EmailForm from "./EmailForm";
 
 import boston from "../../../public/images/boston.png";
 import "../../Styles/Portfolio/Portfolio.scss"
@@ -25,6 +26,16 @@ const Portfolio = (props) => {
             <TechStack 
                 portfolio_info={portfolio_info}
             />
+
+            {
+                portfolio_info?.form_submit ?
+                <EmailForm 
+                    emailProxy={portfolio_info?.form_submit?.[1]}
+                /> : ""
+            }
+            
+
+
             {/* <embed src={resume} style={{ height: "60vw", width: "100vw" }} /> */}
             
         </section>

@@ -59,16 +59,16 @@ class ProfileInfo:
                 return False, f"No profile: {user_uid} found"
             
             entity.update({
-                "title": profile_details.get("title", entity["title"]),
-                "tagline": profile_details.get("tagline", entity["tagline"]),
-                "subtext": profile_details.get("subtext", entity["subtext"]),
+                "title": profile_details.get("title", entity.get("title", "")),
+                "tagline": profile_details.get("tagline", entity.get("tagline", "")),
+                "subtext": profile_details.get("subtext", entity.get("subtext", "")),
 
-                "github": profile_details.get("github", entity["github"]),
-                "youtube": profile_details.get("youtube", entity["youtube"]),
-                "linkedin": profile_details.get("linkedin", entity["linkedin"]),
-                "instagram": profile_details.get("instagram", entity["instagram"]),
+                "github": profile_details.get("github", entity.get("github", "")),
+                "youtube": profile_details.get("youtube", entity.get("youtube", "")),
+                "linkedin": profile_details.get("linkedin", entity.get("linkedin", "")),
+                "instagram": profile_details.get("instagram", entity.get("instagram", "")),
 
-                "epigraph": profile_details.get("epigraph", entity["epigraph"]),
+                "epigraph": profile_details.get("epigraph", entity.get("epigraph", "")),
 
                 "last_updated": datetime.now()
             }) 

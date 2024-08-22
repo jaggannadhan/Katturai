@@ -160,7 +160,8 @@ export const getCurrentUser = async () => {
                     " Blogger",
                     " Martial Artist"
                 ],
-                "theme": "Tiled"
+                "theme": "Tiled",
+                "form_submit": ["jegsirox@gmail.com", "33967117b07ae3646ed5b48f962710bf"]
             },
             "profile_info": {
                 "epigraph": "Happiness can be a state of mind when you realize there is no better time or way to live. \nOnly a strong body and a healthy mind can sustain the epiphany.  \nLive Fluid, Train Hard!",
@@ -269,5 +270,34 @@ export const uploadMultipleFiles = async(formData) => {
     } catch(error) {
         console.error("uploadMultipleFiles: ", error);
         return {}
+    }
+}
+
+export const getAPIKEYFormSubmit = async(email) => {
+    try {
+        const response = await fetch(`https://formsubmit.co/api/get-apikey/${email}`, {
+            method: "GET"
+        });
+
+        const data = await response.json();
+        return data;
+    } catch(error) {
+        console.error("uploadMultipleFiles: ", error);
+        return null;
+    }
+}
+
+export const sendEmailFormSubmit = async(email, formData) => {
+    try {
+        const response = await fetch(`https://formsubmit.co/${email}`, {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.text();
+        return data;
+    } catch(error) {
+        console.error("uploadMultipleFiles: ", error);
+        return null;
     }
 }

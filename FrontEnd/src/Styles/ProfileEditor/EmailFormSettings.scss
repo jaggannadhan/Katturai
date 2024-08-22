@@ -1,0 +1,26 @@
+.email-form-settings{
+
+    font-family: 'circular';
+    user-select: none;
+
+    .no-view {
+        display: none;
+    }
+
+    .how-it-works {
+        margin-left: 9vw;
+
+        p {
+            bold {
+                font-weight: bold;
+            }
+        }
+    }
+
+    #initial-fs-response {
+        width: 50vw;
+        height: 30vw;
+        overflow: scroll;
+    }
+
+}

@@ -39,6 +39,8 @@ class PortfolioInfo:
             new_entity["picture"] = portfolio_details.get("picture", "")
             new_entity["recent_work"] = portfolio_details.get("recent_work", [])
             new_entity["buy_me_something"] = portfolio_details.get("buy_me_something", [])
+            new_entity["form_submit"] = portfolio_details.get("form_submit", [])
+            new_entity["theme"] = portfolio_details.get("theme", "Simple")
             new_entity["last_updated"] = datetime.now()
 
             PORTFOLIOINFO.put(new_entity)
@@ -58,15 +60,17 @@ class PortfolioInfo:
                 return False, f"No portfolio: {user_uid} found"
             
             entity.update({
-                "greetings": portfolio_details.get("greetings", entity["greetings"]),
-                "titles": portfolio_details.get("titles", entity["titles"]),
-                "description": portfolio_details.get("description", entity["description"]),
+                "greetings": portfolio_details.get("greetings", entity.get("greetings", "")),
+                "titles": portfolio_details.get("titles", entity.get("titles", [])),
+                "description": portfolio_details.get("description", entity.get("description", "")),
 
-                "resume": portfolio_details.get("resume", entity["resume"]),
-                "skills": portfolio_details.get("skills", entity["skills"]),
-                "picture": portfolio_details.get("picture", entity["picture"]),
-                "recent_work": portfolio_details.get("recent_work", entity["recent_work"]),
-                "buy_me_something": portfolio_details.get("buy_me_something", entity["buy_me_something"]),
+                "resume": portfolio_details.get("resume", entity.get("resume", "")),
+                "skills": portfolio_details.get("skills", entity.get("skills", [])),
+                "picture": portfolio_details.get("picture", entity.get("picture", "")),
+                "recent_work": portfolio_details.get("recent_work", entity.get("recent_work", [])),
+                "buy_me_something": portfolio_details.get("buy_me_something", entity.get("buy_me_something", [])),
+                "form_submit": portfolio_details.get("form_submit", entity.get("form_submit", [])),
+                "theme": portfolio_details.get("theme", entity.get("theme", "Simple")),
                 "last_updated": datetime.now()
             })
             PORTFOLIOINFO.put(entity)

@@ -4,13 +4,15 @@ import { uuid } from "../../../Helper/Helper";
 import GeneralSettings from "./GeneralSettings";
 import SkillSettings from "./SkillSettings";
 import WorkSettings from "./WorkSettings";
+import EmailFormSettings from "./EmailFormSettings";
 
 import "../../../Styles/ProfileEditor/PortflioSettings.scss";
 
 const editorNav = [ 
     {name: "General", component: GeneralSettings}, 
     {name: "Skills", component: SkillSettings}, 
-    {name: "Work", component: WorkSettings} 
+    {name: "Work", component: WorkSettings},
+    {name: "Email Form", component: EmailFormSettings} 
 ];
 
 
@@ -19,7 +21,8 @@ const PortfolioSettings = (props) => {
     const { 
         portfolioDetails, 
         handleCurrentUserChange, 
-
+        userDetails,
+        
         newProfPic,
         setNewProfPic,
         showUserPrompt,
@@ -51,10 +54,12 @@ const PortfolioSettings = (props) => {
             <Editor 
                 portfolioDetails={portfolioDetails}
                 handleCurrentUserChange={handleCurrentUserChange}
+                userDetails={userDetails}
 
                 newProfPic={newProfPic}
                 setNewProfPic={setNewProfPic}
                 showUserPrompt={showUserPrompt}
+
             />
         </section>
     );

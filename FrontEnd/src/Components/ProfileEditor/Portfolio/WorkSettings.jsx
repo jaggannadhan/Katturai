@@ -35,7 +35,7 @@ const WorkSettings = (props) => {
             setIsLoading(true);
             let params = {...portfolioDetails};
             params.recent_work = recentWork;
-            params.theme = theme;
+            params.theme = myTheme;
             await postPortfolioDetails(params).then((response) => {
                 console.log("postPortfolioDetails: ", response);
                 if(response.success) {
