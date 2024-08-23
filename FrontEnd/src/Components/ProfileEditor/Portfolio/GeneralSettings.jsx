@@ -253,7 +253,7 @@ const GeneralSettings = (props) => {
                         {
                             buyMe ?
                             <Fragment>
-                                <FormControl sx={{ m: "1vw", width: "25vw", marginTop: "1vh" }}>
+                                <FormControl sx={{ m: "1vw", width: "17vw", marginTop: "1vh" }}>
                                     <InputLabel id="demo-multiple-name-label">Wish List</InputLabel>
                                     <Select
                                         className="buyme-select"

@@ -93,7 +93,9 @@ const UserInfo = (props) => {
     }
 
     const handleRouteChange = (e) => {
-        setUserRoute(e.target.value);
+        let val = e.target.value;
+        val = val.split('/')[3];
+        setUserRoute(val||"");
     }
 
     const changesMade = hasChanged() && noErrors();
@@ -174,30 +176,19 @@ const UserInfo = (props) => {
                     
                     </div>
 
-                    <div className="formbold-input-flex-var">
-                        <div>
-                            <input
-                                type="text"
-                                name="domain"
-                                id="domain"
-                                placeholder="/"
-                                className="formbold-form-input"
-                                defaultValue="https://raconteur/"
-                                disabled
-                            />
-                        </div>
+                    <div className="formbold-mb-3">
                         <div>
                             <input
                                 type="text"
                                 name="route"
                                 id="route"
                                 className="formbold-form-input"
-                                value={userRoute}
+                                value={`https://raconteur/${userRoute}`}
                                 onChange={handleRouteChange}
                                 disabled
                             />
 
-                            <label htmlFor="route" className="formbold-form-label marL1">
+                            <label htmlFor="route" className="formbold-form-label">
                                 Public URL
                                 {/* <small>(This is how people find you)</small> */}
                             </label>

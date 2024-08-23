@@ -17,6 +17,7 @@ import {
 } from '@mui/material';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HourglassTopIcon from '@mui/icons-material/HourglassTop';
+import Preview from "./Preview";
 
 const editorNav = [ 
     {name: "User Info", component: UserInfo}, 
@@ -31,10 +32,13 @@ const ProfileEditor = (props) => {
         profileCompletion,
         showUserPrompt
     } = props;
+
+    const { 
+        user_info: userDetails, 
+        profile_info: profileDetails, 
+        portfolio_info: portfolioDetails, 
+    } = currentUser || {};
     
-    const [ userDetails, setUserDetails ] = useState(currentUser?.user_info);
-    const [ profileDetails, setProfileDetails ] = useState(currentUser?.profile_info);
-    const [ portfolioDetails, setPortfolioDetails ] = useState(currentUser?.portfolio_info);
     const [ selectedNav, setSelectedNav ] = useState(editorNav[0]);
 
     const [ tempPic, setTempPic ] = useState(null);
@@ -43,13 +47,12 @@ const ProfileEditor = (props) => {
 
     const profileImgIp = useRef(null);
     const [ isLoading, setIsLoading ] = useState(null);
+    const [ showPreview, setShowPreview ] = useState(false);
+    const [ previewProps, setPreviewProps ] = useState({});
     // console.log(">>>>>>currentUser: ", currentUser);
 
     useEffect(() => {
 
-        setUserDetails(currentUser?.user_info);
-        setProfileDetails(currentUser?.profile_info);
-        setPortfolioDetails(currentUser?.portfolio_info);
 
     }, [currentUser]);
 
@@ -199,18 +202,30 @@ const ProfileEditor = (props) => {
                             userDetails={userDetails}
                             profileDetails={profileDetails}
                             portfolioDetails={portfolioDetails}
+                            currentUser={currentUser}
 
                             handleCurrentUserChange={handleCurrentUserChange}
                             
                             newProfPic={newProfPic}
                             setNewProfPic={setNewProfPic}
                             showUserPrompt={showUserPrompt}
+
+                            setShowPreview={setShowPreview}
+                            setPreviewProps={setPreviewProps}
                         />
                     </section>
                     
                 </Stack > : <PageEditorLoader/>
 
             }
+            {
+                showPreview ? 
+                <Preview 
+                    pageProps={previewProps}
+                    setShowPreview={setShowPreview}
+                /> : ""
+            }
+
         </Fragment>
         
     )

@@ -7,6 +7,7 @@ import {
   } from '@mui/material';
 import { ReactTyped } from "react-typed";
 
+import stars from "../../../public/images/bg1.jpg";
 import "../../Styles/Portfolio/PortPreview.scss";
 import * as CONSTANTS from "../../Constants/Constants";
 

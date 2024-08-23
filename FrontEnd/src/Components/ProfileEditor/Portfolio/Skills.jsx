@@ -75,7 +75,7 @@ const Skills  = (props) => {
                                     onChange={(e) => handleSubSkillsChange(e, catIndex, skillIdx)}
                                 />
 
-                                <label htmlFor={subSkillId} className={"formbold-form-labe"}>
+                                <label htmlFor={subSkillId} className={"formbold-form-label"}>
                                     {`Sub Skills for ${skill.name}`}
                                 </label>
                             </div>

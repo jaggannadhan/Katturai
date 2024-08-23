@@ -1,0 +1,33 @@
+
+.editor-preview {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    background: white;
+
+    .close-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3vw;
+        background-color: #E9AE00;
+        z-index: 25;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        .close-preview {
+            padding-right: 3vw;
+            cursor: pointer;
+            font-family: 'circular';
+            font-weight: bolder;
+            font-size: 1vw;
+        }
+    }
+    
+}

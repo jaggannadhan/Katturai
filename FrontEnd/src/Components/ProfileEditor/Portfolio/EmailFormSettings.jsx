@@ -90,7 +90,7 @@ const EmailFormSettings = (props) => {
                                 </label>
                             </div>
                             <div>
-                                <button className="formbold-btn"
+                                <button className="formbold-btn efsb"
                                     disabled={!changesMade || isLoading}
                                 > 
                                     { email ? "Setup Form": "Disable Form" }
@@ -117,7 +117,7 @@ const EmailFormSettings = (props) => {
                         Hit the "Enable Form" button
                     </li>
                     <li>
-                        Enjoy.<br/>
+                        Enjoy!<br/>
                         <small>
                             <b>Note:&nbsp;</b>
                             MailJet only alows 20 emails per day for free accounts, <br/>make a donation to 

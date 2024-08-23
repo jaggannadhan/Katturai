@@ -217,7 +217,7 @@ const SkillSettings = (props) => {
                             skillCategory?.length ?
                             expandSkills ?
 
-                            <Tooltip title="Minimize" placement="left">
+                            <Tooltip title="Minimize" placement="right">
                                 <ExpandLessIcon className="expand-skills" onClick={() => setExpandSkills(!expandSkills)}/> 
                             </Tooltip> :
                             <Tooltip title="Expand" placement="left">

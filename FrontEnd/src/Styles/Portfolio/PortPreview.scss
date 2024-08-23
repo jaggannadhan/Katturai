@@ -2,15 +2,15 @@
 
 .port-preview-cont {
 
-    $space: 'https://i.pinimg.com/originals/9b/6b/4d/9b6b4dd97a65e67080182eb746656642.gif';
-    $stars: 'https://i.pinimg.com/originals/1d/00/4f/1d004fced19ef9605cde8ce142b3b8ea.gif';
-    $gold_stars: 'https://static.tumblr.com/8e68a106a505fc5e10e28d72e80588db/uet7grc/fEjne6std/tumblr_static_5xnw8pym9ig48gg0ok4gwcowg_2048_v2.gif';
+    --space: url('https://i.pinimg.com/originals/9b/6b/4d/9b6b4dd97a65e67080182eb746656642.gif');
+    --stars: url('https://i.pinimg.com/originals/1d/00/4f/1d004fced19ef9605cde8ce142b3b8ea.gif');
+    --gold_stars: url('https://static.tumblr.com/8e68a106a505fc5e10e28d72e80588db/uet7grc/fEjne6std/tumblr_static_5xnw8pym9ig48gg0ok4gwcowg_2048_v2.gif');
 
     max-width: 100% !important;
     height: 52vw;
     position: relative;
     background-color: #20252C;
-    background-image: url($stars);
+    background-image: var(--stars);
 
 
     .preview {

@@ -16,6 +16,14 @@ const TiledWorkTemplate = (props) => {
             setShowOverlay(false);
     }
 
+    const handleTileClick = () => {
+        if(link) {
+            window.open(link, '_blank');
+            return;
+        }
+        setShowOverlay(true);
+    }
+
     useEffect(() => {}, [work]);
 
     return (
@@ -40,19 +48,19 @@ const TiledWorkTemplate = (props) => {
                 </div>
 
             
-                <div className="tile-overlay" onClick={() => {setShowOverlay(true)} }>
+                <div className="tile-overlay" onClick={handleTileClick}>
                     <VisibilityIcon className="preview-ico" />
                 </div>
 
             </Tilt>
 
             { 
-                showOverlay ? 
-                <div className="work-overlay" ref={overlay} onClick={handleOverlayClick}>
-                    <ImgGallery
-                        images={images}
-                    /> 
-                </div> : ""
+                showOverlay && images?.length ? 
+                    <div className="work-overlay" ref={overlay} onClick={handleOverlayClick}>
+                        <ImgGallery
+                            images={images}
+                        /> 
+                    </div> : ""                
             }
             
         </section>

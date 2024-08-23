@@ -14,14 +14,31 @@ const RecentWork = (props) => {
     const { portfolio_info } = props;
     const { recent_work, theme } = portfolio_info || {};
     
-    const getThemedTemplate = () => {
-        let myTheme = WORKTHEMES.filter(wrkTheme => wrkTheme.name == theme) 
-        return myTheme.length ? myTheme[0].theme : WORKTHEMES[0].theme;
+    useEffect(() => {   
+        let selected = getThemedTemplate();
+        MyThemedTemplate = selected.theme;
+        if( selected.name == "Simple" ) {
+            changeBackgroundImg("none");
+        } else if( selected.name == "Tiled" ) {
+            changeBackgroundImg("var(--bg_coffee)");
+        }
+
+    }, [portfolio_info]);
+
+    const changeBackgroundImg = (val) => {
+        let container = document.getElementById("recent-work-container");
+        if(container) container.style.backgroundImage = val;
     }
 
-    const ThemedTemplate = getThemedTemplate();
+    const getThemedTemplate = () => {
+        let myTheme = WORKTHEMES.filter(wrkTheme => wrkTheme.name == theme) ;
+        return myTheme.length ? myTheme[0] : WORKTHEMES[0];
+    }
+
+    let MyThemedTemplate = getThemedTemplate().theme;
+
     return (
-        <Container className="recent-work-cont"> 
+        <Container className="recent-work-cont" id="recent-work-container"> 
             <section className="recent-work-preview">
                 <code> {">> "} </code>
                 <ReactTyped 
@@ -38,7 +55,7 @@ const RecentWork = (props) => {
                 
                     recent_work?.map((work, idx) => {
                         return (
-                            <ThemedTemplate
+                            <MyThemedTemplate
                                 key={`work-preview-${idx}`}
                                 work={work}
                                 idx={idx}

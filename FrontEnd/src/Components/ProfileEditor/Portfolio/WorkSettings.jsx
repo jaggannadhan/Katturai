@@ -11,7 +11,14 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { WORKTHEMES } from "../../../Constants/Constants";
 
 const WorkSettings = (props) => {
-    const { portfolioDetails, handleCurrentUserChange, showUserPrompt } = props;
+    const { 
+        currentUser,
+        portfolioDetails, 
+        handleCurrentUserChange, 
+        showUserPrompt, 
+        setShowPreview, 
+        setPreviewProps 
+    } = props;
     const { recent_work: recentWorkProp, theme: themeProp } = portfolioDetails || {};
 
     const [ recentWork, setRecentWork ] = useState([]);
@@ -117,6 +124,19 @@ const WorkSettings = (props) => {
         setRecentWork(newRecentWork);
     }
 
+    const handlePreview = () => {
+        setShowPreview(true);
+        let changedUser = deepCloneNested(currentUser);
+        changedUser.portfolio_info.recent_work = recentWork;
+        changedUser.portfolio_info.theme = myTheme;
+
+        let params = {
+            page: "WorkSettings",
+            currentUser: changedUser
+        }
+        setPreviewProps(params);
+    }
+
     const changesMade = hasChanged() && !noErrors();
     const dragControls = useDragControls();
 
@@ -177,6 +197,10 @@ const WorkSettings = (props) => {
                         <button className="formbold-btn" disabled={!changesMade || isLoading}>
                             Save Profile
                             {isLoading ? <span className="req-loader"></span> : ""}
+                        </button>
+
+                        <button className="formbold-btn btn2" onClick={handlePreview}>
+                            Preview
                         </button>
 
                     </form>

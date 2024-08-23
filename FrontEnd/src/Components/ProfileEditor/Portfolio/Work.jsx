@@ -154,8 +154,8 @@ const Work = (props) => {
 
     return (
         <div className="my-work">
+            
             <div className="wrk-optns">
-
                 <Tooltip title="Delete" placement="top">
                     <DeleteIcon className="delete-recent-work" onClick={handleDeleteWork} />
                 </Tooltip>
@@ -170,9 +170,7 @@ const Work = (props) => {
                     <Tooltip title="Expand" placement="top">
                         <ExpandMoreIcon className="expand-recent-work" onClick={() => setExpandWork(true)}/>
                     </Tooltip>
-
                 }
-
             </div>
 
             {
