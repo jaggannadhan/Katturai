@@ -92,6 +92,18 @@ def getCurrentUser(user_uid, userInfo, isLoggedIn):
         "current_user": current_user 
     })
 
+@user.route("/<user_uid>/sendEmail", methods=["POST"])
+@check_user_uid
+def sendEmail(user_uid, userInfo, isLoggedIn):
+    data = json.loads(request.data)
+    print(f"send email req body: {data}")
+
+    success, msg = UserService.sendEmail(userInfo, data)
+    return jsonify({
+        "success": success,
+        "message":  msg
+    })
+
 @user.route('/<user_uid>/logout')
 @login_required
 def logout(user_uid):

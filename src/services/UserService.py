@@ -1,7 +1,15 @@
 
+import traceback
 from src.models.UserInfo import UserInfo
 from src.models.ProfileInfo import ProfileInfo
 from src.models.PortfolioInfo import PortfolioInfo
+from src.AppSecrets import AppSecrets
+
+from mailjet_rest import Client
+api_key = AppSecrets.MJ_APIKEY_PUBLIC
+api_secret = AppSecrets.MJ_APIKEY_PRIVATE
+mailjet = Client(auth=(api_key, api_secret), version='v3.1')
+
 
 class UserService:
 
@@ -35,3 +43,47 @@ class UserService:
     def setPortfolioDetails(user_uid, portfolio_details):
         user, msg = PortfolioInfo.updatePortfolio(user_uid, portfolio_details)
         return user, msg
+
+
+    def sendEmail(userInfo, reqBody):
+        try:
+            toName = userInfo.get("first_name")
+            toEmail = userInfo.get("email")
+            fromEmail = reqBody.get("email")
+            subject = reqBody.get("subject")
+            message = reqBody.get("message")
+
+            data = {
+                'Messages': [
+                    {
+                        "From": {
+                            "Email": "raconteur.ing4u@gmail.com",
+                            "Name": "Raconteur"
+                        },
+                        "To": [
+                            {
+                                "Email": toEmail,
+                                "Name": toEmail.split('@')[0]
+                            }
+                        ],
+                        "Subject": subject,
+                        # "TextPart": message,
+                        "HTMLPart": f"<h3>Dear {toName},</h3><br/> \
+                            <p>You have a message from <b>{fromEmail}.</b></p><br/> \
+                            <b>Message: </b><br/> \
+                            <p>{message}</p> \
+                            <b>Regards,</b><br/><b>Team Raconteur</b><br/>" 
+                        
+                    }
+                ]
+            }
+
+            result = mailjet.send.create(data=data)
+            print(result.status_code)
+            print(result.json())
+
+            return True, "Email Sent Successfully"
+        
+        except Exception:
+            print(traceback.format_exc())
+            return False, f"Unable to send email!"

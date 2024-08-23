@@ -15,23 +15,21 @@ const EmailFormSettings = (props) => {
     } = props;
 
     const [ email,  setEmail ] = useState("");
-    const [ proxy, setProxy ] = useState("");
     const [ emailError,  setEmailError ] = useState(false);
     const [ isLoading, setIsLoading ] = useState(false);
 
 
     useEffect(() => {
         if(userDetails && portfolioDetails) {
-            let [fEmail, fProxy] = portfolioDetails.form_submit || [];
+            let fEmail = portfolioDetails.form_submit || "";
             fEmail = fEmail || userDetails.email;
             setEmail(fEmail);
             setEmailError(!validateEmail(fEmail));
-            setProxy(fProxy ? fProxy : "");
         }
     }, [userDetails, portfolioDetails])
 
     const hasChanged = () => {
-        let fEmail = portfolioDetails?.form_submit?.[0];
+        let fEmail = portfolioDetails?.form_submit;
         return fEmail != email;
     }
 
@@ -47,22 +45,19 @@ const EmailFormSettings = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(!email) {
-            toast.error("Please provide a valid email!")
-            return;
-        }
+
         setIsLoading(true);
 
         if(hasChanged() && noErrors()) {
             let params = {...portfolioDetails};
-            params.form_submit = [email, proxy];
+            params.form_submit = email;
 
             await postPortfolioDetails(params).then((response) => {
                 console.log("postPortfolioDetails: ", response);
                 if(response.success) {
                     handleCurrentUserChange({newDetails: response.portfolio_details, _changeKey:"portfolio_info"});
                 } else {
-                    toast("Unable to initiate FormSubmit, please try again later!");
+                    toast("Unable to save changse, please try again later!");
                 }
                 setIsLoading(false);
             });
@@ -76,7 +71,7 @@ const EmailFormSettings = (props) => {
         <section className="email-form-settings">
             <div className="formbold-main-wrapper">
                 <div className="formbold-form-wrapper">
-                    <form action="https://formsubmit.co/jegsirox@gmail.com" method="POST" target="_blank">
+                    <form onSubmit={handleSubmit}>
 
                         <div className="formbold-input-flex">
                             <div>
@@ -85,12 +80,12 @@ const EmailFormSettings = (props) => {
                                     name="fs-email"
                                     id="fs-email"
                                     placeholder="Enter you email"
-                                    className="formbold-form-input"
+                                    className={`formbold-form-input ${emailError ? "error-input" : ""}`}
                                     value={email}
                                     onChange={handleEmailChange}
                                 />
 
-                                <label htmlFor="fs-email" className="formbold-form-label">
+                                <label htmlFor="fs-email" className={`formbold-form-label ${emailError ? "error-label" : ""}`}>
                                     Email
                                 </label>
                             </div>
@@ -98,39 +93,10 @@ const EmailFormSettings = (props) => {
                                 <button className="formbold-btn"
                                     disabled={!changesMade || isLoading}
                                 > 
-                                    Setup Form
+                                    { email ? "Setup Form": "Disable Form" }
                                 </button>
                             </div>
                         </div>
-                    </form>
-
-                    <form onSubmit={handleSubmit}>
-                        <div className="formbold-mb-3">
-                            <div>
-                                <input
-                                    type="text"
-                                    name="fs-proxy"
-                                    id="fs-proxy"
-                                    placeholder="Enter your email proxy"
-                                    className="formbold-form-input"
-                                    value={proxy}
-                                    disabled={!!(portfolioDetails?.form_submit?.[1])}
-                                    onChange={(e) => { setProxy(e.target.value) }}
-                                />
-
-                                <label htmlFor="fs-proxy" className="formbold-form-label"
-                                    disabled={!changesMade || isLoading || !proxy}
-                                >
-                                    Email Proxy Key
-                                </label>
-                            </div>
-                        </div>
-
-                        <button className="formbold-btn" disabled={!changesMade || isLoading}>
-                            Setup Form
-                            {isLoading ? <span className="req-loader"></span> : ""}
-                        </button>
-                        
                     </form>
                 </div>
             </div>
@@ -139,7 +105,7 @@ const EmailFormSettings = (props) => {
                 <h2>How it works!</h2>
                 <p>Raconteur uses a third party -&nbsp;
                     <b>
-                        <a href="https://formsubmit.co/" target="blank">FormSubmit</a>
+                        <a href="https://www.mailjet.com" target="blank">MailJet</a>
                     </b>
                     &nbsp;for sending/receiving emails.
                 </p>
@@ -151,13 +117,11 @@ const EmailFormSettings = (props) => {
                         Hit the "Enable Form" button
                     </li>
                     <li>
-                        You will receive a verification email from FormSubmit. Copy the "random-string" and Activate Form!
-                    </li>
-                    <li>
-                        Past the "random-string" in the Email Proxy Key and don't forget to hit save.<br/>
+                        Enjoy.<br/>
                         <small>
                             <b>Note:&nbsp;</b>
-                            The "random-string" is an alias for your email id, we will save it on our side securely.
+                            MailJet only alows 20 emails per day for free accounts, <br/>make a donation to 
+                            &nbsp;<a href="https://buymeacoffee.com/jaggannadhan">Raconteur</a> to enjoy unlimited services.
                         </small>
                     </li>
 

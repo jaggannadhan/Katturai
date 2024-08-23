@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 .recent-work-cont {
+    $bg_coffee: 'https://opendoodles.s3-us-west-1.amazonaws.com/coffee.png';
+
     margin: 0;
     padding: 0;
     padding-top: 5vw;
     padding-bottom: 5vw;
     height: fit-content;
     max-width: 100vw !important;
+
+    background-image: url($bg_coffee);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #ebd2ab8f;
 
     .recent-work-preview {
         font-family: "Lexend", sans-serif;
@@ -15,10 +22,7 @@
         height: 2vw;
         padding: 1vw 5vw;
         user-select: none;
-        position: sticky;
-        top: 7vh;
-        background: white;
-        z-index: 10;
+        margin-top: -2vw;
 
         code {
             color: #d90f5a;

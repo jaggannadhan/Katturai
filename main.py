@@ -5,10 +5,12 @@ from src.handlers.UserHandler import user
 from src.handlers.FileUploadHandler import fileuploader
 from src.AppSecrets import AppSecrets
 
+
+
 app = Flask(__name__)
 app.config.update(
     SECRET_KEY=AppSecrets.SECRET_KEY,
-    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SECURE=True
 )
 
 app.register_blueprint(default)
@@ -28,6 +30,7 @@ def not_found(e):
 # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
 #########################################################################################
+
 
 # run the app.
 if __name__ == "__main__":

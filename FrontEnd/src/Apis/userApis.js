@@ -16,44 +16,19 @@ export const getCurrentUser = async () => {
             "portfolio_info": {
                 "buy_me_something": [
                     "Protein",
-                    "https://drive.google.com/file/d/1seKRvVE7be5WAl6vcZBjZI8jvonFnmPB/view?usp=sharing"
+                    "https://buymeacoffee.com/jaggannadhan"
                 ],
                 "description": "From algorithms to user interfaces, I engineer robust software ecosystems that elevate user experiences and exceed expectations.",
+                "form_submit": "jegsirox@gmail.com",
                 "greetings": "Ola, It's Me",
-                "last_updated": "Sun, 11 Aug 2024 00:28:56 GMT",
+                "last_updated": "Thu, 22 Aug 2024 00:20:50 GMT",
                 "picture": "https://storage.googleapis.com/jegsirox/profilePic/myProfileYlw.png",
                 "recent_work": [
                     {
                         "desc": "A simple portfolio website",
-                        "images": [
-                            "https://static-cse.canva.com/blob/1100617/create_portfolio_lead.fdac0721.jpg"
-                        ],
-                        "link": "",
+                        "images": [],
+                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
                         "title": "Raconteur"
-                    },
-                    {
-                        "desc": "Real estate invetments on the go!",
-                        "images": [
-                            "https://raw.githubusercontent.com/jaggannadhan/FletchHomes/main/images/banner1.jpeg"
-                        ],
-                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
-                        "title": "Fletch Homes"
-                    },
-                    {
-                        "desc": "Developer friendly & secure documentations",
-                        "images": [
-                            "https://na.rdcpix.com/f6aab73cb67fe985808b67b0456a7ee5w-c4139114723rd-w832_h468_r4_q80.webp"
-                        ],
-                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
-                        "title": "Dev Docs"
-                    },
-                    {
-                        "desc": "A fact extraction API using GPT-4",
-                        "images": [
-                            "https://a.storyblok.com/f/139616/1200x800/9fb0f91e0e/information-extraction-demystified.webp"
-                        ],
-                        "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
-                        "title": "Extract"
                     }
                 ],
                 "resume": "https://drive.google.com/file/d/1unqkbr1GhRruoo3sk78Y8ackuQzleUXD/view?usp=sharing",
@@ -155,13 +130,12 @@ export const getCurrentUser = async () => {
                         ]
                     }
                 ],
+                "theme": "Tiled",
                 "titles": [
                     "Software Engineer",
-                    " Blogger",
-                    " Martial Artist"
-                ],
-                "theme": "Tiled",
-                "form_submit": ["jegsirox@gmail.com", "33967117b07ae3646ed5b48f962710bf"]
+                    "  Blogger",
+                    "  Martial Artist"
+                ]
             },
             "profile_info": {
                 "epigraph": "Happiness can be a state of mind when you realize there is no better time or way to live. \nOnly a strong body and a healthy mind can sustain the epiphany.  \nLive Fluid, Train Hard!",
@@ -273,31 +247,22 @@ export const uploadMultipleFiles = async(formData) => {
     }
 }
 
-export const getAPIKEYFormSubmit = async(email) => {
+
+export const sendEmail = async({email, subject, message}) => {
     try {
-        const response = await fetch(`https://formsubmit.co/api/get-apikey/${email}`, {
-            method: "GET"
+        const response = await fetch(`./sendEmail`, {
+            method: "POST",
+            body: JSON.stringify({
+                email: email,
+                subject: subject,
+                message: message
+            })
         });
 
         const data = await response.json();
         return data;
     } catch(error) {
-        console.error("uploadMultipleFiles: ", error);
-        return null;
-    }
-}
-
-export const sendEmailFormSubmit = async(email, formData) => {
-    try {
-        const response = await fetch(`https://formsubmit.co/${email}`, {
-            method: "POST",
-            body: formData
-        });
-
-        const data = await response.text();
-        return data;
-    } catch(error) {
-        console.error("uploadMultipleFiles: ", error);
-        return null;
+        console.error("sendEmail: ", error);
+        return {success: false};
     }
 }

@@ -39,7 +39,7 @@ class PortfolioInfo:
             new_entity["picture"] = portfolio_details.get("picture", "")
             new_entity["recent_work"] = portfolio_details.get("recent_work", [])
             new_entity["buy_me_something"] = portfolio_details.get("buy_me_something", [])
-            new_entity["form_submit"] = portfolio_details.get("form_submit", [])
+            new_entity["form_submit"] = portfolio_details.get("form_submit", "")
             new_entity["theme"] = portfolio_details.get("theme", "Simple")
             new_entity["last_updated"] = datetime.now()
 
@@ -69,7 +69,7 @@ class PortfolioInfo:
                 "picture": portfolio_details.get("picture", entity.get("picture", "")),
                 "recent_work": portfolio_details.get("recent_work", entity.get("recent_work", [])),
                 "buy_me_something": portfolio_details.get("buy_me_something", entity.get("buy_me_something", [])),
-                "form_submit": portfolio_details.get("form_submit", entity.get("form_submit", [])),
+                "form_submit": portfolio_details.get("form_submit", entity.get("form_submit", "")),
                 "theme": portfolio_details.get("theme", entity.get("theme", "Simple")),
                 "last_updated": datetime.now()
             })

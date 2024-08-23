@@ -56,7 +56,7 @@ def check_user_uid(handle):
                 session.pop('user', None)
                 return redirect("/signin")
         
-        
+        # If its a viewer remove important details
         if (not loggedInUser) or (not isSameUser):
             userInfo.pop("last_login", None)
             userInfo.pop("address", None)
