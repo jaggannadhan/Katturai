@@ -40,6 +40,7 @@ build-deploy-local:
 ############################################################## FRONTEND #################################################################
 
 build:
+	rm -rf static/dist;
 	cd ./FrontEnd; yarn build;
 
 watch:

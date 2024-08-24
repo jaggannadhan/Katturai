@@ -26,28 +26,28 @@
 
         .contact-form-wrapper {
             margin: auto;
-            width: 27vw;
+            width: 26vw;
             font-family: "Lexend", sans-serif;
             font-size: 1vw;
             font-weight: bold;
-            height: 38vw;
+            height: 34vw;
             overflow: scroll;
             position: relative;
-            background: rgb(0 0 0 / 89%);
+            background: rgba(0, 0, 0, 0.89);
             border-radius: 1vw;
-            padding: 2vw 4vw;
+            padding: 2vw;
     
             .title {
-                margin-bottom: 3vw;
+                margin-bottom: 2vw;
             }
             h1 {
-                font-size: 1.2vw;
+                font-size: 1vw;
                 text-transform: uppercase;
                 font-weight: bold;
                 text-align: right;
             }
             p {
-                font-size: 1vw;
+                font-size: 0.8vw;
                 color: white;
                 width: inherit;
                 height: fit-content;
@@ -61,13 +61,13 @@
     
         .contact-form {
             font-family: "Lexend", sans-serif;
-            font-size: 1vw;
+            font-size: 0.8vw;
             font-weight: bold;
             float: right;
     
             input {
                 height: 4vw;
-                font-size: 1vw;
+                font-size: 0.8vw;
                 color: #999;
                 width: 22vw;
                 margin-bottom: 1vw;
@@ -79,7 +79,7 @@
             } 
             textarea {
                 color:#999;
-                min-height: 5vw !important;
+                min-height: 4vw !important;
                 width: 22vw !important;
                 margin-bottom: 1vw;
                 border: 0.1vw solid gray;
@@ -91,13 +91,14 @@
             .submit-button {
                 background: var(--clr);
                 color:#fff;
-                font-size: 1vw;
+                font-size: 0.8vw;
                 text-transform:uppercase;
                 font-weight:bold;
                 letter-spacing: 0.1vw;
                 margin-top: 1vw;
                 float: right;
-                width: 20vw;
+                width: 11vw;
+                height: 3vw;
             }
 
             #contact-submit {

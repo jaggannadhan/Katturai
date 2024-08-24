@@ -29,17 +29,6 @@ def portfolio(user_uid, userInfo, isLoggedIn):
     print(user_uid)
     return render_template("index.html")
 
-@user.route("/<user_uid>/opinion", methods=["GET"])
-@check_user_uid
-def opinion(user_uid, userInfo, isLoggedIn):
-    print(user_uid)
-    return render_template("index.html")
-
-@user.route("/<user_uid>/recreation", methods=["GET"])
-@check_user_uid
-def recreation(user_uid, userInfo, isLoggedIn):
-    print(user_uid)
-    return render_template("index.html")
 
 @user.route("/<user_uid>/profile", methods=["GET"])
 @login_required_strict

@@ -12,8 +12,8 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "40vw",
-    height: "12vw",
+    width: "fit-content",
+    height: "fit-content",
     borderRadius: "2vw",
     bgcolor: 'background.paper',
     boxShadow: '0 0 14px 0px #7b5607',
@@ -40,18 +40,18 @@ export default function UserPrompts(props) {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ m: 0, fontSize: "2vw" }}>
+                <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ m: 0, fontSize: "1.2vw" }}>
                     {title}
                 </Typography>
-                <Typography id="modal-modal-description" sx={{ m: 0, mb: "1vw", fontSize: "1.5vw" }}>
+                <Typography id="modal-modal-description" sx={{ m: 0, mb: "1vw", fontSize: "1vw" }}>
                     {msg}
                 </Typography>
 
-                <Stack direction="row" spacing={1} sx={{ width: "40vw", mt:"2vw", mb: "1vw", justifyContent: "flex-end" }}>
-                    <Button size="small" onClick={handleUserCallBack} sx={{ minWidth: "10vw", padding: 0, fontSize: "1.5vw" }}>
+                <Stack direction="row" spacing={1} sx={{ width: "20vw", mt:"2vw", mb: "1vw", justifyContent: "flex-end" }}>
+                    <Button size="small" onClick={handleUserCallBack} sx={{ minWidth: "5vw", padding: 0, fontSize: "1vw" }}>
                         Yes
                     </Button>
-                    <Button size="small" onClick={handleClose} sx={{ minWidth: "10vw", padding: 0, fontSize: "1.5vw" }}>
+                    <Button size="small" onClick={handleClose} sx={{ minWidth: "5vw", padding: 0, fontSize: "1vw" }}>
                         No
                     </Button>
                 </Stack>

@@ -29,10 +29,8 @@ export const navigation = {
     default: { name: "Home", route: "", component: () => Home },
     navItems: [
         {name: "Diary", route: "diary", component: () => Diary, isLocked: true},
-        {name: "Travel", route: "travel", component: () => Travel},
+        {name: "Pages", route: "travel", component: () => Travel},
         {name: "Portfolio", route: "portfolio", component: () => Portfolio},
-        {name: "Opinion", route: "opinion", component: () => Home},
-        {name: "Recreation", route: "recreation", component: () => Home},
     ],
     profileEditor: {name: "Profile", route: "profile", component: () => ProfileEditor },
     getRouteBasedComponent: function(route) {
