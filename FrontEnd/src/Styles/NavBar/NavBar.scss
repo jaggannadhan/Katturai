@@ -35,6 +35,7 @@
     cursor: pointer;
     font-family:"Monoton", sans-serif !important;
     user-select: none;
+    font-size: 1.5vw !important;
 }
 
 .navbar-title-center {
@@ -42,7 +43,14 @@
     justify-content: center !important;
     cursor: pointer;
     font-family:"Monoton", sans-serif !important;
+    user-select: none;
+    font-size: 2vw !important;
 }
+
+.navbar-title-center:focus, .navbar-title:focus {
+    color: white;
+}
+
 
 .navbar-title-space {
     width: 90% !important;

@@ -28,6 +28,9 @@
         font-size: 1.3vw;
         font-family: "Inter", sans-serif;
         font-weight: 500;
+        color: black;
+        text-transform: none;
+        user-select: none;
     }
 }
 
@@ -51,11 +54,16 @@ blink {
 .buy-me-something {
 
     .buyme-select {
-
+        font-size: 1.4vw;
     }
 
     .buy-me-chkbox {
         
+    }
+
+    #demo-multiple-name-label {
+        font-size: 1.3vw;
+        top: 0.5vh;
     }
 
     .manage-payment {
