@@ -26,11 +26,11 @@ export const socials = [
 ]
 
 export const navigation = {
-    default: { name: "Home", route: "", component: () => Home },
+    default: { name: "Home", route: "", component: () => Portfolio },
     navItems: [
-        {name: "Diary", route: "diary", component: () => Diary, isLocked: true},
-        {name: "Pages", route: "travel", component: () => Travel},
-        {name: "Portfolio", route: "portfolio", component: () => Portfolio},
+        // {name: "Diary", route: "diary", component: () => Diary, isLocked: true},
+        // {name: "Pages", route: "travel", component: () => Travel},
+        // {name: "Portfolio", route: "portfolio", component: () => Portfolio},
     ],
     profileEditor: {name: "Profile", route: "profile", component: () => ProfileEditor },
     getRouteBasedComponent: function(route) {
