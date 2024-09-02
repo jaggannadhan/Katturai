@@ -16,7 +16,7 @@ setup:
 ############################################################# DELPOY LIVE ###############################################################
 
 deploy-default:
-	gcloud app deploy app.yaml --no-cache --promote --version=raconteur
+	gcloud app deploy app.yaml --no-cache --promote --version=Katturai
 
 deploy-local:
 	FLASK_APP=main.py flask run

@@ -25,7 +25,7 @@ function Copyright() {
     <Typography sx={{color:"white"}} className="copyright">
       {'© '}
       <Link color="inherit" href=".">
-        Raconteur.
+        Katturai.
       </Link>{' '}
       {" All rights reserved "}
       {new Date().getFullYear()}
@@ -62,7 +62,7 @@ function Footer(props) {
                     href="." 
                     className="navbar-title"
                   >
-                      Raconteur
+                      Katturai
                   </Typography>
                 </Stack>
 

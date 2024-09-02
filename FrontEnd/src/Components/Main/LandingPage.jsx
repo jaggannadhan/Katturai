@@ -24,7 +24,7 @@ const LandingPage = (props) => {
 
             <section className='main-landing'>  
                 <section className='left'>
-                    <header className='main-title'>Raconteur.</header>
+                    <header className='main-title'>Katturai.</header>
                     <div className='main-sub'>
                         <p className='sub-big'>It's the season of stories!</p>
 

@@ -103,7 +103,7 @@ const EmailFormSettings = (props) => {
 
             <section className="how-it-works">
                 <h2>How it works!</h2>
-                <p>Raconteur uses a third party -&nbsp;
+                <p>Katturai uses a third party -&nbsp;
                     <b>
                         <a href="https://www.mailjet.com" target="blank">MailJet</a>
                     </b>
@@ -121,7 +121,7 @@ const EmailFormSettings = (props) => {
                         <small>
                             <b>Note:&nbsp;</b>
                             MailJet only alows 20 emails per day for free accounts, <br/>make a donation to 
-                            &nbsp;<a href="https://buymeacoffee.com/jaggannadhan">Raconteur</a> to enjoy unlimited services.
+                            &nbsp;<a href="https://buymeacoffee.com/jaggannadhan">Katturai</a> to enjoy unlimited services.
                         </small>
                     </li>
 

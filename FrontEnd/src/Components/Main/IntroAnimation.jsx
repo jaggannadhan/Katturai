@@ -33,7 +33,7 @@ const IntroAnimation = (props) => {
             </div>
 
 
-            <p className="title-intro logo">Raconteur</p>
+            <p className="title-intro logo">Katturai</p>
             <p className="title-intro tag">Where stories never end</p>
         </section>
     )

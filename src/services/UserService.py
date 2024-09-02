@@ -57,8 +57,8 @@ class UserService:
                 'Messages': [
                     {
                         "From": {
-                            "Email": "raconteur.ing4u@gmail.com",
-                            "Name": "Raconteur"
+                            "Email": "Katturai.ing4u@gmail.com",
+                            "Name": "Katturai"
                         },
                         "To": [
                             {
@@ -72,7 +72,7 @@ class UserService:
                             <p>You have a message from <b>{fromEmail}.</b></p><br/> \
                             <b>Message: </b><br/> \
                             <p>{message}</p> \
-                            <b>Regards,</b><br/><b>Team Raconteur</b><br/>" 
+                            <b>Regards,</b><br/><b>Team Katturai</b><br/>" 
                         
                     }
                 ]

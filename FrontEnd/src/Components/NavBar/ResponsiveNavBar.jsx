@@ -99,7 +99,7 @@ function ResponsiveAppBar(props) {
                         }}
                         className={`navbar-title ${navClassOpts ? "nav-items-colord" : "nav-items-white"}`}
                     >
-                        Raconteur
+                        Katturai
                     </Typography>
                 </Stack>
 
@@ -164,7 +164,7 @@ function ResponsiveAppBar(props) {
                         }}
                         className={`navbar-title-center ${navClassOpts ? "nav-items-colord" : "nav-items-white"}`}
                     >
-                        Raconteur
+                        Katturai
                     </Typography>
                 </Stack>
 

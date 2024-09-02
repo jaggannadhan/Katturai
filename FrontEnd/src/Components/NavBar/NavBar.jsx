@@ -22,7 +22,7 @@ const NavBar = (props) => {
         
         <Stack direction="row" spacing={2} className="navbar-title-space">
           <Typography variant="h5" className={`navbar-title ${isNavTrans ? "nav-items-colord" : "nav-items-white"}`}>
-            Raconteur
+            Katturai
           </Typography>
         </Stack>
         

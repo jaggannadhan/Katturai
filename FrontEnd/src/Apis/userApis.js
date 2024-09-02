@@ -27,12 +27,12 @@ export const getCurrentUser = async () => {
                     {
                         "desc": "Create Portfolios, Articles and Blogs on the go!",
                         "images": [
-                            "https://storage.googleapis.com/jegsirox/raconteurBg1.png",
-                            "https://storage.googleapis.com/jegsirox/raconteurBg2.png",
-                            "https://storage.googleapis.com/jegsirox/raconteurBg3.png"
+                            "https://storage.googleapis.com/jegsirox/KatturaiBg1.png",
+                            "https://storage.googleapis.com/jegsirox/KatturaiBg2.png",
+                            "https://storage.googleapis.com/jegsirox/KatturaiBg3.png"
                         ],
                         "link": "https://hopeful-flame-420906.uc.r.appspot.com/",
-                        "title": "Raconteur"
+                        "title": "Katturai"
                     },
                     {
                         "desc": "FlechHomes is a futuristic RealEstate Investment app that focuses on leveraging AI/ML systems to get a better investment choice for our users.",
