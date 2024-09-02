@@ -197,6 +197,7 @@
         color: transparent;
         height: 2.5vw;
         background: #FDD502;
+        user-select: none;
         transform: skew(13deg, -11deg);
         text-shadow:calc(var(--ch)* 0) 0 1px var(--clr), 
                     calc(var(--ch)* 1) 0 1px var(--clr), 

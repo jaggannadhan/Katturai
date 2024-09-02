@@ -69,6 +69,7 @@
 
     .formbold-form-input {
         width: 100%;
+        padding: 0vw;
         padding-bottom: 1vh;
         border: none;
         border-bottom: 0.3vh solid #DDE3EC;
@@ -100,6 +101,7 @@
         line-height: 2vw;
         display: block;
         margin-bottom: 2.5vh;
+        text-transform: none;
     }
     .error-label {
         color: #CF0000
@@ -254,7 +256,8 @@
             justify-content: center;
             color: white;
             cursor: pointer;
-            font-size: 1.5vw;
+            font-size: 1.2vw;
+            text-transform: none;
         }
 
         .avatar:hover + .avatar-overlay {
@@ -274,7 +277,7 @@
         position: relative;
         top: -20vw;
         left: 16vw;
-        font-size: 4vw;
+        font-size: 3vw;
         color: #e9ae01;
         background: #e3e3e3;
         border-radius: 50%;

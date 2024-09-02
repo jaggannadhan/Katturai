@@ -20,7 +20,7 @@ const LandingPage = (props) => {
     return (
         <div className="landing" style={{background: `url(${landing}) center no-repeat`}} >
 
-            <IntroAnimation />
+            {/* <IntroAnimation /> */}
 
             <section className='main-landing'>  
                 <section className='left'>

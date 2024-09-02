@@ -72,13 +72,13 @@ html, body {
     
         .right {
             width: 58vw;
-            padding: 4vh 1vw;
+            padding: 2vw 1vw;
             overflow-y: scroll;
             overflow-x: hidden;
 
             .card {
                 position: relative;
-                margin-bottom: 3vh;
+                margin-bottom: 2vw;
                 margin-right: 2vw;
                 border-radius: 0.5vw;
                 z-index: 10;
@@ -116,18 +116,18 @@ html, body {
 
             .card.small {
                 width: 30vw;
-                height: 42vh;
+                height: 25vw;
             }
 
             .card.big {
                 width: 50vw;
-                height: 42vh;
+                height: 25vw;
             }
 
             .card.thin {
                 width: 35vw;
-                height: 40vh;
-                margin-bottom: 5vh;
+                height: 25vw;
+                margin-bottom: 3vw;
             }
 
             .right-row {
@@ -158,16 +158,8 @@ html, body {
         background: linear-gradient(to left, transparent 50%, #e9ae00 50%) right;
         background-size: 200% 100%; 
         background-position: right;
-        transition: all 1s ease;
-    }
-
-    p:nth-child(1) {
-        width: 15vw;
-        border-left: 0.1vw solid #e9ae00;
-    }
-
-    p:nth-child(2) {
-        width: 8vw;
+        transition: all 0.7s ease;
+        width: 10vw;
         border-left: 0.1vw solid #e9ae00;
     }
 

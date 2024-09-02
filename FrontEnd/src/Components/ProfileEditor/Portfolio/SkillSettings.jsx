@@ -220,7 +220,7 @@ const SkillSettings = (props) => {
                             <Tooltip title="Minimize" placement="right">
                                 <ExpandLessIcon className="expand-skills" onClick={() => setExpandSkills(!expandSkills)}/> 
                             </Tooltip> :
-                            <Tooltip title="Expand" placement="left">
+                            <Tooltip title="Expand" placement="right">
                                 <ExpandMoreIcon className="expand-skills" onClick={() => setExpandSkills(!expandSkills)}/> 
                             </Tooltip> : ""
                         }

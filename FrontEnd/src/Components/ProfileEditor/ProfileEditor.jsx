@@ -126,7 +126,7 @@ const ProfileEditor = (props) => {
                         <IconButton sx={{ p: 0 }} className="icon-btn">
                             {
                                 userDetails?.picture ?
-                                <div>
+                                <div className="avatar-container">
                                     <Avatar className="avatar" alt={userDetails?.name} 
                                         src={
                                             tempPicURL || 
