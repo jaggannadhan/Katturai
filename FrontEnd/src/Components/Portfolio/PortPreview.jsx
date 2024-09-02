@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useRef } from "react";
 import { 
     Container,
     Link,
@@ -7,7 +7,10 @@ import {
   } from '@mui/material';
 import { ReactTyped } from "react-typed";
 
-import stars from "../../../public/images/bg1.jpg";
+import space from "../../../public/images/space.gif";
+import stars from "../../../public/images/stars.gif";
+import goldStars from "../../../public/images/goldStars.gif";
+
 import "../../Styles/Portfolio/PortPreview.scss";
 import * as CONSTANTS from "../../Constants/Constants";
 
@@ -18,6 +21,7 @@ const PortPreview = (props) => {
     const { name, picture: user_pic, address } = user_info || {};
     const { greetings, description, titles, resume, buy_me_something, picture: port_pic } = portfolio_info || {};
     const picture = port_pic || user_pic;
+    const contRef = useRef(null);
 
     useEffect(() => {
         let elm = document.getElementById('pp-name');
@@ -35,8 +39,14 @@ const PortPreview = (props) => {
 
     }, [currentUser]);
 
+    useEffect(() => {
+        if(contRef.current) {
+            contRef.current.style.backgroundImage = `url(${space})`;
+        }
+    }, [currentUser])
+
     return (
-        <Container className="port-preview-cont"> 
+        <Container className="port-preview-cont" ref={contRef}> 
             <section className="preview">
                 <div className="content">
 

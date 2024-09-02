@@ -16,7 +16,7 @@ setup:
 ############################################################# DELPOY LIVE ###############################################################
 
 deploy-default:
-	gcloud app deploy app.yaml --no-cache --promote --version=Katturai
+	gcloud app deploy app.yaml --no-cache --promote --version=katturai
 
 deploy-local:
 	FLASK_APP=main.py flask run

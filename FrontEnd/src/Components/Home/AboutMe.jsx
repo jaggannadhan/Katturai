@@ -4,7 +4,6 @@ import { Stack, Avatar, Link } from '@mui/material';
 import * as CONSTANTS from "../../Constants/Constants";
 
 import '../../Styles/Home/AboutMe.scss';
-import myProfile from "../../../public/images/myProfile.png";
 
 const AboutMe = (props) => {
     const { userInfo, profileInfo } = props;

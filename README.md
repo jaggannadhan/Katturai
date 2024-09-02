@@ -11,15 +11,9 @@ With Katturai, you can:
 #### Katturai is a free-to-use platform with the potential to be more than just a regular blog. It's specially designed for starters, providing an easy and engaging way to express yourself and share your journey.
 
 ## The Vision
-<<<<<<< HEAD
-Our vision for Katturai was inspired by the belief that every individual has a story worth telling. These stories—whether they are of professional triumphs, personal challenges, or everyday experiences—hold the power to inspire, educate, and connect us.
-
-Katturai started as a humble project aimed at helping students and job seekers build their portfolios. However, as we grew, we recognized the broader potential. Why confine this platform to just portfolios? Why not create a space where everyone, regardless of their background or journey, can share their unique stories?
-=======
 My vision for Katturai was inspired by the belief that every individual has a story worth telling. These stories—whether they are of professional triumphs, personal challenges, or everyday experiences—hold the power to inspire, educate, and connect us.
 
 Katturai started as a humble project aimed at helping students and job seekers build their portfolios. However, as the project grew, I recognized the broader potential. Why confine this platform to just portfolios? Why not create a space where everyone, regardless of their background or journey, can share their unique stories?
->>>>>>> d0da5c53803e5c2388b597b553d9b9c5be24ad76
 
 ## Join Us
 Your support helps us continue to develop and enhance Katturai, making it an even better tool for storytellers, bloggers, professionals, and anyone looking to share their experiences. If you believe in the power of stories and want to support the growth of this platform, please consider buying me a coffee. Your contribution will directly impact the improvement of Katturai and the addition of new features to better serve our community.
