@@ -57,7 +57,7 @@ class UserService:
                 'Messages': [
                     {
                         "From": {
-                            "Email": "Katturai.ing4u@gmail.com",
+                            "Email": "raconteur.ing4u@gmail.com",
                             "Name": "Katturai"
                         },
                         "To": [
